@@ -2,6 +2,116 @@
   GRILLISTA - Clean Standard Full-Width Corporate Navbar
 */
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  background: #B91C1C; /* Rich Crimson Flame Red */
+  background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+  z-index: 1000;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+.nav-container-split {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav-phone-box {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 6px 16px;
+  color: #FFF;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.nav-phone-box:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #FFF;
+  transform: translateY(-2px);
+}
+
+.nav-phone-number {
+  color: #FACC15; /* Bright Yellow */
+  font-weight: 900;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-phone-label {
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.68rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.nav-center-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.nav-center-logo img {
+  height: 82px;
+  width: 82px;
+  border-radius: 50%;
+  border: 3.5px solid #FACC15;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  background: #FFF;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.nav-center-logo img:hover {
+  transform: scale(1.1);
+}
+
+.nav-links-split {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links-split a {
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-links-split a:hover,
+.nav-links-split a.active {
+  color: #FACC15;
+}
+
 :root {
   /* Premium Palette */
   --brand-emerald: #0F2E23;
