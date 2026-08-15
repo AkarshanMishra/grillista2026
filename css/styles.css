@@ -481,24 +481,118 @@ button {
   border-color: var(--brand-emerald);
 }
 
-/* Clean Standard Full-Width Corporate Navbar */
+/* Clean Standard Full-Width Corporate/* Burger Singh Style Crimson Red Split Header Navbar */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--nav-height);
-  z-index: 1000;
-  background: #FFFFFF;
-  border-bottom: 1px solid rgba(15, 46, 35, 0.08);
-  box-shadow: var(--shadow-nav);
+  height: 84px;
+  background: #8B0000 !important; /* Deep Rich Flame Red */
+  background: linear-gradient(135deg, #990000 0%, #7A0000 100%) !important;
+  z-index: 10000;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
 }
 
-.nav-container {
+.nav-container-split {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav-phone-box {
+  border: 2px solid #FFFFFF !important;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 6px 16px;
+  color: #FFF !important;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.nav-phone-box:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: #FACC15 !important;
+  transform: translateY(-2px);
+}
+
+.nav-phone-number {
+  color: #FACC15 !important; /* Bright Yellow */
+  font-weight: 900;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-phone-label {
+  color: #FFFFFF !important;
+  font-weight: 900;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.nav-center-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.nav-center-logo img {
+  height: 82px;
+  width: 82px;
+  border-radius: 50%;
+  border: 3.5px solid #FACC15;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  background: #FFF;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.nav-center-logo img:hover {
+  transform: scale(1.1);
+}
+
+.nav-links-split {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links-split a {
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+  font-size: 1.02rem !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.6px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links-split a:hover,
+.nav-links-split a.active {
+  color: #FACC15 !important; /* Bright Golden Yellow */
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.6) !important;
 }
 
 .logo {
