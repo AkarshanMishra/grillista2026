@@ -19,7 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const dockIcon = document.getElementById('dock-toggle-icon');
 
   if (dockToggleBtn && sideDock) {
-    dockToggleBtn.addEventListener('click', () => {
+    dockToggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       sideDock.classList.toggle('collapsed');
       if (dockIcon) {
         if (sideDock.classList.contains('collapsed')) {

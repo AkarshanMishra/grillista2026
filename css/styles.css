@@ -163,24 +163,20 @@ body.dark-theme .filter-btn:hover {
   z-index: 99999;
   display: flex;
   flex-direction: column;
-  border-radius: 18px 0 0 18px;
-  overflow: hidden;
+  border-radius: 16px 0 0 16px;
+  overflow: visible;
   box-shadow: -5px 12px 35px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.floating-side-dock.collapsed {
-  transform: translateY(-50%) translateX(calc(100% - 48px));
+  transition: all 0.3s ease;
 }
 
 .dock-item {
-  width: 54px;
-  height: 54px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   transition: all 0.25s ease;
   position: relative;
   border: none;
@@ -191,6 +187,20 @@ body.dark-theme .filter-btn:hover {
   background: #000000;
   color: #FFFFFF;
   font-size: 1.2rem;
+  border-radius: 14px 0 0 0;
+}
+
+.floating-side-dock.collapsed .dock-item:not(.dock-item-toggle) {
+  max-height: 0;
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-side-dock.collapsed .dock-item-toggle {
+  border-radius: 14px 0 0 14px;
 }
 
 .dock-item-whatsapp {
