@@ -510,11 +510,40 @@
     </a>
   </div>
 
-  <!-- Floating Bottom-Left Ultra-Premium Multi-Language Widget -->
-  <div class="floating-lang-dock" title="Change Language / भाषा बदलें">
+  <!-- Custom Floating Language Trigger Button -->
+  <button class="custom-lang-btn" id="open-lang-modal-btn">
     <i class="fa-solid fa-language" style="color: #FACC15; font-size: 1.2rem;"></i>
-    <div id="google_translate_element"></div>
+    <span>🇮🇳 Select Language / भाषा</span>
+  </button>
+
+  <!-- Custom Luxury Indian Languages Modal -->
+  <div class="lang-modal-overlay" id="lang-modal-overlay">
+    <div class="lang-modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+        <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">
+          <i class="fa-solid fa-globe" style="color: var(--accent-gold);"></i> Choose Indian Language
+        </h3>
+        <button id="close-lang-modal-btn" style="background: none; border: none; font-size: 1.5rem; color: var(--text-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <div class="lang-grid">
+        <div class="lang-card-item" data-lang="en">🇮🇳 English</div>
+        <div class="lang-card-item" data-lang="hi">🇮🇳 हिंदी (Hindi)</div>
+        <div class="lang-card-item" data-lang="bn">🇮🇳 বাংলা (Bengali)</div>
+        <div class="lang-card-item" data-lang="mr">🇮🇳 मराठी (Marathi)</div>
+        <div class="lang-card-item" data-lang="te">🇮🇳 తెలుగు (Telugu)</div>
+        <div class="lang-card-item" data-lang="ta">🇮🇳 தமிழ் (Tamil)</div>
+        <div class="lang-card-item" data-lang="gu">🇮🇳 ગુજરાતી (Gujarati)</div>
+        <div class="lang-card-item" data-lang="kn">🇮🇳 ಕನ್ನಡ (Kannada)</div>
+        <div class="lang-card-item" data-lang="ml">🇮🇳 മലയാളം (Malayalam)</div>
+        <div class="lang-card-item" data-lang="pa">🇮🇳 ਪੰਜਾਬੀ (Punjabi)</div>
+        <div class="lang-card-item" data-lang="or">🇮🇳 ଓଡ଼ିଆ (Odia)</div>
+        <div class="lang-card-item" data-lang="ur">🇮🇳 اردو (Urdu)</div>
+      </div>
+    </div>
   </div>
+
+  <div id="google_translate_element"></div>
 
   <!-- Google Translate for Indian Languages -->
   <script type="text/javascript">
