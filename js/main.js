@@ -118,25 +118,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile Navigation Toggle
-  const mobileToggle = document.querySelector('.mobile-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  // Sleek Corporate Mobile Hamburger Drawer Toggle
+  const mobileBtn = document.getElementById('mobile-toggle-btn');
+  const mobileDrawer = document.getElementById('navbar-mobile-drawer');
 
-  if (mobileToggle && navLinks) {
-    mobileToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const icon = mobileToggle.querySelector('i');
+  if (mobileBtn && mobileDrawer) {
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileDrawer.classList.toggle('active');
+      const icon = mobileBtn.querySelector('i');
       if (icon) {
-        icon.className = navLinks.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        icon.className = mobileDrawer.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
       }
     });
 
-    navLinks.querySelectorAll('a').forEach(link => {
+    mobileDrawer.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        const icon = mobileToggle.querySelector('i');
+        mobileDrawer.classList.remove('active');
+        const icon = mobileBtn.querySelector('i');
         if (icon) icon.className = 'fa-solid fa-bars';
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileDrawer.contains(e.target) && !mobileBtn.contains(e.target)) {
+        mobileDrawer.classList.remove('active');
+        const icon = mobileBtn.querySelector('i');
+        if (icon) icon.className = 'fa-solid fa-bars';
+      }
     });
   }
 

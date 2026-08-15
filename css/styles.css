@@ -1928,65 +1928,131 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
   overflow-wrap: break-word !important;
 }
 
+/* Sleek Corporate Mobile Navigation Bar & Drawer System */
+.mobile-toggle-btn {
+  display: none;
+  background: none;
+  border: 1.5px solid var(--accent-gold);
+  color: #FACC15;
+  font-size: 1.3rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.mobile-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFF;
+}
+
+.navbar-mobile-drawer {
+  display: none;
+}
+
 /* Tablet & Mobile Media Queries (< 768px) */
 @media (max-width: 768px) {
   .navbar {
-    height: auto !important;
-    padding: 6px 0 !important;
+    height: 64px !important;
+    padding: 0 16px !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
+    z-index: 9999 !important;
   }
 
   .nav-container-split {
-    flex-direction: column !important;
+    display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
-    justify-content: center !important;
-    padding: 6px 12px !important;
-    gap: 6px !important;
-    width: 100% !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
   }
 
   .nav-phone-box {
     display: none !important;
   }
 
+  .nav-center-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
   .nav-center-logo img {
-    height: 52px !important;
-    width: 52px !important;
+    width: 44px !important;
+    height: 44px !important;
     border-width: 2px !important;
   }
 
-  .nav-links-split {
+  .mobile-toggle-btn {
     display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 6px 10px !important;
-    justify-content: center !important;
-    width: 100% !important;
-    margin: 4px 0 0 0 !important;
-    padding: 0 !important;
   }
 
-  .nav-links-split a {
-    font-size: 0.7rem !important;
-    font-weight: 800 !important;
-    padding: 4px 8px !important;
-    background: rgba(0, 0, 0, 0.2) !important;
-    border-radius: 6px !important;
-    letter-spacing: 0 !important;
+  .nav-links-split {
+    display: none !important;
+  }
+
+  /* Active Dropdown Drawer on Mobile */
+  .navbar-mobile-drawer {
+    display: flex;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: #7F1D1D;
+    border-bottom: 2px solid var(--accent-gold);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    padding: 20px 24px;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 9998;
+  }
+
+  .navbar-mobile-drawer.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navbar-mobile-drawer a {
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-decoration: none;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .navbar-mobile-drawer a:hover,
+  .navbar-mobile-drawer a.active {
+    color: #FACC15;
   }
 
   .container {
     width: 100% !important;
     max-width: 100% !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
     margin: 0 auto !important;
   }
 
   .section {
-    padding: 32px 12px !important;
+    padding: 32px 14px !important;
   }
 
   .section-title {
@@ -2028,15 +2094,15 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
   .chatbot-launcher-btn {
     right: 14px !important;
     bottom: 14px !important;
-    width: 54px !important;
-    height: 54px !important;
-    font-size: 1.3rem !important;
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 1.2rem !important;
   }
 
   .chatbot-window {
     right: 10px !important;
     left: 10px !important;
-    bottom: 78px !important;
+    bottom: 74px !important;
     width: auto !important;
     height: 420px !important;
     max-height: 75vh !important;
@@ -2051,9 +2117,5 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
   .filter-btn {
     font-size: 0.68rem !important;
     padding: 6px 10px !important;
-  }
-  .nav-links-split a {
-    font-size: 0.65rem !important;
-    padding: 3px 6px !important;
   }
 }
