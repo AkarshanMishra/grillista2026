@@ -28,6 +28,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Grillista AI Chatbot Logic
+  const chatbotLauncher = document.getElementById('chatbot-launcher-btn');
+  const chatbotWindow = document.getElementById('chatbot-window');
+  const chatbotClose = document.getElementById('chatbot-close-btn');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotInput = document.getElementById('chatbot-input');
+
+  if (chatbotLauncher && chatbotWindow) {
+    chatbotLauncher.addEventListener('click', () => {
+      chatbotWindow.classList.toggle('active');
+    });
+  }
+
+  if (chatbotClose && chatbotWindow) {
+    chatbotClose.addEventListener('click', () => {
+      chatbotWindow.classList.remove('active');
+    });
+  }
+
+  window.sendChatQuery = function(queryText) {
+    addChatMessage(queryText, 'user');
+    processChatBotResponse(queryText);
+  };
+
+  window.submitChatInput = function() {
+    if (!chatbotInput) return;
+    const text = chatbotInput.value.trim();
+    if (text) {
+      addChatMessage(text, 'user');
+      chatbotInput.value = '';
+      processChatBotResponse(text);
+    }
+  };
+
+  window.handleChatKeyPress = function(e) {
+    if (e.key === 'Enter') submitChatInput();
+  };
+
+  function addChatMessage(text, sender) {
+    if (!chatbotMessages) return;
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `chat-msg ${sender}`;
+    msgDiv.innerHTML = text;
+    chatbotMessages.appendChild(msgDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function processChatBotResponse(query) {
+    const q = query.toLowerCase();
+    let reply = "";
+
+    if (q.includes('cost') || q.includes('model') || q.includes('royalty') || q.includes('investment')) {
+      reply = "💰 <strong>Franchise Models:</strong><br>• <strong>FOFO Model:</strong> ₹12 Lakh Investment (5% Royalty)<br>• <strong>FOCO Model:</strong> ₹16 Lakh Investment (5% Royalty)<br>⚡ Expected ROI Payback: 12 - 18 Months!";
+    } else if (q.includes('kanpur') || q.includes('outlet') || q.includes('location') || q.includes('address')) {
+      reply = "📍 <strong>Our 3 Operational Outlets in Kanpur:</strong><br>1. Barra Bypass (Flagship & Event Venue)<br>2. Kakadev (Youth Gaming Hub)<br>3. Juhi Saket Nagar (Rooftop Dining)<br>🏢 <strong>Head Office:</strong> 621/18, Block-W, Juhi Kala, VR Tower, Kanpur.";
+    } else if (q.includes('prospectus') || q.includes('pdf') || q.includes('brochure') || q.includes('download')) {
+      reply = "📜 You can generate & download our official 20-Page Franchise Prospectus PDF anytime on this website by submitting the lead form! Or call us directly.";
+    } else if (q.includes('call') || q.includes('contact') || q.includes('number') || q.includes('phone')) {
+      reply = "📞 <strong>Official Franchise Support Line:</strong><br><a href='tel:+916386818682' style='color:#15803D; font-weight:800;'>+91 63868 18682</a><br>📧 Email: grillistakanpur@gmail.com";
+    } else if (q.includes('menu') || q.includes('food') || q.includes('veg') || q.includes('margin')) {
+      reply = "🍔 <strong>100% Pure Veg Menu:</strong><br>Wood-Fired Pizzas, Smoked Burgers, Grilled Sandwiches, Sizzlers, Mocktails & Desserts with 65%+ Gross Margin!";
+    } else {
+      reply = "Thank you for reaching out! 🙏 Our Vice President of Operations, Amitabh Srivastava, & Franchise Onboarding Team can guide you directly at <strong>+91 63868 18682</strong>.";
+    }
+
+    setTimeout(() => {
+      addChatMessage(reply, 'bot');
+    }, 400);
+  }
+
   // Floating Side Action Dock Toggle
   const dockToggleBtn = document.getElementById('dock-toggle-btn');
   const sideDock = document.getElementById('side-action-dock');
