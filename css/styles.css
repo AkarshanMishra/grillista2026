@@ -89,6 +89,7 @@
   max-width: 1380px;
   margin: 0 auto;
   padding: 0 24px;
+  position: relative; /* Anchor for absolute logo middle centering */
 }
 
 .nav-phone-box {
@@ -130,16 +131,21 @@
 }
 
 .nav-center-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  z-index: 10;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  z-index: 100 !important;
+  margin: 0 !important;
 }
 
 .nav-center-logo img {
-  height: 82px;
-  width: 82px;
+  height: 84px;
+  width: 84px;
   border-radius: 50%;
   border: 3.5px solid #FACC15;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
@@ -996,16 +1002,21 @@ button {
 }
 
 .nav-center-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  z-index: 10;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  z-index: 100 !important;
+  margin: 0 !important;
 }
 
 .nav-center-logo img {
-  height: 82px;
-  width: 82px;
+  height: 84px;
+  width: 84px;
   border-radius: 50%;
   border: 3.5px solid #FACC15;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
