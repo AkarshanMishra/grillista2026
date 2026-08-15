@@ -199,6 +199,13 @@ body.dark-theme .nav-link {
 }
 
 
+/* Executive Team Card Professional Styling */
+.team-card-corp:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--brand-emerald-light);
+}
+
 @keyframes lightGradientPulse {
   0% {
     background-position: 0% 50%;
