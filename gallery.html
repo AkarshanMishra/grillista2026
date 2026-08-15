@@ -30,39 +30,42 @@
 </head>
 <body>
 
-  <!-- Crimson Red Split Corporate Navbar (Burger Singh Style) -->
+  <!-- Crimson Red Split Corporate Navbar -->
   <header class="navbar">
     <div class="nav-container-split">
-      <!-- Left Pill Box: Customer Support -->
-      <a href="tel:+916386818682" class="nav-phone-box">
-        <span class="nav-phone-number"><i class="fa-solid fa-phone"></i> +91 63868 18682</span>
-        <span class="nav-phone-label">FOR CUSTOMER SUPPORT</span>
-      </a>
-
-      <!-- Center-Left Links -->
-      <ul class="nav-links-split">
-        <li><a href="index.html#hero" class="nav-link">HOME</a></li>
-        <li><a href="about.html" class="nav-link">ABOUT US</a></li>
-        <li><a href="menu.html" class="nav-link">MENU</a></li>
-      </ul>
+      <!-- Left Group -->
+      <div class="nav-group-left">
+        <a href="tel:+916386818682" class="nav-phone-box">
+          <span class="nav-phone-number"><i class="fa-solid fa-phone"></i> +91 63868 18682</span>
+          <span class="nav-phone-label">FOR CUSTOMER SUPPORT</span>
+        </a>
+        <ul class="nav-links-split">
+          <li><a href="index.html#hero" class="nav-link">HOME</a></li>
+          <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+          <li><a href="menu.html" class="nav-link">MENU</a></li>
+        </ul>
+      </div>
 
       <!-- Center Circular Logo Emblem -->
       <a href="index.html" class="nav-center-logo">
         <img src="assets/images/logo.jpg" alt="Grillista Logo">
       </a>
 
-      <!-- Center-Right Links -->
-      <ul class="nav-links-split">
-        <li><a href="franchise.html" class="nav-link">FRANCHISE</a></li>
-        <li><a href="gallery.html" class="nav-link active">GALLERY</a></li>
-        <li><a href="index.html#outlets" class="nav-link">STORE LOCATOR</a></li>
-      </ul>
-
-      <!-- Right Pill Box: Franchise Enquiry -->
-      <a href="tel:+916386818682" class="nav-phone-box">
-        <span class="nav-phone-number"><i class="fa-solid fa-phone"></i> +91 63868 18682</span>
-        <span class="nav-phone-label">FOR FRANCHISE ENQUIRY ONLY</span>
-      </a>
+      <!-- Right Group -->
+      <div class="nav-group-right">
+        <ul class="nav-links-split">
+          <li><a href="franchise.html" class="nav-link">FRANCHISE</a></li>
+          <li><a href="gallery.html" class="nav-link active">GALLERY</a></li>
+          <li><a href="index.html#outlets" class="nav-link">STORE LOCATOR</a></li>
+        </ul>
+        <a href="tel:+916386818682" class="nav-phone-box">
+          <span class="nav-phone-number"><i class="fa-solid fa-phone"></i> +91 63868 18682</span>
+          <span class="nav-phone-label">FOR FRANCHISE ENQUIRY</span>
+        </a>
+        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
   </header>
 

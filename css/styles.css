@@ -82,14 +82,27 @@
 }
 
 .nav-container-split {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  max-width: 1380px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
-  position: relative; /* Anchor for absolute logo middle centering */
+}
+
+.nav-group-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.nav-group-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-end;
 }
 
 .nav-phone-box {
@@ -131,21 +144,17 @@
 }
 
 .nav-center-logo {
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-decoration: none !important;
-  z-index: 100 !important;
-  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0 16px;
+  z-index: 100;
 }
 
 .nav-center-logo img {
-  height: 84px;
-  width: 84px;
+  height: 82px;
+  width: 82px;
   border-radius: 50%;
   border: 3.5px solid #FACC15;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
@@ -155,7 +164,7 @@
 }
 
 .nav-center-logo img:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .nav-links-split {
@@ -1002,16 +1011,12 @@ button {
 }
 
 .nav-center-logo {
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-decoration: none !important;
-  z-index: 100 !important;
-  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0 16px;
+  z-index: 100;
 }
 
 .nav-center-logo img {
