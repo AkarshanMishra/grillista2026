@@ -63,6 +63,12 @@
         <span class="nav-phone-number"><i class="fa-solid fa-phone"></i> +91 63868 18682</span>
         <span class="nav-phone-label">FOR FRANCHISE ENQUIRY ONLY</span>
       </a>
+
+      <!-- Indian Multi-Language Switcher -->
+      <div class="lang-selector-wrapper" title="Change Language / भाषा बदलें">
+        <i class="fa-solid fa-language" style="color: #FACC15; font-size: 1.1rem;"></i>
+        <div id="google_translate_element"></div>
+      </div>
     </div>
   </header>
 
@@ -335,5 +341,18 @@
   </div>
 
   <script src="js/main.js"></script>
+  <!-- Google Translate for Indian Languages -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,bn,mr,te,ta,gu,kn,ml,pa,or,ur',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
