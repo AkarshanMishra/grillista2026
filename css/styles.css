@@ -707,6 +707,72 @@ body.dark-theme .filter-btn:hover {
   }
 }
 
+/* Interactive Investor Calculator Modal Popup */
+.calculator-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.calculator-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.calculator-modal-card {
+  background: #1E293B;
+  border: 2px solid #C88A2B;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 36px;
+  color: #FFFFFF;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.calculator-modal-overlay.active .calculator-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.calculator-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calculator-modal-close:hover {
+  background: #991B1B;
+  border-color: #991B1B;
+  color: #FFFFFF;
+}
+
 .dock-item-phone {
   background: #FACC15;
   color: #000000;

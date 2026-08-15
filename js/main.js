@@ -169,6 +169,91 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Interactive Investor Calculator Popup Modal Logic
+  const calcModalOverlay = document.getElementById('calculator-modal-overlay');
+  const calcModalClose = document.getElementById('calculator-modal-close');
+
+  function openCalculatorModal() {
+    if (calcModalOverlay) {
+      calcModalOverlay.classList.add('active');
+    }
+  }
+
+  function closeCalculatorModal() {
+    if (calcModalOverlay) {
+      calcModalOverlay.classList.remove('active');
+    }
+  }
+
+  // Intercept all links/buttons pointing to #calculator or with trigger class
+  document.addEventListener('click', (e) => {
+    const calcTrigger = e.target.closest('a[href="#calculator"], .trigger-calculator-modal, #open-calculator-modal-btn');
+    if (calcTrigger) {
+      e.preventDefault();
+      openCalculatorModal();
+    }
+
+    if (calcModalClose && calcModalClose.contains(e.target)) {
+      closeCalculatorModal();
+    }
+
+    if (e.target.classList && e.target.classList.contains('pop-modal-apply-btn')) {
+      closeCalculatorModal();
+    }
+
+    if (calcModalOverlay && e.target === calcModalOverlay) {
+      closeCalculatorModal();
+    }
+  });
+
+  // Popup Modal Range Slider Calculations
+  const popOrdersSlider = document.getElementById('pop-roi-orders-slider');
+  const popAovSlider = document.getElementById('pop-roi-aov-slider');
+  const popRentSlider = document.getElementById('pop-roi-rent-slider');
+
+  const popOrdersVal = document.getElementById('pop-roi-orders-val');
+  const popAovVal = document.getElementById('pop-roi-aov-val');
+  const popRentVal = document.getElementById('pop-roi-rent-val');
+
+  const popCalcRev = document.getElementById('pop-calc-revenue');
+  const popCalcCogs = document.getElementById('pop-calc-cogs');
+  const popCalcNet = document.getElementById('pop-calc-net-profit');
+  const popCalcPayback = document.getElementById('pop-calc-payback');
+
+  function updatePopCalculator() {
+    if (!popOrdersSlider || !popAovSlider || !popRentSlider) return;
+
+    const orders = parseInt(popOrdersSlider.value);
+    const aov = parseInt(popAovSlider.value);
+    const rent = parseInt(popRentSlider.value);
+
+    if (popOrdersVal) popOrdersVal.innerText = `${orders} Orders / Day`;
+    if (popAovVal) popAovVal.innerText = `₹${aov} / Order`;
+    if (popRentVal) popRentVal.innerText = `₹${rent.toLocaleString('en-IN')} / Mo`;
+
+    const dailyRev = orders * aov;
+    const monthlyRev = dailyRev * 30;
+    const cogs = monthlyRev * 0.35;
+    const staffCost = 45000;
+    const utilities = 25000;
+    const royalties = monthlyRev * 0.05;
+    const netProfit = monthlyRev - cogs - rent - staffCost - utilities - royalties;
+
+    if (popCalcRev) popCalcRev.innerText = `₹${monthlyRev.toLocaleString('en-IN')}`;
+    if (popCalcCogs) popCalcCogs.innerText = `-₹${Math.round(cogs).toLocaleString('en-IN')}`;
+    if (popCalcNet) popCalcNet.innerText = `₹${Math.round(netProfit).toLocaleString('en-IN')} / Mo`;
+
+    const investment = 1400000;
+    const months = Math.max(6, Math.round(investment / Math.max(netProfit, 10000)));
+    if (popCalcPayback) popCalcPayback.innerText = `Estimated Payback: ~${months} Months`;
+  }
+
+  if (popOrdersSlider) popOrdersSlider.addEventListener('input', updatePopCalculator);
+  if (popAovSlider) popAovSlider.addEventListener('input', updatePopCalculator);
+  if (popRentSlider) popRentSlider.addEventListener('input', updatePopCalculator);
+
+  updatePopCalculator();
+
   // Active Nav Link Scroll Highlight
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
