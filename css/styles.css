@@ -1252,6 +1252,10 @@ button {
   transform: none;
 }
 
+.premium-menu-card img {
+  object-fit: contain !important;
+}
+
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
