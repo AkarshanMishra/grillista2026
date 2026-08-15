@@ -13,45 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-  // Custom Indian Multi-Language Modal Handler
-  const openLangBtn = document.getElementById('open-lang-modal-btn');
-  const closeLangBtn = document.getElementById('close-lang-modal-btn');
-  const langOverlay = document.getElementById('lang-modal-overlay');
-  const langCards = document.querySelectorAll('.lang-card-item');
 
-  if (openLangBtn && langOverlay) {
-    openLangBtn.addEventListener('click', () => {
-      langOverlay.classList.add('active');
-    });
-  }
-
-  if (closeLangBtn && langOverlay) {
-    closeLangBtn.addEventListener('click', () => {
-      langOverlay.classList.remove('active');
-    });
-  }
-
-  if (langOverlay) {
-    langOverlay.addEventListener('click', (e) => {
-      if (e.target === langOverlay) langOverlay.classList.remove('active');
-    });
-  }
-
-  langCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const lang = card.getAttribute('data-lang');
-      const selectEl = document.querySelector('.goog-te-combo');
-      if (selectEl) {
-        selectEl.value = lang;
-        selectEl.dispatchEvent(new Event('change'));
-      } else {
-        document.cookie = "googtrans=/en/" + lang + "; path=/;";
-        document.cookie = "googtrans=/en/" + lang + "; path=/; domain=" + location.hostname;
-        location.reload();
-      }
-      langOverlay.classList.remove('active');
-    });
-  });
 
   // Floating Side Action Dock Toggle
   const dockToggleBtn = document.getElementById('dock-toggle-btn');
