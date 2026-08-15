@@ -114,17 +114,17 @@
 
 :root {
   /* Premium Palette */
-  --brand-emerald: #0F2E23;
-  --brand-emerald-light: #184334;
-  --primary-red: #E53935;
+  --brand-emerald: #1E293B;
+  --brand-emerald-light: #0F172A;
+  --primary-red: #B91C1C;
   --accent-gold: #C88A2B;
   --bg-ivory: #FAF7F2;
-  --bg-warm-champagne: #F3ECE1;
+  --bg-warm-champagne: #FAF7F2;
   --bg-card: #FFFFFF;
-  --text-primary: #0F2E23;
+  --text-primary: #1E293B;
   --text-secondary: #475569;
   --text-muted: #64748B;
-  --border-light: rgba(15, 46, 35, 0.08);
+  --border-light: rgba(30, 41, 59, 0.1);
   
   /* Fonts */
   --font-heading: 'Outfit', sans-serif;
