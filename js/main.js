@@ -13,6 +13,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+  // Floating Side Action Dock Toggle
+  const dockToggleBtn = document.getElementById('dock-toggle-btn');
+  const sideDock = document.getElementById('side-action-dock');
+  const dockIcon = document.getElementById('dock-toggle-icon');
+
+  if (dockToggleBtn && sideDock) {
+    dockToggleBtn.addEventListener('click', () => {
+      sideDock.classList.toggle('collapsed');
+      if (dockIcon) {
+        if (sideDock.classList.contains('collapsed')) {
+          dockIcon.className = 'fa-solid fa-arrow-left';
+        } else {
+          dockIcon.className = 'fa-solid fa-arrow-right';
+        }
+      }
+    });
+  }
+
   // Mobile Navigation Toggle
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navLinks = document.querySelector('.nav-links');

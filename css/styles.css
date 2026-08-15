@@ -154,7 +154,98 @@ body.dark-theme .filter-btn:hover {
   color: #FFFFFF !important;
 }
 
-/* Base Reset */
+/* Floating Side Quick Action Dock (WhatsApp, Call, Email Widget) */
+.floating-side-dock {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px 0 0 18px;
+  overflow: hidden;
+  box-shadow: -5px 12px 35px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-side-dock.collapsed {
+  transform: translateY(-50%) translateX(calc(100% - 48px));
+}
+
+.dock-item {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: all 0.25s ease;
+  position: relative;
+  border: none;
+  cursor: pointer;
+}
+
+.dock-item-toggle {
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+}
+
+.dock-item-whatsapp {
+  background: #F3F4F6;
+  color: #25D366;
+}
+
+.dock-item-whatsapp:hover {
+  background: #25D366;
+  color: #FFFFFF;
+}
+
+.dock-item-phone {
+  background: #FACC15;
+  color: #000000;
+}
+
+.dock-item-phone:hover {
+  background: #EAB308;
+  color: #000000;
+}
+
+.dock-item-email {
+  background: var(--brand-emerald);
+  color: #FFFFFF;
+}
+
+.dock-item-email:hover {
+  background: #15803D;
+  color: #FFFFFF;
+}
+
+/* Slide-out tooltip labels */
+.dock-item .dock-tooltip {
+  position: absolute;
+  right: 64px;
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  background: #0F2E23;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.dock-item:hover .dock-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
 * {
   margin: 0;
   padding: 0;
