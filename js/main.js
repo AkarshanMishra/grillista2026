@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+  // 3D Team Flip Card Toggle
+  const flipCards = document.querySelectorAll('.team-flip-card');
+  flipCards.forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
+  });
+
   // Floating Side Action Dock Toggle
   const dockToggleBtn = document.getElementById('dock-toggle-btn');
   const sideDock = document.getElementById('side-action-dock');
