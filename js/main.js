@@ -118,6 +118,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Back to Top Scroll Arrow Button
+  const backToTopBtn = document.getElementById('back-to-top-btn');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 250) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
   // Sleek Corporate Mobile Hamburger Drawer Toggle
   const mobileBtn = document.getElementById('mobile-toggle-btn');
   const mobileDrawer = document.getElementById('navbar-mobile-drawer');

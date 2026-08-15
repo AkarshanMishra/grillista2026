@@ -443,45 +443,6 @@
       <i class="fa-solid fa-envelope"></i>
       <span class="dock-tooltip">Email HQ</span>
     </a>
-  </div>
-
-  <script src="js/main.js"></script>
-
-
-  <!-- AI Franchise Assistant Chatbot Launcher Button -->
-  <button class="chatbot-launcher-btn" id="chatbot-launcher-btn" title="Ask Grillista AI Assistant">
-    <i class="fa-solid fa-headset"></i>
-    <span class="chatbot-badge">AI</span>
-  </button>
-
-  <!-- AI Franchise Assistant Chat Window -->
-  <div class="chatbot-window" id="chatbot-window">
-    <div class="chatbot-header">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: #FACC15;">
-          <i class="fa-solid fa-robot"></i>
-        </div>
-        <div>
-          <h4 style="font-size: 0.95rem; margin: 0; color: #FFF; font-weight: 800;">Grillista AI Assistant</h4>
-          <span style="font-size: 0.7rem; color: #86EFAC; font-weight: 700;">● Online | 24/7 Support</span>
-        </div>
-      </div>
-      <button id="chatbot-close-btn" style="background: none; border: none; color: #FFF; font-size: 1.2rem; cursor: pointer;">&times;</button>
-    </div>
-
-    <div class="chatbot-messages" id="chatbot-messages">
-      <div class="chat-msg bot">
-        <strong>Namaste! 🙏 Welcome to Grillista.</strong><br>
-        I am your AI Franchise Advisor. How can I assist your food franchise journey today?
-        <div class="chat-quick-btns">
-          <button class="chat-quick-btn" onclick="sendChatQuery('Franchise Cost & Models')">💰 Models & Royalty</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Kanpur Outlets')">📍 Outlet Locations</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Download Prospectus')">📜 Get Prospectus PDF</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Call Franchise Team')">📞 Call (+91 63868 18682)</button>
-        </div>
-      </div>
-    </div>
-
     <div class="chatbot-input-area">
       <input type="text" id="chatbot-input" placeholder="Type your franchise question..." onkeypress="handleChatKeyPress(event)">
       <button class="chatbot-send-btn" onclick="submitChatInput()">
@@ -490,5 +451,11 @@
     </div>
   </div>
 
+  <!-- Back to Top Floating Arrow Button -->
+  <button class="back-to-top-btn" id="back-to-top-btn" title="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
