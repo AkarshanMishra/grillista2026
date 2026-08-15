@@ -248,10 +248,11 @@ body.dark-theme .nav-link {
 }
 
 .flip-card-back {
-  background: linear-gradient(135deg, #0F2E23 0%, #15803D 100%);
+  background: #0F2E23;
   color: #FFFFFF;
-  border: 2px solid var(--accent-gold);
+  border: 1.5px solid var(--accent-gold);
   transform: rotateY(180deg);
+  box-shadow: 0 10px 30px rgba(15, 46, 35, 0.25);
 }
 
 .flip-hint {

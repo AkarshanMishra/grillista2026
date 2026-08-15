@@ -15,10 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // 3D Team Flip Card Toggle
+  // 3D Team Flip Card Toggle (Accordion Mode: auto flip-back others)
   const flipCards = document.querySelectorAll('.team-flip-card');
   flipCards.forEach(card => {
     card.addEventListener('click', () => {
+      flipCards.forEach(other => {
+        if (other !== card) {
+          other.classList.remove('flipped');
+        }
+      });
       card.classList.toggle('flipped');
     });
   });
