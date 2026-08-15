@@ -1227,30 +1227,29 @@ button {
 }
 
 .filter-btn {
-  padding: 10px 24px;
+  padding: 10px 20px;
   background: transparent;
-  color: #94A3B8;
-  border: 1px solid transparent;
-  border-radius: 99px;
+  color: #64748B;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 8px 8px 0 0;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s ease;
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
 }
 
 .filter-btn:hover {
-  color: #FACC15;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(200, 138, 43, 0.3);
-  transform: translateY(-2px);
+  color: #991B1B;
+  background: rgba(153, 27, 27, 0.04);
 }
 
 .filter-btn.active {
-  background: linear-gradient(135deg, #991B1B 0%, #C88A2B 100%);
-  color: #FFFFFF !important;
-  border-color: #FACC15;
-  box-shadow: 0 6px 20px rgba(153, 27, 27, 0.4);
-  transform: translateY(-2px);
+  background: rgba(153, 27, 27, 0.08) !important;
+  color: #991B1B !important;
+  border-bottom-color: #991B1B !important;
+  box-shadow: none;
+  transform: none;
 }
 
 .menu-grid {
