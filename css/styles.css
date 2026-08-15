@@ -198,18 +198,28 @@ body.dark-theme .nav-link {
   color: #CBD5E1 !important;
 }
 
-/* Indian Multi-Language Switcher Styling */
-.lang-selector-wrapper {
+/* Floating Bottom-Left Ultra-Premium Multi-Language Widget */
+.floating-lang-dock {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 99999;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1.5px solid rgba(250, 204, 21, 0.6);
-  border-radius: 12px;
-  padding: 4px 12px;
-  color: #FFF;
-  font-size: 0.85rem;
-  font-weight: 800;
+  gap: 10px;
+  background: rgba(15, 46, 35, 0.94);
+  backdrop-filter: blur(16px);
+  border: 2px solid var(--accent-gold);
+  border-radius: 99px;
+  padding: 8px 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-lang-dock:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(200, 138, 43, 0.4);
+  border-color: #FACC15;
 }
 
 .goog-te-gadget {
@@ -223,10 +233,10 @@ body.dark-theme .nav-link {
   color: #FFFFFF !important;
   border: none !important;
   font-weight: 800 !important;
-  font-size: 0.82rem !important;
+  font-size: 0.88rem !important;
   outline: none !important;
   cursor: pointer !important;
-  padding: 2px 4px !important;
+  padding: 4px 6px !important;
   border-radius: 6px !important;
 }
 
@@ -234,6 +244,7 @@ body.dark-theme .nav-link {
   background: #0F2E23 !important;
   color: #FFFFFF !important;
   font-weight: 700 !important;
+  padding: 8px !important;
 }
 
 .goog-te-banner-frame.skiptranslate {
