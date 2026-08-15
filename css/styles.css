@@ -2167,4 +2167,52 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
   #side-action-dock {
     display: none !important;
   }
+
+  /* Override inline large padding that forces overflow on mobile */
+  [style*="padding: 52px"],
+  [style*="padding: 48px"],
+  [style*="padding: 40px"],
+  [style*="padding: 36px"],
+  [style*="padding: 32px"] {
+    padding: 24px 16px !important;
+  }
+
+  /* Override inline large headings that force text off-screen */
+  [style*="font-size: 3.4rem"],
+  [style*="font-size: 3.2rem"],
+  [style*="font-size: 2.8rem"],
+  [style*="font-size: 2.5rem"],
+  [style*="font-size: 2.4rem"],
+  [style*="font-size: 2rem"] {
+    font-size: 1.6rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Force all grid containers into responsive 1-column layout */
+  [style*="display: grid"],
+  [style*="display:grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Force all flex containers to wrap on mobile */
+  .hero-cta, .menu-controls, .chat-quick-btns, .form-navigation, .section-header {
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure card containers & buttons don't exceed screen width */
+  .premium-menu-card, .team-flip-card, .card, .modal-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .btn, button, a.btn {
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
 }
