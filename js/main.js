@@ -254,9 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Menu Filter Tabs
+  // Menu Filter Tabs & Smooth Category Animations
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const menuGrid = document.querySelector('.menu-grid');
+  const categoryBlocks = document.querySelectorAll('.menu-category-block');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -264,13 +264,16 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active');
 
       const filterValue = btn.getAttribute('data-filter');
-      const cards = menuGrid.querySelectorAll('.menu-card');
 
-      cards.forEach(card => {
-        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-          card.style.display = 'block';
+      categoryBlocks.forEach(block => {
+        const cat = block.getAttribute('data-category');
+        if (filterValue === 'all' || cat === filterValue) {
+          block.style.display = 'block';
+          block.style.animation = 'none';
+          void block.offsetWidth; // Trigger reflow for animation restart
+          block.style.animation = 'fadeInUpKeyframe 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards';
         } else {
-          card.style.display = 'none';
+          block.style.display = 'none';
         }
       });
     });

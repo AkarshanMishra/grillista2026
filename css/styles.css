@@ -1,3 +1,68 @@
+/* Luxury Corporate Animations & Micro-Interactions */
+@keyframes fadeInUpKeyframe {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 25px rgba(200, 138, 43, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(200, 138, 43, 0.5);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.premium-menu-card {
+  animation: fadeInUpKeyframe 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-menu-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12) !important;
+  border-color: var(--accent-gold) !important;
+}
+
+.premium-menu-card:hover img {
+  transform: scale(1.12);
+}
+
+.premium-menu-card img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-btn {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 99px;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(185, 28, 28, 0.2);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+  color: #FFFFFF;
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 25px rgba(185, 28, 28, 0.3);
+}
+
 /* 
   GRILLISTA - Clean Standard Full-Width Corporate Navbar
 */
