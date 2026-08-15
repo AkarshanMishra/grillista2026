@@ -248,11 +248,11 @@ body.dark-theme .nav-link {
 }
 
 .flip-card-back {
-  background: #0F2E23;
+  background: #1E1B18;
   color: #FFFFFF;
   border: 1.5px solid var(--accent-gold);
   transform: rotateY(180deg);
-  box-shadow: 0 10px 30px rgba(15, 46, 35, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Grillista AI Franchise Assistant Chatbot Styling */
@@ -264,10 +264,10 @@ body.dark-theme .nav-link {
   width: 62px;
   height: 62px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0F2E23 0%, #15803D 100%);
+  background: linear-gradient(135deg, #991B1B 0%, #DC2626 100%);
   color: #FACC15;
   border: 2px solid var(--accent-gold);
-  box-shadow: 0 10px 30px rgba(15, 46, 35, 0.4);
+  box-shadow: 0 10px 30px rgba(153, 27, 27, 0.4);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -286,8 +286,8 @@ body.dark-theme .nav-link {
   position: absolute;
   top: -4px;
   right: -4px;
-  background: #E11D48;
-  color: #FFF;
+  background: #FACC15;
+  color: #991B1B;
   font-size: 0.65rem;
   font-weight: 900;
   padding: 3px 7px;
@@ -324,7 +324,7 @@ body.dark-theme .nav-link {
 }
 
 .chatbot-header {
-  background: linear-gradient(135deg, #0F2E23 0%, #15803D 100%);
+  background: linear-gradient(135deg, #991B1B 0%, #DC2626 100%);
   color: #FFFFFF;
   padding: 16px 20px;
   display: flex;
@@ -354,7 +354,7 @@ body.dark-theme .nav-link {
 
 .chat-msg.bot {
   background: #FFFFFF;
-  color: var(--brand-emerald);
+  color: #7F1D1D;
   border: 1px solid var(--border-light);
   align-self: flex-start;
   border-bottom-left-radius: 2px;
@@ -362,7 +362,7 @@ body.dark-theme .nav-link {
 }
 
 .chat-msg.user {
-  background: #0F2E23;
+  background: #991B1B;
   color: #FFFFFF;
   align-self: flex-end;
   border-bottom-right-radius: 2px;
@@ -376,9 +376,9 @@ body.dark-theme .nav-link {
 }
 
 .chat-quick-btn {
-  background: #DCFCE7;
-  color: #15803D;
-  border: 1px solid #86EFAC;
+  background: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FCA5A5;
   border-radius: 99px;
   padding: 6px 12px;
   font-size: 0.76rem;
@@ -388,7 +388,7 @@ body.dark-theme .nav-link {
 }
 
 .chat-quick-btn:hover {
-  background: #15803D;
+  background: #991B1B;
   color: #FFFFFF;
 }
 
@@ -410,11 +410,11 @@ body.dark-theme .nav-link {
 }
 
 .chatbot-input-area input:focus {
-  border-color: var(--brand-emerald);
+  border-color: #991B1B;
 }
 
 .chatbot-send-btn {
-  background: var(--brand-emerald);
+  background: #991B1B;
   color: #FACC15;
   border: none;
   width: 40px;
@@ -428,7 +428,7 @@ body.dark-theme .nav-link {
 }
 
 .chatbot-send-btn:hover {
-  background: #15803D;
+  background: #DC2626;
   transform: scale(1.05);
 }
 
