@@ -1916,26 +1916,38 @@ button {
   border: 1px solid rgba(21, 128, 61, 0.2);
 }
 
-/* Luxury Blog Cards */
-.blog-luxury-card {
+/* Ultra-Executive Blogs & Industry Insights System */
+.luxury-blogs-section {
+  background: #FAF7F2;
+  position: relative;
+}
+
+.blogs-executive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.blog-executive-card {
   background: #FFFFFF;
-  border: 1.5px solid var(--border-light);
-  border-radius: 20px;
+  border: 1.5px solid rgba(200, 138, 43, 0.25);
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(15, 46, 35, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 20px 50px rgba(15, 46, 35, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
 }
 
-.blog-luxury-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 60px rgba(15, 46, 35, 0.14);
+.blog-executive-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(15, 46, 35, 0.15);
+  border-color: var(--accent-gold);
 }
 
-.blog-cover {
-  height: 180px;
-  padding: 22px;
+.blog-executive-header {
+  min-height: 190px;
+  padding: 26px;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -1943,60 +1955,202 @@ button {
   position: relative;
 }
 
-.cover-emerald { background: linear-gradient(135deg, #0F2E23 0%, #15803D 100%); }
-.cover-dark { background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); }
-.cover-flame { background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%); }
+.header-emerald { background: linear-gradient(135deg, #0F2E23 0%, #15803D 100%); }
+.header-dark { background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); }
+.header-flame { background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%); }
 
-.blog-category-pill {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
+.blog-top-tags {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.blog-luxury-pill {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
   color: #FFFFFF;
   font-size: 0.72rem;
   font-weight: 800;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 99px;
-  align-self: flex-start;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.category-gold { background: rgba(200, 138, 43, 0.95); }
-.category-crimson { background: rgba(185, 28, 28, 0.95); }
+.gold-pill { background: rgba(200, 138, 43, 0.95); border: none; }
+.crimson-pill { background: rgba(185, 28, 28, 0.95); border: none; }
 
-.blog-read-time {
-  font-size: 0.8rem;
+.blog-time-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
   opacity: 0.9;
-  font-weight: 600;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 4px 10px;
+  border-radius: 99px;
 }
 
-.blog-body {
-  padding: 24px;
+.blog-executive-title {
+  font-size: 1.22rem;
+  color: #FFFFFF;
+  line-height: 1.35;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.blog-executive-body {
+  padding: 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  background: #FFFFFF;
 }
 
-.blog-title {
-  font-size: 1.2rem;
+.blog-executive-excerpt {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.68;
+  margin-bottom: 24px;
+}
+
+.blog-executive-excerpt strong {
   color: var(--brand-emerald);
-  margin-bottom: 10px;
-  line-height: 1.38;
-  font-weight: 800;
 }
 
-.blog-excerpt {
-  font-size: 0.88rem;
+.blog-meta-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1.5px solid var(--border-light);
+  padding-top: 18px;
+}
+
+.blog-author-tag {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Ultra-Executive FAQ System */
+.luxury-faq-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 100%) !important;
+  border-top: 1.5px solid var(--border-light);
+}
+
+.faq-executive-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.faq-executive-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-light);
+  border-left: 4px solid var(--brand-emerald);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 46, 35, 0.05);
+  transition: all 0.3s ease;
+}
+
+.faq-executive-card:hover {
+  border-left-color: var(--accent-gold);
+  box-shadow: 0 15px 40px rgba(15, 46, 35, 0.1);
+  transform: translateX(4px);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 22px 28px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--brand-emerald);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.faq-q-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-icon-pill {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(200, 138, 43, 0.12);
+  border: 1px solid rgba(200, 138, 43, 0.3);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.faq-icon {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.faq-executive-card.active .faq-icon {
+  transform: rotate(180deg);
+  color: var(--accent-gold);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 28px 24px 86px;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-size: 0.96rem;
+  line-height: 1.72;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 18px;
+}
+
+.faq-bullet-list {
+  margin-top: 10px;
+  margin-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
 }
 
 @media (max-width: 992px) {
-  .testimonials-luxury-grid,
-  .blogs-luxury-grid {
+  .blogs-executive-grid {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .faq-answer {
+    padding-left: 28px !important;
   }
 }
 
