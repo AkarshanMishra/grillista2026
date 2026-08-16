@@ -2202,17 +2202,23 @@ button {
   margin: 10px 0 14px 0;
   line-height: 1.15;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #1E293B 0%, #7F1D1D 50%, #991B1B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #0F172A !important; /* Crisp Dark Slate Navy */
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
 }
 
 .section-title span,
 .section-title .text-flame-red,
+.text-flame-red {
+  color: #991B1B !important; /* Vibrant Flame Red (Matching reference image) */
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
 .section-title .text-gold {
-  background: linear-gradient(135deg, #C88A2B 0%, #FACC15 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #C88A2B !important; /* Warm Metallic Gold */
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
 }
 
 .section-subtitle {
