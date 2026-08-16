@@ -181,61 +181,183 @@
         Explore our 100% Pure Veg flame-grilled burgers, loaded peri-peri fries, crispy starters, and gourmet momos across our running Kanpur outlets.
       </p>
 
-      <!-- High-Impact Diagonal Split Promo Banners (Matching Reference Image) -->
-      <div style="margin-top: 50px; text-align: left;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px;">
-          
-          <!-- Banner 1: MOJITO & COOLERS (Exact Style of Reference Image) -->
-          <div style="background: linear-gradient(135deg, #3D1C06 0%, #261103 100%); border-radius: 24px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.18); display: flex; position: relative; border: 2px solid var(--accent-gold); min-height: 240px;">
-            <!-- Left Content Area -->
-            <div style="flex: 1.2; padding: 28px 24px; color: #FFFFFF; z-index: 2;">
-              <h3 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: #FFFFFF; letter-spacing: -0.02em; margin: 0 0 6px 0; text-transform: uppercase;">
-                MOJITO
+      <!-- High-Impact Big Single Category Slideshow Box Container (1 Category at a Time) -->
+      <div class="menu-slideshow-container" style="position: relative; max-width: 960px; margin: 40px auto 0 auto; text-align: left;">
+        
+        <!-- Slide 1: MOJITO & COOLERS -->
+        <div class="category-slide" style="display: block; transition: opacity 0.5s ease;">
+          <div style="background: linear-gradient(135deg, #3D1C06 0%, #261103 100%); border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); display: flex; position: relative; border: 2.5px solid var(--accent-gold); min-height: 360px;">
+            <div style="flex: 1.3; padding: 42px 36px; color: #FFFFFF; z-index: 2; display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #FFFFFF; letter-spacing: -0.02em; margin: 0 0 10px 0; text-transform: uppercase;">
+                MOJITO & COOLERS
               </h3>
-              <div style="display: inline-block; background: #FFFFFF; color: #3D1C06; font-size: 0.75rem; font-weight: 900; padding: 3px 12px; border-radius: 4px; text-transform: uppercase; margin-bottom: 8px;">
+              <div style="display: inline-block; background: #FFFFFF; color: #3D1C06; font-size: 0.85rem; font-weight: 900; padding: 4px 16px; border-radius: 6px; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start;">
                 STARTING FROM
               </div>
-              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: #FACC15; margin-bottom: 14px;">
+              <div style="font-family: var(--font-heading); font-size: 3.2rem; font-weight: 900; color: #FACC15; margin-bottom: 18px;">
                 Rs. 70/-
               </div>
-              <ul style="font-size: 0.9rem; font-weight: 700; color: rgba(255, 255, 255, 0.92); list-style: none; padding: 0; margin: 0; line-height: 1.6;">
+              <ul style="font-size: 1.1rem; font-weight: 700; color: rgba(255, 255, 255, 0.95); list-style: none; padding: 0; margin: 0; line-height: 1.8;">
                 <li>&bull; Classic Mint Mojito</li>
                 <li>&bull; Chat Pata Kala Khatta</li>
                 <li>&bull; Black Cobra Mojito</li>
+                <li>&bull; Mango Passion Cooler</li>
               </ul>
             </div>
-            <!-- Right Cutout Section with Glass Image -->
-            <div style="flex: 1; position: relative; background: #FAF7F2; clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%); display: flex; align-items: center; justify-content: center; padding: 12px;">
-              <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&auto=format&fit=crop&q=80" alt="Refreshing Mojito Cooler" class="real-food-img" style="max-height: 200px; width: 100%; border-radius: 16px; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+            <div style="flex: 1.1; position: relative; background: #FAF7F2; clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+              <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&auto=format&fit=crop&q=80" alt="Refreshing Mojito Cooler" class="real-food-img" style="max-height: 310px; width: 100%; border-radius: 20px; object-fit: cover; box-shadow: 0 15px 35px rgba(0,0,0,0.25);">
             </div>
           </div>
+        </div>
 
-          <!-- Banner 2: FLAME BURGERS (Flame Red Split Style) -->
-          <div style="background: linear-gradient(135deg, #7F1D1D 0%, #450A0A 100%); border-radius: 24px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.18); display: flex; position: relative; border: 2px solid var(--accent-gold); min-height: 240px;">
-            <!-- Left Content Area -->
-            <div style="flex: 1.2; padding: 28px 24px; color: #FFFFFF; z-index: 2;">
-              <h3 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: #FFFFFF; letter-spacing: -0.02em; margin: 0 0 6px 0; text-transform: uppercase;">
-                BURGERS
+        <!-- Slide 2: FLAME BURGERS -->
+        <div class="category-slide" style="display: none; transition: opacity 0.5s ease;">
+          <div style="background: linear-gradient(135deg, #7F1D1D 0%, #450A0A 100%); border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); display: flex; position: relative; border: 2.5px solid var(--accent-gold); min-height: 360px;">
+            <div style="flex: 1.3; padding: 42px 36px; color: #FFFFFF; z-index: 2; display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #FFFFFF; letter-spacing: -0.02em; margin: 0 0 10px 0; text-transform: uppercase;">
+                FLAME BURGERS
               </h3>
-              <div style="display: inline-block; background: #FFFFFF; color: #7F1D1D; font-size: 0.75rem; font-weight: 900; padding: 3px 12px; border-radius: 4px; text-transform: uppercase; margin-bottom: 8px;">
+              <div style="display: inline-block; background: #FFFFFF; color: #7F1D1D; font-size: 0.85rem; font-weight: 900; padding: 4px 16px; border-radius: 6px; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start;">
                 STARTING FROM
               </div>
-              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: #FACC15; margin-bottom: 14px;">
+              <div style="font-family: var(--font-heading); font-size: 3.2rem; font-weight: 900; color: #FACC15; margin-bottom: 18px;">
                 Rs. 99/-
               </div>
-              <ul style="font-size: 0.9rem; font-weight: 700; color: rgba(255, 255, 255, 0.92); list-style: none; padding: 0; margin: 0; line-height: 1.6;">
+              <ul style="font-size: 1.1rem; font-weight: 700; color: rgba(255, 255, 255, 0.95); list-style: none; padding: 0; margin: 0; line-height: 1.8;">
                 <li>&bull; Charcoal Paneer Tikka</li>
                 <li>&bull; Smokey BBQ Soya</li>
                 <li>&bull; Udta Punjab 2.0 Veg</li>
+                <li>&bull; Chunky Paneer Pandey</li>
               </ul>
             </div>
-            <!-- Right Cutout Section with Burger Image -->
-            <div style="flex: 1; position: relative; background: #000000; clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%); display: flex; align-items: center; justify-content: center; padding: 12px;">
-              <img src="assets/images/burger.jpg" alt="Flame Grilled Double Decker Burger" class="real-food-img" style="max-height: 210px; width: 100%; border-radius: 16px; object-fit: contain; filter: drop-shadow(0 12px 25px rgba(250, 204, 21, 0.35));">
+            <div style="flex: 1.1; position: relative; background: #000000; clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+              <img src="assets/images/burger.jpg" alt="Flame Grilled Double Decker Burger" class="real-food-img" style="max-height: 320px; width: 100%; border-radius: 20px; object-fit: contain; filter: drop-shadow(0 15px 35px rgba(250, 204, 21, 0.45));">
             </div>
           </div>
-
         </div>
+
+        <!-- Slide 3: LOADED FRIES & DIPS -->
+        <div class="category-slide" style="display: none; transition: opacity 0.5s ease;">
+          <div style="background: linear-gradient(135deg, #0F2E23 0%, #154D3B 100%); border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); display: flex; position: relative; border: 2.5px solid var(--accent-gold); min-height: 360px;">
+            <div style="flex: 1.3; padding: 42px 36px; color: #FFFFFF; z-index: 2; display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #FFFFFF; letter-spacing: -0.02em; margin: 0 0 10px 0; text-transform: uppercase;">
+                FRIES & DIPS
+              </h3>
+              <div style="display: inline-block; background: #FFFFFF; color: #0F2E23; font-size: 0.85rem; font-weight: 900; padding: 4px 16px; border-radius: 6px; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start;">
+                STARTING FROM
+              </div>
+              <div style="font-family: var(--font-heading); font-size: 3.2rem; font-weight: 900; color: #FACC15; margin-bottom: 18px;">
+                Rs. 89/-
+              </div>
+              <ul style="font-size: 1.1rem; font-weight: 700; color: rgba(255, 255, 255, 0.95); list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                <li>&bull; Peri-Peri Cheese Fries</li>
+                <li>&bull; Chatpata Tamatar Masala</li>
+                <li>&bull; Dilli-6 Salted Crisp</li>
+                <li>&bull; Smokey BBQ Dip Fries</li>
+              </ul>
+            </div>
+            <div style="flex: 1.1; position: relative; background: #FAF7F2; clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+              <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?w=800&auto=format&fit=crop&q=80" alt="Loaded Peri-Peri Fries" class="real-food-img" style="max-height: 310px; width: 100%; border-radius: 20px; object-fit: cover; box-shadow: 0 15px 35px rgba(0,0,0,0.25);">
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: THICK ENERGY SHAKES -->
+        <div class="category-slide" style="display: none; transition: opacity 0.5s ease;">
+          <div style="background: linear-gradient(135deg, #78350F 0%, #451A03 100%); border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); display: flex; position: relative; border: 2.5px solid var(--accent-gold); min-height: 360px;">
+            <div style="flex: 1.3; padding: 42px 36px; color: #FFFFFF; z-index: 2; display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #FFFFFF; letter-spacing: -0.02em; margin: 0 0 10px 0; text-transform: uppercase;">
+                THICK SHAKES
+              </h3>
+              <div style="display: inline-block; background: #FFFFFF; color: #78350F; font-size: 0.85rem; font-weight: 900; padding: 4px 16px; border-radius: 6px; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start;">
+                STARTING FROM
+              </div>
+              <div style="font-family: var(--font-heading); font-size: 3.2rem; font-weight: 900; color: #FACC15; margin-bottom: 18px;">
+                Rs. 119/-
+              </div>
+              <ul style="font-size: 1.1rem; font-weight: 700; color: rgba(255, 255, 255, 0.95); list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                <li>&bull; Double Thick Hazelnut</li>
+                <li>&bull; KitKat Choco Blast</li>
+                <li>&bull; Mango Cold Coffee</li>
+                <li>&bull; Oreo Monster Shake</li>
+              </ul>
+            </div>
+            <div style="flex: 1.1; position: relative; background: #FAF7F2; clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+              <img src="https://images.unsplash.com/photo-1577805947697-89e18249d767?w=800&auto=format&fit=crop&q=80" alt="Thick Energy Shake" class="real-food-img" style="max-height: 310px; width: 100%; border-radius: 20px; object-fit: cover; box-shadow: 0 15px 35px rgba(0,0,0,0.25);">
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5: CHARRED STARTERS -->
+        <div class="category-slide" style="display: none; transition: opacity 0.5s ease;">
+          <div style="background: linear-gradient(135deg, #881337 0%, #4C0519 100%); border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); display: flex; position: relative; border: 2.5px solid var(--accent-gold); min-height: 360px;">
+            <div style="flex: 1.3; padding: 42px 36px; color: #FFFFFF; z-index: 2; display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #FFFFFF; letter-spacing: -0.02em; margin: 0 0 10px 0; text-transform: uppercase;">
+                STARTERS
+              </h3>
+              <div style="display: inline-block; background: #FFFFFF; color: #881337; font-size: 0.85rem; font-weight: 900; padding: 4px 16px; border-radius: 6px; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start;">
+                STARTING FROM
+              </div>
+              <div style="font-family: var(--font-heading); font-size: 3.2rem; font-weight: 900; color: #FACC15; margin-bottom: 18px;">
+                Rs. 129/-
+              </div>
+              <ul style="font-size: 1.1rem; font-weight: 700; color: rgba(255, 255, 255, 0.95); list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                <li>&bull; Soya Malai Chaap Bites</li>
+                <li>&bull; Paneer Tikka Skewers</li>
+                <li>&bull; Mini Batata Vada</li>
+                <li>&bull; Cheesy Coins (6 Pcs)</li>
+              </ul>
+            </div>
+            <div style="flex: 1.1; position: relative; background: #FAF7F2; clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80" alt="Charred Soya Starters" class="real-food-img" style="max-height: 310px; width: 100%; border-radius: 20px; object-fit: cover; box-shadow: 0 15px 35px rgba(0,0,0,0.25);">
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6: GOURMET PASTA & WRAPS -->
+        <div class="category-slide" style="display: none; transition: opacity 0.5s ease;">
+          <div style="background: linear-gradient(135deg, #064E3B 0%, #022C22 100%); border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); display: flex; position: relative; border: 2.5px solid var(--accent-gold); min-height: 360px;">
+            <div style="flex: 1.3; padding: 42px 36px; color: #FFFFFF; z-index: 2; display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #FFFFFF; letter-spacing: -0.02em; margin: 0 0 10px 0; text-transform: uppercase;">
+                PASTA & WRAPS
+              </h3>
+              <div style="display: inline-block; background: #FFFFFF; color: #064E3B; font-size: 0.85rem; font-weight: 900; padding: 4px 16px; border-radius: 6px; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start;">
+                STARTING FROM
+              </div>
+              <div style="font-family: var(--font-heading); font-size: 3.2rem; font-weight: 900; color: #FACC15; margin-bottom: 18px;">
+                Rs. 139/-
+              </div>
+              <ul style="font-size: 1.1rem; font-weight: 700; color: rgba(255, 255, 255, 0.95); list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                <li>&bull; Creamy White Sauce Penne</li>
+                <li>&bull; Spicy Peri-Peri Fusilli</li>
+                <li>&bull; Tandoori Paneer Wrap</li>
+                <li>&bull; Crunchy Veggie Roll</li>
+              </ul>
+            </div>
+            <div style="flex: 1.1; position: relative; background: #FAF7F2; clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+              <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281316?w=800&auto=format&fit=crop&q=80" alt="Gourmet Italian Pasta" class="real-food-img" style="max-height: 310px; width: 100%; border-radius: 20px; object-fit: cover; box-shadow: 0 15px 35px rgba(0,0,0,0.25);">
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button id="prev-slide-btn" onclick="moveCategorySlide(-1)" aria-label="Previous Category" style="position: absolute; top: 50%; left: -22px; transform: translateY(-50%); background: #1E293B; color: #FACC15; border: 2.5px solid #FACC15; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; cursor: pointer; z-index: 10; box-shadow: 0 8px 25px rgba(0,0,0,0.35); transition: all 0.3s ease;">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="next-slide-btn" onclick="moveCategorySlide(1)" aria-label="Next Category" style="position: absolute; top: 50%; right: -22px; transform: translateY(-50%); background: #1E293B; color: #FACC15; border: 2.5px solid #FACC15; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; cursor: pointer; z-index: 10; box-shadow: 0 8px 25px rgba(0,0,0,0.35); transition: all 0.3s ease;">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Slide Dots Indicator -->
+        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 24px;">
+          <span class="slide-dot active-dot" onclick="jumpToCategorySlide(0)" style="width: 32px; height: 10px; border-radius: 99px; background: var(--accent-gold); cursor: pointer; transition: all 0.3s ease;"></span>
+          <span class="slide-dot" onclick="jumpToCategorySlide(1)" style="width: 10px; height: 10px; border-radius: 99px; background: rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease;"></span>
+          <span class="slide-dot" onclick="jumpToCategorySlide(2)" style="width: 10px; height: 10px; border-radius: 99px; background: rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease;"></span>
+          <span class="slide-dot" onclick="jumpToCategorySlide(3)" style="width: 10px; height: 10px; border-radius: 99px; background: rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease;"></span>
+          <span class="slide-dot" onclick="jumpToCategorySlide(4)" style="width: 10px; height: 10px; border-radius: 99px; background: rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease;"></span>
+          <span class="slide-dot" onclick="jumpToCategorySlide(5)" style="width: 10px; height: 10px; border-radius: 99px; background: rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease;"></span>
+        </div>
+
       </div>
 
       <div style="margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">

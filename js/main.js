@@ -28,6 +28,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Big Single Category Slideshow Auto-Play & Navigation
+  let currentCategoryIndex = 0;
+  let categoryTimer = null;
+
+  window.showCategorySlide = function(index) {
+    const slides = document.querySelectorAll('.category-slide');
+    const dots = document.querySelectorAll('.slide-dot');
+    if (!slides || slides.length === 0) return;
+
+    if (index >= slides.length) currentCategoryIndex = 0;
+    else if (index < 0) currentCategoryIndex = slides.length - 1;
+    else currentCategoryIndex = index;
+
+    slides.forEach((slide, i) => {
+      slide.style.display = (i === currentCategoryIndex) ? 'block' : 'none';
+    });
+
+    if (dots && dots.length > 0) {
+      dots.forEach((dot, i) => {
+        if (i === currentCategoryIndex) {
+          dot.style.width = '32px';
+          dot.style.background = 'var(--accent-gold)';
+        } else {
+          dot.style.width = '10px';
+          dot.style.background = 'rgba(0,0,0,0.2)';
+        }
+      });
+    }
+  };
+
+  window.moveCategorySlide = function(step) {
+    showCategorySlide(currentCategoryIndex + step);
+    resetCategoryAutoPlay();
+  };
+
+  window.jumpToCategorySlide = function(index) {
+    showCategorySlide(index);
+    resetCategoryAutoPlay();
+  };
+
+  function resetCategoryAutoPlay() {
+    if (categoryTimer) clearInterval(categoryTimer);
+    categoryTimer = setInterval(() => {
+      if (document.querySelectorAll('.category-slide').length > 0) {
+        showCategorySlide(currentCategoryIndex + 1);
+      }
+    }, 4500);
+  }
+
+  resetCategoryAutoPlay();
+
   // Grillista AI Chatbot Logic
   const chatbotLauncher = document.getElementById('chatbot-launcher-btn');
   const chatbotWindow = document.getElementById('chatbot-window');
