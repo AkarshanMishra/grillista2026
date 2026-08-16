@@ -729,6 +729,72 @@ body.dark-theme .filter-btn:hover {
   pointer-events: none;
 }
 
+/* Operator Partner Eligibility & Brand Support Dual Tab Grid Styling */
+.partner-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.partner-grid-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 20px;
+  border-right: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.partner-grid-item:nth-child(3n) {
+  border-right: none;
+}
+
+.partner-grid-item:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.partner-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(153, 27, 27, 0.06);
+  color: #991B1B;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(153, 27, 27, 0.15);
+}
+
+.partner-item-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+  line-height: 1.35;
+}
+
+.partner-item-text {
+  font-size: 0.84rem;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .partner-spec-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .partner-grid-item {
+    border-right: none !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+  }
+  .partner-grid-item:last-child {
+    border-bottom: none !important;
+  }
+}
+
 /* Back to Top Floating Arrow Button */
 .back-to-top-btn {
   position: fixed;

@@ -136,6 +136,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Operator Partner Eligibility & Brand Support Dual Tab Switcher
+  window.switchPartnerTab = function(tabName) {
+    const btnElig = document.getElementById('tab-btn-eligibility');
+    const btnSupp = document.getElementById('tab-btn-support');
+    const contentElig = document.getElementById('tab-content-eligibility');
+    const contentSupp = document.getElementById('tab-content-support');
+
+    if (tabName === 'eligibility') {
+      if (contentElig) contentElig.style.display = 'block';
+      if (contentSupp) contentSupp.style.display = 'none';
+
+      if (btnElig) {
+        btnElig.style.background = '#991B1B';
+        btnElig.style.color = '#FFFFFF';
+        btnElig.style.boxShadow = 'inset 0 -3px 0 #7F1D1D';
+      }
+      if (btnSupp) {
+        btnSupp.style.background = 'transparent';
+        btnSupp.style.color = '#991B1B';
+        btnSupp.style.boxShadow = 'none';
+      }
+    } else if (tabName === 'support') {
+      if (contentElig) contentElig.style.display = 'none';
+      if (contentSupp) contentSupp.style.display = 'block';
+
+      if (btnSupp) {
+        btnSupp.style.background = '#991B1B';
+        btnSupp.style.color = '#FFFFFF';
+        btnSupp.style.boxShadow = 'inset 0 -3px 0 #7F1D1D';
+      }
+      if (btnElig) {
+        btnElig.style.background = 'transparent';
+        btnElig.style.color = '#991B1B';
+        btnElig.style.boxShadow = 'none';
+      }
+    }
+  };
+
   // Back to Top Scroll Arrow Button
   const backToTopBtn = document.getElementById('back-to-top-btn');
   if (backToTopBtn) {
