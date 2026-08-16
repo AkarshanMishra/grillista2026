@@ -219,11 +219,11 @@
           <div>
             <div style="display: flex; align-items: center; gap: 10px;">
               <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
-                <i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> SYSTEM ONLINE &bull; EXECUTIVE CMS v3.5
+                <i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> SYSTEM ONLINE &bull; EXECUTIVE CMS v4.0
               </span>
               <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">Corporate Parent: RK Group of Industries</span>
             </div>
-            <h1 style="font-size: 2rem; color: var(--brand-emerald); margin-top: 6px; font-weight: 900;">Executive 360° Content Management Engine</h1>
+            <h1 style="font-size: 2rem; color: var(--brand-emerald); margin-top: 6px; font-weight: 900;">360° Team, Testimonials, Blogs & Site Content Engine</h1>
           </div>
           
           <button id="dashboard-logout-btn" class="btn btn-outline" style="border-color: rgba(200, 138, 43, 0.4);">
@@ -232,7 +232,7 @@
         </div>
 
         <!-- Metric KPI Cards -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 24px;">
           <div class="enterprise-metric-card">
             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">FRANCHISE LEADS</div>
             <div id="metric-leads" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">0</div>
@@ -240,27 +240,27 @@
           </div>
 
           <div class="enterprise-metric-card">
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">MANAGED TEAM</div>
+            <div id="metric-team" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">3</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Executive Officers</div>
+          </div>
+
+          <div class="enterprise-metric-card">
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">TESTIMONIALS</div>
+            <div id="metric-testimonials" style="font-size: 1.6rem; font-weight: 900; color: var(--accent-gold); margin: 2px 0;">3</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Franchisee Reviews</div>
+          </div>
+
+          <div class="enterprise-metric-card">
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">BLOG REPORTS</div>
+            <div id="metric-blogs" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">3</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Industry Insights</div>
+          </div>
+
+          <div class="enterprise-metric-card">
             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">VEG MENU ITEMS</div>
-            <div id="metric-menu" style="font-size: 1.6rem; font-weight: 900; color: var(--accent-gold); margin: 2px 0;">5</div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Live Menu Collection</div>
-          </div>
-
-          <div class="enterprise-metric-card">
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">EXPANSION CITIES</div>
-            <div id="metric-cities" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">8</div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Store Locator Engine</div>
-          </div>
-
-          <div class="enterprise-metric-card">
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">GALLERY ASSETS</div>
-            <div id="metric-media" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">6</div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Media Showcase</div>
-          </div>
-
-          <div class="enterprise-metric-card">
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">OPERATIONAL STORES</div>
-            <div style="font-size: 1.6rem; font-weight: 900; color: #15803D; margin: 2px 0;">2 Outlets</div>
-            <div style="font-size: 0.72rem; color: #15803D; font-weight: 700;">Barra 2 & Kakadeo</div>
+            <div id="metric-menu" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">5</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Dishes Managed</div>
           </div>
         </div>
 
@@ -273,6 +273,15 @@
             
             <div class="cms-nav-item active" data-target="panel-leads">
               <i class="fa-solid fa-users"></i> Franchise Leads
+            </div>
+            <div class="cms-nav-item" data-target="panel-team">
+              <i class="fa-solid fa-user-tie"></i> Executive Team
+            </div>
+            <div class="cms-nav-item" data-target="panel-testimonials">
+              <i class="fa-solid fa-star"></i> Testimonials CMS
+            </div>
+            <div class="cms-nav-item" data-target="panel-blogs">
+              <i class="fa-solid fa-newspaper"></i> Blogs & Insights
             </div>
             <div class="cms-nav-item" data-target="panel-menu">
               <i class="fa-solid fa-utensils"></i> Veg Menu Manager
@@ -336,17 +345,115 @@
               </div>
             </div>
 
-            <!-- Panel 2: Veg Menu Manager -->
+            <!-- Panel 2: Executive Team Manager -->
+            <div id="panel-team" class="cms-panel-content">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">Manage Executive & Corporate Team</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Manage leadership team profiles displayed across <a href="about.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">about.html</a>.</p>
+                </div>
+              </div>
+
+              <!-- Form to Add Team Member -->
+              <form id="add-team-form" style="display: grid; grid-template-columns: 2fr 1fr 2fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Member Full Name</label>
+                  <input type="text" id="team-name-input" class="form-control" placeholder="e.g. Akarshan Mishra" required>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Designation / Role</label>
+                  <input type="text" id="team-role-input" class="form-control" placeholder="e.g. Founder & CEO" required>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Brief Bio / Background</label>
+                  <input type="text" id="team-bio-input" class="form-control" placeholder="e.g. RK Group Executive Director" required>
+                </div>
+                <button type="submit" class="btn btn-gold" style="height: 46px;"><i class="fa-solid fa-user-plus"></i> Add Team Member</button>
+              </form>
+
+              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Leadership Team Cards (Add, Edit, Update, Delete)</h4>
+              <div id="team-list-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Panel 3: Testimonials Manager -->
+            <div id="panel-testimonials" class="cms-panel-content">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">Manage Franchisee Testimonials</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Manage real franchisee reviews rendered on <a href="index.html#testimonials" target="_blank" style="color: var(--primary-red); font-weight: 700;">index.html</a>.</p>
+                </div>
+              </div>
+
+              <!-- Form to Add Testimonial -->
+              <form id="add-testimonial-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr 2fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Partner Name</label>
+                  <input type="text" id="test-name-input" class="form-control" placeholder="e.g. Rajesh Verma" required>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Outlet Location</label>
+                  <input type="text" id="test-loc-input" class="form-control" placeholder="Barra 2, Kanpur" required>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Net Margin %</label>
+                  <input type="text" id="test-margin-input" class="form-control" placeholder="32% Net Margin" required>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Review Quote</label>
+                  <input type="text" id="test-quote-input" class="form-control" placeholder="Grillista automated kitchens enabled 14-month payback!" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="height: 46px;"><i class="fa-solid fa-star"></i> Add Review</button>
+              </form>
+
+              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Testimonial Reviews Cards (Add, Edit, Update, Delete)</h4>
+              <div id="testimonials-list-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Panel 4: Blogs & Insights Manager -->
+            <div id="panel-blogs" class="cms-panel-content">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">Manage Industry Blogs & Market Insights</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Manage executive market reports on <a href="index.html#blogs" target="_blank" style="color: var(--primary-red); font-weight: 700;">index.html</a>.</p>
+                </div>
+              </div>
+
+              <!-- Form to Add Blog -->
+              <form id="add-blog-form" style="display: grid; grid-template-columns: 2fr 1fr 2fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Blog Title</label>
+                  <input type="text" id="blog-title-input" class="form-control" placeholder="e.g. Why Tier 2 UP Cities are the Next QSR Boom" required>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Category Tag</label>
+                  <input type="text" id="blog-tag-input" class="form-control" placeholder="INDUSTRY INSIGHTS" required>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Summary Teaser</label>
+                  <input type="text" id="blog-teaser-input" class="form-control" placeholder="Detailed analysis of consumer spending in Kanpur..." required>
+                </div>
+                <button type="submit" class="btn btn-gold" style="height: 46px;"><i class="fa-solid fa-newspaper"></i> Publish Blog</button>
+              </form>
+
+              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Executive Blog Cards (Add, Edit, Update, Delete)</h4>
+              <div id="blogs-list-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Panel 5: Veg Menu Manager -->
             <div id="panel-menu" class="cms-panel-content">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
                 <div>
                   <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">100% Pure Veg Menu Manager</h3>
                   <p style="font-size: 0.85rem; color: var(--text-muted);">Manage dishes rendered live on <a href="menu.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">menu.html</a>.</p>
                 </div>
-                <button id="btn-show-add-menu" class="btn btn-gold btn-sm"><i class="fa-solid fa-plus"></i> Add New Menu Item</button>
               </div>
 
-              <!-- Add Form (Hidden by default or toggled) -->
               <form id="add-menu-item-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Item Name</label>
@@ -375,17 +482,15 @@
               </div>
             </div>
 
-            <!-- Panel 3: Store Locator & Expansion Cities Manager -->
+            <!-- Panel 6: Store Locator & Expansion Cities Manager -->
             <div id="panel-locator" class="cms-panel-content">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
                 <div>
                   <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">Store Locator & Expansion Cities CMS</h3>
                   <p style="font-size: 0.85rem; color: var(--text-muted);">Manage territory availability and cities for <a href="locator.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">locator.html</a>.</p>
                 </div>
-                <button id="btn-show-add-city" class="btn btn-gold btn-sm"><i class="fa-solid fa-plus"></i> Add Expansion City</button>
               </div>
 
-              <!-- Add City Form -->
               <form id="add-city-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">City Name</label>
@@ -418,14 +523,13 @@
               </div>
             </div>
 
-            <!-- Panel 4: Media Gallery Manager -->
+            <!-- Panel 7: Media Gallery Manager -->
             <div id="panel-gallery" class="cms-panel-content">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
                 <div>
                   <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">Media Gallery Manager</h3>
                   <p style="font-size: 0.85rem; color: var(--text-muted);">Manage photo & video assets on <a href="gallery.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">gallery.html</a>.</p>
                 </div>
-                <button id="btn-show-add-media" class="btn btn-gold btn-sm"><i class="fa-solid fa-plus"></i> Add Media Asset</button>
               </div>
 
               <form id="add-media-form" style="display: grid; grid-template-columns: 2fr 1fr 2fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
@@ -461,12 +565,11 @@
               </div>
             </div>
 
-            <!-- Panel 5: Home Page Content -->
+            <!-- Panel 8: Home Page Content -->
             <div id="panel-home" class="cms-panel-content">
               <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Home Page Content & Sections CMS</h3>
               <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Edit Hero Headlines & FAQ Categories for <a href="index.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">index.html</a>.</p>
 
-              <!-- Hero Form -->
               <div style="background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); border-radius: 16px; padding: 20px; margin-bottom: 28px;">
                 <h4 style="font-size: 1.1rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 14px;"><i class="fa-solid fa-pen"></i> Edit Hero Showcase Headlines</h4>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
@@ -483,7 +586,7 @@
               </div>
             </div>
 
-            <!-- Panel 6: About Us Page CMS -->
+            <!-- Panel 9: About Us Page CMS -->
             <div id="panel-about" class="cms-panel-content">
               <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">About Us Page CMS</h3>
               <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage RK Group corporate details for <a href="about.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">about.html</a>.</p>
@@ -501,7 +604,7 @@
               </div>
             </div>
 
-            <!-- Panel 7: Franchise Models CMS -->
+            <!-- Panel 10: Franchise Models CMS -->
             <div id="panel-prospectus" class="cms-panel-content">
               <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Franchise Investment Models CMS</h3>
               <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage Mini Bistro (₹12L) and Classic Lounge (₹16L) parameters for <a href="franchise.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">franchise.html</a>.</p>
@@ -547,12 +650,12 @@
         </div>
 
         <div class="form-group" style="margin-bottom: 16px;">
-          <label style="font-size: 0.85rem; font-weight: 700;">Category / Type</label>
+          <label style="font-size: 0.85rem; font-weight: 700;">Category / Role</label>
           <input type="text" id="edit-field-cat" class="form-control">
         </div>
 
         <div class="form-group" style="margin-bottom: 24px;">
-          <label style="font-size: 0.85rem; font-weight: 700;">Price / Status Value</label>
+          <label style="font-size: 0.85rem; font-weight: 700;">Value / Bio / Quote</label>
           <input type="text" id="edit-field-val" class="form-control">
         </div>
 
@@ -638,7 +741,7 @@
         });
       });
 
-      // Load All Dashboard Data (Leads, Menu, Cities, Media)
+      // Load Dashboard Data (Leads, Team, Testimonials, Blogs, Menu, Cities, Media)
       function loadDashboardData() {
         // 1. Leads
         const leads = JSON.parse(localStorage.getItem('grillista_franchise_leads') || '[]');
@@ -679,7 +782,164 @@
           }
         }
 
-        // 2. Menu Items
+        // 2. Executive Team
+        let team = JSON.parse(localStorage.getItem('grillista_team_members') || '[]');
+        if (team.length === 0) {
+          team = [
+            { name: 'Akarshan Mishra', role: 'Founder & Managing Director', bio: 'RK Group Executive Leadership' },
+            { name: 'R.K. Sharma', role: 'Chairman & Parent Group Head', bio: 'RK Group of Industries Kanpur' },
+            { name: 'Chef Vikrant Singh', role: 'Culinary & R&D Director', bio: 'Master Recipe Developer' }
+          ];
+          localStorage.setItem('grillista_team_members', JSON.stringify(team));
+        }
+
+        const metricTeam = document.getElementById('metric-team');
+        if (metricTeam) metricTeam.innerText = team.length;
+
+        const teamContainer = document.getElementById('team-list-container');
+        if (teamContainer) {
+          teamContainer.innerHTML = '';
+          team.forEach((t, idx) => {
+            const div = document.createElement('div');
+            div.className = 'item-manage-card';
+            div.innerHTML = `
+              <div>
+                <strong style="font-size: 1.05rem; color: var(--brand-emerald);">${t.name}</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+                  Role: <strong>${t.role}</strong> &bull; Bio: ${t.bio}
+                </div>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-gold btn-sm edit-team-btn" data-idx="${idx}"><i class="fa-solid fa-pen-to-square"></i> Edit & Update</button>
+                <button class="btn btn-outline btn-sm delete-team-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete</button>
+              </div>
+            `;
+            teamContainer.appendChild(div);
+          });
+
+          document.querySelectorAll('.edit-team-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              const t = team[idx];
+              openEditModal('team', idx, t.name, t.role, t.bio);
+            });
+          });
+
+          document.querySelectorAll('.delete-team-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              team.splice(idx, 1);
+              localStorage.setItem('grillista_team_members', JSON.stringify(team));
+              loadDashboardData();
+            });
+          });
+        }
+
+        // 3. Testimonials
+        let testimonials = JSON.parse(localStorage.getItem('grillista_testimonials') || '[]');
+        if (testimonials.length === 0) {
+          testimonials = [
+            { name: 'Rajesh Verma', loc: 'Barra 2, Kanpur', margin: '34% Net Margin', quote: 'Grillista automated kitchens enabled 14-month payback in Kanpur!' },
+            { name: 'Amit Saxena', loc: 'Kakadeo, Kanpur', margin: '31% Net Margin', quote: 'Delivering 600+ orders daily to coaching students effortlessly.' },
+            { name: 'Priya Srivastava', loc: 'Lucknow Master Franchise', margin: '36% Net Margin', quote: 'Turnkey store fabrication and 100% pure veg positioning was a huge hit.' }
+          ];
+          localStorage.setItem('grillista_testimonials', JSON.stringify(testimonials));
+        }
+
+        const metricTestimonials = document.getElementById('metric-testimonials');
+        if (metricTestimonials) metricTestimonials.innerText = testimonials.length;
+
+        const testContainer = document.getElementById('testimonials-list-container');
+        if (testContainer) {
+          testContainer.innerHTML = '';
+          testimonials.forEach((item, idx) => {
+            const div = document.createElement('div');
+            div.className = 'item-manage-card';
+            div.innerHTML = `
+              <div>
+                <strong style="font-size: 1.05rem; color: var(--brand-emerald);">${item.name} (${item.loc})</strong>
+                <span style="background: #FEF3C7; color: #B45309; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 99px; margin-left: 8px;">${item.margin}</span>
+                <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; font-style: italic;">"${item.quote}"</div>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-gold btn-sm edit-test-btn" data-idx="${idx}"><i class="fa-solid fa-pen-to-square"></i> Edit & Update</button>
+                <button class="btn btn-outline btn-sm delete-test-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete</button>
+              </div>
+            `;
+            testContainer.appendChild(div);
+          });
+
+          document.querySelectorAll('.edit-test-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              const item = testimonials[idx];
+              openEditModal('testimonial', idx, item.name, item.loc, item.quote);
+            });
+          });
+
+          document.querySelectorAll('.delete-test-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              testimonials.splice(idx, 1);
+              localStorage.setItem('grillista_testimonials', JSON.stringify(testimonials));
+              loadDashboardData();
+            });
+          });
+        }
+
+        // 4. Blogs & Insights
+        let blogs = JSON.parse(localStorage.getItem('grillista_blogs') || '[]');
+        if (blogs.length === 0) {
+          blogs = [
+            { title: 'Why Tier 2 UP Cities are the Next Big Food Franchise Boom', tag: 'INDUSTRY REPORT', teaser: 'Detailed market analysis of dining out trends in Kanpur, Lucknow, and Varanasi.' },
+            { title: '100% Pure Veg Fast-Casual QSR vs Multi-Cuisine Cloud Kitchens', tag: 'MARKET INSIGHT', teaser: 'Comparative unit economics and consumer trust in pure veg QSR chains.' },
+            { title: 'Turnkey Store Fabrication: From Site Approval to Store Launch in 30 Days', tag: 'FRANCHISE GUIDE', teaser: 'Step-by-step breakdown of Grillista FOFO store setup process.' }
+          ];
+          localStorage.setItem('grillista_blogs', JSON.stringify(blogs));
+        }
+
+        const metricBlogs = document.getElementById('metric-blogs');
+        if (metricBlogs) metricBlogs.innerText = blogs.length;
+
+        const blogsContainer = document.getElementById('blogs-list-container');
+        if (blogsContainer) {
+          blogsContainer.innerHTML = '';
+          blogs.forEach((b, idx) => {
+            const div = document.createElement('div');
+            div.className = 'item-manage-card';
+            div.innerHTML = `
+              <div>
+                <strong style="font-size: 1.05rem; color: var(--brand-emerald);">${b.title}</strong>
+                <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 99px; margin-left: 8px;">${b.tag}</span>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">${b.teaser}</div>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-gold btn-sm edit-blog-btn" data-idx="${idx}"><i class="fa-solid fa-pen-to-square"></i> Edit & Update</button>
+                <button class="btn btn-outline btn-sm delete-blog-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete</button>
+              </div>
+            `;
+            blogsContainer.appendChild(div);
+          });
+
+          document.querySelectorAll('.edit-blog-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              const b = blogs[idx];
+              openEditModal('blog', idx, b.title, b.tag, b.teaser);
+            });
+          });
+
+          document.querySelectorAll('.delete-blog-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              blogs.splice(idx, 1);
+              localStorage.setItem('grillista_blogs', JSON.stringify(blogs));
+              loadDashboardData();
+            });
+          });
+        }
+
+        // 5. Menu Items
         let menuItems = JSON.parse(localStorage.getItem('grillista_veg_menu') || '[]');
         if (menuItems.length === 0) {
           menuItems = [
@@ -734,7 +994,7 @@
           });
         }
 
-        // 3. Expansion Cities
+        // 6. Cities
         let cities = JSON.parse(localStorage.getItem('grillista_territory_cities') || '[]');
         if (cities.length === 0) {
           cities = [
@@ -749,9 +1009,6 @@
           ];
           localStorage.setItem('grillista_territory_cities', JSON.stringify(cities));
         }
-
-        const metricCities = document.getElementById('metric-cities');
-        if (metricCities) metricCities.innerText = cities.length;
 
         const citiesContainer = document.getElementById('cities-list-container');
         if (citiesContainer) {
@@ -789,63 +1046,6 @@
             });
           });
         }
-
-        // 4. Media Gallery Items
-        let mediaItems = JSON.parse(localStorage.getItem('grillista_gallery_media') || '[]');
-        if (mediaItems.length === 0) {
-          mediaItems = [
-            { title: 'Yellow Booth Dine-In Lounge', category: 'interiors', url: 'assets/images/store_bg.jpg' },
-            { title: 'Signature Gourmet Veg Burger', category: 'food', url: 'assets/images/burger.jpg' },
-            { title: 'Crispy Flame-Seasoned Fries', category: 'food', url: 'assets/images/french_fries.jpg' },
-            { title: 'Gourmet Creamy Italian Pasta', category: 'food', url: 'assets/images/pasta.jpg' },
-            { title: 'Registered Brand Emblem', category: 'brand', url: 'assets/images/logo.jpg' },
-            { title: 'Kakadeo Express Outlet', category: 'interiors', url: 'assets/images/store_bg.jpg' }
-          ];
-          localStorage.setItem('grillista_gallery_media', JSON.stringify(mediaItems));
-        }
-
-        const metricMedia = document.getElementById('metric-media');
-        if (metricMedia) metricMedia.innerText = mediaItems.length;
-
-        const mediaContainer = document.getElementById('media-list-container');
-        if (mediaContainer) {
-          mediaContainer.innerHTML = '';
-          mediaItems.forEach((m, idx) => {
-            const div = document.createElement('div');
-            div.style.cssText = 'background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;';
-            div.innerHTML = `
-              <div>
-                <div style="height: 120px; overflow: hidden; border-radius: 10px; margin-bottom: 12px;">
-                  <img src="${m.url}" alt="${m.title}" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <strong style="font-size: 0.95rem; color: var(--brand-emerald);">${m.title}</strong>
-                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px;">Category: ${m.category}</div>
-              </div>
-              <div style="display: flex; gap: 8px; margin-top: 14px;">
-                <button class="btn btn-gold btn-sm edit-media-btn" data-idx="${idx}" style="flex: 1; justify-content: center;"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
-                <button class="btn btn-outline btn-sm delete-media-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i></button>
-              </div>
-            `;
-            mediaContainer.appendChild(div);
-          });
-
-          document.querySelectorAll('.edit-media-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-              const idx = parseInt(btn.getAttribute('data-idx'));
-              const m = mediaItems[idx];
-              openEditModal('media', idx, m.title, m.category, m.url);
-            });
-          });
-
-          document.querySelectorAll('.delete-media-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-              const idx = parseInt(btn.getAttribute('data-idx'));
-              mediaItems.splice(idx, 1);
-              localStorage.setItem('grillista_gallery_media', JSON.stringify(mediaItems));
-              loadDashboardData();
-            });
-          });
-        }
       }
 
       // Universal Open Edit Modal Handler
@@ -875,7 +1075,31 @@
           const cat = document.getElementById('edit-field-cat').value;
           const val = document.getElementById('edit-field-val').value;
 
-          if (type === 'menu') {
+          if (type === 'team') {
+            const team = JSON.parse(localStorage.getItem('grillista_team_members') || '[]');
+            if (team[idx]) {
+              team[idx].name = title;
+              team[idx].role = cat;
+              team[idx].bio = val;
+              localStorage.setItem('grillista_team_members', JSON.stringify(team));
+            }
+          } else if (type === 'testimonial') {
+            const testimonials = JSON.parse(localStorage.getItem('grillista_testimonials') || '[]');
+            if (testimonials[idx]) {
+              testimonials[idx].name = title;
+              testimonials[idx].loc = cat;
+              testimonials[idx].quote = val;
+              localStorage.setItem('grillista_testimonials', JSON.stringify(testimonials));
+            }
+          } else if (type === 'blog') {
+            const blogs = JSON.parse(localStorage.getItem('grillista_blogs') || '[]');
+            if (blogs[idx]) {
+              blogs[idx].title = title;
+              blogs[idx].tag = cat;
+              blogs[idx].teaser = val;
+              localStorage.setItem('grillista_blogs', JSON.stringify(blogs));
+            }
+          } else if (type === 'menu') {
             const menuItems = JSON.parse(localStorage.getItem('grillista_veg_menu') || '[]');
             if (menuItems[idx]) {
               menuItems[idx].name = title;
@@ -891,17 +1115,66 @@
               cities[idx].status = val;
               localStorage.setItem('grillista_territory_cities', JSON.stringify(cities));
             }
-          } else if (type === 'media') {
-            const mediaItems = JSON.parse(localStorage.getItem('grillista_gallery_media') || '[]');
-            if (mediaItems[idx]) {
-              mediaItems[idx].title = title;
-              mediaItems[idx].category = cat;
-              mediaItems[idx].url = val;
-              localStorage.setItem('grillista_gallery_media', JSON.stringify(mediaItems));
-            }
           }
 
           if (editModal) editModal.classList.remove('active');
+          loadDashboardData();
+        });
+      }
+
+      // Add Team Form Submit
+      const addTeamForm = document.getElementById('add-team-form');
+      if (addTeamForm) {
+        addTeamForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('team-name-input').value;
+          const role = document.getElementById('team-role-input').value;
+          const bio = document.getElementById('team-bio-input').value;
+
+          const team = JSON.parse(localStorage.getItem('grillista_team_members') || '[]');
+          team.push({ name, role, bio });
+          localStorage.setItem('grillista_team_members', JSON.stringify(team));
+
+          document.getElementById('team-name-input').value = '';
+          document.getElementById('team-role-input').value = '';
+          document.getElementById('team-bio-input').value = '';
+          loadDashboardData();
+        });
+      }
+
+      // Add Testimonial Form Submit
+      const addTestForm = document.getElementById('add-testimonial-form');
+      if (addTestForm) {
+        addTestForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('test-name-input').value;
+          const loc = document.getElementById('test-loc-input').value;
+          const margin = document.getElementById('test-margin-input').value;
+          const quote = document.getElementById('test-quote-input').value;
+
+          const testimonials = JSON.parse(localStorage.getItem('grillista_testimonials') || '[]');
+          testimonials.push({ name, loc, margin, quote });
+          localStorage.setItem('grillista_testimonials', JSON.stringify(testimonials));
+
+          document.getElementById('test-name-input').value = '';
+          loadDashboardData();
+        });
+      }
+
+      // Add Blog Form Submit
+      const addBlogForm = document.getElementById('add-blog-form');
+      if (addBlogForm) {
+        addBlogForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const title = document.getElementById('blog-title-input').value;
+          const tag = document.getElementById('blog-tag-input').value;
+          const teaser = document.getElementById('blog-teaser-input').value;
+
+          const blogs = JSON.parse(localStorage.getItem('grillista_blogs') || '[]');
+          blogs.push({ title, tag, teaser });
+          localStorage.setItem('grillista_blogs', JSON.stringify(blogs));
+
+          document.getElementById('blog-title-input').value = '';
           loadDashboardData();
         });
       }
@@ -938,25 +1211,6 @@
           localStorage.setItem('grillista_territory_cities', JSON.stringify(cities));
 
           document.getElementById('city-name-input').value = '';
-          loadDashboardData();
-        });
-      }
-
-      // Add Media Form Submit
-      const addMediaForm = document.getElementById('add-media-form');
-      if (addMediaForm) {
-        addMediaForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const title = document.getElementById('media-title').value;
-          const type = document.getElementById('media-type').value;
-          const url = document.getElementById('media-url').value;
-          const cat = document.getElementById('media-cat').value;
-
-          const mediaItems = JSON.parse(localStorage.getItem('grillista_gallery_media') || '[]');
-          mediaItems.push({ title, type, url, category: cat });
-          localStorage.setItem('grillista_gallery_media', JSON.stringify(mediaItems));
-
-          document.getElementById('media-title').value = '';
           loadDashboardData();
         });
       }
