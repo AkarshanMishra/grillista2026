@@ -361,44 +361,28 @@
     </div>
   </div>
 
-  <!-- Floating Side Action Dock (Auto-Hides on Scroll) -->
-  <aside class="side-action-dock" id="side-action-dock">
-    <button class="dock-tab-toggle" id="dock-toggle-btn" aria-label="Toggle Side Menu">
+  <!-- Floating Side Action Dock (Pitch Black Vertical Tab Bar with Toggle Arrow) -->
+  <aside class="floating-side-dock" id="side-action-dock">
+    <button class="dock-item dock-item-toggle" id="dock-toggle-btn" aria-label="Toggle Side Action Menu">
       <i class="fa-solid fa-arrow-right" id="dock-toggle-icon"></i>
     </button>
-    <div class="dock-content">
-      <div class="dock-header">
-        <span class="dock-badge"><i class="fa-solid fa-bolt"></i> QUICK ACTIONS</span>
-      </div>
-      <div class="dock-body">
-        <a href="tel:+916386818682" class="dock-action-item">
-          <div class="dock-item-icon phone-icon"><i class="fa-solid fa-phone"></i></div>
-          <div class="dock-item-text">
-            <span class="dock-item-title">Call Franchise HQ</span>
-            <span class="dock-item-sub">+91 63868 18682</span>
-          </div>
-        </a>
-        <a href="https://wa.me/916386818682?text=Hello%20Grillista%20Team,%20I%20want%20to%20know%20more%20about%20store%20locations." target="_blank" class="dock-action-item">
-          <div class="dock-item-icon whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></div>
-          <div class="dock-item-text">
-            <span class="dock-item-title">WhatsApp Desk</span>
-            <span class="dock-item-sub">Instant Support</span>
-          </div>
-        </a>
-        <a href="#" class="dock-action-item trigger-apply-modal">
-          <div class="dock-item-icon apply-icon"><i class="fa-solid fa-file-signature"></i></div>
-          <div class="dock-item-text">
-            <span class="dock-item-title">Apply Online</span>
-            <span class="dock-item-sub">Territory Prospectus</span>
-          </div>
-        </a>
-      </div>
-    </div>
+    <a href="https://wa.me/916386818682?text=Hello%20Grillista%20Team,%20I%20want%20to%20know%20more%20about%20store%20locations." target="_blank" class="dock-item dock-item-whatsapp" aria-label="WhatsApp Us">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="dock-tooltip">WhatsApp Franchise Desk</span>
+    </a>
+    <a href="tel:+916386818682" class="dock-item dock-item-phone" aria-label="Call Franchise Hotline">
+      <i class="fa-solid fa-phone"></i>
+      <span class="dock-tooltip">Call +91 63868 18682</span>
+    </a>
+    <a href="mailto:grillistakanpur@gmail.com" class="dock-item dock-item-email" aria-label="Email Us">
+      <i class="fa-solid fa-envelope"></i>
+      <span class="dock-tooltip">Email Corporate HQ</span>
+    </a>
   </aside>
 
-  <!-- Back to Top Scroll Button -->
-  <button id="back-to-top-btn" class="back-to-top" aria-label="Back to Top">
-    <i class="fa-solid fa-chevron-up"></i>
+  <!-- Back to Top Floating Arrow Button -->
+  <button class="back-to-top-btn" id="back-to-top-btn" title="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
   </button>
 
   <!-- Footer -->
