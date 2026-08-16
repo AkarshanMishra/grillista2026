@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Corporate CMS & Admin Dashboard | GRILLISTA</title>
-  <meta name="description" content="Official Full-Stack Corporate CMS & Site Management Portal for Grillista QSR Chain (RK Group of Industries).">
+  <title>Corporate CMS & Executive Admin Portal | GRILLISTA</title>
+  <meta name="description" content="Official Executive CMS & Site Management Portal for Grillista QSR Chain (RK Group of Industries).">
   
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
@@ -111,13 +111,42 @@
     }
     .item-manage-card {
       background: #FAF7F2;
-      border: 1px solid var(--border-light);
-      border-radius: 14px;
-      padding: 16px;
+      border: 1.5px solid rgba(200, 138, 43, 0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    /* Universal Edit Modal */
+    .edit-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 46, 35, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .edit-modal-overlay.active {
+      display: flex;
+    }
+    .edit-modal-box {
+      background: #FFFFFF;
+      border: 2px solid var(--accent-gold);
+      border-radius: 24px;
+      max-width: 520px;
+      width: 100%;
+      padding: 32px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
     }
     @media (max-width: 992px) {
       .cms-container {
@@ -135,7 +164,7 @@
         <img src="assets/images/logo.jpg" alt="Grillista Logo" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--accent-gold);">
         <div>
           <div style="font-family: var(--font-heading); font-weight: 900; font-size: 1.3rem; color: #FFFFFF; letter-spacing: -0.02em;">GRILLISTA</div>
-          <div style="font-size: 0.7rem; color: var(--accent-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;">360° Site Page & Section CMS</div>
+          <div style="font-size: 0.7rem; color: var(--accent-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;">Executive CMS & Content Engine</div>
         </div>
       </a>
 
@@ -160,7 +189,7 @@
             <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(185, 28, 28, 0.1); color: var(--primary-red); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 16px auto;">
               <i class="fa-solid fa-lock"></i>
             </div>
-            <h2 style="font-size: 1.8rem; color: var(--brand-emerald); font-weight: 800;">Corporate CMS Login</h2>
+            <h2 style="font-size: 1.8rem; color: var(--brand-emerald); font-weight: 800;">Executive CMS Login</h2>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Enter enterprise credentials to manage website leads & content.</p>
           </div>
 
@@ -182,7 +211,7 @@
         </div>
       </div>
 
-      <!-- Professional Enterprise CMS Dashboard -->
+      <!-- Professional Executive CMS Dashboard -->
       <div id="admin-dashboard-wrapper" style="display: none;">
         
         <!-- Header Controls Bar -->
@@ -190,11 +219,11 @@
           <div>
             <div style="display: flex; align-items: center; gap: 10px;">
               <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
-                <i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> SYSTEM ONLINE &bull; 360° SITE CMS v3.0
+                <i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> SYSTEM ONLINE &bull; EXECUTIVE CMS v3.5
               </span>
               <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">Corporate Parent: RK Group of Industries</span>
             </div>
-            <h1 style="font-size: 2rem; color: var(--brand-emerald); margin-top: 6px; font-weight: 900;">All Pages & Sections Content Management Engine</h1>
+            <h1 style="font-size: 2rem; color: var(--brand-emerald); margin-top: 6px; font-weight: 900;">Executive 360° Content Management Engine</h1>
           </div>
           
           <button id="dashboard-logout-btn" class="btn btn-outline" style="border-color: rgba(200, 138, 43, 0.4);">
@@ -207,13 +236,13 @@
           <div class="enterprise-metric-card">
             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">FRANCHISE LEADS</div>
             <div id="metric-leads" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">0</div>
-            <div style="font-size: 0.72rem; color: #15803D; font-weight: 700;"><i class="fa-solid fa-arrow-trend-up"></i> Live Leads</div>
+            <div style="font-size: 0.72rem; color: #15803D; font-weight: 700;"><i class="fa-solid fa-arrow-trend-up"></i> Live Inquiries</div>
           </div>
 
           <div class="enterprise-metric-card">
             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">VEG MENU ITEMS</div>
             <div id="metric-menu" style="font-size: 1.6rem; font-weight: 900; color: var(--accent-gold); margin: 2px 0;">5</div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Menu Page Synced</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Live Menu Collection</div>
           </div>
 
           <div class="enterprise-metric-card">
@@ -229,7 +258,7 @@
           </div>
 
           <div class="enterprise-metric-card">
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">OPERATIONAL OUTLETS</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">OPERATIONAL STORES</div>
             <div style="font-size: 1.6rem; font-weight: 900; color: #15803D; margin: 2px 0;">2 Outlets</div>
             <div style="font-size: 0.72rem; color: #15803D; font-weight: 700;">Barra 2 & Kakadeo</div>
           </div>
@@ -245,9 +274,6 @@
             <div class="cms-nav-item active" data-target="panel-leads">
               <i class="fa-solid fa-users"></i> Franchise Leads
             </div>
-            <div class="cms-nav-item" data-target="panel-home">
-              <i class="fa-solid fa-house"></i> Home Page CMS
-            </div>
             <div class="cms-nav-item" data-target="panel-menu">
               <i class="fa-solid fa-utensils"></i> Veg Menu Manager
             </div>
@@ -257,11 +283,14 @@
             <div class="cms-nav-item" data-target="panel-gallery">
               <i class="fa-solid fa-images"></i> Media Gallery Manager
             </div>
+            <div class="cms-nav-item" data-target="panel-home">
+              <i class="fa-solid fa-house"></i> Home Page Content
+            </div>
             <div class="cms-nav-item" data-target="panel-about">
-              <i class="fa-solid fa-building"></i> About Us Page CMS
+              <i class="fa-solid fa-building"></i> About Us Page
             </div>
             <div class="cms-nav-item" data-target="panel-prospectus">
-              <i class="fa-solid fa-file-contract"></i> Franchise Models CMS
+              <i class="fa-solid fa-file-contract"></i> Franchise Models
             </div>
           </div>
 
@@ -307,57 +336,21 @@
               </div>
             </div>
 
-            <!-- Panel 2: Home Page CMS -->
-            <div id="panel-home" class="cms-panel-content">
-              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Home Page Content & Sections CMS</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Edit Hero Headlines, FAQ Categories, Executive Testimonials, and Industry Blog Reports for <a href="index.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">index.html</a>.</p>
-
-              <!-- Hero Section Form -->
-              <div style="background: #FAF7F2; border: 1.5px solid var(--border-light); border-radius: 16px; padding: 20px; margin-bottom: 28px;">
-                <h4 style="font-size: 1.1rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 14px;"><i class="fa-solid fa-pen"></i> Edit Hero Showcase Headlines</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
-                  <div>
-                    <label style="font-size: 0.8rem; font-weight: 700;">Gold Shimmer Badge</label>
-                    <input type="text" id="home-hero-badge" class="form-control" value="👑 ULTIMATE FAST-CASUAL VEG FRANCHISE IN INDIA">
-                  </div>
-                  <div>
-                    <label style="font-size: 0.8rem; font-weight: 700;">Main Heading Text</label>
-                    <input type="text" id="home-hero-title" class="form-control" value="Launch Your Own High-ROI 100% Pure Veg Gourmet Franchise">
-                  </div>
-                  <div>
-                    <label style="font-size: 0.8rem; font-weight: 700;">Primary CTA Button Text</label>
-                    <input type="text" id="home-hero-cta1" class="form-control" value="Apply For Franchise (₹)">
-                  </div>
-                  <div>
-                    <label style="font-size: 0.8rem; font-weight: 700;">Secondary CTA Button Text</label>
-                    <input type="text" id="home-hero-cta2" class="form-control" value="Calculate Store Profitability">
-                  </div>
-                </div>
-                <button id="save-home-hero-btn" class="btn btn-gold btn-sm" style="margin-top: 14px;"><i class="fa-solid fa-floppy-disk"></i> Update Hero Content</button>
-              </div>
-
-              <!-- FAQ Category Manager -->
-              <div style="margin-bottom: 28px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-                  <h4 style="font-size: 1.1rem; color: var(--brand-emerald); font-weight: 800; margin: 0;"><i class="fa-solid fa-circle-question"></i> Manage FAQ Categories (Reference Image Layout)</h4>
-                  <button id="add-faq-cat-btn" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add FAQ Category</button>
-                </div>
-
-                <div id="faq-categories-cms-list" style="display: flex; flex-direction: column; gap: 10px;">
-                  <!-- Populated dynamically -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Panel 3: Veg Menu Manager -->
+            <!-- Panel 2: Veg Menu Manager -->
             <div id="panel-menu" class="cms-panel-content">
-              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">100% Pure Veg Menu Manager (Add, Edit, Update, Delete)</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage items displayed on main site and dedicated <a href="menu.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">menu.html</a> page.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">100% Pure Veg Menu Manager</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Manage dishes rendered live on <a href="menu.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">menu.html</a>.</p>
+                </div>
+                <button id="btn-show-add-menu" class="btn btn-gold btn-sm"><i class="fa-solid fa-plus"></i> Add New Menu Item</button>
+              </div>
 
-              <form id="add-menu-item-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid var(--border-light); padding: 18px; border-radius: 16px; align-items: end;">
+              <!-- Add Form (Hidden by default or toggled) -->
+              <form id="add-menu-item-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Item Name</label>
-                  <input type="text" id="menu-name-input" class="form-control" placeholder="e.g. Charcoal Paneer Burger" required>
+                  <input type="text" id="menu-name-input" class="form-control" placeholder="e.g. Paneer Tikka Burger" required>
                 </div>
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Category</label>
@@ -373,25 +366,30 @@
                   <label style="font-size: 0.8rem; font-weight: 700;">Price (INR ₹)</label>
                   <input type="number" id="menu-price-input" class="form-control" placeholder="149" required>
                 </div>
-                <button type="submit" class="btn btn-primary" style="height: 46px;"><i class="fa-solid fa-plus"></i> Add Item</button>
+                <button type="submit" class="btn btn-primary" style="height: 46px;"><i class="fa-solid fa-plus"></i> Save Item</button>
               </form>
 
-              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Veg Menu Collection</h4>
-              <div id="menu-list-container" style="display: flex; flex-direction: column; gap: 10px;">
+              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Menu Collection Cards (Add, Edit, Update, Delete)</h4>
+              <div id="menu-list-container" style="display: flex; flex-direction: column; gap: 12px;">
                 <!-- Populated dynamically -->
               </div>
             </div>
 
-            <!-- Panel 4: Store Locator & Cities Manager -->
+            <!-- Panel 3: Store Locator & Expansion Cities Manager -->
             <div id="panel-locator" class="cms-panel-content">
-              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Store Locator & Available Cities Manager</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage running outlets and expansion cities for <a href="locator.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">locator.html</a>.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">Store Locator & Expansion Cities CMS</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Manage territory availability and cities for <a href="locator.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">locator.html</a>.</p>
+                </div>
+                <button id="btn-show-add-city" class="btn btn-gold btn-sm"><i class="fa-solid fa-plus"></i> Add Expansion City</button>
+              </div>
 
               <!-- Add City Form -->
-              <form id="add-city-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid var(--border-light); padding: 18px; border-radius: 16px; align-items: end;">
+              <form id="add-city-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">City Name</label>
-                  <input type="text" id="city-name-input" class="form-control" placeholder="e.g. Kanpur, Lucknow, Varanasi..." required>
+                  <input type="text" id="city-name-input" class="form-control" placeholder="e.g. Varanasi, Lucknow..." required>
                 </div>
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">State Code</label>
@@ -404,28 +402,33 @@
                   </select>
                 </div>
                 <div>
-                  <label style="font-size: 0.8rem; font-weight: 700;">Status</label>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Availability Status</label>
                   <select id="city-status-input" class="form-control">
                     <option value="AVAILABLE NOW">AVAILABLE NOW</option>
                     <option value="TERRITORY BOOKED">TERRITORY BOOKED</option>
                     <option value="STORES LIVE">STORES LIVE</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-gold" style="height: 46px;"><i class="fa-solid fa-plus"></i> Add City</button>
+                <button type="submit" class="btn btn-gold" style="height: 46px;"><i class="fa-solid fa-plus"></i> Save City</button>
               </form>
 
-              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Franchise Territory Cities</h4>
-              <div id="cities-list-container" style="display: flex; flex-direction: column; gap: 10px;">
+              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Expansion Territory Cards (Add, Edit, Update, Delete)</h4>
+              <div id="cities-list-container" style="display: flex; flex-direction: column; gap: 12px;">
                 <!-- Populated dynamically -->
               </div>
             </div>
 
-            <!-- Panel 5: Media Gallery Manager -->
+            <!-- Panel 4: Media Gallery Manager -->
             <div id="panel-gallery" class="cms-panel-content">
-              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Media Gallery Manager (Add, Edit, Update, Delete)</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage gallery photo assets rendered live on <a href="gallery.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">gallery.html</a>.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">Media Gallery Manager</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Manage photo & video assets on <a href="gallery.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">gallery.html</a>.</p>
+                </div>
+                <button id="btn-show-add-media" class="btn btn-gold btn-sm"><i class="fa-solid fa-plus"></i> Add Media Asset</button>
+              </div>
 
-              <form id="add-media-form" style="display: grid; grid-template-columns: 2fr 1fr 2fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid var(--border-light); padding: 18px; border-radius: 16px; align-items: end;">
+              <form id="add-media-form" style="display: grid; grid-template-columns: 2fr 1fr 2fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Title</label>
                   <input type="text" id="media-title" class="form-control" placeholder="Title" required>
@@ -449,34 +452,52 @@
                     <option value="brand">Brand Assets</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-primary" style="height: 46px;"><i class="fa-solid fa-cloud-arrow-up"></i> Add</button>
+                <button type="submit" class="btn btn-primary" style="height: 46px;"><i class="fa-solid fa-cloud-arrow-up"></i> Save Media</button>
               </form>
 
-              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Media Assets List</h4>
+              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Media Asset Showcase (Add, Edit, Update, Delete)</h4>
               <div id="media-list-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
                 <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Panel 5: Home Page Content -->
+            <div id="panel-home" class="cms-panel-content">
+              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Home Page Content & Sections CMS</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Edit Hero Headlines & FAQ Categories for <a href="index.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">index.html</a>.</p>
+
+              <!-- Hero Form -->
+              <div style="background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); border-radius: 16px; padding: 20px; margin-bottom: 28px;">
+                <h4 style="font-size: 1.1rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 14px;"><i class="fa-solid fa-pen"></i> Edit Hero Showcase Headlines</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+                  <div>
+                    <label style="font-size: 0.8rem; font-weight: 700;">Gold Shimmer Badge</label>
+                    <input type="text" id="home-hero-badge" class="form-control" value="👑 ULTIMATE FAST-CASUAL VEG FRANCHISE IN INDIA">
+                  </div>
+                  <div>
+                    <label style="font-size: 0.8rem; font-weight: 700;">Main Heading Text</label>
+                    <input type="text" id="home-hero-title" class="form-control" value="Launch Your Own High-ROI 100% Pure Veg Gourmet Franchise">
+                  </div>
+                </div>
+                <button id="save-home-hero-btn" class="btn btn-gold btn-sm" style="margin-top: 14px;"><i class="fa-solid fa-floppy-disk"></i> Update Hero Content</button>
               </div>
             </div>
 
             <!-- Panel 6: About Us Page CMS -->
             <div id="panel-about" class="cms-panel-content">
               <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">About Us Page CMS</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage RK Group corporate details and brand vision for <a href="about.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">about.html</a>.</p>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage RK Group corporate details for <a href="about.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">about.html</a>.</p>
 
-              <div style="background: #FAF7F2; border: 1.5px solid var(--border-light); padding: 20px; border-radius: 16px;">
+              <div style="background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 20px; border-radius: 16px;">
                 <div class="form-group" style="margin-bottom: 14px;">
                   <label style="font-size: 0.85rem; font-weight: 700;">Corporate Parent Name</label>
                   <input type="text" class="form-control" value="RK Group of Industries (www.shreerkgroup.com)" readonly>
                 </div>
                 <div class="form-group" style="margin-bottom: 14px;">
                   <label style="font-size: 0.85rem; font-weight: 700;">Kanpur Corporate Office HQ Address</label>
-                  <input type="text" class="form-control" value="621/18, Block-W, Juhi Kala, VR Tower, Near Bharat Petroleum, Kanpur, Uttar Pradesh - 208014">
+                  <input type="text" class="form-control" value="621/18, Block-W, Juhi Kala, VR Tower, Near Bharat Petroleum, Kanpur, UP - 208014">
                 </div>
-                <div class="form-group" style="margin-bottom: 16px;">
-                  <label style="font-size: 0.85rem; font-weight: 700;">Franchise Helpline Support Line</label>
-                  <input type="text" class="form-control" value="+91 63868 18682">
-                </div>
-                <button class="btn btn-gold btn-sm"><i class="fa-solid fa-floppy-disk"></i> Save About Us Content</button>
+                <button class="btn btn-gold btn-sm"><i class="fa-solid fa-floppy-disk"></i> Save About Us Details</button>
               </div>
             </div>
 
@@ -508,10 +529,44 @@
     </div>
   </main>
 
+  <!-- Universal Edit Item Modal -->
+  <div id="cms-edit-modal" class="edit-modal-overlay">
+    <div class="edit-modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1.5px solid var(--border-light); padding-bottom: 12px;">
+        <h3 id="edit-modal-title" style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin: 0;">Edit Item Details</h3>
+        <button id="close-edit-modal-btn" style="background: none; border: none; font-size: 1.4rem; color: var(--text-muted); cursor: pointer;">&times;</button>
+      </div>
+
+      <form id="cms-universal-edit-form">
+        <input type="hidden" id="edit-item-type">
+        <input type="hidden" id="edit-item-index">
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label style="font-size: 0.85rem; font-weight: 700;">Item Title / Name</label>
+          <input type="text" id="edit-field-title" class="form-control" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label style="font-size: 0.85rem; font-weight: 700;">Category / Type</label>
+          <input type="text" id="edit-field-cat" class="form-control">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label style="font-size: 0.85rem; font-weight: 700;">Price / Status Value</label>
+          <input type="text" id="edit-field-val" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-gold" style="width: 100%; justify-content: center; padding: 14px;">
+          <i class="fa-solid fa-floppy-disk"></i> Save & Update Changes
+        </button>
+      </form>
+    </div>
+  </div>
+
   <!-- Minimal Standalone Admin Footer (No Main Website Footer) -->
   <footer style="background: #FFFFFF; border-top: 1.5px solid var(--border-light); padding: 18px 0; font-size: 0.85rem; color: var(--text-muted); text-align: center;">
     <div class="container">
-      &copy; 2026 GRILLISTA Franchise Systems Pvt Ltd. Powered by RK Group of Industries. Enterprise Admin Control Panel.
+      &copy; 2026 GRILLISTA Franchise Systems Pvt Ltd. Powered by RK Group of Industries. Executive Admin Control Panel.
     </div>
   </footer>
 
@@ -524,6 +579,10 @@
       const loginForm = document.getElementById('standalone-admin-login-form');
       const logoutBtn = document.getElementById('dashboard-logout-btn');
       const headerLogoutBtn = document.getElementById('admin-logout-btn');
+
+      const editModal = document.getElementById('cms-edit-modal');
+      const closeEditModalBtn = document.getElementById('close-edit-modal-btn');
+      const universalEditForm = document.getElementById('cms-universal-edit-form');
 
       // Check Login State
       function checkAuthState() {
@@ -579,7 +638,7 @@
         });
       });
 
-      // Load All Dashboard Data (Leads, Menu, Cities, Media, FAQs)
+      // Load All Dashboard Data (Leads, Menu, Cities, Media)
       function loadDashboardData() {
         // 1. Leads
         const leads = JSON.parse(localStorage.getItem('grillista_franchise_leads') || '[]');
@@ -644,12 +703,25 @@
             div.className = 'item-manage-card';
             div.innerHTML = `
               <div>
-                <strong>${item.name}</strong>
-                <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">${item.category} &bull; ₹${item.price}</div>
+                <strong style="font-size: 1.05rem; color: var(--brand-emerald);">${item.name}</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px;">
+                  Category: <strong>${item.category}</strong> &bull; Price: <strong style="color: var(--primary-red);">₹${item.price}</strong>
+                </div>
               </div>
-              <button class="btn btn-outline btn-sm delete-menu-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete</button>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-gold btn-sm edit-menu-btn" data-idx="${idx}"><i class="fa-solid fa-pen-to-square"></i> Edit & Update</button>
+                <button class="btn btn-outline btn-sm delete-menu-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete</button>
+              </div>
             `;
             menuContainer.appendChild(div);
+          });
+
+          document.querySelectorAll('.edit-menu-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              const item = menuItems[idx];
+              openEditModal('menu', idx, item.name, item.category, item.price);
+            });
           });
 
           document.querySelectorAll('.delete-menu-btn').forEach(btn => {
@@ -689,12 +761,23 @@
             div.className = 'item-manage-card';
             div.innerHTML = `
               <div>
-                <strong>${c.name} (${c.state})</strong>
-                <span style="background: ${c.status === 'AVAILABLE NOW' ? '#DCFCE7' : '#FEF3C7'}; color: ${c.status === 'AVAILABLE NOW' ? '#15803D' : '#B45309'}; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 99px; margin-left: 8px;">${c.status}</span>
+                <strong style="font-size: 1.05rem; color: var(--brand-emerald);">${c.name} (${c.state})</strong>
+                <span style="background: ${c.status === 'AVAILABLE NOW' ? '#DCFCE7' : '#FEF3C7'}; color: ${c.status === 'AVAILABLE NOW' ? '#15803D' : '#B45309'}; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 99px; margin-left: 8px;">${c.status}</span>
               </div>
-              <button class="btn btn-outline btn-sm delete-city-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete</button>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-gold btn-sm edit-city-btn" data-idx="${idx}"><i class="fa-solid fa-pen-to-square"></i> Edit & Update</button>
+                <button class="btn btn-outline btn-sm delete-city-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete</button>
+              </div>
             `;
             citiesContainer.appendChild(div);
+          });
+
+          document.querySelectorAll('.edit-city-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              const c = cities[idx];
+              openEditModal('city', idx, c.name, c.state, c.status);
+            });
           });
 
           document.querySelectorAll('.delete-city-btn').forEach(btn => {
@@ -707,49 +790,123 @@
           });
         }
 
-        // 4. FAQ Categories CMS Render
-        let faqs = JSON.parse(localStorage.getItem('grillista_faq_cats') || '[]');
-        if (faqs.length === 0) {
-          faqs = [
-            { name: 'GENERAL', count: '2 Questions' },
-            { name: 'PROJECT', count: '2 Questions' },
-            { name: 'LOCATION', count: '2 Questions' },
-            { name: 'HR, TRAINING & STAFFING', count: '2 Questions' },
-            { name: 'MARKETING', count: '2 Questions' },
-            { name: 'FINANCIALS & EARNING POTENTIAL', count: '2 Questions' },
-            { name: 'AGREEMENT TERMS & RENEWAL', count: '2 Questions' }
+        // 4. Media Gallery Items
+        let mediaItems = JSON.parse(localStorage.getItem('grillista_gallery_media') || '[]');
+        if (mediaItems.length === 0) {
+          mediaItems = [
+            { title: 'Yellow Booth Dine-In Lounge', category: 'interiors', url: 'assets/images/store_bg.jpg' },
+            { title: 'Signature Gourmet Veg Burger', category: 'food', url: 'assets/images/burger.jpg' },
+            { title: 'Crispy Flame-Seasoned Fries', category: 'food', url: 'assets/images/french_fries.jpg' },
+            { title: 'Gourmet Creamy Italian Pasta', category: 'food', url: 'assets/images/pasta.jpg' },
+            { title: 'Registered Brand Emblem', category: 'brand', url: 'assets/images/logo.jpg' },
+            { title: 'Kakadeo Express Outlet', category: 'interiors', url: 'assets/images/store_bg.jpg' }
           ];
-          localStorage.setItem('grillista_faq_cats', JSON.stringify(faqs));
+          localStorage.setItem('grillista_gallery_media', JSON.stringify(mediaItems));
         }
 
-        const faqContainer = document.getElementById('faq-categories-cms-list');
-        if (faqContainer) {
-          faqContainer.innerHTML = '';
-          faqs.forEach((cat, idx) => {
+        const metricMedia = document.getElementById('metric-media');
+        if (metricMedia) metricMedia.innerText = mediaItems.length;
+
+        const mediaContainer = document.getElementById('media-list-container');
+        if (mediaContainer) {
+          mediaContainer.innerHTML = '';
+          mediaItems.forEach((m, idx) => {
             const div = document.createElement('div');
-            div.className = 'item-manage-card';
+            div.style.cssText = 'background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;';
             div.innerHTML = `
               <div>
-                <strong>${cat.name}</strong>
-                <div style="font-size: 0.78rem; color: var(--text-muted);">${cat.count}</div>
+                <div style="height: 120px; overflow: hidden; border-radius: 10px; margin-bottom: 12px;">
+                  <img src="${m.url}" alt="${m.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <strong style="font-size: 0.95rem; color: var(--brand-emerald);">${m.title}</strong>
+                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px;">Category: ${m.category}</div>
               </div>
-              <button class="btn btn-outline btn-sm delete-faq-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete Category</button>
+              <div style="display: flex; gap: 8px; margin-top: 14px;">
+                <button class="btn btn-gold btn-sm edit-media-btn" data-idx="${idx}" style="flex: 1; justify-content: center;"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                <button class="btn btn-outline btn-sm delete-media-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i></button>
+              </div>
             `;
-            faqContainer.appendChild(div);
+            mediaContainer.appendChild(div);
           });
 
-          document.querySelectorAll('.delete-faq-btn').forEach(btn => {
+          document.querySelectorAll('.edit-media-btn').forEach(btn => {
             btn.addEventListener('click', () => {
               const idx = parseInt(btn.getAttribute('data-idx'));
-              faqs.splice(idx, 1);
-              localStorage.setItem('grillista_faq_cats', JSON.stringify(faqs));
+              const m = mediaItems[idx];
+              openEditModal('media', idx, m.title, m.category, m.url);
+            });
+          });
+
+          document.querySelectorAll('.delete-media-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              mediaItems.splice(idx, 1);
+              localStorage.setItem('grillista_gallery_media', JSON.stringify(mediaItems));
               loadDashboardData();
             });
           });
         }
       }
 
-      // Add Menu Form
+      // Universal Open Edit Modal Handler
+      function openEditModal(type, idx, title, cat, val) {
+        document.getElementById('edit-item-type').value = type;
+        document.getElementById('edit-item-index').value = idx;
+        document.getElementById('edit-field-title').value = title || '';
+        document.getElementById('edit-field-cat').value = cat || '';
+        document.getElementById('edit-field-val').value = val || '';
+        document.getElementById('edit-modal-title').innerText = `Edit & Update ${type.toUpperCase()} Item #${idx + 1}`;
+
+        if (editModal) editModal.classList.add('active');
+      }
+
+      if (closeEditModalBtn && editModal) {
+        closeEditModalBtn.addEventListener('click', () => {
+          editModal.classList.remove('active');
+        });
+      }
+
+      if (universalEditForm) {
+        universalEditForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const type = document.getElementById('edit-item-type').value;
+          const idx = parseInt(document.getElementById('edit-item-index').value);
+          const title = document.getElementById('edit-field-title').value;
+          const cat = document.getElementById('edit-field-cat').value;
+          const val = document.getElementById('edit-field-val').value;
+
+          if (type === 'menu') {
+            const menuItems = JSON.parse(localStorage.getItem('grillista_veg_menu') || '[]');
+            if (menuItems[idx]) {
+              menuItems[idx].name = title;
+              menuItems[idx].category = cat;
+              menuItems[idx].price = parseInt(val) || menuItems[idx].price;
+              localStorage.setItem('grillista_veg_menu', JSON.stringify(menuItems));
+            }
+          } else if (type === 'city') {
+            const cities = JSON.parse(localStorage.getItem('grillista_territory_cities') || '[]');
+            if (cities[idx]) {
+              cities[idx].name = title;
+              cities[idx].state = cat;
+              cities[idx].status = val;
+              localStorage.setItem('grillista_territory_cities', JSON.stringify(cities));
+            }
+          } else if (type === 'media') {
+            const mediaItems = JSON.parse(localStorage.getItem('grillista_gallery_media') || '[]');
+            if (mediaItems[idx]) {
+              mediaItems[idx].title = title;
+              mediaItems[idx].category = cat;
+              mediaItems[idx].url = val;
+              localStorage.setItem('grillista_gallery_media', JSON.stringify(mediaItems));
+            }
+          }
+
+          if (editModal) editModal.classList.remove('active');
+          loadDashboardData();
+        });
+      }
+
+      // Add Menu Form Submit
       const addMenuForm = document.getElementById('add-menu-item-form');
       if (addMenuForm) {
         addMenuForm.addEventListener('submit', (e) => {
@@ -767,7 +924,7 @@
         });
       }
 
-      // Add City Form
+      // Add City Form Submit
       const addCityForm = document.getElementById('add-city-form');
       if (addCityForm) {
         addCityForm.addEventListener('submit', (e) => {
@@ -781,6 +938,25 @@
           localStorage.setItem('grillista_territory_cities', JSON.stringify(cities));
 
           document.getElementById('city-name-input').value = '';
+          loadDashboardData();
+        });
+      }
+
+      // Add Media Form Submit
+      const addMediaForm = document.getElementById('add-media-form');
+      if (addMediaForm) {
+        addMediaForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const title = document.getElementById('media-title').value;
+          const type = document.getElementById('media-type').value;
+          const url = document.getElementById('media-url').value;
+          const cat = document.getElementById('media-cat').value;
+
+          const mediaItems = JSON.parse(localStorage.getItem('grillista_gallery_media') || '[]');
+          mediaItems.push({ title, type, url, category: cat });
+          localStorage.setItem('grillista_gallery_media', JSON.stringify(mediaItems));
+
+          document.getElementById('media-title').value = '';
           loadDashboardData();
         });
       }
