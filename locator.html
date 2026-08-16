@@ -19,56 +19,69 @@
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Dark Theme Initialization -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark-theme');
+        document.addEventListener('DOMContentLoaded', () => document.body.classList.add('dark-theme'));
+      }
+    })();
+  </script>
 </head>
 <body class="bg-champagne">
 
-  <!-- Header / Navigation Bar -->
-  <header class="header fixed-header">
-    <div class="container navbar">
-      <a href="index.html" class="logo">
-        <img src="assets/images/logo.jpg" alt="Grillista Logo" class="logo-img">
-        <div class="brand-text">
-          <span class="brand-name">GRILLISTA</span>
-          <span class="brand-sub">THE ULTIMATE FOOD CHAIN</span>
-        </div>
+  <!-- Crimson Red Split Corporate Navbar -->
+  <header class="navbar">
+    <div class="nav-container-split">
+      <!-- Left Group -->
+      <div class="nav-group-left">
+        <a href="tel:+916386818682" class="nav-phone-box">
+          <span class="nav-phone-number"><i class="fa-solid fa-phone"></i> +91 63868 18682</span>
+          <span class="nav-phone-label">FOR CUSTOMER SUPPORT</span>
+        </a>
+        <ul class="nav-links-split">
+          <li><a href="index.html" class="nav-link">HOME</a></li>
+          <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+          <li><a href="menu.html" class="nav-link">MENU</a></li>
+        </ul>
+      </div>
+
+      <!-- Center Circular Logo Emblem -->
+      <a href="index.html" class="nav-center-logo">
+        <img src="assets/images/logo.jpg" alt="Grillista Logo">
       </a>
 
-      <!-- Desktop Navigation Menu -->
-      <nav class="nav-links">
-        <a href="index.html" class="nav-item-link">Home</a>
-        <a href="franchise.html" class="nav-item-link">Franchise Prospectus</a>
-        <a href="menu.html" class="nav-item-link">Menu</a>
-        <a href="about.html" class="nav-item-link">About Us</a>
-        <a href="locator.html" class="nav-item-link active">Store Locator</a>
-      </nav>
-
-      <!-- CTA Buttons -->
-      <div class="header-actions">
-        <a href="tel:+916386818682" class="phone-link">
-          <i class="fa-solid fa-phone"></i>
-          <span>+91 63868 18682</span>
+      <!-- Right Group -->
+      <div class="nav-group-right">
+        <ul class="nav-links-split">
+          <li><a href="franchise.html" class="nav-link">FRANCHISE</a></li>
+          <li><a href="gallery.html" class="nav-link">GALLERY</a></li>
+          <li><a href="locator.html" class="nav-link active">STORE LOCATOR</a></li>
+        </ul>
+        <a href="tel:+916386818682" class="nav-phone-box">
+          <span class="nav-phone-number"><i class="fa-solid fa-phone"></i> +91 63868 18682</span>
+          <span class="nav-phone-label">FOR FRANCHISE ENQUIRY</span>
         </a>
-        <button class="btn btn-gold trigger-apply-modal">
-          <i class="fa-solid fa-file-contract"></i> Apply For Franchise
-        </button>
-        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation">
+        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Mobile Menu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
-  </header>
 
-  <!-- Mobile Navigation Drawer -->
-  <div class="mobile-drawer" id="navbar-mobile-drawer">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="franchise.html" class="mobile-nav-link">Franchise Prospectus</a>
-    <a href="menu.html" class="mobile-nav-link">Menu</a>
-    <a href="about.html" class="mobile-nav-link">About Us</a>
-    <a href="locator.html" class="mobile-nav-link active">Store Locator</a>
-    <button class="btn btn-gold trigger-apply-modal" style="width: 100%; margin-top: 16px;">
-      <i class="fa-solid fa-file-contract"></i> Apply For Franchise
-    </button>
-  </div>
+    <!-- Mobile Slide-Out Navigation Drawer -->
+    <nav class="navbar-mobile-drawer" id="navbar-mobile-drawer">
+      <a href="index.html"><i class="fa-solid fa-house"></i> HOME</a>
+      <a href="about.html"><i class="fa-solid fa-building"></i> ABOUT US</a>
+      <a href="menu.html"><i class="fa-solid fa-utensils"></i> MENU</a>
+      <a href="franchise.html"><i class="fa-solid fa-store"></i> FRANCHISE</a>
+      <a href="gallery.html"><i class="fa-solid fa-images"></i> GALLERY</a>
+      <a href="locator.html" class="active"><i class="fa-solid fa-location-dot"></i> STORE LOCATOR</a>
+      <a href="tel:+916386818682" style="color: #FACC15;"><i class="fa-solid fa-phone"></i> CALL +91 63868 18682</a>
+    </nav>
+  </header>
 
   <!-- Page Hero Header -->
   <section class="section" style="padding-top: calc(var(--nav-height) + 40px); padding-bottom: 40px; background: linear-gradient(180deg, #FAF7F2 0%, #F3ECE1 100%); border-bottom: 1.5px solid var(--border-light);">
