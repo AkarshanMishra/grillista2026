@@ -3407,3 +3407,44 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
     padding: 10px 14px !important;
   }
 }
+
+/* Real Food 3D Lifelike Floating & Pop-Out Animation System */
+@keyframes realFoodFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.2deg) scale(1.03);
+    filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.25));
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+  }
+}
+
+.real-food-img {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.5s ease !important;
+  animation: realFoodFloat 4.2s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform, filter;
+}
+
+.menu-category-block:hover .real-food-img,
+div[style*="clip-path"]:hover img {
+  animation-play-state: paused !important;
+  transform: scale(1.16) rotate(-2.5deg) translateY(-8px) !important;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.42)) brightness(1.1) contrast(1.08) !important;
+}
+
+.menu-category-block {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+  perspective: 1000px;
+}
+
+.menu-category-block:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25) !important;
+  border-color: #FACC15 !important;
+}
