@@ -63,6 +63,22 @@
       background: #E2E8F0 !important;
       border-color: rgba(200, 138, 43, 0.3) !important;
     }
+    .city-chip-btn {
+      padding: 6px 14px;
+      border: 1px solid var(--border-light);
+      border-radius: 99px;
+      background: #FAF7F2;
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .city-chip-btn:hover, .city-chip-btn.active {
+      background: var(--brand-emerald);
+      color: #FFFFFF;
+      border-color: var(--brand-emerald);
+    }
   </style>
 </head>
 <body class="bg-champagne">
@@ -231,67 +247,264 @@
     </div>
   </section>
 
-  <!-- Interactive Map & Expansion Hubs Section -->
-  <section class="section" style="background: var(--bg-warm-champagne); border-top: 1.5px solid var(--border-light);">
+  <!-- Check Available City Section (Replacing Territory Map) -->
+  <section class="section" id="check-city-section" style="background: #FAF7F2; border-top: 1.5px solid var(--border-light);">
     <div class="container">
-      <div class="section-header">
-        <div class="badge-gold"><i class="fa-solid fa-map-location-dot"></i> Territory Map</div>
-        <h2 class="section-title">Kanpur & UP Territory Status</h2>
-        <p class="section-subtitle">See active operational hubs and reserve available territories across Uttar Pradesh & India.</p>
+      <div class="section-header text-center">
+        <div class="badge-gold-shimmer" style="display: inline-flex; margin-bottom: 12px;">
+          <i class="fa-solid fa-city" style="color: var(--accent-gold);"></i> Real-Time Territory Engine
+        </div>
+        <h2 class="section-title">Check Available Franchise Cities</h2>
+        <p class="section-subtitle" style="max-width: 680px; margin: 0 auto;">
+          Select or search your target city across Uttar Pradesh & India to check instant territory availability and exclusive rights status.
+        </p>
       </div>
 
-      <div class="map-container" style="max-width: 1100px; margin: 0 auto;">
-        <div class="mock-map">
-          <div class="map-bg-pattern"></div>
-          <!-- Pins -->
-          <div class="map-pin" style="top: 45%; left: 35%;" data-city="Barra, Kanpur" data-status="Outlet 1 - Operating">
-            <span class="pin-label">Barra 2 (Outlet 1 Live)</span>
+      <!-- City Search & Filter Control Bar -->
+      <div style="max-width: 900px; margin: 0 auto 36px auto; background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 15px 40px rgba(15, 46, 35, 0.06);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 20px;">
+          <div style="position: relative;">
+            <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+            <input type="text" id="city-search-input" placeholder="Type city name (e.g. Lucknow, Varanasi, Kanpur...)" style="width: 100%; padding: 14px 16px 14px 44px; border: 1.5px solid var(--border-light); border-radius: 12px; font-size: 0.95rem; outline: none; font-family: var(--font-main);">
           </div>
-          <div class="map-pin" style="top: 38%; left: 45%;" data-city="Kakadeo, Kanpur" data-status="Outlet 2 - Operating">
-            <span class="pin-label">Kakadeo (Outlet 2 Live)</span>
-          </div>
-          <div class="map-pin available" style="top: 30%; left: 52%;" data-city="Swaroop Nagar, Kanpur" data-status="Available Territory">
-            <span class="pin-label">Swaroop Nagar (Available)</span>
-          </div>
-          <div class="map-pin available" style="top: 42%; left: 75%;" data-city="Lucknow" data-status="Available Territory">
-            <span class="pin-label">Lucknow (Available)</span>
-          </div>
-          <div class="map-pin available" style="top: 65%; left: 60%;" data-city="Noida / NCR" data-status="Available Territory">
-            <span class="pin-label">Noida / NCR (Available)</span>
+          <div>
+            <select id="state-select-filter" style="width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-light); border-radius: 12px; font-size: 0.95rem; outline: none; font-family: var(--font-main); background: #FFF; color: var(--text-primary); cursor: pointer;">
+              <option value="all">All States / UTs</option>
+              <option value="UP" selected>Uttar Pradesh (Core Focus)</option>
+              <option value="NCR">Delhi / NCR</option>
+              <option value="MP">Madhya Pradesh</option>
+              <option value="BR">Bihar</option>
+              <option value="RJ">Rajasthan</option>
+            </select>
           </div>
         </div>
 
-        <div class="territory-list">
-          <h3>Kanpur & Regional Status</h3>
-          <div class="territory-card">
-            <div>
-              <strong>Kanpur - Barra 2</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted);">Main Bypass Road Flagship</div>
-            </div>
-            <span class="territory-status status-booked">Outlet 1 Live</span>
-          </div>
-          <div class="territory-card">
-            <div>
-              <strong>Kanpur - Kakadeo</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted);">Coaching Hub Market</div>
-            </div>
-            <span class="territory-status status-booked">Outlet 2 Live</span>
-          </div>
-          <div class="territory-card">
-            <div>
-              <strong>Kanpur - Swaroop Nagar</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted);">High Street Commercial Market</div>
-            </div>
-            <span class="territory-status status-open">Available</span>
-          </div>
-          <div class="territory-card">
-            <div>
-              <strong>Lucknow / Noida / Delhi NCR</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted);">Prime Commercial Hubs</div>
-            </div>
-            <span class="territory-status status-open">Open for Booking</span>
-          </div>
+        <!-- Quick Filter City Chips -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-right: 4px;">Popular Cities:</span>
+          <button class="city-chip-btn active" data-city="all">All Cities</button>
+          <button class="city-chip-btn" data-city="Lucknow">Lucknow</button>
+          <button class="city-chip-btn" data-city="Varanasi">Varanasi</button>
+          <button class="city-chip-btn" data-city="Prayagraj">Prayagraj</button>
+          <button class="city-chip-btn" data-city="Agra">Agra</button>
+          <button class="city-chip-btn" data-city="Gorakhpur">Gorakhpur</button>
+          <button class="city-chip-btn" data-city="Bareilly">Bareilly</button>
+          <button class="city-chip-btn" data-city="Kanpur">Kanpur</button>
+          <button class="city-chip-btn" data-city="Noida">Noida</button>
         </div>
+      </div>
+
+      <!-- City Availability Grid -->
+      <div id="city-availability-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto;">
+        
+        <!-- City Card 1: Lucknow -->
+        <div class="city-status-card" data-cityname="lucknow" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Lucknow</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Hazratganj / Gomti Nagar / Aliganj</span>
+              </div>
+              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
+                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
+              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 3.8 Million+</div>
+              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 160+ Orders</div>
+              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
+              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            </div>
+          </div>
+
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
+            <i class="fa-solid fa-crown"></i> Reserve Lucknow Rights (₹)
+          </button>
+        </div>
+
+        <!-- City Card 2: Varanasi -->
+        <div class="city-status-card" data-cityname="varanasi" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Varanasi</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Lanka Market / Sigra / Cantt</span>
+              </div>
+              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
+                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
+              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 1.7 Million+</div>
+              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 140+ Orders</div>
+              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
+              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            </div>
+          </div>
+
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
+            <i class="fa-solid fa-crown"></i> Reserve Varanasi Rights (₹)
+          </button>
+        </div>
+
+        <!-- City Card 3: Prayagraj -->
+        <div class="city-status-card" data-cityname="prayagraj" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Prayagraj</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Civil Lines / Katra Hub</span>
+              </div>
+              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
+                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
+              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 1.5 Million+</div>
+              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 135+ Orders</div>
+              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
+              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            </div>
+          </div>
+
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
+            <i class="fa-solid fa-crown"></i> Reserve Prayagraj Rights (₹)
+          </button>
+        </div>
+
+        <!-- City Card 4: Agra -->
+        <div class="city-status-card" data-cityname="agra" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Agra</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Sanjay Place / Taj Ganj</span>
+              </div>
+              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
+                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
+              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 2.2 Million+</div>
+              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 150+ Orders</div>
+              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
+              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            </div>
+          </div>
+
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
+            <i class="fa-solid fa-crown"></i> Reserve Agra Rights (₹)
+          </button>
+        </div>
+
+        <!-- City Card 5: Gorakhpur -->
+        <div class="city-status-card" data-cityname="gorakhpur" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Gorakhpur</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Golghar High Street</span>
+              </div>
+              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
+                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              </span>
+            </div>
+
+            <div style="display: flex; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
+              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 1.2 Million+</div>
+              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 130+ Orders</div>
+              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
+              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            </div>
+          </div>
+
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
+            <i class="fa-solid fa-crown"></i> Reserve Gorakhpur Rights (₹)
+          </button>
+        </div>
+
+        <!-- City Card 6: Bareilly -->
+        <div class="city-status-card" data-cityname="bareilly" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Bareilly</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Civil Lines / Model Town</span>
+              </div>
+              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
+                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
+              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 1.0 Million+</div>
+              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 125+ Orders</div>
+              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
+              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            </div>
+          </div>
+
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
+            <i class="fa-solid fa-crown"></i> Reserve Bareilly Rights (₹)
+          </button>
+        </div>
+
+        <!-- City Card 7: Kanpur (Operating & Expansion) -->
+        <div class="city-status-card" data-cityname="kanpur" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(21, 128, 61, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Kanpur</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Barra 2 & Kakadeo Outlets</span>
+              </div>
+              <span style="background: #FEF3C7; color: #B45309; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(180, 83, 9, 0.3);">
+                <i class="fa-solid fa-store"></i> 2 STORES LIVE
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
+              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 4.5 Million+</div>
+              <div><strong style="color: var(--brand-emerald);">Live Outlets:</strong> Barra 2 & Kakadeo</div>
+              <div><strong style="color: var(--brand-emerald);">Swaroop Nagar:</strong> Available for Booking</div>
+              <div><strong style="color: var(--brand-emerald);">Status:</strong> Expansion Open</div>
+            </div>
+          </div>
+
+          <button class="btn btn-outline trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px; border-color: rgba(200, 138, 43, 0.4);">
+            <i class="fa-solid fa-plus"></i> Apply For Kanpur Expansion
+          </button>
+        </div>
+
+        <!-- City Card 8: Noida / Delhi NCR -->
+        <div class="city-status-card" data-cityname="noida" data-statename="NCR" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Noida / NCR</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Sector 18 / Greater Noida West</span>
+              </div>
+              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
+                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
+              <div><strong style="color: var(--brand-emerald);">Region Pop:</strong> 25 Million+</div>
+              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 200+ Orders</div>
+              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
+              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            </div>
+          </div>
+
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
+            <i class="fa-solid fa-crown"></i> Reserve Noida Rights (₹)
+          </button>
+        </div>
+
       </div>
     </div>
   </section>
@@ -481,5 +694,52 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const citySearchInput = document.getElementById('city-search-input');
+      const stateSelectFilter = document.getElementById('state-select-filter');
+      const cityChipBtns = document.querySelectorAll('.city-chip-btn');
+      const cityCards = document.querySelectorAll('.city-status-card');
+
+      function filterCities() {
+        const query = (citySearchInput ? citySearchInput.value : '').toLowerCase().trim();
+        const selectedState = stateSelectFilter ? stateSelectFilter.value : 'all';
+
+        cityCards.forEach(card => {
+          const cityName = (card.getAttribute('data-cityname') || '').toLowerCase();
+          const stateName = card.getAttribute('data-statename') || '';
+
+          const matchesQuery = !query || cityName.includes(query);
+          const matchesState = selectedState === 'all' || stateName === selectedState;
+
+          if (matchesQuery && matchesState) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      if (citySearchInput) {
+        citySearchInput.addEventListener('input', filterCities);
+      }
+
+      if (stateSelectFilter) {
+        stateSelectFilter.addEventListener('change', filterCities);
+      }
+
+      cityChipBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          cityChipBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filterCity = btn.getAttribute('data-city').toLowerCase();
+          if (citySearchInput) {
+            citySearchInput.value = filterCity === 'all' ? '' : filterCity;
+          }
+          filterCities();
+        });
+      });
+    });
+  </script>
 </body>
 </html>
