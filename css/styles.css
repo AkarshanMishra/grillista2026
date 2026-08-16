@@ -2202,7 +2202,7 @@ button {
   margin: 10px 0 14px 0;
   line-height: 1.15;
   text-transform: uppercase;
-  color: #0F172A !important; /* Crisp Dark Slate Navy */
+  color: #000000 !important; /* Pure Jet Black Base */
   background: none !important;
   -webkit-text-fill-color: initial !important;
 }
