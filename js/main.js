@@ -98,24 +98,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400);
   }
 
-  // Floating Side Action Dock Toggle
-  const dockToggleBtn = document.getElementById('dock-toggle-btn');
+  // Floating Side Action Dock (Auto-Hide on Scroll & Manual Toggle)
   const sideDock = document.getElementById('side-action-dock');
+  const dockToggleBtn = document.getElementById('dock-toggle-btn');
   const dockIcon = document.getElementById('dock-toggle-icon');
 
-  if (dockToggleBtn && sideDock) {
-    dockToggleBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      sideDock.classList.toggle('collapsed');
-      if (dockIcon) {
-        if (sideDock.classList.contains('collapsed')) {
-          dockIcon.className = 'fa-solid fa-chevron-left';
-        } else {
-          dockIcon.className = 'fa-solid fa-chevron-right';
-        }
+  if (sideDock) {
+    let scrollDockTimer = null;
+
+    window.addEventListener('scroll', () => {
+      // Hide side dock while scrolling
+      sideDock.classList.add('hidden-on-scroll');
+
+      if (scrollDockTimer !== null) {
+        clearTimeout(scrollDockTimer);
       }
-    });
+
+      // Re-appear 350ms after scrolling stops
+      scrollDockTimer = setTimeout(() => {
+        sideDock.classList.remove('hidden-on-scroll');
+      }, 350);
+    }, { passive: true });
+
+    if (dockToggleBtn) {
+      dockToggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        sideDock.classList.toggle('collapsed');
+        if (dockIcon) {
+          if (sideDock.classList.contains('collapsed')) {
+            dockIcon.className = 'fa-solid fa-chevron-left';
+          } else {
+            dockIcon.className = 'fa-solid fa-chevron-right';
+          }
+        }
+      });
+    }
   }
 
   // Back to Top Scroll Arrow Button
