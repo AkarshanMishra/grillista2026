@@ -1696,6 +1696,187 @@ button {
   gap: 8px;
 }
 
+/* Luxury Testimonials & Blogs Systems */
+.testimonials-luxury-grid,
+.blogs-luxury-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.testimonial-luxury-card {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(200, 138, 43, 0.25);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 15px 40px rgba(15, 46, 35, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.testimonial-luxury-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(15, 46, 35, 0.14);
+  border-color: var(--accent-gold);
+}
+
+.testimonial-stars {
+  color: var(--accent-gold);
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 4px;
+}
+
+.testimonial-quote {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.testimonial-author-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1.5px solid var(--border-light);
+  padding-top: 20px;
+  position: relative;
+}
+
+.author-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.emerald-avatar { background: linear-gradient(135deg, #0F2E23 0%, #166534 100%); }
+.gold-avatar { background: linear-gradient(135deg, #C88A2B 0%, #D97706 100%); }
+.green-avatar { background: linear-gradient(135deg, #15803D 0%, #047857 100%); }
+
+.author-name {
+  font-size: 1.05rem;
+  color: var(--brand-emerald);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.author-title {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: block;
+}
+
+.verified-tag {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  background: #DCFCE7;
+  color: #15803D;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid rgba(21, 128, 61, 0.2);
+}
+
+/* Luxury Blog Cards */
+.blog-luxury-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-light);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(15, 46, 35, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-luxury-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(15, 46, 35, 0.14);
+}
+
+.blog-cover {
+  height: 180px;
+  padding: 22px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.cover-emerald { background: linear-gradient(135deg, #0F2E23 0%, #15803D 100%); }
+.cover-dark { background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); }
+.cover-flame { background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%); }
+
+.blog-category-pill {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 99px;
+  align-self: flex-start;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.category-gold { background: rgba(200, 138, 43, 0.95); }
+.category-crimson { background: rgba(185, 28, 28, 0.95); }
+
+.blog-read-time {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.blog-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.blog-title {
+  font-size: 1.2rem;
+  color: var(--brand-emerald);
+  margin-bottom: 10px;
+  line-height: 1.38;
+  font-weight: 800;
+}
+
+.blog-excerpt {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+  .testimonials-luxury-grid,
+  .blogs-luxury-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
 /* Section Common Styling */
 .section {
   padding: 100px 0;
