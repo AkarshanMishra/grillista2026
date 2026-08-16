@@ -1602,65 +1602,71 @@ button {
   font-size: 1rem;
 }
 
-.store-badge-overlay {
+/* Sleek Unified Bottom Bar (No Overlap) */
+.hero-store-bottom-bar {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  border: 1.5px solid var(--border-light);
-  padding: 14px 20px;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  padding: 12px 18px;
   border-radius: 16px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
   display: flex;
   align-items: center;
-  gap: 14px;
-  z-index: 3;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 5;
 }
 
-.verified-pulse-ring {
-  width: 44px;
-  height: 44px;
+.store-badge-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.verified-icon-circle {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #DCFCE7;
+  color: #15803D;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  color: #15803D;
+  font-size: 1.2rem;
   flex-shrink: 0;
+  border: 1px solid rgba(21, 128, 61, 0.2);
 }
 
 .badge-title {
   font-weight: 800;
-  font-size: 0.95rem;
-  color: var(--brand-emerald);
+  font-size: 0.92rem;
+  color: #0F172A;
   line-height: 1.2;
 }
 
 .badge-sub {
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  font-size: 0.76rem;
+  color: #64748B;
   font-weight: 600;
 }
 
-.hero-margin-floating-tag {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(185, 28, 28, 0.94);
-  backdrop-filter: blur(10px);
+.store-badge-right .margin-pill {
+  background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
   color: #FFFFFF;
   padding: 8px 16px;
   border-radius: 99px;
   font-size: 0.8rem;
   font-weight: 800;
-  box-shadow: 0 10px 25px rgba(185, 28, 28, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 6px;
-  z-index: 3;
+  box-shadow: 0 4px 14px rgba(185, 28, 28, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Ultra-Premium Trust Strip Below Hero Grid */
