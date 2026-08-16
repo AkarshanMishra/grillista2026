@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corporate CMS & Admin Dashboard | GRILLISTA</title>
-  <meta name="description" content="Official Corporate CMS & Franchise Application Lead Portal for Grillista QSR Chain (RK Group of Industries).">
+  <title>Full Corporate CMS & Admin Dashboard | GRILLISTA</title>
+  <meta name="description" content="Official Full-Stack Corporate CMS & Site Management Portal for Grillista QSR Chain (RK Group of Industries).">
   
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
@@ -43,7 +43,7 @@
     }
     .cms-container {
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 24px;
       margin-top: 20px;
     }
@@ -63,7 +63,7 @@
       border-radius: 12px;
       color: var(--text-secondary);
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       cursor: pointer;
       margin-bottom: 6px;
       transition: all 0.2s ease;
@@ -91,7 +91,7 @@
       background: #FAF7F2;
       border: 1.5px solid rgba(200, 138, 43, 0.25);
       border-radius: 16px;
-      padding: 20px 24px;
+      padding: 18px 20px;
     }
     .lead-table {
       width: 100%;
@@ -99,15 +99,25 @@
       margin-top: 16px;
     }
     .lead-table th, .lead-table td {
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-bottom: 1px solid var(--border-light);
       text-align: left;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
     }
     .lead-table th {
       background: #FAF7F2;
       color: var(--brand-emerald);
       font-weight: 800;
+    }
+    .item-manage-card {
+      background: #FAF7F2;
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
     @media (max-width: 992px) {
       .cms-container {
@@ -125,7 +135,7 @@
         <img src="assets/images/logo.jpg" alt="Grillista Logo" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--accent-gold);">
         <div>
           <div style="font-family: var(--font-heading); font-weight: 900; font-size: 1.3rem; color: #FFFFFF; letter-spacing: -0.02em;">GRILLISTA</div>
-          <div style="font-size: 0.7rem; color: var(--accent-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;">Corporate Admin Portal</div>
+          <div style="font-size: 0.7rem; color: var(--accent-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;">360° Site Page & Section CMS</div>
         </div>
       </a>
 
@@ -140,7 +150,7 @@
     </div>
   </header>
 
-  <main style="padding: 40px 0; min-height: 85vh; background: #FAF7F2;">
+  <main style="padding: 30px 0; min-height: 85vh; background: #FAF7F2;">
     <div class="container">
       
       <!-- Login Authentication Screen -->
@@ -176,15 +186,15 @@
       <div id="admin-dashboard-wrapper" style="display: none;">
         
         <!-- Header Controls Bar -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1.5px solid var(--border-light); padding-bottom: 20px; flex-wrap: wrap; gap: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1.5px solid var(--border-light); padding-bottom: 16px; flex-wrap: wrap; gap: 16px;">
           <div>
             <div style="display: flex; align-items: center; gap: 10px;">
               <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
-                <i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> SYSTEM ONLINE &bull; ENTERPRISE CMS v2.4
+                <i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> SYSTEM ONLINE &bull; 360° SITE CMS v3.0
               </span>
-              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">HQ Location: Kanpur, UP</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">Corporate Parent: RK Group of Industries</span>
             </div>
-            <h1 style="font-size: 2.2rem; color: var(--brand-emerald); margin-top: 6px; font-weight: 900;">Grillista Admin Management Console</h1>
+            <h1 style="font-size: 2rem; color: var(--brand-emerald); margin-top: 6px; font-weight: 900;">All Pages & Sections Content Management Engine</h1>
           </div>
           
           <button id="dashboard-logout-btn" class="btn btn-outline" style="border-color: rgba(200, 138, 43, 0.4);">
@@ -193,29 +203,35 @@
         </div>
 
         <!-- Metric KPI Cards -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px;">
           <div class="enterprise-metric-card">
-            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 800;">FRANCHISE LEADS</div>
-            <div id="metric-leads" style="font-size: 1.8rem; font-weight: 900; color: var(--brand-emerald); margin: 4px 0;">0</div>
-            <div style="font-size: 0.75rem; color: #15803D; font-weight: 700;"><i class="fa-solid fa-arrow-trend-up"></i> Live Inquiries</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">FRANCHISE LEADS</div>
+            <div id="metric-leads" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">0</div>
+            <div style="font-size: 0.72rem; color: #15803D; font-weight: 700;"><i class="fa-solid fa-arrow-trend-up"></i> Live Leads</div>
           </div>
 
           <div class="enterprise-metric-card">
-            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 800;">MENU ITEMS MANAGED</div>
-            <div id="metric-menu" style="font-size: 1.8rem; font-weight: 900; color: var(--accent-gold); margin: 4px 0;">0</div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">100% Pure Veg Collection</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">VEG MENU ITEMS</div>
+            <div id="metric-menu" style="font-size: 1.6rem; font-weight: 900; color: var(--accent-gold); margin: 2px 0;">5</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Menu Page Synced</div>
           </div>
 
           <div class="enterprise-metric-card">
-            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 800;">GALLERY ASSETS</div>
-            <div id="metric-media" style="font-size: 1.8rem; font-weight: 900; color: var(--brand-emerald); margin: 4px 0;">6</div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">Photos & Videos</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">EXPANSION CITIES</div>
+            <div id="metric-cities" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">8</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Store Locator Engine</div>
           </div>
 
           <div class="enterprise-metric-card">
-            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 800;">OPERATIONAL STORES</div>
-            <div style="font-size: 1.8rem; font-weight: 900; color: #15803D; margin: 4px 0;">2 Outlets</div>
-            <div style="font-size: 0.75rem; color: #15803D; font-weight: 700;">Barra 2 & Kakadeo (Kanpur)</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">GALLERY ASSETS</div>
+            <div id="metric-media" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">6</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Media Showcase</div>
+          </div>
+
+          <div class="enterprise-metric-card">
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">OPERATIONAL OUTLETS</div>
+            <div style="font-size: 1.6rem; font-weight: 900; color: #15803D; margin: 2px 0;">2 Outlets</div>
+            <div style="font-size: 0.72rem; color: #15803D; font-weight: 700;">Barra 2 & Kakadeo</div>
           </div>
         </div>
 
@@ -224,19 +240,28 @@
           
           <!-- Sidebar Navigation -->
           <div class="cms-sidebar">
-            <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; padding-left: 12px;">CMS Navigation</div>
+            <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; padding-left: 12px;">All Pages & Sections</div>
             
             <div class="cms-nav-item active" data-target="panel-leads">
               <i class="fa-solid fa-users"></i> Franchise Leads
             </div>
+            <div class="cms-nav-item" data-target="panel-home">
+              <i class="fa-solid fa-house"></i> Home Page CMS
+            </div>
             <div class="cms-nav-item" data-target="panel-menu">
-              <i class="fa-solid fa-utensils"></i> Menu Manager
+              <i class="fa-solid fa-utensils"></i> Veg Menu Manager
+            </div>
+            <div class="cms-nav-item" data-target="panel-locator">
+              <i class="fa-solid fa-location-dot"></i> Store Locator & Cities
             </div>
             <div class="cms-nav-item" data-target="panel-gallery">
-              <i class="fa-solid fa-photo-film"></i> Media Gallery
+              <i class="fa-solid fa-images"></i> Media Gallery Manager
             </div>
-            <div class="cms-nav-item" data-target="panel-outlets">
-              <i class="fa-solid fa-store"></i> Kanpur Outlets
+            <div class="cms-nav-item" data-target="panel-about">
+              <i class="fa-solid fa-building"></i> About Us Page CMS
+            </div>
+            <div class="cms-nav-item" data-target="panel-prospectus">
+              <i class="fa-solid fa-file-contract"></i> Franchise Models CMS
             </div>
           </div>
 
@@ -255,7 +280,7 @@
                     <i class="fa-solid fa-file-csv"></i> Export Leads (CSV)
                   </button>
                   <button id="clear-leads-btn" class="btn btn-outline btn-sm" style="color: var(--primary-red);">
-                    <i class="fa-solid fa-trash"></i> Clear All
+                    <i class="fa-solid fa-trash"></i> Clear All Leads
                   </button>
                 </div>
               </div>
@@ -272,6 +297,7 @@
                       <th>Budget (INR)</th>
                       <th>Model</th>
                       <th>Submission Date</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody id="leads-tbody">
@@ -281,35 +307,125 @@
               </div>
             </div>
 
-            <!-- Panel 2: Menu Manager -->
-            <div id="panel-menu" class="cms-panel-content">
-              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">100% Pure Veg Menu Manager</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Add or remove items displayed on the main website and dedicated <a href="menu.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">menu.html</a> page.</p>
+            <!-- Panel 2: Home Page CMS -->
+            <div id="panel-home" class="cms-panel-content">
+              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Home Page Content & Sections CMS</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Edit Hero Headlines, FAQ Categories, Executive Testimonials, and Industry Blog Reports for <a href="index.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">index.html</a>.</p>
 
-              <form id="add-menu-item-form" style="display: grid; grid-template-columns: 2fr 1fr auto; gap: 14px; margin-bottom: 30px;">
-                <input type="text" id="menu-name-input" class="form-control" placeholder="Item Name (e.g. Charcoal Paneer Tikka Burger)" required>
-                <select id="menu-cat-input" class="form-control">
-                  <option value="burgers">Veg Flame Burgers</option>
-                  <option value="wraps">Tandoori Wraps</option>
-                  <option value="bites">Charred Soya Starters</option>
-                  <option value="sides">Loaded Sides</option>
-                  <option value="shakes">Energy Shakes</option>
-                </select>
-                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Item</button>
+              <!-- Hero Section Form -->
+              <div style="background: #FAF7F2; border: 1.5px solid var(--border-light); border-radius: 16px; padding: 20px; margin-bottom: 28px;">
+                <h4 style="font-size: 1.1rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 14px;"><i class="fa-solid fa-pen"></i> Edit Hero Showcase Headlines</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+                  <div>
+                    <label style="font-size: 0.8rem; font-weight: 700;">Gold Shimmer Badge</label>
+                    <input type="text" id="home-hero-badge" class="form-control" value="👑 ULTIMATE FAST-CASUAL VEG FRANCHISE IN INDIA">
+                  </div>
+                  <div>
+                    <label style="font-size: 0.8rem; font-weight: 700;">Main Heading Text</label>
+                    <input type="text" id="home-hero-title" class="form-control" value="Launch Your Own High-ROI 100% Pure Veg Gourmet Franchise">
+                  </div>
+                  <div>
+                    <label style="font-size: 0.8rem; font-weight: 700;">Primary CTA Button Text</label>
+                    <input type="text" id="home-hero-cta1" class="form-control" value="Apply For Franchise (₹)">
+                  </div>
+                  <div>
+                    <label style="font-size: 0.8rem; font-weight: 700;">Secondary CTA Button Text</label>
+                    <input type="text" id="home-hero-cta2" class="form-control" value="Calculate Store Profitability">
+                  </div>
+                </div>
+                <button id="save-home-hero-btn" class="btn btn-gold btn-sm" style="margin-top: 14px;"><i class="fa-solid fa-floppy-disk"></i> Update Hero Content</button>
+              </div>
+
+              <!-- FAQ Category Manager -->
+              <div style="margin-bottom: 28px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <h4 style="font-size: 1.1rem; color: var(--brand-emerald); font-weight: 800; margin: 0;"><i class="fa-solid fa-circle-question"></i> Manage FAQ Categories (Reference Image Layout)</h4>
+                  <button id="add-faq-cat-btn" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add FAQ Category</button>
+                </div>
+
+                <div id="faq-categories-cms-list" style="display: flex; flex-direction: column; gap: 10px;">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Veg Menu Manager -->
+            <div id="panel-menu" class="cms-panel-content">
+              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">100% Pure Veg Menu Manager (Add, Edit, Update, Delete)</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage items displayed on main site and dedicated <a href="menu.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">menu.html</a> page.</p>
+
+              <form id="add-menu-item-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid var(--border-light); padding: 18px; border-radius: 16px; align-items: end;">
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Item Name</label>
+                  <input type="text" id="menu-name-input" class="form-control" placeholder="e.g. Charcoal Paneer Burger" required>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Category</label>
+                  <select id="menu-cat-input" class="form-control">
+                    <option value="burgers">Veg Flame Burgers</option>
+                    <option value="wraps">Tandoori Wraps</option>
+                    <option value="bites">Charred Soya Starters</option>
+                    <option value="sides">Loaded Sides</option>
+                    <option value="shakes">Energy Shakes</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Price (INR ₹)</label>
+                  <input type="number" id="menu-price-input" class="form-control" placeholder="149" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="height: 46px;"><i class="fa-solid fa-plus"></i> Add Item</button>
               </form>
 
-              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Menu Items List</h4>
+              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Veg Menu Collection</h4>
               <div id="menu-list-container" style="display: flex; flex-direction: column; gap: 10px;">
                 <!-- Populated dynamically -->
               </div>
             </div>
 
-            <!-- Panel 3: Media Gallery Manager -->
-            <div id="panel-gallery" class="cms-panel-content">
-              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Media Gallery Manager</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Add photo images rendered live on <a href="gallery.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">gallery.html</a>.</p>
+            <!-- Panel 4: Store Locator & Cities Manager -->
+            <div id="panel-locator" class="cms-panel-content">
+              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Store Locator & Available Cities Manager</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage running outlets and expansion cities for <a href="locator.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">locator.html</a>.</p>
 
-              <form id="add-media-form" style="display: grid; grid-template-columns: 2fr 1fr 2fr 1fr auto; gap: 12px; margin-bottom: 30px; align-items: end;">
+              <!-- Add City Form -->
+              <form id="add-city-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid var(--border-light); padding: 18px; border-radius: 16px; align-items: end;">
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">City Name</label>
+                  <input type="text" id="city-name-input" class="form-control" placeholder="e.g. Kanpur, Lucknow, Varanasi..." required>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">State Code</label>
+                  <select id="city-state-input" class="form-control">
+                    <option value="UP">Uttar Pradesh</option>
+                    <option value="NCR">Delhi / NCR</option>
+                    <option value="MP">Madhya Pradesh</option>
+                    <option value="BR">Bihar</option>
+                    <option value="RJ">Rajasthan</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Status</label>
+                  <select id="city-status-input" class="form-control">
+                    <option value="AVAILABLE NOW">AVAILABLE NOW</option>
+                    <option value="TERRITORY BOOKED">TERRITORY BOOKED</option>
+                    <option value="STORES LIVE">STORES LIVE</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-gold" style="height: 46px;"><i class="fa-solid fa-plus"></i> Add City</button>
+              </form>
+
+              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Franchise Territory Cities</h4>
+              <div id="cities-list-container" style="display: flex; flex-direction: column; gap: 10px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Panel 5: Media Gallery Manager -->
+            <div id="panel-gallery" class="cms-panel-content">
+              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Media Gallery Manager (Add, Edit, Update, Delete)</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage gallery photo assets rendered live on <a href="gallery.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">gallery.html</a>.</p>
+
+              <form id="add-media-form" style="display: grid; grid-template-columns: 2fr 1fr 2fr 1fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid var(--border-light); padding: 18px; border-radius: 16px; align-items: end;">
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Title</label>
                   <input type="text" id="media-title" class="form-control" placeholder="Title" required>
@@ -322,45 +438,63 @@
                   </select>
                 </div>
                 <div>
-                  <label style="font-size: 0.8rem; font-weight: 700;">Path / URL</label>
+                  <label style="font-size: 0.8rem; font-weight: 700;">Image Path / URL</label>
                   <input type="text" id="media-url" class="form-control" value="assets/images/store_bg.jpg" required>
                 </div>
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Category</label>
                   <select id="media-cat" class="form-control">
-                    <option value="Dine-In Lounge">Dine-In Lounge</option>
-                    <option value="Kitchen Prep">Kitchen Prep</option>
-                    <option value="Outlet Launch">Outlet Launch</option>
-                    <option value="Customer Vibes">Customer Vibes</option>
+                    <option value="interiors">Store Interiors</option>
+                    <option value="food">Gourmet Menu</option>
+                    <option value="brand">Brand Assets</option>
                   </select>
                 </div>
                 <button type="submit" class="btn btn-primary" style="height: 46px;"><i class="fa-solid fa-cloud-arrow-up"></i> Add</button>
               </form>
 
-              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Media Showcase</h4>
-              <div id="media-list-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+              <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Media Assets List</h4>
+              <div id="media-list-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
                 <!-- Populated dynamically -->
               </div>
             </div>
 
-            <!-- Panel 4: Outlets Manager -->
-            <div id="panel-outlets" class="cms-panel-content">
-              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Kanpur Running Outlets Manager</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage flagship operational store details in Kanpur, UP.</p>
+            <!-- Panel 6: About Us Page CMS -->
+            <div id="panel-about" class="cms-panel-content">
+              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">About Us Page CMS</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage RK Group corporate details and brand vision for <a href="about.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">about.html</a>.</p>
 
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div style="background: #FAF7F2; border: 1.5px solid rgba(200, 138, 43, 0.3); padding: 24px; border-radius: 16px;">
-                  <span style="background: #DCFCE7; color: #15803D; font-weight: 800; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">OUTLET 1 LIVE</span>
-                  <h4 style="font-size: 1.3rem; color: var(--brand-emerald); margin-top: 12px; font-weight: 800;">Barra 2 Flagship Outlet</h4>
-                  <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">Barra 2, Main Bypass Road, Near Bharat Petroleum, Kanpur, UP - 208027</p>
-                  <div style="margin-top: 14px; font-size: 0.85rem; font-weight: 800; color: var(--accent-gold);">Daily Orders: 450+ | Rating: ★ 4.9</div>
+              <div style="background: #FAF7F2; border: 1.5px solid var(--border-light); padding: 20px; border-radius: 16px;">
+                <div class="form-group" style="margin-bottom: 14px;">
+                  <label style="font-size: 0.85rem; font-weight: 700;">Corporate Parent Name</label>
+                  <input type="text" class="form-control" value="RK Group of Industries (www.shreerkgroup.com)" readonly>
                 </div>
+                <div class="form-group" style="margin-bottom: 14px;">
+                  <label style="font-size: 0.85rem; font-weight: 700;">Kanpur Corporate Office HQ Address</label>
+                  <input type="text" class="form-control" value="621/18, Block-W, Juhi Kala, VR Tower, Near Bharat Petroleum, Kanpur, Uttar Pradesh - 208014">
+                </div>
+                <div class="form-group" style="margin-bottom: 16px;">
+                  <label style="font-size: 0.85rem; font-weight: 700;">Franchise Helpline Support Line</label>
+                  <input type="text" class="form-control" value="+91 63868 18682">
+                </div>
+                <button class="btn btn-gold btn-sm"><i class="fa-solid fa-floppy-disk"></i> Save About Us Content</button>
+              </div>
+            </div>
 
-                <div style="background: #FAF7F2; border: 1.5px solid rgba(200, 138, 43, 0.3); padding: 24px; border-radius: 16px;">
-                  <span style="background: #DCFCE7; color: #15803D; font-weight: 800; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">OUTLET 2 LIVE</span>
-                  <h4 style="font-size: 1.3rem; color: var(--brand-emerald); margin-top: 12px; font-weight: 800;">Kakadeo Express Hub</h4>
-                  <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">Coaching Hub Market, Near Computer Coaching Complex, Kakadeo, Kanpur, UP - 208025</p>
-                  <div style="margin-top: 14px; font-size: 0.85rem; font-weight: 800; color: var(--brand-emerald);">Daily Orders: 600+ | Rating: ★ 4.9</div>
+            <!-- Panel 7: Franchise Models CMS -->
+            <div id="panel-prospectus" class="cms-panel-content">
+              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Franchise Investment Models CMS</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Manage Mini Bistro (₹12L) and Classic Lounge (₹16L) parameters for <a href="franchise.html" target="_blank" style="color: var(--primary-red); font-weight: 700;">franchise.html</a>.</p>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div style="background: #FAF7F2; border: 1.5px solid rgba(200, 138, 43, 0.3); padding: 20px; border-radius: 16px;">
+                  <span style="background: #FEF3C7; color: #B45309; font-weight: 800; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">MINI BISTRO</span>
+                  <h4 style="font-size: 1.2rem; color: var(--brand-emerald); margin-top: 10px; font-weight: 800;">₹12 Lakh Model</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">600+ sq ft • FOFO Automated Kitchen</p>
+                </div>
+                <div style="background: #FAF7F2; border: 1.5px solid rgba(200, 138, 43, 0.3); padding: 20px; border-radius: 16px;">
+                  <span style="background: #DCFCE7; color: #15803D; font-weight: 800; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">CLASSIC LOUNGE</span>
+                  <h4 style="font-size: 1.2rem; color: var(--brand-emerald); margin-top: 10px; font-weight: 800;">₹16 Lakh Model</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">700-1000+ sq ft • Plush Yellow Booth Lounge</p>
                 </div>
               </div>
             </div>
@@ -445,8 +579,9 @@
         });
       });
 
-      // Load Dashboard Data (Leads, Menu, Metrics)
+      // Load All Dashboard Data (Leads, Menu, Cities, Media, FAQs)
       function loadDashboardData() {
+        // 1. Leads
         const leads = JSON.parse(localStorage.getItem('grillista_franchise_leads') || '[]');
         const metricLeads = document.getElementById('metric-leads');
         const leadsTbody = document.getElementById('leads-tbody');
@@ -456,7 +591,7 @@
         if (leadsTbody) {
           leadsTbody.innerHTML = '';
           if (leads.length === 0) {
-            leadsTbody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">No franchise applications submitted yet.</td></tr>';
+            leadsTbody.innerHTML = '<tr><td colspan="9" style="text-align: center; color: var(--text-muted); padding: 24px;">No franchise applications submitted yet.</td></tr>';
           } else {
             leads.forEach((lead, idx) => {
               const tr = document.createElement('tr');
@@ -469,11 +604,185 @@
                 <td>₹${lead.budget || '12 Lakh'}</td>
                 <td><span class="badge-gold">${lead.model || 'Mini Bistro'}</span></td>
                 <td>${lead.date || new Date().toLocaleDateString()}</td>
+                <td><button class="btn btn-outline btn-sm delete-lead-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3); padding: 2px 8px;"><i class="fa-solid fa-trash"></i></button></td>
               `;
               leadsTbody.appendChild(tr);
             });
+
+            document.querySelectorAll('.delete-lead-btn').forEach(btn => {
+              btn.addEventListener('click', () => {
+                const idx = parseInt(btn.getAttribute('data-idx'));
+                leads.splice(idx, 1);
+                localStorage.setItem('grillista_franchise_leads', JSON.stringify(leads));
+                loadDashboardData();
+              });
+            });
           }
         }
+
+        // 2. Menu Items
+        let menuItems = JSON.parse(localStorage.getItem('grillista_veg_menu') || '[]');
+        if (menuItems.length === 0) {
+          menuItems = [
+            { name: 'Charcoal Paneer Tikka Burger', category: 'burgers', price: 149 },
+            { name: 'Smokey Tandoori Paneer Wrap', category: 'wraps', price: 139 },
+            { name: 'Charred Soya Malai Chaap Bites', category: 'bites', price: 159 },
+            { name: 'Loaded Peri-Peri Cheese Fries', category: 'sides', price: 119 },
+            { name: 'Double Thick Hazelnut Shake', category: 'shakes', price: 129 }
+          ];
+          localStorage.setItem('grillista_veg_menu', JSON.stringify(menuItems));
+        }
+
+        const metricMenu = document.getElementById('metric-menu');
+        if (metricMenu) metricMenu.innerText = menuItems.length;
+
+        const menuContainer = document.getElementById('menu-list-container');
+        if (menuContainer) {
+          menuContainer.innerHTML = '';
+          menuItems.forEach((item, idx) => {
+            const div = document.createElement('div');
+            div.className = 'item-manage-card';
+            div.innerHTML = `
+              <div>
+                <strong>${item.name}</strong>
+                <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">${item.category} &bull; ₹${item.price}</div>
+              </div>
+              <button class="btn btn-outline btn-sm delete-menu-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete</button>
+            `;
+            menuContainer.appendChild(div);
+          });
+
+          document.querySelectorAll('.delete-menu-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              menuItems.splice(idx, 1);
+              localStorage.setItem('grillista_veg_menu', JSON.stringify(menuItems));
+              loadDashboardData();
+            });
+          });
+        }
+
+        // 3. Expansion Cities
+        let cities = JSON.parse(localStorage.getItem('grillista_territory_cities') || '[]');
+        if (cities.length === 0) {
+          cities = [
+            { name: 'Lucknow', state: 'UP', status: 'AVAILABLE NOW' },
+            { name: 'Varanasi', state: 'UP', status: 'AVAILABLE NOW' },
+            { name: 'Prayagraj', state: 'UP', status: 'AVAILABLE NOW' },
+            { name: 'Agra', state: 'UP', status: 'AVAILABLE NOW' },
+            { name: 'Gorakhpur', state: 'UP', status: 'AVAILABLE NOW' },
+            { name: 'Bareilly', state: 'UP', status: 'AVAILABLE NOW' },
+            { name: 'Kanpur', state: 'UP', status: 'STORES LIVE' },
+            { name: 'Noida', state: 'NCR', status: 'AVAILABLE NOW' }
+          ];
+          localStorage.setItem('grillista_territory_cities', JSON.stringify(cities));
+        }
+
+        const metricCities = document.getElementById('metric-cities');
+        if (metricCities) metricCities.innerText = cities.length;
+
+        const citiesContainer = document.getElementById('cities-list-container');
+        if (citiesContainer) {
+          citiesContainer.innerHTML = '';
+          cities.forEach((c, idx) => {
+            const div = document.createElement('div');
+            div.className = 'item-manage-card';
+            div.innerHTML = `
+              <div>
+                <strong>${c.name} (${c.state})</strong>
+                <span style="background: ${c.status === 'AVAILABLE NOW' ? '#DCFCE7' : '#FEF3C7'}; color: ${c.status === 'AVAILABLE NOW' ? '#15803D' : '#B45309'}; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 99px; margin-left: 8px;">${c.status}</span>
+              </div>
+              <button class="btn btn-outline btn-sm delete-city-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete</button>
+            `;
+            citiesContainer.appendChild(div);
+          });
+
+          document.querySelectorAll('.delete-city-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              cities.splice(idx, 1);
+              localStorage.setItem('grillista_territory_cities', JSON.stringify(cities));
+              loadDashboardData();
+            });
+          });
+        }
+
+        // 4. FAQ Categories CMS Render
+        let faqs = JSON.parse(localStorage.getItem('grillista_faq_cats') || '[]');
+        if (faqs.length === 0) {
+          faqs = [
+            { name: 'GENERAL', count: '2 Questions' },
+            { name: 'PROJECT', count: '2 Questions' },
+            { name: 'LOCATION', count: '2 Questions' },
+            { name: 'HR, TRAINING & STAFFING', count: '2 Questions' },
+            { name: 'MARKETING', count: '2 Questions' },
+            { name: 'FINANCIALS & EARNING POTENTIAL', count: '2 Questions' },
+            { name: 'AGREEMENT TERMS & RENEWAL', count: '2 Questions' }
+          ];
+          localStorage.setItem('grillista_faq_cats', JSON.stringify(faqs));
+        }
+
+        const faqContainer = document.getElementById('faq-categories-cms-list');
+        if (faqContainer) {
+          faqContainer.innerHTML = '';
+          faqs.forEach((cat, idx) => {
+            const div = document.createElement('div');
+            div.className = 'item-manage-card';
+            div.innerHTML = `
+              <div>
+                <strong>${cat.name}</strong>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">${cat.count}</div>
+              </div>
+              <button class="btn btn-outline btn-sm delete-faq-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3);"><i class="fa-solid fa-trash"></i> Delete Category</button>
+            `;
+            faqContainer.appendChild(div);
+          });
+
+          document.querySelectorAll('.delete-faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.getAttribute('data-idx'));
+              faqs.splice(idx, 1);
+              localStorage.setItem('grillista_faq_cats', JSON.stringify(faqs));
+              loadDashboardData();
+            });
+          });
+        }
+      }
+
+      // Add Menu Form
+      const addMenuForm = document.getElementById('add-menu-item-form');
+      if (addMenuForm) {
+        addMenuForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('menu-name-input').value;
+          const cat = document.getElementById('menu-cat-input').value;
+          const price = document.getElementById('menu-price-input').value;
+
+          const menuItems = JSON.parse(localStorage.getItem('grillista_veg_menu') || '[]');
+          menuItems.push({ name, category: cat, price: parseInt(price) || 149 });
+          localStorage.setItem('grillista_veg_menu', JSON.stringify(menuItems));
+
+          document.getElementById('menu-name-input').value = '';
+          loadDashboardData();
+        });
+      }
+
+      // Add City Form
+      const addCityForm = document.getElementById('add-city-form');
+      if (addCityForm) {
+        addCityForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('city-name-input').value;
+          const state = document.getElementById('city-state-input').value;
+          const status = document.getElementById('city-status-input').value;
+
+          const cities = JSON.parse(localStorage.getItem('grillista_territory_cities') || '[]');
+          cities.push({ name, state, status });
+          localStorage.setItem('grillista_territory_cities', JSON.stringify(cities));
+
+          document.getElementById('city-name-input').value = '';
+          loadDashboardData();
+        });
       }
 
       // Export CSV
