@@ -729,65 +729,105 @@ body.dark-theme .filter-btn:hover {
   pointer-events: none;
 }
 
-/* Operator Partner Eligibility & Brand Support Dual Tab Grid Styling */
-.partner-spec-grid {
+/* Pixel-Perfect Clean Partner Matrix Card Styling */
+.partner-matrix-card {
+  background: #FFFFFF;
+  border: 2px solid #D1D5DB;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.partner-matrix-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #FFFFFF;
+  border-bottom: 2px solid #D1D5DB;
+}
+
+.partner-tab-btn {
+  padding: 18px 24px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #DC2626;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.partner-tab-btn.active {
+  background: #DC2626;
+  color: #FFFFFF;
+  border-radius: 16px 16px 0 0;
+}
+
+.partner-matrix-content {
+  padding: 0;
+}
+
+.partner-matrix-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 10px;
 }
 
-.partner-grid-item {
+.partner-matrix-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
-  padding: 24px 20px;
+  padding: 24px 22px;
+  border-right: 1.5px solid #E5E7EB;
+  border-bottom: 1.5px solid #E5E7EB;
   background: #FFFFFF;
-  border: 1.5px solid #E2E8F0;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.partner-grid-item:hover {
-  transform: translateY(-4px);
-  border-color: rgba(200, 138, 43, 0.5);
-  box-shadow: 0 14px 30px rgba(153, 27, 27, 0.09);
+.partner-matrix-item:nth-child(3n) {
+  border-right: none;
 }
 
-.partner-icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(153, 27, 27, 0.1) 0%, rgba(200, 138, 43, 0.12) 100%);
-  color: #991B1B;
-  font-size: 1.35rem;
+.partner-matrix-item:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.partner-matrix-icon {
+  font-size: 1.8rem;
+  color: #DC2626;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1.5px solid rgba(153, 27, 27, 0.18);
 }
 
-.partner-item-title {
-  font-size: 1rem;
+.partner-matrix-info h4 {
+  font-size: 0.98rem;
   font-weight: 800;
-  color: #0F172A;
-  margin: 0 0 6px 0;
-  line-height: 1.35;
+  color: #1F2937;
+  margin: 0;
+  line-height: 1.4;
 }
 
-.partner-item-text {
-  font-size: 0.86rem;
-  color: #64748B;
-  margin: 0;
-  line-height: 1.55;
+.partner-subtext {
+  font-weight: 500;
+  color: #6B7280;
 }
 
 @media (max-width: 992px) {
-  .partner-spec-grid {
+  .partner-matrix-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
+  }
+  .partner-matrix-item {
+    border-right: none !important;
+    border-bottom: 1.5px solid #E5E7EB !important;
+  }
+  .partner-matrix-item:last-child {
+    border-bottom: none !important;
+  }
+  .partner-tab-btn {
+    font-size: 0.98rem !important;
+    padding: 14px 10px !important;
   }
 }
 

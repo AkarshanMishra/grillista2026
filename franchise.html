@@ -286,207 +286,164 @@
     </div>
   </section>
 
-  <!-- Operator Partner Eligibility & Corporate Support Dual Tab Section -->
-  <section style="padding: 72px 0; background: #FAF7F2; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
+  <!-- Operator Partner Eligibility & Brand Support Matrix Section -->
+  <section style="padding: 64px 0; background: #FAF7F2; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
+    <div class="container" style="max-width: 1200px;">
       
-      <!-- Section Header -->
-      <div style="text-align: center; max-width: 780px; margin: 0 auto 40px auto;">
-        <span class="badge-gold" style="background: rgba(153, 27, 27, 0.08); color: #991B1B; border-color: rgba(153, 27, 27, 0.2); margin-bottom: 12px; display: inline-flex;">
-          <i class="fa-solid fa-handshake-angle"></i> Franchise Partner Framework
-        </span>
-        <h2 style="font-size: 2.2rem; color: #0F172A; font-weight: 800; margin: 8px 0 12px 0;">Operator Partner Criteria & Corporate HQ Support</h2>
-        <p style="font-size: 0.98rem; color: #475569; font-weight: 600; line-height: 1.6; margin: 0;">
-          We are inviting ambitious entrepreneurs across India to invest and scale with us as an Operator Partner in your city under RK Group of Industries.
+      <!-- Section Header Text -->
+      <div style="text-align: center; margin-bottom: 32px;">
+        <p style="font-size: 1rem; color: #475569; font-weight: 600; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+          We're on a mission to reach 1,000 stores by 2030, and we're inviting entrepreneurs to invest and grow with us as an Operator Partner in Your City.
         </p>
       </div>
 
-      <!-- Main Dual Tab Wrapper Card -->
-      <div style="border: 2px solid rgba(200, 138, 43, 0.3); border-radius: 28px; background: #FFFFFF; overflow: hidden; box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06); max-width: 1180px; margin: 0 auto;">
+      <!-- Main Bordered Matrix Card -->
+      <div class="partner-matrix-card">
         
-        <!-- Interactive Tab Header Buttons -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; background: #FAF7F2; border-bottom: 2px solid #E2E8F0; padding: 8px;">
-          
-          <button id="tab-btn-eligibility" onclick="switchPartnerTab('eligibility')" style="padding: 18px 24px; font-size: 1.1rem; font-weight: 800; border: none; cursor: pointer; transition: all 0.3s ease; text-align: center; border-radius: 20px; background: #991B1B; color: #FFFFFF; box-shadow: 0 6px 18px rgba(153, 27, 27, 0.25); display: flex; align-items: center; justify-content: center; gap: 10px;">
-            <i class="fa-solid fa-user-shield" style="color: #FACC15;"></i> Operator Partner Eligibility
+        <!-- Seamless Header Tabs -->
+        <div class="partner-matrix-tabs">
+          <button id="tab-btn-eligibility" onclick="switchPartnerTab('eligibility')" class="partner-tab-btn active">
+            Operator Partner Eligibility
           </button>
-          
-          <button id="tab-btn-support" onclick="switchPartnerTab('support')" style="padding: 18px 24px; font-size: 1.1rem; font-weight: 800; border: none; cursor: pointer; transition: all 0.3s ease; text-align: center; border-radius: 20px; background: transparent; color: #991B1B; display: flex; align-items: center; justify-content: center; gap: 10px;">
-            <i class="fa-solid fa-headset" style="color: #991B1B;"></i> 360° Corporate HQ Support
+          <button id="tab-btn-support" onclick="switchPartnerTab('support')" class="partner-tab-btn">
+            Brand Support
           </button>
-
         </div>
 
-        <!-- TAB 1 CONTENT: Operator Partner Eligibility -->
-        <div id="tab-content-eligibility" style="display: block; padding: 24px;">
-          <div class="partner-spec-grid">
+        <!-- TAB 1 CONTENT: Operator Partner Eligibility (3x3 Matrix) -->
+        <div id="tab-content-eligibility" class="partner-matrix-content">
+          <div class="partner-matrix-grid">
             
-            <!-- Item 1 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-user-gear"></i></div>
-              <div>
-                <h4 class="partner-item-title">Selective Qualification:</h4>
-                <p class="partner-item-text">Limited city slots available for passionate entrepreneurs with prime high-footfall QSR locations.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-user-gear"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Selective Process: <span class="partner-subtext">Highly competitive, limited slots, for someone who find location.</span></h4>
               </div>
             </div>
 
-            <!-- Item 2 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-chart-line"></i></div>
-              <div>
-                <h4 class="partner-item-title">Financial Capability:</h4>
-                <p class="partner-item-text">Capital readiness for ₹12L–₹16L turnkey investment; strong financial track record without loan dependencies.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Financial Readiness: <span class="partner-subtext">Strong personal financial track record, loan applicant not required.</span></h4>
               </div>
             </div>
 
-            <!-- Item 3 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-utensils"></i></div>
-              <div>
-                <h4 class="partner-item-title">No QSR Experience Needed:</h4>
-                <p class="partner-item-text">Complete chef-less automated kitchen SOPs provided — passion for food business is key.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-award"></i></div>
+              <div class="partner-matrix-info">
+                <h4>No Experience Needed: <span class="partner-subtext">Passion for food business is essential</span></h4>
               </div>
             </div>
 
-            <!-- Item 4 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-handshake"></i></div>
-              <div>
-                <h4 class="partner-item-title">Hands-On Commitment:</h4>
-                <p class="partner-item-text">Active, on-ground daily store leadership and quality control commitment.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-handshake"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Hands-On Commitment: <span class="partner-subtext">Active, on-ground involvement required.</span></h4>
               </div>
             </div>
 
-            <!-- Item 5 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-user-tie"></i></div>
-              <div>
-                <h4 class="partner-item-title">Ownership Mindset:</h4>
-                <p class="partner-item-text">Drive store operations with total accountability, humility, and customer-first service.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-user-tie"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Leadership Mindset: <span class="partner-subtext">Lead with humility and ownership</span></h4>
               </div>
             </div>
 
-            <!-- Item 6 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-users"></i></div>
-              <div>
-                <h4 class="partner-item-title">People & Team Leadership:</h4>
-                <p class="partner-item-text">Ability to lead local store staff, foster community goodwill, and uphold hygiene standards.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-users"></i></div>
+              <div class="partner-matrix-info">
+                <h4>People-Centric Approach: <span class="partner-subtext">Team, customers & community matter</span></h4>
               </div>
             </div>
 
-            <!-- Item 7 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-house-lock"></i></div>
-              <div>
-                <h4 class="partner-item-title">Long-Term Enterprise Vision:</h4>
-                <p class="partner-item-text">Building a multi-generational QSR asset backed by RK Group of Industries.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-house-lock"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Total Ownership: <span class="partner-subtext">Not a 9-to-5 — it's a life investment</span></h4>
               </div>
             </div>
 
-            <!-- Item 8 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-trophy"></i></div>
-              <div>
-                <h4 class="partner-item-title">Results-Driven Focus:</h4>
-                <p class="partner-item-text">Operational dedication directly translates to high monthly store profitability and quick ROI.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-trophy"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Success is Earned: <span class="partner-subtext">Your effort drives the outcome</span></h4>
               </div>
             </div>
 
-            <!-- Item 9 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-bullseye"></i></div>
-              <div>
-                <h4 class="partner-item-title">Brand Priority:</h4>
-                <p class="partner-item-text">Prioritizing Grillista's store growth and customer delight above secondary commercial interests.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-bullseye"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Exclusive Focus: <span class="partner-subtext">Will require prioritizing this opportunity over other business roles.</span></h4>
               </div>
             </div>
 
           </div>
         </div>
 
-        <!-- TAB 2 CONTENT: Brand Support -->
-        <div id="tab-content-support" style="display: none; padding: 24px;">
-          <div class="partner-spec-grid">
+        <!-- TAB 2 CONTENT: Brand Support (3x3 Matrix) -->
+        <div id="tab-content-support" class="partner-matrix-content" style="display: none;">
+          <div class="partner-matrix-grid">
             
-            <!-- Item 1 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-headset"></i></div>
-              <div>
-                <h4 class="partner-item-title">Dedicated Success Manager</h4>
-                <p class="partner-item-text">1-on-1 operational mentor provided by corporate HQ for daily store assistance.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-headset"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Dedicated Franchise Success Manager</h4>
               </div>
             </div>
 
-            <!-- Item 2 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-              <div>
-                <h4 class="partner-item-title">Monthly P&L Reviews</h4>
-                <p class="partner-item-text">Regular financial audits with central finance team to maximize net store margins.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Monthly P&L Reviews with central team</h4>
               </div>
             </div>
 
-            <!-- Item 3 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-clipboard-check"></i></div>
-              <div>
-                <h4 class="partner-item-title">Regular Audits & Retraining</h4>
-                <p class="partner-item-text">Periodic mystery audits, hygiene checks, and staff skill refresher programs.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Regular Audits & Staff Training</h4>
               </div>
             </div>
 
-            <!-- Item 4 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
-              <div>
-                <h4 class="partner-item-title">Aggregator Management</h4>
-                <p class="partner-item-text">Corporate team manages Zomato, Swiggy, Google Business, and social ads centrally.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Brand Manages Zomato, Swiggy, Google & Social Media Centrally</h4>
               </div>
             </div>
 
-            <!-- Item 5 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-phone-volume"></i></div>
-              <div>
-                <h4 class="partner-item-title">24/7 Customer Care Helpdesk</h4>
-                <p class="partner-item-text">Central hotline (+91 63868 18682) handling customer feedback & query resolution.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Call Center & Complaint Handling by Brand</h4>
               </div>
             </div>
 
-            <!-- Item 6 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-bullhorn"></i></div>
-              <div>
-                <h4 class="partner-item-title">Hyper-Local Marketing</h4>
-                <p class="partner-item-text">High-impact grand opening PR, radio spots, influencer collabs, and print ads funded by HQ.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-bullhorn"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Central Marketing: Radio, Online TV, Print, etc.</h4>
               </div>
             </div>
 
-            <!-- Item 7 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-handshake-simple"></i></div>
-              <div>
-                <h4 class="partner-item-title">Site & Lease Negotiation</h4>
-                <p class="partner-item-text">Commercial real estate evaluation, footfall analysis, and lease agreement negotiation.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-handshake-simple"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Lease Negotiation Support</h4>
               </div>
             </div>
 
-            <!-- Item 8 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-truck-fast"></i></div>
-              <div>
-                <h4 class="partner-item-title">Centralized Supply Chain</h4>
-                <p class="partner-item-text">Doorstep delivery of pre-formulated sauces, patties, buns, and eco-packaging.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-truck-fast"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Centralized Supply Chain & Logistics</h4>
               </div>
             </div>
 
-            <!-- Item 9 -->
-            <div class="partner-grid-item">
-              <div class="partner-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
-              <div>
-                <h4 class="partner-item-title">Cloud POS & Tech Integration</h4>
-                <p class="partner-item-text">Cloud billing POS, KDS screens, QR digital ordering, and real-time inventory management.</p>
+            <div class="partner-matrix-item">
+              <div class="partner-matrix-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <div class="partner-matrix-info">
+                <h4>Tech Infrastructure & Delivery Channel Integration</h4>
               </div>
             </div>
 
