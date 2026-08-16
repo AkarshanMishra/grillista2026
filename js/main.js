@@ -404,6 +404,28 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     });
   }
+  // Categorized FAQ Accordion Toggle (Matching Reference Image)
+  const categoryBtns = document.querySelectorAll('.faq-category-btn');
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.parentElement;
+      const content = card.querySelector('.faq-category-content');
+      const isAlreadyActive = card.classList.contains('active');
+
+      // Close all category cards
+      document.querySelectorAll('.faq-category-card').forEach(c => {
+        c.classList.remove('active');
+        const cnt = c.querySelector('.faq-category-content');
+        if (cnt) cnt.style.display = 'none';
+      });
+
+      if (!isAlreadyActive && content) {
+        card.classList.add('active');
+        content.style.display = 'block';
+      }
+    });
+  });
+
   const faqQuestions = document.querySelectorAll('.faq-question');
   faqQuestions.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -411,13 +433,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const answer = item.querySelector('.faq-answer');
       const icon = btn.querySelector('.faq-icon');
 
-      const isOpen = answer.style.display === 'block';
+      const isOpen = answer && answer.style.display === 'block';
 
       // Close all answers
       document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
       document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
 
-      if (!isOpen) {
+      if (!isOpen && answer) {
         answer.style.display = 'block';
         if (icon) icon.style.transform = 'rotate(180deg)';
       }
