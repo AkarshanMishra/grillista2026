@@ -2433,26 +2433,26 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
   }
 }
 
-/* Complete Mobile Text & Section Un-hiding Overrides (< 768px & < 480px) */
-@media (max-width: 768px) {
+/* Complete Mobile & Tablet Responsiveness System (<= 992px & <= 768px) */
+@media (max-width: 992px) {
   body {
-    padding-top: 64px !important;
+    padding-top: 70px !important;
   }
-  
+
   .hero, section, .section {
-    padding-top: 24px !important;
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
     opacity: 1 !important;
     visibility: visible !important;
-    display: block !important;
   }
 
-  /* Unhide hero text & store image container height on mobile */
-  .hero-image-container {
-    height: 260px !important;
-    margin-top: 20px !important;
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
   }
 
   .hero-card-box {
@@ -2461,38 +2461,64 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
   }
 
   .hero-title {
-    font-size: 1.85rem !important;
+    font-size: 2.1rem !important;
     line-height: 1.25 !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 14px !important;
     display: block !important;
     visibility: visible !important;
   }
 
   .hero-subtitle {
-    font-size: 0.9rem !important;
-    line-height: 1.5 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
     margin-bottom: 20px !important;
     display: block !important;
     visibility: visible !important;
   }
 
-  /* Ensure no card, text or stats are clipped */
-  .hero-stats {
-    flex-wrap: wrap !important;
-    gap: 12px !important;
+  .hero-cta {
     display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .hero-cta .btn, .hero-cta button, .hero-cta a {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 14px 20px !important;
+  }
+
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 20px !important;
   }
 
   .stat-item {
-    flex: 1 1 40% !important;
+    padding: 10px 6px !important;
+    text-align: center !important;
   }
 
-  /* Prevent side action dock from blocking mobile text */
-  #side-action-dock {
-    display: none !important;
+  .stat-number {
+    font-size: 1.15rem !important;
   }
 
-  /* Override inline large padding that forces overflow on mobile */
+  .stat-label {
+    font-size: 0.72rem !important;
+  }
+
+  .hero-image-container {
+    height: 300px !important;
+    min-height: 240px !important;
+    max-height: 360px !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+  }
+
+  /* Override inline large paddings & headings that force overflow on mobile */
   [style*="padding: 52px"],
   [style*="padding: 48px"],
   [style*="padding: 40px"],
@@ -2501,33 +2527,51 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
     padding: 24px 16px !important;
   }
 
-  /* Override inline large headings that force text off-screen */
   [style*="font-size: 3.4rem"],
   [style*="font-size: 3.2rem"],
   [style*="font-size: 2.8rem"],
   [style*="font-size: 2.5rem"],
   [style*="font-size: 2.4rem"],
+  [style*="font-size: 2.2rem"],
   [style*="font-size: 2rem"] {
-    font-size: 1.6rem !important;
-    line-height: 1.25 !important;
+    font-size: 1.7rem !important;
+    line-height: 1.28 !important;
   }
 
-  /* Force all grid containers into responsive 1-column layout */
-  [style*="display: grid"],
-  [style*="display:grid"] {
+  /* Force all multi-column grid containers into responsive 1-column layout */
+  .models-grid,
+  .advantages-grid,
+  .outlets-grid,
+  .territories-grid,
+  .calc-wrapper,
+  .footer-grid,
+  .hero-grid,
+  [style*="display: grid"]:not(.nav-container-split),
+  [style*="display:grid"]:not(.nav-container-split),
+  div[style*="grid-template-columns"]:not(.nav-container-split) {
+    display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    gap: 20px !important;
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  /* Force all flex containers to wrap on mobile */
-  .hero-cta, .menu-controls, .chat-quick-btns, .form-navigation, .section-header {
-    flex-wrap: wrap !important;
-    max-width: 100% !important;
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
   }
 
-  /* Ensure card containers & buttons don't exceed screen width */
+  .footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 14px !important;
+    align-items: center !important;
+  }
+
+  .footer-bottom div {
+    justify-content: center !important;
+  }
+
   .premium-menu-card, .team-flip-card, .card, .modal-box {
     width: 100% !important;
     max-width: 100% !important;
@@ -2538,5 +2582,20 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
     max-width: 100% !important;
     white-space: normal !important;
     text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .store-badge-overlay {
+    padding: 10px 12px !important;
   }
 }
