@@ -5,14 +5,14 @@ from django.conf.urls.static import static
 from core.views import (
     index_view, about_view, menu_view, franchise_view,
     gallery_view, locator_view, terms_view, privacy_view, admin_cms_view,
-    submit_lead_api, export_leads_csv_api, menu_api, cities_api,
-    team_api, testimonials_api, blogs_api
+    submit_lead_api, export_leads_csv_api, export_leads_json_api, cms_stats_api,
+    menu_api, cities_api, team_api, testimonials_api, blogs_api
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    # Page Routes (supporting both clean URLs & .html URLs)
+    # Page Routes
     path('', index_view, name='home'),
     path('index.html', index_view, name='home_html'),
     path('about/', about_view, name='about'),
@@ -32,9 +32,11 @@ urlpatterns = [
     path('admin-cms/', admin_cms_view, name='admin_cms'),
     path('admin.html', admin_cms_view, name='admin_cms_html'),
 
-    # REST API Endpoints for SQLite3
+    # Advanced REST API Endpoints for SQLite3
+    path('api/cms/stats/', cms_stats_api, name='api_cms_stats'),
     path('api/leads/submit/', submit_lead_api, name='api_submit_lead'),
     path('api/leads/export-csv/', export_leads_csv_api, name='api_export_leads_csv'),
+    path('api/leads/export-json/', export_leads_json_api, name='api_export_leads_json'),
     path('api/menu/', menu_api, name='api_menu'),
     path('api/cities/', cities_api, name='api_cities'),
     path('api/team/', team_api, name='api_team'),
