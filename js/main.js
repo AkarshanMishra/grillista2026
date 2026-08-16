@@ -110,9 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
       sideDock.classList.toggle('collapsed');
       if (dockIcon) {
         if (sideDock.classList.contains('collapsed')) {
-          dockIcon.className = 'fa-solid fa-arrow-left';
+          dockIcon.className = 'fa-solid fa-chevron-left';
         } else {
-          dockIcon.className = 'fa-solid fa-arrow-right';
+          dockIcon.className = 'fa-solid fa-chevron-right';
         }
       }
     });
