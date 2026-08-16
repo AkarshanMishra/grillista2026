@@ -1215,25 +1215,11 @@
         });
       }
 
-      // Export CSV
+      // Export CSV from Django SQLite3 Database
       const exportBtn = document.getElementById('export-leads-csv');
       if (exportBtn) {
         exportBtn.addEventListener('click', () => {
-          const leads = JSON.parse(localStorage.getItem('grillista_franchise_leads') || '[]');
-          if (leads.length === 0) {
-            alert('No leads available to export!');
-            return;
-          }
-          let csv = 'Name,Email,Phone,City,Budget,Model,Date\n';
-          leads.forEach(l => {
-            csv += `"${l.name || ''}","${l.email || ''}","${l.phone || ''}","${l.city || ''}","${l.budget || ''}","${l.model || ''}","${l.date || ''}"\n`;
-          });
-          const blob = new Blob([csv], { type: 'text/csv' });
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'Grillista_Franchise_Leads.csv';
-          a.click();
+          window.location.href = '/api/leads/export-csv/';
         });
       }
 
