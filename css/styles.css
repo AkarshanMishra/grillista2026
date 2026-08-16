@@ -2188,14 +2188,58 @@ button {
   gap: 16px;
 }
 
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
 .section-title {
-  font-size: 2.75rem;
-  color: var(--brand-emerald);
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 10px 0 14px 0;
+  line-height: 1.15;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #1E293B 0%, #7F1D1D 50%, #991B1B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title span,
+.section-title .text-flame-red,
+.section-title .text-gold {
+  background: linear-gradient(135deg, #C88A2B 0%, #FACC15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
+  font-size: 1.05rem;
+  color: #64748B;
+  max-width: 720px;
+  margin: 0 auto;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.badge-gold,
+.badge-gold-shimmer {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(153, 27, 27, 0.06) !important;
+  border: 1.5px solid rgba(153, 27, 27, 0.2) !important;
+  color: #991B1B !important;
+  padding: 6px 18px !important;
+  border-radius: 99px !important;
+  font-size: 0.8rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  margin-bottom: 12px !important;
+  box-shadow: 0 4px 15px rgba(153, 27, 27, 0.08) !important;
 }
 
 /* Why Grillista / Features Grid */
