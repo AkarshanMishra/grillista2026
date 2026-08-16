@@ -742,6 +742,96 @@ body.dark-theme .filter-btn:hover {
   pointer-events: none;
 }
 
+/* ==========================================================================
+   ULTRA-LUXURY EXECUTIVE LIGHT THEME SYSTEM
+   ========================================================================== */
+:root {
+  --lux-bg-light: #FAF7F2;
+  --lux-bg-card: #FFFFFF;
+  --lux-border-gold: rgba(200, 138, 43, 0.25);
+  --lux-border-light: #E2E8F0;
+  --lux-gold-gradient: linear-gradient(135deg, #FACC15 0%, #C88A2B 100%);
+  --lux-red-gradient: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+  --lux-shadow-card: 0 20px 40px rgba(15, 23, 42, 0.05), 0 2px 10px rgba(200, 138, 43, 0.04);
+  --lux-shadow-hover: 0 30px 60px rgba(15, 23, 42, 0.1), 0 8px 24px rgba(200, 138, 43, 0.12);
+}
+
+.lux-card {
+  background: var(--lux-bg-card);
+  border: 1.5px solid var(--lux-border-gold);
+  border-radius: 20px;
+  padding: 34px 28px;
+  box-shadow: var(--lux-shadow-card);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.lux-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--lux-shadow-hover);
+  border-color: rgba(200, 138, 43, 0.5);
+}
+
+.lux-badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200, 138, 43, 0.08);
+  border: 1px solid rgba(200, 138, 43, 0.3);
+  color: #B45309;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lux-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: var(--lux-gold-gradient);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  box-shadow: 0 10px 20px rgba(200, 138, 43, 0.25);
+  margin-bottom: 20px;
+}
+
+.lux-hero-container {
+  background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #FAF7F2 100%);
+  padding: 60px 0 70px 0;
+  position: relative;
+}
+
+.lux-hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.3rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--brand-emerald);
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+.lux-hero-title span.gold-glow {
+  background: var(--lux-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lux-hero-subtitle {
+  font-size: 1.08rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 620px;
+}
+
 /* About Us Section Responsive Layout System */
 .about-section-grid {
   display: grid;
