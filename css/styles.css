@@ -729,105 +729,69 @@ body.dark-theme .filter-btn:hover {
   pointer-events: none;
 }
 
-/* Pixel-Perfect Clean Partner Matrix Card Styling */
-.partner-matrix-card {
-  background: #FFFFFF;
-  border: 2px solid #D1D5DB;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-}
-
-.partner-matrix-tabs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: #FFFFFF;
-  border-bottom: 2px solid #D1D5DB;
-}
-
-.partner-tab-btn {
-  padding: 18px 24px;
-  font-size: 1.25rem;
-  font-weight: 800;
-  border: none;
-  cursor: pointer;
-  background: transparent;
-  color: #DC2626;
-  transition: all 0.25s ease;
-  text-align: center;
-}
-
-.partner-tab-btn.active {
-  background: #DC2626;
-  color: #FFFFFF;
-  border-radius: 16px 16px 0 0;
-}
-
-.partner-matrix-content {
-  padding: 0;
-}
-
-.partner-matrix-grid {
+/* Operator Partner Eligibility & Brand Support Dual Tab Grid Styling */
+.partner-spec-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 0;
 }
 
-.partner-matrix-item {
+.partner-grid-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
-  padding: 24px 22px;
-  border-right: 1.5px solid #E5E7EB;
-  border-bottom: 1.5px solid #E5E7EB;
-  background: #FFFFFF;
+  padding: 24px 20px;
+  border-right: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
 }
 
-.partner-matrix-item:nth-child(3n) {
+.partner-grid-item:nth-child(3n) {
   border-right: none;
 }
 
-.partner-matrix-item:nth-last-child(-n+3) {
+.partner-grid-item:nth-last-child(-n+3) {
   border-bottom: none;
 }
 
-.partner-matrix-icon {
-  font-size: 1.8rem;
-  color: #DC2626;
+.partner-icon-box {
   width: 44px;
   height: 44px;
+  border-radius: 12px;
+  background: rgba(153, 27, 27, 0.06);
+  color: #991B1B;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border: 1px solid rgba(153, 27, 27, 0.15);
 }
 
-.partner-matrix-info h4 {
-  font-size: 0.98rem;
+.partner-item-title {
+  font-size: 0.95rem;
   font-weight: 800;
-  color: #1F2937;
-  margin: 0;
-  line-height: 1.4;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+  line-height: 1.35;
 }
 
-.partner-subtext {
-  font-weight: 500;
-  color: #6B7280;
+.partner-item-text {
+  font-size: 0.84rem;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.5;
 }
 
 @media (max-width: 992px) {
-  .partner-matrix-grid {
+  .partner-spec-grid {
     grid-template-columns: 1fr !important;
   }
-  .partner-matrix-item {
+  .partner-grid-item {
     border-right: none !important;
-    border-bottom: 1.5px solid #E5E7EB !important;
+    border-bottom: 1px solid #E2E8F0 !important;
   }
-  .partner-matrix-item:last-child {
+  .partner-grid-item:last-child {
     border-bottom: none !important;
-  }
-  .partner-tab-btn {
-    font-size: 0.98rem !important;
-    padding: 14px 10px !important;
   }
 }
 
