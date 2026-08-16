@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Locator | Find Live Outlets | GRILLISTA Pure Veg Franchise</title>
+  <meta name="description" content="Locate Grillista's 2 live flagship operational outlets in Kanpur (Barra 2 & Kakadeo) or explore available franchise territories across India.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-champagne">
+
+  <!-- Header / Navigation Bar -->
+  <header class="header fixed-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.jpg" alt="Grillista Logo" class="logo-img">
+        <div class="brand-text">
+          <span class="brand-name">GRILLISTA</span>
+          <span class="brand-sub">THE ULTIMATE FOOD CHAIN</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-links">
+        <a href="index.html" class="nav-item-link">Home</a>
+        <a href="franchise.html" class="nav-item-link">Franchise Prospectus</a>
+        <a href="menu.html" class="nav-item-link">Menu</a>
+        <a href="about.html" class="nav-item-link">About Us</a>
+        <a href="locator.html" class="nav-item-link active">Store Locator</a>
+      </nav>
+
+      <!-- CTA Buttons -->
+      <div class="header-actions">
+        <a href="tel:+916386818682" class="phone-link">
+          <i class="fa-solid fa-phone"></i>
+          <span>+91 63868 18682</span>
+        </a>
+        <button class="btn btn-gold trigger-apply-modal">
+          <i class="fa-solid fa-file-contract"></i> Apply For Franchise
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="navbar-mobile-drawer">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="franchise.html" class="mobile-nav-link">Franchise Prospectus</a>
+    <a href="menu.html" class="mobile-nav-link">Menu</a>
+    <a href="about.html" class="mobile-nav-link">About Us</a>
+    <a href="locator.html" class="mobile-nav-link active">Store Locator</a>
+    <button class="btn btn-gold trigger-apply-modal" style="width: 100%; margin-top: 16px;">
+      <i class="fa-solid fa-file-contract"></i> Apply For Franchise
+    </button>
+  </div>
+
+  <!-- Page Hero Header -->
+  <section class="section" style="padding-top: calc(var(--nav-height) + 40px); padding-bottom: 40px; background: linear-gradient(180deg, #FAF7F2 0%, #F3ECE1 100%); border-bottom: 1.5px solid var(--border-light);">
+    <div class="container text-center">
+      <div class="badge-gold-shimmer"><i class="fa-solid fa-location-dot"></i> Official Store Directory</div>
+      <h1 class="section-title" style="font-size: 2.8rem; margin-top: 12px;">Grillista Store Locator</h1>
+      <p class="section-subtitle" style="max-width: 720px; margin: 0 auto 24px auto;">
+        Visit our <strong>2 live operational flagship outlets in Kanpur, UP</strong> or locate available franchise expansion territories across India.
+      </p>
+
+      <!-- Geolocation & Search Controls Bar -->
+      <div style="max-width: 800px; margin: 0 auto; background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 20px; box-shadow: 0 15px 35px rgba(15, 46, 35, 0.08); display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+        <div style="flex: 1; min-width: 260px; position: relative;">
+          <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+          <input type="text" id="locator-search-input" placeholder="Search area or pincode (e.g. Barra, Kakadeo, Kanpur)..." style="width: 100%; padding: 12px 16px 12px 44px; border: 1.5px solid var(--border-light); border-radius: 12px; font-size: 0.95rem; outline: none; font-family: var(--font-main);">
+        </div>
+        <button id="detect-location-btn" class="btn btn-primary" style="padding: 12px 24px;">
+          <i class="fa-solid fa-crosshairs"></i> Detect My Distance
+        </button>
+      </div>
+      <div id="location-status-badge" style="display: none; margin-top: 12px; font-size: 0.9rem; font-weight: 700; color: #15803D;"></div>
+    </div>
+  </section>
+
+  <!-- Live Operational Flagship Outlets Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-gold"><i class="fa-solid fa-circle-check" style="color: #15803D;"></i> 100% Operational Stores</div>
+        <h2 class="section-title">Live Flagship Kanpur Outlets</h2>
+        <p class="section-subtitle">Experience our 100% Pure Veg Gourmet Flame-Grilled Menu in person or order online via Swiggy / Zomato.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 32px; max-width: 1100px; margin: 0 auto;">
+        
+        <!-- Outlet Card 1: Barra 2 Flagship -->
+        <div style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-top: 4px solid var(--brand-emerald); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(15, 46, 35, 0.08); display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="position: relative; height: 220px; overflow: hidden;">
+            <img src="assets/images/store_bg.jpg" alt="Grillista Barra 2 Outlet Interior" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; right: 16px; background: rgba(15, 46, 35, 0.92); backdrop-filter: blur(8px); color: #FFF; font-size: 0.8rem; font-weight: 800; padding: 6px 14px; border-radius: 99px; border: 1px solid rgba(200, 138, 43, 0.4);">
+              <i class="fa-solid fa-star" style="color: var(--accent-gold);"></i> 4.9 ★ (1,800+ Reviews)
+            </span>
+            <span style="position: absolute; bottom: 16px; left: 16px; background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
+              <i class="fa-solid fa-circle-check"></i> OUTLET 1 LIVE
+            </span>
+          </div>
+
+          <div style="padding: 28px;">
+            <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 900; margin-bottom: 8px;">
+              Grillista Barra 2 Flagship Outlet
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
+              <i class="fa-solid fa-location-dot" style="color: var(--primary-red); margin-right: 6px;"></i> Barra 2, Main Bypass Road, Near Bharat Petroleum, Kanpur, UP - 208027
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; padding: 16px; background: #FAF7F2; border-radius: 14px; border: 1px solid var(--border-light); font-size: 0.88rem;">
+              <div><strong style="color: var(--brand-emerald);">Timings:</strong> 11:00 AM - 11:30 PM (7 Days)</div>
+              <div><strong style="color: var(--brand-emerald);">Phone:</strong> <a href="tel:+916386818682" style="color: var(--primary-red); font-weight: 700; text-decoration: none;">+91 63868 18682</a></div>
+              <div><strong style="color: var(--brand-emerald);">Services:</strong> Dine-In • Takeaway • Drive-Thru • Swiggy/Zomato</div>
+              <div id="distance-barra" style="font-weight: 800; color: #15803D;">Distance: Detect your location above</div>
+            </div>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://maps.google.com/?q=Grillista+Barra+2+Kanpur" target="_blank" class="btn btn-primary" style="flex: 1; min-width: 160px; justify-content: center;">
+                <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+              </a>
+              <a href="tel:+916386818682" class="btn btn-outline" style="flex: 1; min-width: 140px; justify-content: center; border-color: rgba(200, 138, 43, 0.4);">
+                <i class="fa-solid fa-phone"></i> Call Outlet
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outlet Card 2: Kakadeo Express Hub -->
+        <div style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-top: 4px solid var(--accent-gold); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(15, 46, 35, 0.08); display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="position: relative; height: 220px; overflow: hidden;">
+            <img src="assets/images/burger.jpg" alt="Grillista Kakadeo Outlet Interior" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; right: 16px; background: rgba(15, 46, 35, 0.92); backdrop-filter: blur(8px); color: #FFF; font-size: 0.8rem; font-weight: 800; padding: 6px 14px; border-radius: 99px; border: 1px solid rgba(200, 138, 43, 0.4);">
+              <i class="fa-solid fa-star" style="color: var(--accent-gold);"></i> 4.9 ★ (1,500+ Reviews)
+            </span>
+            <span style="position: absolute; bottom: 16px; left: 16px; background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
+              <i class="fa-solid fa-circle-check"></i> OUTLET 2 LIVE
+            </span>
+          </div>
+
+          <div style="padding: 28px;">
+            <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 900; margin-bottom: 8px;">
+              Grillista Kakadeo Express Hub
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
+              <i class="fa-solid fa-location-dot" style="color: var(--primary-red); margin-right: 6px;"></i> Coaching Hub Market, Near Computer Coaching Complex, Kakadeo, Kanpur, UP - 208025
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; padding: 16px; background: #FAF7F2; border-radius: 14px; border: 1px solid var(--border-light); font-size: 0.88rem;">
+              <div><strong style="color: var(--brand-emerald);">Timings:</strong> 11:00 AM - 11:30 PM (7 Days)</div>
+              <div><strong style="color: var(--brand-emerald);">Phone:</strong> <a href="tel:+916386818682" style="color: var(--primary-red); font-weight: 700; text-decoration: none;">+91 63868 18682</a></div>
+              <div><strong style="color: var(--brand-emerald);">Services:</strong> Express Dine-In • Takeaway • Swiggy/Zomato</div>
+              <div id="distance-kakadeo" style="font-weight: 800; color: #15803D;">Distance: Detect your location above</div>
+            </div>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://maps.google.com/?q=Grillista+Kakadeo+Kanpur" target="_blank" class="btn btn-primary" style="flex: 1; min-width: 160px; justify-content: center;">
+                <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+              </a>
+              <a href="tel:+916386818682" class="btn btn-outline" style="flex: 1; min-width: 140px; justify-content: center; border-color: rgba(200, 138, 43, 0.4);">
+                <i class="fa-solid fa-phone"></i> Call Outlet
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map & Expansion Hubs Section -->
+  <section class="section" style="background: var(--bg-warm-champagne); border-top: 1.5px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-gold"><i class="fa-solid fa-map-location-dot"></i> Territory Map</div>
+        <h2 class="section-title">Kanpur & UP Territory Status</h2>
+        <p class="section-subtitle">See active operational hubs and reserve available territories across Uttar Pradesh & India.</p>
+      </div>
+
+      <div class="map-container" style="max-width: 1100px; margin: 0 auto;">
+        <div class="mock-map">
+          <div class="map-bg-pattern"></div>
+          <!-- Pins -->
+          <div class="map-pin" style="top: 45%; left: 35%;" data-city="Barra, Kanpur" data-status="Outlet 1 - Operating">
+            <span class="pin-label">Barra 2 (Outlet 1 Live)</span>
+          </div>
+          <div class="map-pin" style="top: 38%; left: 45%;" data-city="Kakadeo, Kanpur" data-status="Outlet 2 - Operating">
+            <span class="pin-label">Kakadeo (Outlet 2 Live)</span>
+          </div>
+          <div class="map-pin available" style="top: 30%; left: 52%;" data-city="Swaroop Nagar, Kanpur" data-status="Available Territory">
+            <span class="pin-label">Swaroop Nagar (Available)</span>
+          </div>
+          <div class="map-pin available" style="top: 42%; left: 75%;" data-city="Lucknow" data-status="Available Territory">
+            <span class="pin-label">Lucknow (Available)</span>
+          </div>
+          <div class="map-pin available" style="top: 65%; left: 60%;" data-city="Noida / NCR" data-status="Available Territory">
+            <span class="pin-label">Noida / NCR (Available)</span>
+          </div>
+        </div>
+
+        <div class="territory-list">
+          <h3>Kanpur & Regional Status</h3>
+          <div class="territory-card">
+            <div>
+              <strong>Kanpur - Barra 2</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Main Bypass Road Flagship</div>
+            </div>
+            <span class="territory-status status-booked">Outlet 1 Live</span>
+          </div>
+          <div class="territory-card">
+            <div>
+              <strong>Kanpur - Kakadeo</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Coaching Hub Market</div>
+            </div>
+            <span class="territory-status status-booked">Outlet 2 Live</span>
+          </div>
+          <div class="territory-card">
+            <div>
+              <strong>Kanpur - Swaroop Nagar</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">High Street Commercial Market</div>
+            </div>
+            <span class="territory-status status-open">Available</span>
+          </div>
+          <div class="territory-card">
+            <div>
+              <strong>Lucknow / Noida / Delhi NCR</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Prime Commercial Hubs</div>
+            </div>
+            <span class="territory-status status-open">Open for Booking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Franchise Territory Booking CTA Banner -->
+  <section class="section" style="background: linear-gradient(135deg, #0F2E23 0%, #15803D 100%); color: #FFFFFF; text-align: center;">
+    <div class="container" style="max-width: 800px;">
+      <div class="badge-gold-shimmer" style="background: rgba(255, 255, 255, 0.15); color: #FFF; border-color: rgba(255, 255, 255, 0.3); margin-bottom: 16px;">
+        <i class="fa-solid fa-crown" style="color: var(--accent-gold);"></i> Exclusive Territory Rights
+      </div>
+      <h2 style="font-size: 2.4rem; font-weight: 900; margin-bottom: 14px; font-family: var(--font-heading);">
+        Want to Launch a Grillista Store in Your City?
+      </h2>
+      <p style="font-size: 1.05rem; opacity: 0.9; margin-bottom: 28px; line-height: 1.6;">
+        Join RK Group of Industries' turnkey franchise expansion network. Secure 100% exclusive territory rights before your city market is booked!
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-gold trigger-apply-modal" style="padding: 16px 36px; font-size: 1.05rem;">
+          <i class="fa-solid fa-file-contract"></i> Apply For Territory Booking (₹)
+        </button>
+        <a href="franchise.html" class="btn btn-outline" style="color: #FFF; border-color: rgba(255, 255, 255, 0.5); padding: 16px 28px; font-size: 1rem;">
+          <i class="fa-solid fa-download"></i> View Franchise Models
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-Step Franchise Application Modal -->
+  <div id="apply-modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h2 style="font-size: 1.8rem; color: var(--brand-emerald);">Franchise Application (India)</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Complete this quick form to download your official Grillista Franchise Prospectus in INR.</p>
+      </div>
+
+      <form id="franchise-application-form">
+        <!-- Step 1 -->
+        <div class="form-step active">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" placeholder="e.g. Rahul Sharma" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-control" placeholder="rahul@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number (WhatsApp)</label>
+            <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step">
+          <div class="form-group">
+            <label>Target City / Location in India</label>
+            <input type="text" class="form-control" placeholder="e.g. Kanpur, Lucknow, Noida...">
+          </div>
+          <div class="form-group">
+            <label>Investment Capital Budget (INR ₹)</label>
+            <select class="form-control">
+              <option>₹12 Lakh (Mini Bistro Model - 600+ sq ft)</option>
+              <option>₹16 Lakh (Classic Lounge Model - 700-1000+ sq ft)</option>
+              <option>Multi-Unit / Regional Master Franchise</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Prior Food / Retail Business Experience</label>
+            <select class="form-control">
+              <option>Experienced Restaurant / QSR Operator</option>
+              <option>Retail Store Owner</option>
+              <option>First Time Business Investor</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step">
+          <div class="form-group">
+            <label>Planned Launch Timeline</label>
+            <select class="form-control">
+              <option>Immediate (Within 30 to 60 Days)</option>
+              <option>2 to 4 Months</option>
+              <option>Exploring for future</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Additional Notes / Target Site Details</label>
+            <textarea class="form-control" rows="3" placeholder="Tell us about your background or target site in Kanpur/UP..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-navigation">
+          <button type="button" id="form-prev" class="btn btn-outline" style="display: none;">Back</button>
+          <button type="button" id="form-next" class="btn btn-primary">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+          <button type="submit" id="form-submit" class="btn btn-gold" style="display: none;">Submit & Download Prospectus (₹) <i class="fa-solid fa-download"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Side Action Dock (Auto-Hides on Scroll) -->
+  <aside class="side-action-dock" id="side-action-dock">
+    <button class="dock-tab-toggle" id="dock-toggle-btn" aria-label="Toggle Side Menu">
+      <i class="fa-solid fa-arrow-right" id="dock-toggle-icon"></i>
+    </button>
+    <div class="dock-content">
+      <div class="dock-header">
+        <span class="dock-badge"><i class="fa-solid fa-bolt"></i> QUICK ACTIONS</span>
+      </div>
+      <div class="dock-body">
+        <a href="tel:+916386818682" class="dock-action-item">
+          <div class="dock-item-icon phone-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="dock-item-text">
+            <span class="dock-item-title">Call Franchise HQ</span>
+            <span class="dock-item-sub">+91 63868 18682</span>
+          </div>
+        </a>
+        <a href="https://wa.me/916386818682?text=Hello%20Grillista%20Team,%20I%20want%20to%20know%20more%20about%20store%20locations." target="_blank" class="dock-action-item">
+          <div class="dock-item-icon whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="dock-item-text">
+            <span class="dock-item-title">WhatsApp Desk</span>
+            <span class="dock-item-sub">Instant Support</span>
+          </div>
+        </a>
+        <a href="#" class="dock-action-item trigger-apply-modal">
+          <div class="dock-item-icon apply-icon"><i class="fa-solid fa-file-signature"></i></div>
+          <div class="dock-item-text">
+            <span class="dock-item-title">Apply Online</span>
+            <span class="dock-item-sub">Territory Prospectus</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Back to Top Scroll Button -->
+  <button id="back-to-top-btn" class="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="assets/images/logo.jpg" alt="Grillista Logo" class="logo-img">
+            <span class="brand-name" style="color: #FFF;">GRILLISTA</span>
+          </a>
+          <p>THE ULTIMATE FOOD CHAIN. 100% Pure Veg Gourmet Flame-Grilled Franchise. 2 Running Outlets in Kanpur (Barra & Kakadeo).</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="franchise.html">Franchise Prospectus</a></li>
+            <li><a href="menu.html">Veg Menu</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="locator.html">Store Locator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">HQ Contact & Corporate Parent</h4>
+          <ul class="footer-links">
+            <li><i class="fa-solid fa-building" style="color: var(--accent-gold);"></i> <strong>RK Group of Industries</strong></li>
+            <li><i class="fa-solid fa-envelope"></i> grillistakanpur@gmail.com</li>
+            <li><i class="fa-solid fa-phone"></i> +91 63868 18682</li>
+            <li><i class="fa-solid fa-globe"></i> <a href="http://www.shreerkgroup.com" target="_blank" style="color: var(--accent-gold);">www.shreerkgroup.com</a></li>
+            <li><i class="fa-solid fa-location-dot"></i> 621/18, Block-W, Juhi Kala, VR Tower, Near Bharat Petroleum, Kanpur, UP</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Kanpur Outlets</h4>
+          <ul class="footer-links">
+            <li><a href="locator.html">Outlet 1: Barra 2, Kanpur</a></li>
+            <li><a href="locator.html">Outlet 2: Kakadeo, Kanpur</a></li>
+            <li><a href="locator.html">Available UP Locations</a></li>
+            <li><a href="#" class="trigger-apply-modal">Apply Online</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <p>&copy; 2026 GRILLISTA Franchise Systems Pvt Ltd. Powered by RK Group of Industries. All rights reserved.</p>
+        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+          <a href="terms.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s ease;">Terms & Conditions</a>
+          <span style="color: rgba(255, 255, 255, 0.3);">|</span>
+          <a href="privacy.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s ease;">Privacy Policy</a>
+          <span style="color: rgba(255, 255, 255, 0.3);">|</span>
+          <a href="admin.html" class="btn btn-outline btn-sm" style="color: var(--accent-gold); border-color: rgba(200, 138, 43, 0.3); font-size: 0.8rem;">
+            <i class="fa-solid fa-lock"></i> Admin Portal
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
