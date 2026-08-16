@@ -3,32 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outlet & Brand Media Gallery | GRILLISTA</title>
-  <meta name="description" content="Explore real photos of Grillista operational outlets in Kanpur (Barra 2 & Kakadeo), interior design, flame-grilled food vibes, and franchise store showcases.">
+  <title>Media & Store Gallery | Running Kanpur Outlets | GRILLISTA</title>
+  <meta name="description" content="Explore real photos of Grillista operational outlets in Kanpur (Barra 2 & Kakadeo), yellow booth interior lounge, gourmet 100% pure veg food, and franchise store showcases.">
   
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Auto Theme Sync -->
+  <!-- Explicit Light Theme Enforcer & CSS Override -->
   <script>
     (function() {
-      const theme = localStorage.getItem('grillista_site_theme');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark-theme');
-        document.addEventListener('DOMContentLoaded', () => document.body.classList.add('dark-theme'));
-      }
+      document.documentElement.classList.remove('dark-theme');
+      document.addEventListener('DOMContentLoaded', () => {
+        document.documentElement.classList.remove('dark-theme');
+        document.body.classList.remove('dark-theme');
+      });
     })();
   </script>
+  <style>
+    html, body, body.dark-theme, html.dark-theme body {
+      background-color: #FAF7F2 !important;
+      background: #FAF7F2 !important;
+      color: #0F2E23 !important;
+    }
+    section, .section, .section-header, .dark-theme section, .dark-theme .section {
+      background-color: #FAF7F2 !important;
+      background: #FAF7F2 !important;
+      color: #0F2E23 !important;
+    }
+    .section-title, .dark-theme .section-title {
+      color: #0F2E23 !important;
+    }
+    .section-subtitle, .dark-theme .section-subtitle {
+      color: #475569 !important;
+    }
+    .gallery-filter-btn {
+      padding: 10px 22px;
+      border: 1.5px solid var(--border-light);
+      border-radius: 99px;
+      background: #FFFFFF;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: var(--font-main);
+    }
+    .gallery-filter-btn:hover, .gallery-filter-btn.active {
+      background: var(--brand-emerald);
+      color: #FFFFFF;
+      border-color: var(--brand-emerald);
+      box-shadow: 0 6px 20px rgba(15, 46, 35, 0.15);
+    }
+    .gallery-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(200, 138, 43, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 46, 35, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(15, 46, 35, 0.12);
+    }
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 46, 35, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 900px;
+      width: 100%;
+      background: #FFF;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.6);
+      color: #FFF;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-champagne">
 
   <!-- Crimson Red Split Corporate Navbar -->
   <header class="navbar">
@@ -40,7 +136,7 @@
           <span class="nav-phone-label">FOR CUSTOMER SUPPORT</span>
         </a>
         <ul class="nav-links-split">
-          <li><a href="index.html#hero" class="nav-link">HOME</a></li>
+          <li><a href="index.html" class="nav-link">HOME</a></li>
           <li><a href="about.html" class="nav-link">ABOUT US</a></li>
           <li><a href="menu.html" class="nav-link">MENU</a></li>
         </ul>
@@ -81,47 +177,277 @@
   </header>
 
   <!-- Gallery Hero Section -->
-  <section class="section" style="padding-top: calc(var(--nav-height) + 40px); background: linear-gradient(180deg, #F5EFE6 0%, #FAF7F2 100%);">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-gold"><i class="fa-solid fa-camera"></i> Real Media Showcase</div>
-        <h1 class="section-title" style="font-size: 3.2rem;">Grillista Outlet & Brand Gallery</h1>
-        <p class="section-subtitle">Experience the vibrant atmosphere, yellow booth seating, floral ceiling decor, and high-energy dining at our running Kanpur outlets.</p>
-      </div>
+  <section class="section" style="padding-top: calc(var(--nav-height) + 40px); padding-bottom: 30px; background: linear-gradient(180deg, #FAF7F2 0%, #F3ECE1 100%); border-bottom: 1.5px solid var(--border-light);">
+    <div class="container text-center">
+      <div class="badge-gold-shimmer"><i class="fa-solid fa-camera"></i> Official Brand Showcase</div>
+      <h1 class="section-title" style="font-size: 2.8rem; margin-top: 12px;">Grillista Media & Store Gallery</h1>
+      <p class="section-subtitle" style="max-width: 720px; margin: 0 auto 24px auto;">
+        Experience the vibrant yellow booth lounge, floral ceiling vines, and 100% Pure Veg gourmet burgers across our <strong>2 live operational Kanpur outlets (Barra 2 & Kakadeo)</strong>.
+      </p>
 
-      <!-- Main Featured Store Interior Showcase -->
-      <div style="background: #FFF; border: 1.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-card); margin-bottom: 50px;">
-        <div style="position: relative; height: 540px; border-radius: var(--radius-md); overflow: hidden; border: 3px solid #FFF;">
-          <img src="assets/images/store_bg.jpg" alt="Real Grillista Outlet Interior Photo" style="width: 100%; height: 100%; object-fit: cover; filter: none !important;">
-          <div style="position: absolute; bottom: 24px; left: 24px; background: rgba(255, 255, 255, 0.96); border: 1px solid var(--border-light); padding: 16px 24px; border-radius: var(--radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 14px;">
-            <i class="fa-solid fa-circle-check" style="font-size: 1.8rem; color: var(--brand-emerald);"></i>
-            <div>
-              <div style="font-weight: 800; font-size: 1.1rem; color: var(--brand-emerald);">Operational Outlet Interior</div>
-              <div style="font-size: 0.85rem; color: var(--text-muted);">Kakadeo & Barra 2 Outlets, Kanpur</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dynamic Media Gallery Grid -->
-      <div id="dynamic-gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
-        <!-- Populated dynamically via JS -->
-      </div>
-
-      <!-- Call to Action Banner -->
-      <div style="background: linear-gradient(135deg, var(--brand-emerald) 0%, var(--brand-emerald-light) 100%); border-radius: var(--radius-lg); padding: 48px; text-align: center; color: #FFF; box-shadow: var(--shadow-card);">
-        <h2 style="font-size: 2.2rem; color: #FFF; margin-bottom: 12px;">Want to Launch a Similar Outlet in Your City?</h2>
-        <p style="font-size: 1.05rem; color: rgba(255, 255, 255, 0.88); max-width: 620px; margin: 0 auto 28px auto;">
-          Get turnkey store fabrication, 3D layout design, and complete operational support for ₹12 Lakh (Mini Bistro) or ₹16 Lakh (Classic Lounge).
-        </p>
-        <a href="index.html#models" class="btn btn-gold" style="font-size: 1rem; padding: 14px 32px;">
-          <i class="fa-solid fa-rocket"></i> Apply for Franchise (INR ₹)
-        </a>
+      <!-- Category Filter Tabs -->
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+        <button class="gallery-filter-btn active" data-filter="all">All Media (6)</button>
+        <button class="gallery-filter-btn" data-filter="interiors">Store Interiors</button>
+        <button class="gallery-filter-btn" data-filter="food">Gourmet Menu</button>
+        <button class="gallery-filter-btn" data-filter="brand">Brand Assets</button>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Main Featured Store Interior Showcase -->
+  <section class="section" style="padding-top: 40px;">
+    <div class="container">
+      
+      <!-- Featured Banner Card -->
+      <div style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 24px; padding: 24px; box-shadow: 0 15px 40px rgba(15, 46, 35, 0.08); margin-bottom: 48px; position: relative;">
+        <div style="position: relative; height: 480px; border-radius: 18px; overflow: hidden;">
+          <img src="assets/images/store_bg.jpg" alt="Grillista Flagship Lounge Interior" style="width: 100%; height: 100%; object-fit: cover;">
+          
+          <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(15, 46, 35, 0.92); backdrop-filter: blur(10px); color: #FFFFFF; padding: 20px 24px; border-radius: 16px; border: 1px solid rgba(200, 138, 43, 0.4); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(250, 204, 21, 0.2); border: 1.5px solid #FACC15; display: flex; align-items: center; justify-content: center; color: #FACC15; font-size: 1.3rem;">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin: 0;">Barra 2 & Kakadeo Operational Outlets</h3>
+                <p style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); margin: 2px 0 0 0;">Yellow Booth Dining • Hanging Vine Ceiling Decor • 100% Pure Veg QSR</p>
+              </div>
+            </div>
+            <span style="background: #DCFCE7; color: #15803D; font-size: 0.8rem; font-weight: 800; padding: 6px 16px; border-radius: 99px;">
+              <i class="fa-solid fa-circle-check"></i> LIVE KANPUR OUTLETS
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Media Gallery Cards Grid -->
+      <div id="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 60px;">
+        
+        <!-- Card 1: Lounge Interior -->
+        <div class="gallery-card" data-category="interiors" data-title="Yellow Booth Dine-In Lounge" data-img="assets/images/store_bg.jpg">
+          <div style="position: relative; height: 260px; overflow: hidden;">
+            <img src="assets/images/store_bg.jpg" alt="Yellow Booth Dine-In Lounge" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 46, 35, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; border: 1px solid rgba(200, 138, 43, 0.4);">
+              Store Interiors
+            </span>
+          </div>
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--brand-emerald); margin-bottom: 6px;">Yellow Booth Dine-In Lounge</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">Ergonomic plush yellow leatherette booth seating designed for group dining comfort.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Gourmet Burger -->
+        <div class="gallery-card" data-category="food" data-title="Signature Gourmet Veg Burger" data-img="assets/images/burger.jpg">
+          <div style="position: relative; height: 260px; overflow: hidden;">
+            <img src="assets/images/burger.jpg" alt="Signature Gourmet Veg Burger" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 14px; right: 14px; background: rgba(185, 28, 28, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
+              Gourmet Menu
+            </span>
+          </div>
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--brand-emerald); margin-bottom: 6px;">Signature Gourmet Veg Burger</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">100% Pure Veg flame-grilled patty loaded with house sauces and toasted brioche bun.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Crispy Fries -->
+        <div class="gallery-card" data-category="food" data-title="Crispy Flame-Seasoned Fries" data-img="assets/images/french_fries.jpg">
+          <div style="position: relative; height: 260px; overflow: hidden;">
+            <img src="assets/images/french_fries.jpg" alt="Crispy Flame-Seasoned Fries" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 14px; right: 14px; background: rgba(185, 28, 28, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
+              Gourmet Menu
+            </span>
+          </div>
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--brand-emerald); margin-bottom: 6px;">Crispy Flame-Seasoned Fries</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">Golden crispy French fries dusted with signature Grillista peri-peri seasoning blend.</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Italian Pasta -->
+        <div class="gallery-card" data-category="food" data-title="Gourmet Creamy Italian Pasta" data-img="assets/images/pasta.jpg">
+          <div style="position: relative; height: 260px; overflow: hidden;">
+            <img src="assets/images/pasta.jpg" alt="Gourmet Creamy Italian Pasta" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 14px; right: 14px; background: rgba(185, 28, 28, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
+              Gourmet Menu
+            </span>
+          </div>
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--brand-emerald); margin-bottom: 6px;">Gourmet Creamy Italian Pasta</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">Rich white sauce penne pasta tossed with fresh herbs, bell peppers, and melted cheese.</p>
+          </div>
+        </div>
+
+        <!-- Card 5: Brand Emblem -->
+        <div class="gallery-card" data-category="brand" data-title="Registered Brand Emblem & Logo" data-img="assets/images/logo.jpg">
+          <div style="position: relative; height: 260px; overflow: hidden; background: #FAF7F2; display: flex; align-items: center; justify-content: center; padding: 20px;">
+            <img src="assets/images/logo.jpg" alt="Registered Brand Emblem & Logo" style="max-height: 180px; object-fit: contain;">
+            <span style="position: absolute; top: 14px; right: 14px; background: rgba(200, 138, 43, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
+              Brand Assets
+            </span>
+          </div>
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--brand-emerald); margin-bottom: 6px;">Registered Brand Emblem</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">Official trademarked logo emblem used across all store frontages and packaging.</p>
+          </div>
+        </div>
+
+        <!-- Card 6: Kakadeo Outlet -->
+        <div class="gallery-card" data-category="interiors" data-title="Kakadeo Coaching Hub Express Store" data-img="assets/images/store_bg.jpg">
+          <div style="position: relative; height: 260px; overflow: hidden;">
+            <img src="assets/images/store_bg.jpg" alt="Kakadeo Coaching Hub Express Store" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 46, 35, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; border: 1px solid rgba(200, 138, 43, 0.4);">
+              Store Interiors
+            </span>
+          </div>
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--brand-emerald); margin-bottom: 6px;">Kakadeo Express Outlet</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">High-density student hub outlet delivering 600+ orders daily in Kanpur.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Turnkey Franchise Store CTA Banner -->
+      <div style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 15px 40px rgba(15, 46, 35, 0.06);">
+        <div class="badge-gold-shimmer" style="display: inline-flex; margin-bottom: 12px;">
+          <i class="fa-solid fa-crown" style="color: var(--accent-gold);"></i> Turnkey Store Fabrication
+        </div>
+        <h2 style="font-size: 2.2rem; font-weight: 900; color: var(--brand-emerald); margin-bottom: 12px; font-family: var(--font-heading);">
+          Want to Build a Similar Grillista Store in Your City?
+        </h2>
+        <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 680px; margin: 0 auto 28px auto; line-height: 1.6;">
+          Get complete 3D store interior layouts, yellow booth fabrication, kitchen equipment, and hands-on staff training for ₹12 Lakh (Mini Bistro) or ₹16 Lakh (Classic Lounge).
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-gold trigger-apply-modal" style="padding: 16px 36px; font-size: 1.05rem;">
+            <i class="fa-solid fa-file-contract"></i> Apply for Franchise (₹)
+          </button>
+          <a href="franchise.html" class="btn btn-outline" style="padding: 16px 28px; font-size: 1rem; border-color: rgba(200, 138, 43, 0.4);">
+            <i class="fa-solid fa-download"></i> View Franchise Models
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Image Lightbox Preview Modal -->
+  <div id="lightbox-modal" class="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close-btn">&times;</button>
+      <div style="height: 480px; overflow: hidden; background: #000;">
+        <img id="lightbox-img" src="" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+      <div style="padding: 20px 28px; background: #FFF;">
+        <h3 id="lightbox-title" style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin: 0;"></h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Step Franchise Application Modal -->
+  <div id="apply-modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h2 style="font-size: 1.8rem; color: var(--brand-emerald);">Franchise Application (India)</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Complete this quick form to download your official Grillista Franchise Prospectus in INR.</p>
+      </div>
+
+      <form id="franchise-application-form">
+        <!-- Step 1 -->
+        <div class="form-step active">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" placeholder="e.g. Rahul Sharma" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-control" placeholder="rahul@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number (WhatsApp)</label>
+            <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step">
+          <div class="form-group">
+            <label>Target City / Location in India</label>
+            <input type="text" class="form-control" placeholder="e.g. Kanpur, Lucknow, Noida...">
+          </div>
+          <div class="form-group">
+            <label>Investment Capital Budget (INR ₹)</label>
+            <select class="form-control">
+              <option>₹12 Lakh (Mini Bistro Model - 600+ sq ft)</option>
+              <option>₹16 Lakh (Classic Lounge Model - 700-1000+ sq ft)</option>
+              <option>Multi-Unit / Regional Master Franchise</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Prior Food / Retail Business Experience</label>
+            <select class="form-control">
+              <option>Experienced Restaurant / QSR Operator</option>
+              <option>Retail Store Owner</option>
+              <option>First Time Business Investor</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step">
+          <div class="form-group">
+            <label>Planned Launch Timeline</label>
+            <select class="form-control">
+              <option>Immediate (Within 30 to 60 Days)</option>
+              <option>2 to 4 Months</option>
+              <option>Exploring for future</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Additional Notes / Target Site Details</label>
+            <textarea class="form-control" rows="3" placeholder="Tell us about your background or target site in Kanpur/UP..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-navigation">
+          <button type="button" id="form-prev" class="btn btn-outline" style="display: none;">Back</button>
+          <button type="button" id="form-next" class="btn btn-primary">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+          <button type="submit" id="form-submit" class="btn btn-gold" style="display: none;">Submit & Download Prospectus (₹) <i class="fa-solid fa-download"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Side Action Dock (Pitch Black Vertical Tab Bar with Toggle Arrow) -->
+  <aside class="floating-side-dock" id="side-action-dock">
+    <button class="dock-item dock-item-toggle" id="dock-toggle-btn" aria-label="Toggle Side Action Menu">
+      <i class="fa-solid fa-arrow-right" id="dock-toggle-icon"></i>
+    </button>
+    <a href="https://wa.me/916386818682?text=Hello%20Grillista%20Team,%20I%20want%20to%20know%20more%20about%20store%20outlets." target="_blank" class="dock-item dock-item-whatsapp" aria-label="WhatsApp Us">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="dock-tooltip">WhatsApp Franchise Desk</span>
+    </a>
+    <a href="tel:+916386818682" class="dock-item dock-item-phone" aria-label="Call Franchise Hotline">
+      <i class="fa-solid fa-phone"></i>
+      <span class="dock-tooltip">Call +91 63868 18682</span>
+    </a>
+    <a href="mailto:grillistakanpur@gmail.com" class="dock-item dock-item-email" aria-label="Email Us">
+      <i class="fa-solid fa-envelope"></i>
+      <span class="dock-tooltip">Email Corporate HQ</span>
+    </a>
+  </aside>
+
+  <!-- Back to Top Floating Arrow Button -->
+  <button class="back-to-top-btn" id="back-to-top-btn" title="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Official Corporate Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -134,117 +460,13 @@
         </div>
 
         <div>
-          <h4 class="footer-title">Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="index.html#hero">Home</a></li>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="gallery.html">Media Gallery</a></li>
-            <li><a href="index.html#models">Franchise Models</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Kanpur Outlets</h4>
-          <ul class="footer-links">
-            <li><a href="index.html#outlets">Outlet 1: Barra 2, Kanpur</a></li>
-            <li><a href="index.html#outlets">Outlet 2: Kakadeo, Kanpur</a></li>
-            <li><a href="index.html#territories">Available UP Locations</a></li>
-            <li><a href="index.html#models">Apply Online</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-title">HQ Contact (India)</h4>
-          <ul class="footer-links">
-            <li><i class="fa-solid fa-envelope"></i> franchise@grillista.in</li>
-            <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
-            <li><i class="fa-solid fa-location-dot"></i> Grillista HQ, Kakadeo, Kanpur, UP</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-        <p>&copy; 2026 GRILLISTA Franchise Systems Pvt Ltd. All rights reserved.</p>
-        <a href="admin.html" class="btn btn-outline btn-sm" style="color: var(--accent-gold); border-color: rgba(200, 138, 43, 0.3); font-size: 0.8rem;">
-          <i class="fa-solid fa-lock"></i> Admin Portal
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Dynamic Gallery Render Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const grid = document.getElementById('dynamic-gallery-grid');
-      if (!grid) return;
-
-      let items = JSON.parse(localStorage.getItem('grillista_gallery_media') || '[]');
-      if (items.length === 0) {
-        items = [
-          { title: 'Yellow Booth Dine-In Lounge', type: 'image', url: 'assets/images/store_bg.jpg', category: 'Dine-In Lounge' },
-          { title: 'Registered Trademark Emblem', type: 'image', url: 'assets/images/logo.jpg', category: 'Brand Emblem' },
-          { title: 'Floral Ceiling & Hanging Vines', type: 'image', url: 'assets/images/store_bg.jpg', category: 'Customer Vibes' }
-        ];
-        localStorage.setItem('grillista_gallery_media', JSON.stringify(items));
-      }
-
-      grid.innerHTML = '';
-      items.forEach(item => {
-        const card = document.createElement('div');
-        card.style.cssText = 'background: #FFF; border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card);';
-        
-        let mediaHtml = '';
-        if (item.type === 'video') {
-          mediaHtml = `
-            <div style="height: 260px; background: #0A1F18; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; color: #FFF;">
-              <i class="fa-solid fa-circle-play" style="font-size: 3.5rem; color: var(--accent-gold); margin-bottom: 10px;"></i>
-              <a href="${item.url}" target="_blank" class="btn btn-gold btn-sm"><i class="fa-solid fa-play"></i> Watch Video</a>
-              <span style="position: absolute; top: 16px; right: 16px; background: var(--primary-red); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
-                Video Media
-              </span>
-            </div>`;
-        } else {
-          mediaHtml = `
-            <div style="height: 260px; overflow: hidden; position: relative;">
-              <img src="${item.url}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover; filter: none !important;">
-              <span style="position: absolute; top: 16px; right: 16px; background: rgba(15,46,35,0.85); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
-                ${item.category}
-              </span>
-            </div>`;
-        }
-
-        card.innerHTML = `
-          ${mediaHtml}
-          <div style="padding: 24px;">
-            <h3 style="font-size: 1.3rem; color: var(--brand-emerald); margin-bottom: 8px;">${item.title}</h3>
-            <p style="font-size: 0.9rem; color: var(--text-secondary);">Official Grillista media asset showcasing ${item.category.toLowerCase()} across operational outlets.</p>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    });
-  </script>
-
-  <!-- Corporate Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="index.html" class="logo" style="margin-bottom: 16px;">
-            <img src="assets/images/logo.jpg" alt="Grillista Logo" class="logo-img">
-            <span class="brand-name" style="color: #FFF;">GRILLISTA</span>
-          </a>
-          <p>THE ULTIMATE FOOD CHAIN. 100% Pure Veg Gourmet Flame-Grilled Franchise. Running Outlets in Kanpur (Barra & Kakadeo).</p>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Quick Navigation</h4>
+          <h4 class="footer-title">Quick Links</h4>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="franchise.html">Franchise Prospectus</a></li>
             <li><a href="menu.html">Veg Menu</a></li>
-            <li><a href="franchise.html">Franchise Opportunities</a></li>
-            <li><a href="gallery.html">Outlet Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="locator.html">Store Locator</a></li>
           </ul>
         </div>
 
@@ -255,17 +477,17 @@
             <li><i class="fa-solid fa-envelope"></i> grillistakanpur@gmail.com</li>
             <li><i class="fa-solid fa-phone"></i> +91 63868 18682</li>
             <li><i class="fa-solid fa-globe"></i> <a href="http://www.shreerkgroup.com" target="_blank" style="color: var(--accent-gold);">www.shreerkgroup.com</a></li>
-            <li><i class="fa-solid fa-location-dot"></i> VR Tower, Near Bharat Petroleum, Juhi Kala, Kanpur, UP</li>
+            <li><i class="fa-solid fa-location-dot"></i> 621/18, Block-W, Juhi Kala, VR Tower, Near Bharat Petroleum, Kanpur, UP</li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-title">Legal & Support</h4>
+          <h4 class="footer-title">Kanpur Outlets</h4>
           <ul class="footer-links">
-            <li><a href="terms.html"><i class="fa-solid fa-file-contract"></i> Terms & Conditions</a></li>
-            <li><a href="privacy.html"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a></li>
-            <li><a href="franchise.html#apply-form">Apply Online</a></li>
-            <li><a href="tel:+916386818682">+91 63868 18682</a></li>
+            <li><a href="locator.html">Outlet 1: Barra 2, Kanpur</a></li>
+            <li><a href="locator.html">Outlet 2: Kakadeo, Kanpur</a></li>
+            <li><a href="locator.html">Available UP Locations</a></li>
+            <li><a href="#" class="trigger-apply-modal">Apply Online</a></li>
           </ul>
         </div>
       </div>
@@ -273,9 +495,9 @@
       <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
         <p>&copy; 2026 GRILLISTA Franchise Systems Pvt Ltd. Powered by RK Group of Industries. All rights reserved.</p>
         <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-          <a href="terms.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Terms & Conditions</a>
+          <a href="terms.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s ease;">Terms & Conditions</a>
           <span style="color: rgba(255, 255, 255, 0.3);">|</span>
-          <a href="privacy.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Privacy Policy</a>
+          <a href="privacy.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s ease;">Privacy Policy</a>
           <span style="color: rgba(255, 255, 255, 0.3);">|</span>
           <a href="admin.html" class="btn btn-outline btn-sm" style="color: var(--accent-gold); border-color: rgba(200, 138, 43, 0.3); font-size: 0.8rem;">
             <i class="fa-solid fa-lock"></i> Admin Portal
@@ -285,74 +507,63 @@
     </div>
   </footer>
 
-  <!-- Floating Side Action Dock (WhatsApp, Call, Email) -->
-  <div class="floating-side-dock" id="side-action-dock">
-    <button class="dock-item dock-item-toggle" id="dock-toggle-btn" title="Toggle Quick Actions">
-      <i class="fa-solid fa-arrow-left" id="dock-toggle-icon"></i>
-    </button>
-    <a href="https://wa.me/916386818682?text=Hi%20Grillista%20Team%2C%20I%20am%20interested%20in%20a%20Franchise!" target="_blank" class="dock-item dock-item-whatsapp" title="WhatsApp Us">
-      <i class="fa-brands fa-whatsapp"></i>
-      <span class="dock-tooltip">Chat on WhatsApp</span>
-    </a>
-    <a href="tel:+916386818682" class="dock-item dock-item-phone" title="Call Support">
-      <i class="fa-solid fa-phone"></i>
-      <span class="dock-tooltip">Call +91 63868 18682</span>
-    </a>
-    <a href="mailto:grillistakanpur@gmail.com" class="dock-item dock-item-email" title="Send Email">
-      <i class="fa-solid fa-envelope"></i>
-      <span class="dock-tooltip">Email HQ</span>
-    </a>
-  </div>
-
-
-
-  <!-- AI Franchise Assistant Chatbot Launcher Button -->
-  <button class="chatbot-launcher-btn" id="chatbot-launcher-btn" title="Ask Grillista AI Assistant">
-    <i class="fa-solid fa-headset"></i>
-    <span class="chatbot-badge">AI</span>
-  </button>
-
-  <!-- AI Franchise Assistant Chat Window -->
-  <div class="chatbot-window" id="chatbot-window">
-    <div class="chatbot-header">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: #FACC15;">
-          <i class="fa-solid fa-robot"></i>
-        </div>
-        <div>
-          <h4 style="font-size: 0.95rem; margin: 0; color: #FFF; font-weight: 800;">Grillista AI Assistant</h4>
-          <span style="font-size: 0.7rem; color: #86EFAC; font-weight: 700;">● Online | 24/7 Support</span>
-        </div>
-      </div>
-      <button id="chatbot-close-btn" style="background: none; border: none; color: #FFF; font-size: 1.2rem; cursor: pointer;">&times;</button>
-    </div>
-
-    <div class="chatbot-messages" id="chatbot-messages">
-      <div class="chat-msg bot">
-        <strong>Namaste! 🙏 Welcome to Grillista.</strong><br>
-        I am your AI Franchise Advisor. How can I assist your food franchise journey today?
-        <div class="chat-quick-btns">
-          <button class="chat-quick-btn" onclick="sendChatQuery('Franchise Cost & Models')">💰 Models & Royalty</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Kanpur Outlets')">📍 Outlet Locations</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Download Prospectus')">📜 Get Prospectus PDF</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Call Franchise Team')">📞 Call (+91 63868 18682)</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="chatbot-input-area">
-      <input type="text" id="chatbot-input" placeholder="Type your franchise question..." onkeypress="handleChatKeyPress(event)">
-      <button class="chatbot-send-btn" onclick="submitChatInput()">
-        <i class="fa-solid fa-paper-plane"></i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Back to Top Floating Arrow Button -->
-  <button class="back-to-top-btn" id="back-to-top-btn" title="Back to Top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-
+  <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Category Filter Tabs
+      const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+      const galleryCards = document.querySelectorAll('.gallery-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const category = btn.getAttribute('data-filter');
+
+          galleryCards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (category === 'all' || cardCat === category) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Lightbox Modal Preview
+      const lightboxModal = document.getElementById('lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+
+      galleryCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const imgSrc = card.getAttribute('data-img');
+          const title = card.getAttribute('data-title');
+
+          if (lightboxModal && lightboxImg && lightboxTitle) {
+            lightboxImg.src = imgSrc;
+            lightboxTitle.innerText = title;
+            lightboxModal.classList.add('active');
+          }
+        });
+      });
+
+      if (lightboxCloseBtn && lightboxModal) {
+        lightboxCloseBtn.addEventListener('click', () => {
+          lightboxModal.classList.remove('active');
+        });
+
+        lightboxModal.addEventListener('click', (e) => {
+          if (e.target === lightboxModal) {
+            lightboxModal.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
