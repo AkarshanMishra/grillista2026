@@ -647,22 +647,6 @@ Together, let's build India's premier 100% Pure Veg Flame-Grilled Food Chain!
       });
       localStorage.setItem('grillista_leads', JSON.stringify(leads));
 
-      // Post directly to Django Backend SQLite3 Database API
-      try {
-        fetch('/api/leads/submit/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: name,
-            phone: phone,
-            city: location,
-            budget: budget
-          })
-        });
-      } catch (err) {
-        console.log('Saved to local storage');
-      }
-
       // Trigger prospectus text download
       const prospectusContent = `===============================================================
 GRILLISTA FRANCHISE PROSPECTUS (OFFICIAL 2026 INDIA EDITION)

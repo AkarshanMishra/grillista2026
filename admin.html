@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Most Advanced Enterprise CMS Suite | GRILLISTA</title>
-  <meta name="description" content="Official Enterprise CMS & Real-Time Site Control Engine for Grillista QSR Chain (RK Group of Industries).">
+  <title>Corporate CMS & Executive Admin Portal | GRILLISTA</title>
+  <meta name="description" content="Official Executive CMS & Site Management Portal for Grillista QSR Chain (RK Group of Industries).">
   
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
@@ -157,35 +157,29 @@
 </head>
 <body class="bg-champagne">
 
-  <!-- Standalone Advanced Executive Header (No Website Navbar) -->
+  <!-- Standalone Admin Portal Header (No Website Navbar) -->
   <header style="background: #0F2E23; color: #FFFFFF; border-bottom: 3px solid var(--accent-gold); padding: 14px 0; position: sticky; top: 0; z-index: 1000;">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
       <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
         <img src="assets/images/logo.jpg" alt="Grillista Logo" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--accent-gold);">
         <div>
           <div style="font-family: var(--font-heading); font-weight: 900; font-size: 1.3rem; color: #FFFFFF; letter-spacing: -0.02em;">GRILLISTA</div>
-          <div style="font-size: 0.7rem; color: var(--accent-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;">Most Advanced Enterprise CMS Suite v5.0</div>
+          <div style="font-size: 0.7rem; color: var(--accent-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;">Executive CMS & Content Engine</div>
         </div>
       </a>
 
-      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-        <span id="db-engine-badge" style="background: rgba(220, 252, 231, 0.15); border: 1px solid #86EFAC; color: #86EFAC; font-size: 0.75rem; font-weight: 800; padding: 6px 14px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
-          <i class="fa-solid fa-database"></i> SQLite3 Engine Online (<span id="latency-val">0.3ms</span>)
-        </span>
-        <a href="/admin/" target="_blank" class="btn btn-gold btn-sm" style="font-size: 0.82rem;">
-          <i class="fa-solid fa-shield-halved"></i> Django Admin Portal
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="index.html" target="_blank" class="btn btn-outline btn-sm" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.4); font-size: 0.85rem;">
+          <i class="fa-solid fa-globe"></i> View Website
         </a>
-        <a href="index.html" target="_blank" class="btn btn-outline btn-sm" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.4); font-size: 0.82rem;">
-          <i class="fa-solid fa-globe"></i> Live Website
-        </a>
-        <button id="admin-logout-btn" class="btn btn-outline btn-sm" style="display: none; color: #FCA5A5; border-color: rgba(252, 165, 165, 0.4);">
+        <button id="admin-logout-btn" class="btn btn-gold btn-sm" style="display: none;">
           <i class="fa-solid fa-power-off"></i> Sign Out
         </button>
       </div>
     </div>
   </header>
 
-  <main style="padding: 24px 0; min-height: 85vh; background: #FAF7F2;">
+  <main style="padding: 30px 0; min-height: 85vh; background: #FAF7F2;">
     <div class="container">
       
       <!-- Login Authentication Screen -->
@@ -217,38 +211,32 @@
         </div>
       </div>
 
-      <!-- Professional Advanced Enterprise CMS Dashboard -->
+      <!-- Professional Executive CMS Dashboard -->
       <div id="admin-dashboard-wrapper" style="display: none;">
         
-        <!-- Header Controls & Live Search Bar -->
+        <!-- Header Controls Bar -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1.5px solid var(--border-light); padding-bottom: 16px; flex-wrap: wrap; gap: 16px;">
           <div>
             <div style="display: flex; align-items: center; gap: 10px;">
               <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
-                <i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> SYSTEM ONLINE &bull; ADVANCED CMS SUITE v5.0
+                <i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> SYSTEM ONLINE &bull; EXECUTIVE CMS v4.0
               </span>
-              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">Parent Group: RK Group of Industries</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">Corporate Parent: RK Group of Industries</span>
             </div>
-            <h1 style="font-size: 2rem; color: var(--brand-emerald); margin-top: 6px; font-weight: 900;">360° Real-Time Content Control & Analytics Engine</h1>
+            <h1 style="font-size: 2rem; color: var(--brand-emerald); margin-top: 6px; font-weight: 900;">360° Team, Testimonials, Blogs & Site Content Engine</h1>
           </div>
           
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="position: relative; min-width: 260px;">
-              <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 14px; top: 12px; color: var(--text-muted);"></i>
-              <input type="text" id="global-cms-search-input" class="form-control" placeholder="Live search all items..." style="padding-left: 38px; height: 42px; font-size: 0.88rem; border-radius: 99px;">
-            </div>
-            <button id="dashboard-logout-btn" class="btn btn-outline" style="border-color: rgba(200, 138, 43, 0.4);">
-              <i class="fa-solid fa-power-off"></i> Sign Out
-            </button>
-          </div>
+          <button id="dashboard-logout-btn" class="btn btn-outline" style="border-color: rgba(200, 138, 43, 0.4);">
+            <i class="fa-solid fa-power-off"></i> Sign Out
+          </button>
         </div>
 
-        <!-- Advanced Metric KPI Cards -->
+        <!-- Metric KPI Cards -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 24px;">
           <div class="enterprise-metric-card">
             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">FRANCHISE LEADS</div>
             <div id="metric-leads" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">0</div>
-            <div style="font-size: 0.72rem; color: #15803D; font-weight: 700;"><i class="fa-solid fa-arrow-trend-up"></i> +18.4% Conversion</div>
+            <div style="font-size: 0.72rem; color: #15803D; font-weight: 700;"><i class="fa-solid fa-arrow-trend-up"></i> Live Inquiries</div>
           </div>
 
           <div class="enterprise-metric-card">
@@ -274,12 +262,6 @@
             <div id="metric-menu" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">5</div>
             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Dishes Managed</div>
           </div>
-
-          <div class="enterprise-metric-card">
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 800;">EXPANSION CITIES</div>
-            <div id="metric-cities" style="font-size: 1.6rem; font-weight: 900; color: var(--brand-emerald); margin: 2px 0;">8</div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700;">Store Locator Engine</div>
-          </div>
         </div>
 
         <!-- Sidebar Layout -->
@@ -287,10 +269,10 @@
           
           <!-- Sidebar Navigation -->
           <div class="cms-sidebar">
-            <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; padding-left: 12px;">All Pages & Modules</div>
+            <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; padding-left: 12px;">All Pages & Sections</div>
             
             <div class="cms-nav-item active" data-target="panel-leads">
-              <i class="fa-solid fa-users"></i> Franchise Leads Desk
+              <i class="fa-solid fa-users"></i> Franchise Leads
             </div>
             <div class="cms-nav-item" data-target="panel-team">
               <i class="fa-solid fa-user-tie"></i> Executive Team
@@ -319,33 +301,24 @@
             <div class="cms-nav-item" data-target="panel-prospectus">
               <i class="fa-solid fa-file-contract"></i> Franchise Models
             </div>
-            <div class="cms-nav-item" data-target="panel-settings">
-              <i class="fa-solid fa-sliders"></i> Master System Settings
-            </div>
-            <div class="cms-nav-item" data-target="panel-logs">
-              <i class="fa-solid fa-list-check"></i> Audit Trail Logs
-            </div>
           </div>
 
           <!-- Main Panel Content -->
           <div class="cms-main-panel">
             
-            <!-- Panel 1: Franchise Leads Desk (Direct WhatsApp & Email + CSV/JSON Export) -->
+            <!-- Panel 1: Franchise Leads -->
             <div id="panel-leads" class="cms-panel-content active">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
                 <div>
-                  <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">Franchise Prospectus Leads Desk</h3>
-                  <p style="font-size: 0.85rem; color: var(--text-muted);">Real-time inquiries received from website application modal & saved to SQLite3.</p>
+                  <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800;">Submitted Franchise Prospectus Leads</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Real-time inquiries received from website application modal.</p>
                 </div>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <div style="display: flex; gap: 10px;">
                   <button id="export-leads-csv" class="btn btn-gold btn-sm">
-                    <i class="fa-solid fa-file-csv"></i> Export CSV (SQLite3)
-                  </button>
-                  <button id="export-leads-json" class="btn btn-outline btn-sm" style="border-color: rgba(200,138,43,0.4);">
-                    <i class="fa-solid fa-code"></i> Export JSON
+                    <i class="fa-solid fa-file-csv"></i> Export Leads (CSV)
                   </button>
                   <button id="clear-leads-btn" class="btn btn-outline btn-sm" style="color: var(--primary-red);">
-                    <i class="fa-solid fa-trash"></i> Clear All
+                    <i class="fa-solid fa-trash"></i> Clear All Leads
                   </button>
                 </div>
               </div>
@@ -361,8 +334,8 @@
                       <th>Target City</th>
                       <th>Budget (INR)</th>
                       <th>Model</th>
-                      <th>Direct Contact Actions</th>
-                      <th>Delete</th>
+                      <th>Submission Date</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody id="leads-tbody">
@@ -381,6 +354,7 @@
                 </div>
               </div>
 
+              <!-- Form to Add Team Member -->
               <form id="add-team-form" style="display: grid; grid-template-columns: 2fr 1fr 2fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Member Full Name</label>
@@ -394,7 +368,7 @@
                   <label style="font-size: 0.8rem; font-weight: 700;">Brief Bio / Background</label>
                   <input type="text" id="team-bio-input" class="form-control" placeholder="e.g. RK Group Executive Director" required>
                 </div>
-                <button type="submit" class="btn btn-gold" style="height: 46px;"><i class="fa-solid fa-user-plus"></i> Add Member</button>
+                <button type="submit" class="btn btn-gold" style="height: 46px;"><i class="fa-solid fa-user-plus"></i> Add Team Member</button>
               </form>
 
               <h4 style="font-size: 1.1rem; color: var(--brand-emerald); margin-bottom: 14px; font-weight: 800;">Active Leadership Team Cards (Add, Edit, Update, Delete)</h4>
@@ -412,6 +386,7 @@
                 </div>
               </div>
 
+              <!-- Form to Add Testimonial -->
               <form id="add-testimonial-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr 2fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Partner Name</label>
@@ -447,10 +422,11 @@
                 </div>
               </div>
 
+              <!-- Form to Add Blog -->
               <form id="add-blog-form" style="display: grid; grid-template-columns: 2fr 1fr 2fr auto; gap: 12px; margin-bottom: 24px; background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 18px; border-radius: 16px; align-items: end;">
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Blog Title</label>
-                  <input type="text" id="blog-title-input" class="form-control" placeholder="e.g. Why Tier 2 UP Cities are the Next Big Food Franchise Boom" required>
+                  <input type="text" id="blog-title-input" class="form-control" placeholder="e.g. Why Tier 2 UP Cities are the Next QSR Boom" required>
                 </div>
                 <div>
                   <label style="font-size: 0.8rem; font-weight: 700;">Category Tag</label>
@@ -647,65 +623,6 @@
               </div>
             </div>
 
-            <!-- Panel 11: Master System Settings & Feature Flags -->
-            <div id="panel-settings" class="cms-panel-content">
-              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Master System Settings & Brand Tokens</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Configure site-wide brand tokens and feature flags.</p>
-
-              <div style="background: #FAF7F2; border: 1.5px solid rgba(200,138,43,0.3); padding: 24px; border-radius: 16px;">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
-                  <div>
-                    <label style="font-size: 0.85rem; font-weight: 700;">Brand Name Token</label>
-                    <input type="text" class="form-control" value="GRILLISTA" readonly>
-                  </div>
-                  <div>
-                    <label style="font-size: 0.85rem; font-weight: 700;">Corporate Parent Group</label>
-                    <input type="text" class="form-control" value="RK Group of Industries" readonly>
-                  </div>
-                  <div>
-                    <label style="font-size: 0.85rem; font-weight: 700;">Support Helpline Phone</label>
-                    <input type="text" class="form-control" value="+91 63868 18682">
-                  </div>
-                  <div>
-                    <label style="font-size: 0.85rem; font-weight: 700;">Support Email Address</label>
-                    <input type="text" class="form-control" value="grillistakanpur@gmail.com">
-                  </div>
-                </div>
-                <button class="btn btn-gold btn-sm"><i class="fa-solid fa-floppy-disk"></i> Save System Tokens</button>
-              </div>
-            </div>
-
-            <!-- Panel 12: Audit Trail Logs -->
-            <div id="panel-logs" class="cms-panel-content">
-              <h3 style="font-size: 1.4rem; color: var(--brand-emerald); font-weight: 800; margin-bottom: 8px;">Administrator Audit Trail Logs</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Real-time security log tracking content creation, edits, and administrative sign-ins.</p>
-
-              <table class="lead-table">
-                <thead>
-                  <tr>
-                    <th>Timestamp</th>
-                    <th>User</th>
-                    <th>Action Executed</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody id="audit-logs-tbody">
-                  <tr>
-                    <td>Just now</td>
-                    <td><strong>admin</strong></td>
-                    <td>Authenticated into Advanced Executive CMS Suite v5.0</td>
-                    <td><span style="background: #DCFCE7; color: #15803D; font-weight: 800; font-size: 0.75rem; padding: 2px 8px; border-radius: 99px;">SUCCESS</span></td>
-                  </tr>
-                  <tr>
-                    <td>Today, 15:35</td>
-                    <td><strong>admin</strong></td>
-                    <td>Executed SQLite3 Database Migration & Seeder</td>
-                    <td><span style="background: #DCFCE7; color: #15803D; font-weight: 800; font-size: 0.75rem; padding: 2px 8px; border-radius: 99px;">SUCCESS</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
           </div>
 
         </div>
@@ -752,7 +669,7 @@
   <!-- Minimal Standalone Admin Footer (No Main Website Footer) -->
   <footer style="background: #FFFFFF; border-top: 1.5px solid var(--border-light); padding: 18px 0; font-size: 0.85rem; color: var(--text-muted); text-align: center;">
     <div class="container">
-      &copy; 2026 GRILLISTA Franchise Systems Pvt Ltd. Powered by RK Group of Industries. Enterprise Admin Control Panel.
+      &copy; 2026 GRILLISTA Franchise Systems Pvt Ltd. Powered by RK Group of Industries. Executive Admin Control Panel.
     </div>
   </footer>
 
@@ -770,19 +687,6 @@
       const closeEditModalBtn = document.getElementById('close-edit-modal-btn');
       const universalEditForm = document.getElementById('cms-universal-edit-form');
 
-      // Fetch Real-Time System Stats from Django REST API
-      function fetchCmsStats() {
-        fetch('/api/cms/stats/')
-          .then(res => res.json())
-          .then(data => {
-            if (data.status === 'success') {
-              const latencyVal = document.getElementById('latency-val');
-              if (latencyVal) latencyVal.innerText = `${data.stats.latency_ms}ms`;
-            }
-          })
-          .catch(err => console.log('Stats loaded'));
-      }
-
       // Check Login State
       function checkAuthState() {
         const isLoggedIn = localStorage.getItem('grillista_admin_logged_in') === 'true';
@@ -791,7 +695,6 @@
           if (dashboardWrapper) dashboardWrapper.style.display = 'block';
           if (headerLogoutBtn) headerLogoutBtn.style.display = 'inline-flex';
           loadDashboardData();
-          fetchCmsStats();
         } else {
           if (loginWrapper) loginWrapper.style.display = 'block';
           if (dashboardWrapper) dashboardWrapper.style.display = 'none';
@@ -838,25 +741,9 @@
         });
       });
 
-      // Global Live Keyword Search Filter across active items
-      const globalSearchInput = document.getElementById('global-cms-search-input');
-      if (globalSearchInput) {
-        globalSearchInput.addEventListener('input', () => {
-          const query = globalSearchInput.value.toLowerCase().trim();
-          document.querySelectorAll('.item-manage-card, .lead-table tbody tr').forEach(item => {
-            const text = item.textContent.toLowerCase();
-            if (!query || text.includes(query)) {
-              item.style.display = '';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      }
-
       // Load Dashboard Data (Leads, Team, Testimonials, Blogs, Menu, Cities, Media)
       function loadDashboardData() {
-        // 1. Leads Desk
+        // 1. Leads
         const leads = JSON.parse(localStorage.getItem('grillista_franchise_leads') || '[]');
         const metricLeads = document.getElementById('metric-leads');
         const leadsTbody = document.getElementById('leads-tbody');
@@ -869,23 +756,17 @@
             leadsTbody.innerHTML = '<tr><td colspan="9" style="text-align: center; color: var(--text-muted); padding: 24px;">No franchise applications submitted yet.</td></tr>';
           } else {
             leads.forEach((lead, idx) => {
-              const cleanPhone = (lead.phone || '').replace(/\D/g,'');
               const tr = document.createElement('tr');
               tr.innerHTML = `
                 <td><strong>#${idx + 1}</strong></td>
                 <td><strong>${lead.name || 'Investor'}</strong></td>
                 <td>${lead.email || 'N/A'}</td>
-                <td><strong>${lead.phone || 'N/A'}</strong></td>
+                <td><a href="https://wa.me/${(lead.phone || '').replace(/\D/g,'')}" target="_blank" style="color: #15803D; font-weight: 700;"><i class="fa-brands fa-whatsapp"></i> ${lead.phone || 'N/A'}</a></td>
                 <td>${lead.city || 'UP'}</td>
                 <td>₹${lead.budget || '12 Lakh'}</td>
                 <td><span class="badge-gold">${lead.model || 'Mini Bistro'}</span></td>
-                <td>
-                  <div style="display: flex; gap: 6px;">
-                    <a href="https://wa.me/91${cleanPhone}?text=Hi%20${encodeURIComponent(lead.name || '')}%2C%20thank%20you%20for%20your%20Grillista%20Franchise%20Inquiry!" target="_blank" class="btn btn-gold btn-sm" style="padding: 4px 10px; font-size: 0.75rem;"><i class="fa-brands fa-whatsapp"></i> Chat</a>
-                    <a href="mailto:${lead.email || 'grillistakanpur@gmail.com'}" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.75rem;"><i class="fa-solid fa-envelope"></i> Email</a>
-                  </div>
-                </td>
-                <td><button class="btn btn-outline btn-sm delete-lead-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3); padding: 4px 8px;"><i class="fa-solid fa-trash"></i></button></td>
+                <td>${lead.date || new Date().toLocaleDateString()}</td>
+                <td><button class="btn btn-outline btn-sm delete-lead-btn" data-idx="${idx}" style="color: var(--primary-red); border-color: rgba(185,28,28,0.3); padding: 2px 8px;"><i class="fa-solid fa-trash"></i></button></td>
               `;
               leadsTbody.appendChild(tr);
             });
@@ -1129,9 +1010,6 @@
           localStorage.setItem('grillista_territory_cities', JSON.stringify(cities));
         }
 
-        const metricCities = document.getElementById('metric-cities');
-        if (metricCities) metricCities.innerText = cities.length;
-
         const citiesContainer = document.getElementById('cities-list-container');
         if (citiesContainer) {
           citiesContainer.innerHTML = '';
@@ -1337,19 +1215,25 @@
         });
       }
 
-      // Export CSV from Django SQLite3 Database
+      // Standalone Client-Side Export CSV
       const exportBtn = document.getElementById('export-leads-csv');
       if (exportBtn) {
         exportBtn.addEventListener('click', () => {
-          window.location.href = '/api/leads/export-csv/';
-        });
-      }
-
-      // Export JSON from Django SQLite3 Database
-      const exportJsonBtn = document.getElementById('export-leads-json');
-      if (exportJsonBtn) {
-        exportJsonBtn.addEventListener('click', () => {
-          window.location.href = '/api/leads/export-json/';
+          const leads = JSON.parse(localStorage.getItem('grillista_franchise_leads') || localStorage.getItem('grillista_leads') || '[]');
+          if (leads.length === 0) {
+            alert('No leads available to export!');
+            return;
+          }
+          let csv = 'Name,Phone,City,Budget,Date\n';
+          leads.forEach(l => {
+            csv += `"${l.name || ''}","${l.phone || ''}","${l.city || l.location || ''}","${l.budget || ''}","${l.date || ''}"\n`;
+          });
+          const blob = new Blob([csv], { type: 'text/csv' });
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'Grillista_Franchise_Leads.csv';
+          a.click();
         });
       }
 
