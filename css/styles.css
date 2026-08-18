@@ -1117,8 +1117,42 @@ html {
 
 body {
   line-height: 1.6;
-  background: #FAF7F2;
+  background: linear-gradient(rgba(250, 247, 242, 0.93), rgba(250, 247, 242, 0.93)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&auto=format&fit=crop&q=80') fixed center/cover;
   min-height: 100vh;
+}
+
+/* Atmospheric Real Food Background Overlay System */
+.real-food-section-bg {
+  position: relative;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+.real-food-section-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.82);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.food-bg-watermark {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.08;
+  filter: grayscale(20%) drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+  animation: floatFoodWatermark 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatFoodWatermark {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-15px) rotate(4deg); }
 }
 
 h1, h2, h3, h4, h5, h6 {
