@@ -283,15 +283,20 @@ document.addEventListener('DOMContentLoaded', () => {
   resetTestimonialMultiAutoPlay();
   window.addEventListener('resize', () => updateTestimonialMultiTrack());
 
-  // Universal Touch & Mouse Drag Swipe Controller for Mobile Phones
+  // Universal Touch, Laptop Touchpad Drag & Trackpad Swipe Controller
   function setupTouchSwipe(elementSelector, onSwipeNext, onSwipePrev) {
     const el = typeof elementSelector === 'string' ? document.querySelector(elementSelector) : elementSelector;
     if (!el) return;
 
     el.style.touchAction = 'pan-y';
+    el.style.cursor = 'grab';
+
     let startX = 0;
     let startY = 0;
+    let isDragging = false;
+    let wheelDebounceTimer = null;
 
+    // 1. Mobile Touch Events
     el.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
@@ -299,12 +304,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     el.addEventListener('touchend', (e) => {
       if (!e.changedTouches || e.changedTouches.length === 0) return;
-      const endX = e.changedTouches[0].clientX;
-      const endY = e.changedTouches[0].clientY;
-      const diffX = endX - startX;
-      const diffY = endY - startY;
+      const diffX = e.changedTouches[0].clientX - startX;
+      const diffY = e.changedTouches[0].clientY - startY;
 
-      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
         if (diffX < 0) {
           if (onSwipeNext) onSwipeNext();
         } else {
@@ -312,9 +315,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }, { passive: true });
+
+    // 2. Laptop Touchpad / Mouse Pointer Drag Events
+    el.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'touch') return;
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      el.style.cursor = 'grabbing';
+    });
+
+    el.addEventListener('pointerup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      el.style.cursor = 'grab';
+      const diffX = e.clientX - startX;
+      const diffY = e.clientY - startY;
+
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+        if (diffX < 0) {
+          if (onSwipeNext) onSwipeNext();
+        } else {
+          if (onSwipePrev) onSwipePrev();
+        }
+      }
+    });
+
+    el.addEventListener('pointerleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        el.style.cursor = 'grab';
+      }
+    });
+
+    // 3. Laptop Trackpad 2-Finger Horizontal Scroll Events
+    el.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 15) {
+        e.preventDefault();
+        if (wheelDebounceTimer) return;
+
+        if (e.deltaX > 0) {
+          if (onSwipeNext) onSwipeNext();
+        } else {
+          if (onSwipePrev) onSwipePrev();
+        }
+
+        wheelDebounceTimer = setTimeout(() => {
+          wheelDebounceTimer = null;
+        }, 350);
+      }
+    }, { passive: false });
   }
 
-  // Attach Touch Gestures to All Sliders Site-Wide
+  // Attach Touch & Laptop Touchpad Gestures to All Sliders Site-Wide
   setupTouchSwipe('.blog-slideshow-container', () => window.moveBlogSlide(1), () => window.moveBlogSlide(-1));
   setupTouchSwipe('#testimonial-track', () => window.moveTestimonialMultiSlide(1), () => window.moveTestimonialMultiSlide(-1));
   setupTouchSwipe('.category-slideshow-container', () => window.moveCategorySlide(1), () => window.moveCategorySlide(-1));
