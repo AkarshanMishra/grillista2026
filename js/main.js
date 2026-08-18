@@ -130,6 +130,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   resetBlogAutoPlay();
 
+  // Big Single Testimonials Slideshow Auto-Play & Navigation
+  let currentTestimonialIndex = 0;
+  let testimonialTimer = null;
+
+  window.showTestimonialSlide = function(index) {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.testimonial-slide-dot');
+    if (!slides || slides.length === 0) return;
+
+    if (index >= slides.length) currentTestimonialIndex = 0;
+    else if (index < 0) currentTestimonialIndex = slides.length - 1;
+    else currentTestimonialIndex = index;
+
+    slides.forEach((slide, i) => {
+      slide.style.display = (i === currentTestimonialIndex) ? 'block' : 'none';
+    });
+
+    if (dots && dots.length > 0) {
+      dots.forEach((dot, i) => {
+        if (i === currentTestimonialIndex) {
+          dot.style.width = '32px';
+          dot.style.background = '#FF9100';
+        } else {
+          dot.style.width = '10px';
+          dot.style.background = 'rgba(0,0,0,0.2)';
+        }
+      });
+    }
+  };
+
+  window.moveTestimonialSlide = function(step) {
+    showTestimonialSlide(currentTestimonialIndex + step);
+    resetTestimonialAutoPlay();
+  };
+
+  window.jumpToTestimonialSlide = function(index) {
+    showTestimonialSlide(index);
+    resetTestimonialAutoPlay();
+  };
+
+  function resetTestimonialAutoPlay() {
+    if (testimonialTimer) clearInterval(testimonialTimer);
+    testimonialTimer = setInterval(() => {
+      if (document.querySelectorAll('.testimonial-slide').length > 0) {
+        showTestimonialSlide(currentTestimonialIndex + 1);
+      }
+    }, 5000);
+  }
+
+  resetTestimonialAutoPlay();
+
   // Grillista AI Chatbot Logic
   const chatbotLauncher = document.getElementById('chatbot-launcher-btn');
   const chatbotWindow = document.getElementById('chatbot-window');
