@@ -79,6 +79,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   resetCategoryAutoPlay();
 
+  // Big Single Blog Slideshow Auto-Play & Navigation
+  let currentBlogIndex = 0;
+  let blogTimer = null;
+
+  window.showBlogSlide = function(index) {
+    const slides = document.querySelectorAll('.blog-slide');
+    const dots = document.querySelectorAll('.blog-slide-dot');
+    if (!slides || slides.length === 0) return;
+
+    if (index >= slides.length) currentBlogIndex = 0;
+    else if (index < 0) currentBlogIndex = slides.length - 1;
+    else currentBlogIndex = index;
+
+    slides.forEach((slide, i) => {
+      slide.style.display = (i === currentBlogIndex) ? 'block' : 'none';
+    });
+
+    if (dots && dots.length > 0) {
+      dots.forEach((dot, i) => {
+        if (i === currentBlogIndex) {
+          dot.style.width = '32px';
+          dot.style.background = 'var(--accent-gold)';
+        } else {
+          dot.style.width = '10px';
+          dot.style.background = 'rgba(0,0,0,0.2)';
+        }
+      });
+    }
+  };
+
+  window.moveBlogSlide = function(step) {
+    showBlogSlide(currentBlogIndex + step);
+    resetBlogAutoPlay();
+  };
+
+  window.jumpToBlogSlide = function(index) {
+    showBlogSlide(index);
+    resetBlogAutoPlay();
+  };
+
+  function resetBlogAutoPlay() {
+    if (blogTimer) clearInterval(blogTimer);
+    blogTimer = setInterval(() => {
+      if (document.querySelectorAll('.blog-slide').length > 0) {
+        showBlogSlide(currentBlogIndex + 1);
+      }
+    }, 5500);
+  }
+
+  resetBlogAutoPlay();
+
   // Grillista AI Chatbot Logic
   const chatbotLauncher = document.getElementById('chatbot-launcher-btn');
   const chatbotWindow = document.getElementById('chatbot-window');
