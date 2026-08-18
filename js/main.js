@@ -130,26 +130,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   resetBlogAutoPlay();
 
-  // Big Single Testimonials Slideshow Auto-Play & Navigation
-  let currentTestimonialIndex = 0;
-  let testimonialTimer = null;
+  // 3-Cards Multi-Slide Testimonials Carousel Slider Engine
+  let currentTestimonialPage = 0;
+  let testimonialMultiTimer = null;
 
-  window.showTestimonialSlide = function(index) {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.testimonial-slide-dot');
-    if (!slides || slides.length === 0) return;
+  window.updateTestimonialMultiTrack = function() {
+    const track = document.getElementById('testimonial-track');
+    const dots = document.querySelectorAll('.testimonial-multi-dot');
+    if (!track) return;
 
-    if (index >= slides.length) currentTestimonialIndex = 0;
-    else if (index < 0) currentTestimonialIndex = slides.length - 1;
-    else currentTestimonialIndex = index;
+    const cards = track.children;
+    if (!cards || cards.length === 0) return;
 
-    slides.forEach((slide, i) => {
-      slide.style.display = (i === currentTestimonialIndex) ? 'block' : 'none';
-    });
+    // Calculate total pages (assuming 3 cards per view on desktop, 1 on mobile)
+    const isMobile = window.innerWidth < 768;
+    const cardsPerPage = isMobile ? 1 : 3;
+    const maxPages = Math.ceil(cards.length / cardsPerPage);
+
+    if (currentTestimonialPage >= maxPages) currentTestimonialPage = 0;
+    if (currentTestimonialPage < 0) currentTestimonialPage = maxPages - 1;
+
+    const translatePercent = (currentTestimonialPage * 100);
+    track.style.transform = `translateX(-${translatePercent}%)`;
 
     if (dots && dots.length > 0) {
       dots.forEach((dot, i) => {
-        if (i === currentTestimonialIndex) {
+        if (i === currentTestimonialPage) {
           dot.style.width = '32px';
           dot.style.background = '#FF9100';
         } else {
@@ -160,26 +166,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.moveTestimonialSlide = function(step) {
-    showTestimonialSlide(currentTestimonialIndex + step);
-    resetTestimonialAutoPlay();
+  window.moveTestimonialMultiSlide = function(step) {
+    currentTestimonialPage += step;
+    updateTestimonialMultiTrack();
+    resetTestimonialMultiAutoPlay();
   };
 
-  window.jumpToTestimonialSlide = function(index) {
-    showTestimonialSlide(index);
-    resetTestimonialAutoPlay();
+  window.jumpToTestimonialMultiSlide = function(pageIndex) {
+    currentTestimonialPage = pageIndex;
+    updateTestimonialMultiTrack();
+    resetTestimonialMultiAutoPlay();
   };
 
-  function resetTestimonialAutoPlay() {
-    if (testimonialTimer) clearInterval(testimonialTimer);
-    testimonialTimer = setInterval(() => {
-      if (document.querySelectorAll('.testimonial-slide').length > 0) {
-        showTestimonialSlide(currentTestimonialIndex + 1);
+  function resetTestimonialMultiAutoPlay() {
+    if (testimonialMultiTimer) clearInterval(testimonialMultiTimer);
+    testimonialMultiTimer = setInterval(() => {
+      if (document.getElementById('testimonial-track')) {
+        moveTestimonialMultiSlide(1);
       }
-    }, 5000);
+    }, 5500);
   }
 
-  resetTestimonialAutoPlay();
+  resetTestimonialMultiAutoPlay();
+  window.addEventListener('resize', () => updateTestimonialMultiTrack());
 
   // Grillista AI Chatbot Logic
   const chatbotLauncher = document.getElementById('chatbot-launcher-btn');
