@@ -224,10 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = document.querySelectorAll('.testimonial-multi-dot');
     if (!track) return;
 
-    const cards = track.children;
+    const cards = Array.from(track.children);
     if (!cards || cards.length === 0) return;
 
-    // Calculate total pages (assuming 3 cards per view on desktop, 1 on mobile)
     const isMobile = window.innerWidth < 768;
     const cardsPerPage = isMobile ? 1 : 3;
     const maxPages = Math.ceil(cards.length / cardsPerPage);
@@ -235,8 +234,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentTestimonialPage >= maxPages) currentTestimonialPage = 0;
     if (currentTestimonialPage < 0) currentTestimonialPage = maxPages - 1;
 
-    const translatePercent = (currentTestimonialPage * 100);
-    track.style.transform = `translateX(-${translatePercent}%)`;
+    const containerWidth = track.parentElement ? track.parentElement.clientWidth : track.clientWidth;
+    const gap = 24;
+    const cardWidth = isMobile ? containerWidth : (containerWidth - (2 * gap)) / 3;
+
+    cards.forEach(card => {
+      card.style.flex = `0 0 ${cardWidth}px`;
+      card.style.minWidth = `${cardWidth}px`;
+    });
+
+    const shiftPx = currentTestimonialPage * (cardsPerPage * (cardWidth + gap));
+    track.style.transform = `translateX(-${shiftPx}px)`;
 
     if (dots && dots.length > 0) {
       dots.forEach((dot, i) => {

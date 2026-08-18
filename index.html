@@ -455,10 +455,17 @@
 
       function updateSlider() {
         const visibleCount = getVisibleCount();
-        const containerWidth = track.parentElement.clientWidth;
-        const itemWidth = (containerWidth - (visibleCount - 1) * 24) / visibleCount;
-        const movePx = currentIndex * (itemWidth + 24);
+        const containerWidth = track.parentElement ? track.parentElement.clientWidth : track.clientWidth;
+        const gap = 24;
+        const itemWidth = (containerWidth - (visibleCount - 1) * gap) / visibleCount;
 
+        const items = track.children;
+        for (let i = 0; i < items.length; i++) {
+          items[i].style.flex = `0 0 ${itemWidth}px`;
+          items[i].style.minWidth = `${itemWidth}px`;
+        }
+
+        const movePx = currentIndex * (itemWidth + gap);
         track.style.transform = `translateX(-${movePx}px)`;
 
         dots.forEach((dot, idx) => {
