@@ -698,6 +698,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Global Google Sheets Inquiry Monitor Sync Handler
+  window.sendLeadToGoogleSheet = function(leadData) {
+    const sheetWebappUrl = localStorage.getItem('grillista_google_sheet_url') || 'https://script.google.com/macros/s/AKfycbz_DEMO_GRILLISTA_SHEET/exec';
+    if (!sheetWebappUrl) return;
+
+    try {
+      fetch(sheetWebappUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          timestamp: new Date().toLocaleString('en-IN'),
+          name: leadData.name || leadData.applicantName || 'Prospect',
+          phone: leadData.phone || leadData.mobile || 'N/A',
+          email: leadData.email || 'N/A',
+          city: leadData.location || leadData.city || 'Kanpur',
+          model: leadData.model || 'Mini Bistro / Classic Lounge',
+          budget: leadData.budget || '₹12 Lakh',
+          notes: leadData.notes || 'Website Inquiry Lead'
+        })
+      }).then(() => {
+        console.log('✅ Lead synced live to Google Sheet!');
+      }).catch(err => console.warn('Google Sheet Sync warning:', err));
+    } catch (e) {
+      console.warn('Google Sheet Sync Exception:', e);
+    }
+  };
+
   // Application Submission & Lead Storage
   if (franchiseForm) {
     franchiseForm.addEventListener('submit', (e) => {
@@ -705,109 +735,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const inputs = franchiseForm.querySelectorAll('input, select');
       const name = inputs[0] ? inputs[0].value : 'Prospect';
+      const email = inputs[1] ? inputs[1].value : 'N/A';
       const phone = inputs[2] ? inputs[2].value : 'N/A';
       const location = inputs[3] ? inputs[3].value : 'Kanpur';
       const budget = inputs[4] ? inputs[4].value : '₹12 Lakh';
 
-      // Save to localStorage leads
-      const leads = JSON.parse(localStorage.getItem('grillista_leads') || '[]');
-      
-      function generateProspectusText(lead) {
-        return `
-================================================================================
-GRILLISTA - THE ULTIMATE FOOD CHAIN
-100% PURE VEGETARIAN CAFÉ & QSR FRANCHISE PROSPECTUS (INDIA 2026)
-Powered & Incubated by RK Group of Industries (www.shreerkgroup.com)
-================================================================================
-
-EXECUTIVE CORPORATE OVERVIEW
-----------------------------
-Grillista is a fast-growing 100% vegetarian café brand offering hygienic, affordable,
-and delicious food with a modern café experience. Backed by corporate systems, operational
-expertise, and a long-term growth vision from RK Group of Industries, we offer a structured,
-transparent, low-risk, and highly profitable franchise model across Pan-India (Tier-1, Tier-2, Tier-3 cities).
-
-OFFICIAL CORPORATE HEAD OFFICE & CONTACTS
-------------------------------------------
-Head Office: 621/18, Block-W, Juhi Kala, VR Tower, Near Bharat Petroleum, Kanpur, UP
-Franchise Enquiry Phone: +91 63868 18682
-Official Email: grillistakanpur@gmail.com
-Corporate Website: www.shreerkgroup.com
-
-OPERATIONAL FLAGSHIP OUTLETS IN KANPUR
----------------------------------------
-1. Barra Bypass Outlet (Kanpur): Premium Flagship Format with High-Capacity Seating, Dine-In & Dedicated Celebration Venue for Events & Functions.
-2. Kakadev Outlet (Kanpur): Youth-Focused Experience Outlet with Gaming Zone, Pool Table, and High Delivery Volume.
-3. Juhi Saket Nagar Outlet (Kanpur): Rooftop Celebration Outlet for Large Gatherings, Birthdays & Corporate Parties.
-
-FRANCHISE INVESTMENT MODELS & COST BREAKDOWN
---------------------------------------------
-1. MINI BISTRO MODEL (600+ sq ft)
-   - Ideal for: High-footfall markets, colleges, residential areas
-   - Machinery & Equipment: ₹5.5 Lakh
-   - Raw Material (Initial): ₹2.5 Lakh
-   - Franchise Fee: ₹3 Lakh
-   - Branding & Launch: ₹0.5 Lakh
-   - Layout Fee: ₹0.5 Lakh
-   - TOTAL INVESTMENT: ₹12 Lakh (Interiors excluded)
-
-2. CLASSIC LOUNGE MODEL (700 - 1000+ sq ft)
-   - Ideal for: Premium locations, families, group dining
-   - Machinery & Equipment: ₹7.5 Lakh
-   - Raw Material (Initial): ₹3 Lakh
-   - Franchise Fee: ₹4.5 Lakh
-   - Branding & Launch: ₹0.5 Lakh
-   - Layout Fee: ₹0.5 Lakh
-   - TOTAL INVESTMENT: ₹16 Lakh (Interiors excluded)
-
-ROYALTY & AGREEMENT TERMS
---------------------------
-- Royalty Fee: 5% of gross monthly sales
-- Royalty Grace Period: STARTS AFTER 6 MONTHS (To maximize early franchisee cashflow)
-- Maintenance Fee: ₹5,000 / month
-- Agreement Period: 5 Years (Renewable)
-
-REVENUE & UNIT ECONOMICS
--------------------------
-- Monthly Sales Potential: ₹6 - ₹12 Lakh
-- Net Profit Margin: 20% - 25% (Up to 35% with optimized overheads)
-- Multiple Revenue Streams: Dine-in, Takeaway, Online Delivery (Swiggy/Zomato), Events & Parties
-
-360° FRANCHISE SUPPORT SYSTEM (BY RK GROUP)
---------------------------------------------
-- Site Selection & Footfall Audit
-- 3D Architectural Layout & Kitchen Planning
-- Equipment & Vendor Finalization
-- 10 Days Hands-on Staff Training & SOP Enforcement at HQ Outlet
-- Hygiene & Quality Audits
-- POS Billing & Automated Inventory Systems
-- Centralized Digital Marketing (Social Media, Google Business, Paid Ads & Swiggy/Zomato Onboarding)
-
-PROSPECTUS APPLICANT DETAILS
-----------------------------
-Applicant Name: ${lead.name || 'Valued Partner'}
-Target Location: ${lead.city || 'India'}
-WhatsApp Phone: ${lead.phone || 'N/A'}
-Email Address: ${lead.email || 'N/A'}
-Selected Model: ${lead.model || 'Mini Bistro / Classic Lounge'}
-Investment Budget: ${lead.budget || 'N/A'}
-Generated Date: ${new Date().toLocaleDateString()}
-
-================================================================================
-Thank you for exploring the Grillista Franchise Opportunity.
-Together, let's build India's premier 100% Pure Veg Flame-Grilled Food Chain!
-================================================================================
-`;
-      }
-
-      leads.push({
+      const leadObj = {
         date: new Date().toLocaleDateString('en-IN'),
         name: name,
+        email: email,
         phone: phone,
         location: location,
         budget: budget
-      });
+      };
+
+      // Save to localStorage leads
+      const leads = JSON.parse(localStorage.getItem('grillista_leads') || '[]');
+      leads.push(leadObj);
       localStorage.setItem('grillista_leads', JSON.stringify(leads));
+
+      // Save to franchise leads dual key
+      const franchiseLeads = JSON.parse(localStorage.getItem('grillista_franchise_leads') || '[]');
+      franchiseLeads.push(leadObj);
+      localStorage.setItem('grillista_franchise_leads', JSON.stringify(franchiseLeads));
+
+      // Live Sync to Google Sheet
+      window.sendLeadToGoogleSheet(leadObj);
 
       // Trigger prospectus text download
       const prospectusContent = `===============================================================
