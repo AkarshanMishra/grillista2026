@@ -509,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function calculateDistanceKm(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Radius of Earth in km
+    const R = 6371; // Earth radius in km
     const dLat = deg2rad(lat2 - lat1);
     const dLon = deg2rad(lon2 - lon1);
     const a =
@@ -517,7 +517,19 @@ document.addEventListener('DOMContentLoaded', () => {
       Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
       Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return (R * c).toFixed(1);
+    return R * c;
+  }
+
+  function formatDistanceDisplay(distKm, outletName) {
+    const numeric = parseFloat(distKm);
+    if (numeric <= 0.3) {
+      return `<strong style="color: #15803D;"><i class="fa-solid fa-location-dot"></i> YOU ARE AT THE RESTAURANT! (0.0 km - In-Store Dining)</strong>`;
+    } else if (numeric <= 0.8) {
+      const meters = Math.round(numeric * 1000);
+      return `<i class="fa-solid fa-person-walking"></i> Super Close! Approx ${meters} meters away (${numeric.toFixed(1)} km)`;
+    } else {
+      return `<i class="fa-solid fa-route"></i> ${numeric.toFixed(1)} km away from your location`;
+    }
   }
 
   if (detectLocationBtn) {
@@ -527,45 +539,71 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      detectLocationBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Detecting your location...';
+      detectLocationBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Detecting High-Precision GPS Location...';
       
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const userLat = position.coords.latitude;
           const userLon = position.coords.longitude;
 
-          const distBarra = calculateDistanceKm(userLat, userLon, OUTLETS.barra.lat, OUTLETS.barra.lon);
-          const distKakadeo = calculateDistanceKm(userLat, userLon, OUTLETS.kakadeo.lat, OUTLETS.kakadeo.lon);
+          const distBarraRaw = calculateDistanceKm(userLat, userLon, OUTLETS.barra.lat, OUTLETS.barra.lon);
+          const distKakadeoRaw = calculateDistanceKm(userLat, userLon, OUTLETS.kakadeo.lat, OUTLETS.kakadeo.lon);
 
-          detectLocationBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Location Detected!';
+          detectLocationBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Precise Location Detected!';
           detectLocationBtn.style.background = '#15803D';
           detectLocationBtn.style.color = '#FFF';
 
-          const nearest = parseFloat(distBarra) < parseFloat(distKakadeo) ? OUTLETS.barra.name : OUTLETS.kakadeo.name;
-          const nearestDist = Math.min(distBarra, distKakadeo);
+          const nearestName = distBarraRaw < distKakadeoRaw ? OUTLETS.barra.name : OUTLETS.kakadeo.name;
+          const nearestDistNum = Math.min(distBarraRaw, distKakadeoRaw);
 
           if (locationStatusBadge) {
             locationStatusBadge.style.display = 'block';
-            locationStatusBadge.innerHTML = `<i class="fa-solid fa-location-crosshairs"></i> Your Location: <strong>${nearest} is nearest to you (${nearestDist} km away)</strong>`;
+            if (nearestDistNum <= 0.3) {
+              locationStatusBadge.innerHTML = `<i class="fa-solid fa-shop" style="color: #15803D;"></i> <strong>WELCOME TO GRILLISTA! You are currently sitting at ${nearestName}!</strong>`;
+            } else {
+              locationStatusBadge.innerHTML = `<i class="fa-solid fa-location-crosshairs"></i> Your Location: <strong>${nearestName} is nearest to you (${formatDistanceDisplay(nearestDistNum, nearestName)})</strong>`;
+            }
           }
 
           if (distanceBarra) {
             distanceBarra.style.display = 'block';
-            distanceBarra.innerHTML = `<i class="fa-solid fa-route"></i> ${distBarra} km away from your location`;
+            distanceBarra.innerHTML = formatDistanceDisplay(distBarraRaw, OUTLETS.barra.name);
           }
 
           if (distanceKakadeo) {
             distanceKakadeo.style.display = 'block';
-            distanceKakadeo.innerHTML = `<i class="fa-solid fa-route"></i> ${distKakadeo} km away from your location`;
+            distanceKakadeo.innerHTML = formatDistanceDisplay(distKakadeoRaw, OUTLETS.kakadeo.name);
           }
         },
         (error) => {
           detectLocationBtn.innerHTML = '<i class="fa-solid fa-crosshairs"></i> Detect My Location';
-          alert('Unable to retrieve location. Please grant location permissions in your browser.');
+          alert('Unable to retrieve high-accuracy GPS location. Please allow location access in your device settings.');
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 15000,
+          maximumAge: 0
         }
       );
     });
   }
+
+  // Quick In-Store Override Helpers
+  window.setInStoreLocation = function(outletKey) {
+    if (outletKey === 'barra') {
+      if (distanceBarra) distanceBarra.innerHTML = `<strong style="color: #15803D;"><i class="fa-solid fa-shop"></i> YOU ARE HERE AT BARRA 2 OUTLET (0.0 km - In-Store)</strong>`;
+      if (locationStatusBadge) {
+        locationStatusBadge.style.display = 'block';
+        locationStatusBadge.innerHTML = `<i class="fa-solid fa-shop" style="color: #15803D;"></i> <strong>WELCOME TO GRILLISTA BARRA 2! (0.0 km - In-Store Dining)</strong>`;
+      }
+    } else if (outletKey === 'kakadeo') {
+      if (distanceKakadeo) distanceKakadeo.innerHTML = `<strong style="color: #15803D;"><i class="fa-solid fa-shop"></i> YOU ARE HERE AT KAKADEO OUTLET (0.0 km - In-Store)</strong>`;
+      if (locationStatusBadge) {
+        locationStatusBadge.style.display = 'block';
+        locationStatusBadge.innerHTML = `<i class="fa-solid fa-shop" style="color: #15803D;"></i> <strong>WELCOME TO GRILLISTA KAKADEO! (0.0 km - In-Store Dining)</strong>`;
+      }
+    }
+  };
   // Categorized FAQ Accordion Toggle (Matching Reference Image)
   const categoryBtns = document.querySelectorAll('.faq-category-btn');
   categoryBtns.forEach(btn => {
