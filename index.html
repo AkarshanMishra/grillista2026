@@ -1352,6 +1352,81 @@
         </div>
       </div>
     </div>
+  <!-- Modern Multi-Platform Order Food Selection Modal -->
+  <div class="modal-overlay" id="order-food-modal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+    <div class="modal-content" style="background: #FFFFFF; border-radius: 28px; max-width: 520px; width: 100%; padding: 36px 30px; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.3); border: 2px solid var(--accent-gold); text-align: left;">
+      
+      <button class="modal-close" id="order-modal-close-btn" style="position: absolute; top: 20px; right: 20px; background: rgba(15, 23, 42, 0.08); border: none; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; color: #0F172A;">
+        &times;
+      </button>
+
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 200, 83, 0.1); border: 1.5px solid rgba(0, 200, 83, 0.3); color: #00C853; padding: 6px 16px; border-radius: 999px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; margin-bottom: 14px;">
+        <i class="fa-solid fa-bolt"></i> INSTANT ONLINE FOOD ORDERING
+      </div>
+
+      <h3 style="font-size: 1.8rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">
+        Select Ordering Platform
+      </h3>
+      <p style="font-size: 0.92rem; color: #64748B; margin: 0 0 24px 0; font-weight: 500;">
+        Choose your preferred platform to order 100% Pure Veg flame-grilled food:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        
+        <!-- Option 1: Grillista Direct Web Order -->
+        <a href="menu.html" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border: 2px solid var(--accent-gold); border-radius: 18px; padding: 18px 20px; text-decoration: none; color: #FFF; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: all 0.2s ease;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(250, 204, 21, 0.2); border: 1.5px solid #FACC15; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #FACC15;">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.05rem; font-weight: 900; color: #FFF;">1. Grillista Direct Web Store</span>
+                <span style="background: #00C853; color: #FFF; font-size: 0.65rem; font-weight: 900; padding: 2px 8px; border-radius: 99px;">0% FEE</span>
+              </div>
+              <p style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 2px 0 0 0; font-weight: 500;">Official menu • Best prices & instant takeaway</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: #FACC15; font-size: 1.1rem;"></i>
+        </a>
+
+        <!-- Option 2: Order on Swiggy -->
+        <a href="https://www.swiggy.com" target="_blank" style="background: linear-gradient(135deg, #FC8019 0%, #E26A06 100%); border-radius: 18px; padding: 18px 20px; text-decoration: none; color: #FFF; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 25px rgba(252, 128, 25, 0.25); transition: all 0.2s ease;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(255, 255, 255, 0.2); border: 1.5px solid rgba(255, 255, 255, 0.4); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #FFF;">
+              <i class="fa-solid fa-motorcycle"></i>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.05rem; font-weight: 900; color: #FFF;">2. Order on Swiggy</span>
+                <span style="background: rgba(255,255,255,0.25); color: #FFF; font-size: 0.65rem; font-weight: 900; padding: 2px 8px; border-radius: 99px;">EXPRESS</span>
+              </div>
+              <p style="font-size: 0.8rem; color: rgba(255,255,255,0.9); margin: 2px 0 0 0; font-weight: 500;">Delivered hot in 25-30 mins via Swiggy</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFF; font-size: 1.05rem;"></i>
+        </a>
+
+        <!-- Option 3: Order on Zomato -->
+        <a href="https://www.zomato.com" target="_blank" style="background: linear-gradient(135deg, #CB202D 0%, #B01824 100%); border-radius: 18px; padding: 18px 20px; text-decoration: none; color: #FFF; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 25px rgba(203, 32, 45, 0.25); transition: all 0.2s ease;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(255, 255, 255, 0.2); border: 1.5px solid rgba(255, 255, 255, 0.4); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #FFF;">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.05rem; font-weight: 900; color: #FFF;">3. Order on Zomato</span>
+                <span style="background: rgba(255,255,255,0.25); color: #FFF; font-size: 0.65rem; font-weight: 900; padding: 2px 8px; border-radius: 99px;">GOLD 5★</span>
+              </div>
+              <p style="font-size: 0.8rem; color: rgba(255,255,255,0.9); margin: 2px 0 0 0; font-weight: 500;">Live tracking & Zomato Gold offers</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFF; font-size: 1.05rem;"></i>
+        </a>
+
+      </div>
+
+    </div>
   </div>
 
   <script src="js/main.js"></script>

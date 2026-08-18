@@ -604,6 +604,40 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   };
+
+  // Modern Multi-Platform Order Food Modal Logic
+  window.openOrderModal = function() {
+    const modal = document.getElementById('order-food-modal');
+    if (modal) {
+      modal.style.display = 'flex';
+    } else {
+      window.location.href = 'menu.html';
+    }
+  };
+
+  const orderModalCloseBtn = document.getElementById('order-modal-close-btn');
+  const orderFoodModal = document.getElementById('order-food-modal');
+
+  if (orderModalCloseBtn && orderFoodModal) {
+    orderModalCloseBtn.addEventListener('click', () => {
+      orderFoodModal.style.display = 'none';
+    });
+  }
+
+  if (orderFoodModal) {
+    orderFoodModal.addEventListener('click', (e) => {
+      if (e.target === orderFoodModal) {
+        orderFoodModal.style.display = 'none';
+      }
+    });
+  }
+
+  document.querySelectorAll('.trigger-order-modal').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openOrderModal();
+    });
+  });
   // Categorized FAQ Accordion Toggle (Matching Reference Image)
   const categoryBtns = document.querySelectorAll('.faq-category-btn');
   categoryBtns.forEach(btn => {
