@@ -1,3 +1,39 @@
+/* Universal Responsive Image & Video Box-Fit Guarantee */
+img, video, iframe, picture {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  box-sizing: border-box;
+}
+
+.gallery-card img,
+.gallery-card video,
+.category-slide img,
+.category-slide video,
+.blog-slide img,
+.blog-slide video,
+.testimonial-slide img,
+.premium-menu-card img,
+.featured-card img,
+.lightbox-content img,
+.lightbox-content video,
+.real-food-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.gallery-card > div,
+.category-slide > div,
+.blog-slide > div,
+.media-container,
+.video-box,
+.image-box {
+  overflow: hidden !important;
+}
+
 /* Luxury Corporate Animations & Micro-Interactions */
 @keyframes fadeInUpKeyframe {
   0% {
