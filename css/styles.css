@@ -1500,6 +1500,59 @@ button {
   z-index: 2;
 }
 
+/* 2026 Next-Gen Responsive Hero Section */
+.hero-modern-2026 {
+  position: relative;
+  background: linear-gradient(135deg, #090D16 0%, #0F172A 50%, #172554 100%);
+  padding: calc(var(--nav-height, 84px) + 40px) 0 70px 0;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(250, 204, 21, 0.3);
+}
+
+.hero-modern-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .hero-modern-2026 {
+    padding: calc(var(--nav-height, 84px) + 24px) 0 50px 0;
+  }
+  .hero-modern-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-modern-title {
+    font-size: clamp(2rem, 6vw, 2.8rem) !important;
+  }
+  .hero-modern-card {
+    padding: 28px 20px !important;
+  }
+  .hero-modern-ctas {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  .hero-modern-ctas .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .hero-modern-showcase {
+    height: 380px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .hero-modern-showcase {
+    height: 300px !important;
+  }
+}
+
 .hero-card-box {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
