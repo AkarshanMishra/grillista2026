@@ -2829,8 +2829,9 @@ input[type="range"] {
 }
 
 .modal-overlay.active {
-  opacity: 1;
-  pointer-events: all;
+  opacity: 1 !important;
+  pointer-events: all !important;
+  display: flex !important;
 }
 
 .modal-box {
