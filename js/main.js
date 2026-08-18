@@ -1,8 +1,42 @@
-/**
- * GRILLISTA - Main Application & Live CMS Dashboard JavaScript
- */
+// Global Order Food Modal Helpers (Top-Level Scope)
+window.openOrderModal = function() {
+  const modal = document.getElementById('order-food-modal');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.classList.add('active');
+  } else {
+    window.location.href = 'menu.html';
+  }
+};
+
+window.closeOrderModal = function() {
+  const modal = document.getElementById('order-food-modal');
+  if (modal) {
+    modal.style.display = 'none';
+    modal.classList.remove('active');
+  }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Global Event Delegation for Order Food Modal
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.trigger-order-modal');
+    if (trigger) {
+      e.preventDefault();
+      window.openOrderModal();
+    }
+
+    const closeBtn = e.target.closest('#order-modal-close-btn, .order-modal-close');
+    if (closeBtn) {
+      window.closeOrderModal();
+    }
+
+    const modal = document.getElementById('order-food-modal');
+    if (modal && e.target === modal) {
+      window.closeOrderModal();
+    }
+  });
+
   // Live Section Visibility Enforcer (Hides any section deactivated from CMS)
   const sectionVisibility = JSON.parse(localStorage.getItem('grillista_section_visibility') || '{}');
   Object.keys(sectionVisibility).forEach(secId => {
