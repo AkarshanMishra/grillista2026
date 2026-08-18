@@ -275,6 +275,49 @@ document.addEventListener('DOMContentLoaded', () => {
   resetTestimonialMultiAutoPlay();
   window.addEventListener('resize', () => updateTestimonialMultiTrack());
 
+  // Universal Touch & Mouse Drag Swipe Controller for Mobile Phones
+  function setupTouchSwipe(elementSelector, onSwipeNext, onSwipePrev) {
+    const el = typeof elementSelector === 'string' ? document.querySelector(elementSelector) : elementSelector;
+    if (!el) return;
+
+    el.style.touchAction = 'pan-y';
+    let startX = 0;
+    let startY = 0;
+
+    el.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    el.addEventListener('touchend', (e) => {
+      if (!e.changedTouches || e.changedTouches.length === 0) return;
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const diffX = endX - startX;
+      const diffY = endY - startY;
+
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+        if (diffX < 0) {
+          if (onSwipeNext) onSwipeNext();
+        } else {
+          if (onSwipePrev) onSwipePrev();
+        }
+      }
+    }, { passive: true });
+  }
+
+  // Attach Touch Gestures to All Sliders Site-Wide
+  setupTouchSwipe('.blog-slideshow-container', () => window.moveBlogSlide(1), () => window.moveBlogSlide(-1));
+  setupTouchSwipe('#testimonial-track', () => window.moveTestimonialMultiSlide(1), () => window.moveTestimonialMultiSlide(-1));
+  setupTouchSwipe('.category-slideshow-container', () => window.moveCategorySlide(1), () => window.moveCategorySlide(-1));
+  setupTouchSwipe('#bestseller-slider-track', () => {
+    const nextBtn = document.getElementById('bestseller-next-btn');
+    if (nextBtn) nextBtn.click();
+  }, () => {
+    const prevBtn = document.getElementById('bestseller-prev-btn');
+    if (prevBtn) prevBtn.click();
+  });
+
   // Grillista AI Chatbot Logic
   const chatbotLauncher = document.getElementById('chatbot-launcher-btn');
   const chatbotWindow = document.getElementById('chatbot-window');

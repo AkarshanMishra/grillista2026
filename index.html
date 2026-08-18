@@ -472,23 +472,56 @@
         });
       }
 
-      nextBtn.addEventListener('click', () => {
+      function nextSlide() {
         if (currentIndex < getMaxIndex()) {
           currentIndex++;
         } else {
           currentIndex = 0;
         }
         updateSlider();
-      });
+      }
 
-      prevBtn.addEventListener('click', () => {
+      function prevSlide() {
         if (currentIndex > 0) {
           currentIndex--;
         } else {
           currentIndex = getMaxIndex();
         }
         updateSlider();
-      });
+      }
+
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+
+      // Touch & Drag Swipe Event Listeners for Mobile Phones
+      let startX = 0;
+      let startY = 0;
+
+      const sliderViewport = track.parentElement;
+      if (sliderViewport) {
+        sliderViewport.style.touchAction = 'pan-y';
+
+        sliderViewport.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        sliderViewport.addEventListener('touchend', (e) => {
+          if (!e.changedTouches || e.changedTouches.length === 0) return;
+          const endX = e.changedTouches[0].clientX;
+          const endY = e.changedTouches[0].clientY;
+          const diffX = endX - startX;
+          const diffY = endY - startY;
+
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+            if (diffX < 0) {
+              nextSlide();
+            } else {
+              prevSlide();
+            }
+          }
+        }, { passive: true });
+      }
 
       dots.forEach((dot, idx) => {
         dot.addEventListener('click', () => {
@@ -500,28 +533,6 @@
       window.addEventListener('resize', updateSlider);
 
       // Auto slide loop
-      let autoPlay = setInterval(() => {
-        if (currentIndex < getMaxIndex()) {
-          currentIndex++;
-        } else {
-          currentIndex = 0;
-        }
-        updateSlider();
-      }, 4000);
-
-      track.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlay));
-      track.parentElement.addEventListener('mouseleave', () => {
-        autoPlay = setInterval(() => {
-          if (currentIndex < getMaxIndex()) {
-            currentIndex++;
-          } else {
-            currentIndex = 0;
-          }
-          updateSlider();
-        }, 4000);
-  </script>
-
-  <!-- Ultra-Luxury Customer Food & Dining Reviews Section -->
   <section id="testimonials" class="section luxury-testimonials-section" style="background: linear-gradient(180deg, rgba(250,247,242,0.95) 0%, rgba(255,255,255,0.95) 100%), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&auto=format&fit=crop&q=80') fixed center/cover; position: relative; overflow: hidden;">
     <!-- Floating Background Food Accents -->
     <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80" alt="Paneer Burger Watermark" class="food-bg-watermark" style="top: 30px; right: -40px; width: 220px; height: 220px; border-radius: 50%; object-fit: cover; opacity: 0.08;">
