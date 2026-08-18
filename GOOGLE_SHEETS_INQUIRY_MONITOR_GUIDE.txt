@@ -1,0 +1,76 @@
+================================================================================
+GRILLISTA FOOD FRANCHISE - GOOGLE SHEETS INQUIRY MONITOR SETUP GUIDE
+================================================================================
+Corporate Parent: RK Group of Industries (www.shreerkgroup.com)
+Official Website: Grillista Franchise Systems (India 2026)
+================================================================================
+
+OVERVIEW
+--------
+This system automatically logs all website franchise inquiries, lead forms,
+and contact submissions directly into a Google Sheet in real-time.
+
+--------------------------------------------------------------------------------
+STEP 1: GOOGLE APPS SCRIPT CODE (Paste in Google Sheets)
+--------------------------------------------------------------------------------
+1. Open a Google Sheet (e.g. named "Grillista Website Inquiries").
+2. In the top menu, click Extensions -> Apps Script.
+3. Replace all existing text in Code.gs with the exact code below:
+
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+  sheet.appendRow([
+    data.timestamp || new Date(),
+    data.name,
+    data.phone,
+    data.email,
+    data.city,
+    data.model,
+    data.budget,
+    data.notes
+  ]);
+  return ContentService.createTextOutput(JSON.stringify({"result":"success"})).setMimeType(ContentService.MimeType.JSON);
+}
+
+--------------------------------------------------------------------------------
+STEP 2: DEPLOY AS WEB APP
+--------------------------------------------------------------------------------
+1. Click the blue "Deploy" button at the top right of Apps Script.
+2. Select "New deployment".
+3. Under "Select type", choose "Web app".
+4. Set the following options:
+   - Description: Grillista Website Inquiry Monitor
+   - Execute as: Me (your Google account)
+   - Who has access: Anyone
+5. Click "Deploy".
+6. Copy the generated Web App URL 
+   (e.g., https://script.google.com/macros/s/AKfycb.../exec).
+
+--------------------------------------------------------------------------------
+STEP 3: CONNECT TO WEBSITE ADMIN PORTAL
+--------------------------------------------------------------------------------
+1. Open the Admin Portal on your website:
+   URL: http://localhost:8080/admin.html (or live admin page)
+   Default Admin Credentials:
+   - Username: admin
+   - Password: admin123
+
+2. Go to the "Submitted Franchise Prospectus Leads" tab.
+3. Paste your copied Google Apps Script Web App URL into the box.
+4. Click "Save WebApp URL".
+5. Click "⚡ Send Test Inquiry" to verify a sample row appears in your Google Sheet!
+
+================================================================================
+SUMMARY OF SHEET COLUMNS GENERATED:
+Column A: Timestamp / Date
+Column B: Applicant Name
+Column C: Phone Number
+Column D: Email Address
+Column E: Target City / Location
+Column F: Selected Franchise Model (Mini Bistro / Classic Lounge)
+Column G: Investment Budget
+Column H: Notes / Source
+================================================================================
+Support & HQ Helpline: +91 63868 18682 | Email: grillistakanpur@gmail.com
+================================================================================
