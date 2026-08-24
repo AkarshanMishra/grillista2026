@@ -80,6 +80,11 @@
       border-color: #FACC15;
       box-shadow: 0 4px 14px rgba(200, 138, 43, 0.35);
     }
+    .city-status-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(153, 27, 27, 0.12) !important;
+      border-color: #C88A2B !important;
+    }
   </style>
 </head>
 <body class="bg-champagne">
@@ -358,210 +363,210 @@
       <div id="city-availability-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto;">
         
         <!-- City Card 1: Lucknow -->
-        <div class="city-status-card" data-cityname="lucknow" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="city-status-card" data-cityname="lucknow" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-top: 5px solid #991B1B; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Lucknow</h3>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Hazratganj / Gomti Nagar / Aliganj</span>
+                <h3 style="font-size: 1.45rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading); letter-spacing: -0.01em;">Lucknow</h3>
+                <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Hazratganj • Gomti Nagar • Aliganj</span>
               </div>
-              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
-                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              <span style="background: rgba(22, 163, 74, 0.1); color: #16A34A; border: 1.5px solid rgba(22, 163, 74, 0.3); font-size: 0.74rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 8px #16A34A;"></span> AVAILABLE NOW
               </span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
-              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 3.8 Million+</div>
-              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 160+ Orders</div>
-              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
-              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 20px; font-size: 0.84rem; color: #334155;">
+              <div><i class="fa-solid fa-users" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Pop:</strong> 3.8M+</div>
+              <div><i class="fa-solid fa-bag-shopping" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Daily:</strong> 160+ Orders</div>
+              <div><i class="fa-solid fa-store" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Format:</strong> Express/Bistro</div>
+              <div><i class="fa-solid fa-vector-square" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Min Area:</strong> 600+ sq ft</div>
             </div>
           </div>
 
-          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
-            <i class="fa-solid fa-crown"></i> Reserve Lucknow Rights (₹)
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 13px; font-weight: 800; border-radius: 99px; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.25);">
+            <i class="fa-solid fa-crown" style="color: #FFF;"></i> Reserve Lucknow Rights (₹)
           </button>
         </div>
 
         <!-- City Card 2: Varanasi -->
-        <div class="city-status-card" data-cityname="varanasi" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="city-status-card" data-cityname="varanasi" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-top: 5px solid #991B1B; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Varanasi</h3>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Lanka Market / Sigra / Cantt</span>
+                <h3 style="font-size: 1.45rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading); letter-spacing: -0.01em;">Varanasi</h3>
+                <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Lanka Market • Sigra • Cantt</span>
               </div>
-              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
-                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              <span style="background: rgba(22, 163, 74, 0.1); color: #16A34A; border: 1.5px solid rgba(22, 163, 74, 0.3); font-size: 0.74rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 8px #16A34A;"></span> AVAILABLE NOW
               </span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
-              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 1.7 Million+</div>
-              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 140+ Orders</div>
-              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
-              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 20px; font-size: 0.84rem; color: #334155;">
+              <div><i class="fa-solid fa-users" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Pop:</strong> 1.7M+</div>
+              <div><i class="fa-solid fa-bag-shopping" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Daily:</strong> 140+ Orders</div>
+              <div><i class="fa-solid fa-store" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Format:</strong> Express/Bistro</div>
+              <div><i class="fa-solid fa-vector-square" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Min Area:</strong> 600+ sq ft</div>
             </div>
           </div>
 
-          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
-            <i class="fa-solid fa-crown"></i> Reserve Varanasi Rights (₹)
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 13px; font-weight: 800; border-radius: 99px; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.25);">
+            <i class="fa-solid fa-crown" style="color: #FFF;"></i> Reserve Varanasi Rights (₹)
           </button>
         </div>
 
         <!-- City Card 3: Prayagraj -->
-        <div class="city-status-card" data-cityname="prayagraj" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="city-status-card" data-cityname="prayagraj" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-top: 5px solid #991B1B; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Prayagraj</h3>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Civil Lines / Katra Hub</span>
+                <h3 style="font-size: 1.45rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading); letter-spacing: -0.01em;">Prayagraj</h3>
+                <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Civil Lines • Katra Hub</span>
               </div>
-              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
-                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              <span style="background: rgba(22, 163, 74, 0.1); color: #16A34A; border: 1.5px solid rgba(22, 163, 74, 0.3); font-size: 0.74rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 8px #16A34A;"></span> AVAILABLE NOW
               </span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
-              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 1.5 Million+</div>
-              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 135+ Orders</div>
-              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
-              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 20px; font-size: 0.84rem; color: #334155;">
+              <div><i class="fa-solid fa-users" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Pop:</strong> 1.5M+</div>
+              <div><i class="fa-solid fa-bag-shopping" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Daily:</strong> 135+ Orders</div>
+              <div><i class="fa-solid fa-store" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Format:</strong> Express/Bistro</div>
+              <div><i class="fa-solid fa-vector-square" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Min Area:</strong> 600+ sq ft</div>
             </div>
           </div>
 
-          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
-            <i class="fa-solid fa-crown"></i> Reserve Prayagraj Rights (₹)
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 13px; font-weight: 800; border-radius: 99px; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.25);">
+            <i class="fa-solid fa-crown" style="color: #FFF;"></i> Reserve Prayagraj Rights (₹)
           </button>
         </div>
 
         <!-- City Card 4: Agra -->
-        <div class="city-status-card" data-cityname="agra" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="city-status-card" data-cityname="agra" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-top: 5px solid #991B1B; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Agra</h3>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Sanjay Place / Taj Ganj</span>
+                <h3 style="font-size: 1.45rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading); letter-spacing: -0.01em;">Agra</h3>
+                <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Sanjay Place • Taj Ganj</span>
               </div>
-              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
-                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              <span style="background: rgba(22, 163, 74, 0.1); color: #16A34A; border: 1.5px solid rgba(22, 163, 74, 0.3); font-size: 0.74rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 8px #16A34A;"></span> AVAILABLE NOW
               </span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
-              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 2.2 Million+</div>
-              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 150+ Orders</div>
-              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
-              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 20px; font-size: 0.84rem; color: #334155;">
+              <div><i class="fa-solid fa-users" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Pop:</strong> 2.2M+</div>
+              <div><i class="fa-solid fa-bag-shopping" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Daily:</strong> 150+ Orders</div>
+              <div><i class="fa-solid fa-store" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Format:</strong> Express/Bistro</div>
+              <div><i class="fa-solid fa-vector-square" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Min Area:</strong> 600+ sq ft</div>
             </div>
           </div>
 
-          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
-            <i class="fa-solid fa-crown"></i> Reserve Agra Rights (₹)
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 13px; font-weight: 800; border-radius: 99px; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.25);">
+            <i class="fa-solid fa-crown" style="color: #FFF;"></i> Reserve Agra Rights (₹)
           </button>
         </div>
 
         <!-- City Card 5: Gorakhpur -->
-        <div class="city-status-card" data-cityname="gorakhpur" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="city-status-card" data-cityname="gorakhpur" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-top: 5px solid #991B1B; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Gorakhpur</h3>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Golghar High Street</span>
+                <h3 style="font-size: 1.45rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading); letter-spacing: -0.01em;">Gorakhpur</h3>
+                <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Golghar High Street</span>
               </div>
-              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
-                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              <span style="background: rgba(22, 163, 74, 0.1); color: #16A34A; border: 1.5px solid rgba(22, 163, 74, 0.3); font-size: 0.74rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 8px #16A34A;"></span> AVAILABLE NOW
               </span>
             </div>
 
-            <div style="display: flex; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
-              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 1.2 Million+</div>
-              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 130+ Orders</div>
-              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
-              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 20px; font-size: 0.84rem; color: #334155;">
+              <div><i class="fa-solid fa-users" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Pop:</strong> 1.2M+</div>
+              <div><i class="fa-solid fa-bag-shopping" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Daily:</strong> 130+ Orders</div>
+              <div><i class="fa-solid fa-store" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Format:</strong> Express/Bistro</div>
+              <div><i class="fa-solid fa-vector-square" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Min Area:</strong> 600+ sq ft</div>
             </div>
           </div>
 
-          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
-            <i class="fa-solid fa-crown"></i> Reserve Gorakhpur Rights (₹)
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 13px; font-weight: 800; border-radius: 99px; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.25);">
+            <i class="fa-solid fa-crown" style="color: #FFF;"></i> Reserve Gorakhpur Rights (₹)
           </button>
         </div>
 
         <!-- City Card 6: Bareilly -->
-        <div class="city-status-card" data-cityname="bareilly" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="city-status-card" data-cityname="bareilly" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-top: 5px solid #991B1B; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Bareilly</h3>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Civil Lines / Model Town</span>
+                <h3 style="font-size: 1.45rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading); letter-spacing: -0.01em;">Bareilly</h3>
+                <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Civil Lines • Model Town</span>
               </div>
-              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
-                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              <span style="background: rgba(22, 163, 74, 0.1); color: #16A34A; border: 1.5px solid rgba(22, 163, 74, 0.3); font-size: 0.74rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 8px #16A34A;"></span> AVAILABLE NOW
               </span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
-              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 1.0 Million+</div>
-              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 125+ Orders</div>
-              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
-              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 20px; font-size: 0.84rem; color: #334155;">
+              <div><i class="fa-solid fa-users" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Pop:</strong> 1.0M+</div>
+              <div><i class="fa-solid fa-bag-shopping" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Daily:</strong> 125+ Orders</div>
+              <div><i class="fa-solid fa-store" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Format:</strong> Express/Bistro</div>
+              <div><i class="fa-solid fa-vector-square" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Min Area:</strong> 600+ sq ft</div>
             </div>
           </div>
 
-          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
-            <i class="fa-solid fa-crown"></i> Reserve Bareilly Rights (₹)
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 13px; font-weight: 800; border-radius: 99px; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.25);">
+            <i class="fa-solid fa-crown" style="color: #FFF;"></i> Reserve Bareilly Rights (₹)
           </button>
         </div>
 
         <!-- City Card 7: Kanpur (Operating & Expansion) -->
-        <div class="city-status-card" data-cityname="kanpur" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid rgba(21, 128, 61, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="city-status-card" data-cityname="kanpur" data-statename="UP" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-top: 5px solid #C88A2B; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Kanpur</h3>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Barra 2 & Kakadeo Outlets</span>
+                <h3 style="font-size: 1.45rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading); letter-spacing: -0.01em;">Kanpur</h3>
+                <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Barra 2 & Kakadeo Outlets</span>
               </div>
-              <span style="background: #FEF3C7; color: #B45309; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(180, 83, 9, 0.3);">
-                <i class="fa-solid fa-store"></i> 2 STORES LIVE
+              <span style="background: rgba(200, 138, 43, 0.12); color: #C88A2B; border: 1.5px solid rgba(200, 138, 43, 0.35); font-size: 0.74rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                <i class="fa-solid fa-store" style="color: #C88A2B;"></i> 2 STORES LIVE
               </span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
-              <div><strong style="color: var(--brand-emerald);">City Pop:</strong> 4.5 Million+</div>
-              <div><strong style="color: var(--brand-emerald);">Live Outlets:</strong> Barra 2 & Kakadeo</div>
-              <div><strong style="color: var(--brand-emerald);">Swaroop Nagar:</strong> Available for Booking</div>
-              <div><strong style="color: var(--brand-emerald);">Status:</strong> Expansion Open</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 20px; font-size: 0.84rem; color: #334155;">
+              <div><i class="fa-solid fa-users" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Pop:</strong> 4.5M+</div>
+              <div><i class="fa-solid fa-circle-check" style="color: #00C853; margin-right: 4px;"></i> <strong style="color: #0F172A;">Live Outlets:</strong> 2</div>
+              <div><i class="fa-solid fa-location-dot" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Next Zone:</strong> Swaroop Ngr</div>
+              <div><i class="fa-solid fa-chart-line" style="color: #00C853; margin-right: 4px;"></i> <strong style="color: #0F172A;">Expansion:</strong> Open</div>
             </div>
           </div>
 
-          <button class="btn btn-outline trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px; border-color: rgba(200, 138, 43, 0.4);">
-            <i class="fa-solid fa-plus"></i> Apply For Kanpur Expansion
+          <button class="btn btn-outline trigger-apply-modal" style="width: 100%; justify-content: center; padding: 13px; font-weight: 800; border-radius: 99px; border-color: rgba(200, 138, 43, 0.4); color: #B45309;">
+            <i class="fa-solid fa-plus-circle"></i> Apply For Kanpur Expansion
           </button>
         </div>
 
         <!-- City Card 8: Noida / Delhi NCR -->
-        <div class="city-status-card" data-cityname="noida" data-statename="NCR" style="background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="city-status-card" data-cityname="noida" data-statename="NCR" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-top: 5px solid #991B1B; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-emerald); margin: 0;">Noida / NCR</h3>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Sector 18 / Greater Noida West</span>
+                <h3 style="font-size: 1.45rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading); letter-spacing: -0.01em;">Noida / NCR</h3>
+                <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Sector 18 • Greater Noida West</span>
               </div>
-              <span style="background: #DCFCE7; color: #15803D; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(21, 128, 61, 0.3);">
-                <i class="fa-solid fa-circle-check"></i> AVAILABLE NOW
+              <span style="background: rgba(22, 163, 74, 0.1); color: #16A34A; border: 1.5px solid rgba(22, 163, 74, 0.3); font-size: 0.74rem; font-weight: 800; padding: 5px 12px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 8px #16A34A;"></span> AVAILABLE NOW
               </span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #FAF7F2; border-radius: 12px; margin-bottom: 18px; font-size: 0.82rem;">
-              <div><strong style="color: var(--brand-emerald);">Region Pop:</strong> 25 Million+</div>
-              <div><strong style="color: var(--brand-emerald);">Est. Daily:</strong> 200+ Orders</div>
-              <div><strong style="color: var(--brand-emerald);">Store Model:</strong> Mini / Lounge</div>
-              <div><strong style="color: var(--brand-emerald);">Min Area:</strong> 600+ sq ft</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 20px; font-size: 0.84rem; color: #334155;">
+              <div><i class="fa-solid fa-users" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Pop:</strong> 25M+</div>
+              <div><i class="fa-solid fa-bag-shopping" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Daily:</strong> 200+ Orders</div>
+              <div><i class="fa-solid fa-store" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Format:</strong> Express/Bistro</div>
+              <div><i class="fa-solid fa-vector-square" style="color: #C88A2B; margin-right: 4px;"></i> <strong style="color: #0F172A;">Min Area:</strong> 600+ sq ft</div>
             </div>
           </div>
 
-          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 12px;">
-            <i class="fa-solid fa-crown"></i> Reserve Noida Rights (₹)
+          <button class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 13px; font-weight: 800; border-radius: 99px; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.25);">
+            <i class="fa-solid fa-crown" style="color: #FFF;"></i> Reserve Noida Rights (₹)
           </button>
         </div>
 
