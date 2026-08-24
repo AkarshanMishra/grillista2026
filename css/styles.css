@@ -331,7 +331,7 @@ body.dark-theme .nav-link {
 .team-flip-card {
   background-color: transparent;
   perspective: 1000px;
-  height: 270px;
+  height: 320px;
   cursor: pointer;
 }
 
