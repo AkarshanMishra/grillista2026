@@ -148,11 +148,11 @@ img, video, iframe, picture, svg, canvas {
 }
 
 .nav-container-split {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  max-width: 1540px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -160,23 +160,25 @@ img, video, iframe, picture, svg, canvas {
 .nav-group-left {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   justify-content: flex-start;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .nav-group-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
   justify-content: flex-end;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .nav-phone-box {
   border: 2px solid #FFFFFF;
   border-radius: 12px;
-  padding: 5px 16px;
+  padding: 4px 14px;
   color: #FFF;
   text-decoration: none;
   display: flex;
@@ -184,11 +186,10 @@ img, video, iframe, picture, svg, canvas {
   align-items: center;
   justify-content: center;
   transition: all 0.25s ease;
-  line-height: 1.25;
+  line-height: 1.2;
   white-space: nowrap;
   flex-shrink: 0;
-  background: rgba(0, 0, 0, 0.1);
-  min-width: 180px;
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .nav-phone-box:hover {
@@ -200,24 +201,24 @@ img, video, iframe, picture, svg, canvas {
 .nav-phone-number {
   color: #FFD700;
   font-weight: 900;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   white-space: nowrap;
   font-family: var(--font-heading);
 }
 
 .nav-phone-number i {
   color: #FFD700;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .nav-phone-label {
   color: #FFFFFF;
   font-weight: 900;
-  font-size: 0.68rem;
-  letter-spacing: 0.5px;
+  font-size: 0.64rem;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
   white-space: nowrap;
   margin-top: 1px;
@@ -228,15 +229,15 @@ img, video, iframe, picture, svg, canvas {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  padding: 0 16px;
+  padding: 0 24px;
   z-index: 100;
   flex-shrink: 0;
   position: relative;
 }
 
 .nav-center-logo img {
-  height: 82px;
-  width: 82px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   border: 3.5px solid #FFD700;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
@@ -246,8 +247,8 @@ img, video, iframe, picture, svg, canvas {
 }
 
 .navbar.scrolled .nav-center-logo img {
-  height: 72px;
-  width: 72px;
+  height: 70px;
+  width: 70px;
   border-width: 3px;
 }
 
@@ -259,7 +260,7 @@ img, video, iframe, picture, svg, canvas {
 .nav-links-split {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -275,11 +276,11 @@ img, video, iframe, picture, svg, canvas {
 .nav-links-split a {
   color: #FFFFFF;
   font-weight: 900;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.6px;
-  padding: 6px 8px;
+  letter-spacing: 0.5px;
+  padding: 4px 6px;
   border-radius: 6px;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -289,6 +290,21 @@ img, video, iframe, picture, svg, canvas {
 .nav-links-split a:hover,
 .nav-links-split a.active {
   color: #FFD700;
+}
+
+@media (max-width: 1380px) {
+  .nav-phone-label {
+    display: none;
+  }
+  .nav-phone-box {
+    padding: 6px 12px;
+  }
+  .nav-links-split {
+    gap: 12px;
+  }
+  .nav-links-split a {
+    font-size: 0.82rem;
+  }
 }
 
 :root {
