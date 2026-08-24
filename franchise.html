@@ -565,8 +565,8 @@
         </p>
       </div>
 
-      <!-- Responsive Financial Table -->
-      <div style="overflow-x: auto; background: #FFFFFF; border-radius: 24px; border: 1.5px solid #E2E8F0; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);">
+      <!-- Responsive Financial Table Container (Desktop view) -->
+      <div class="desktop-pnl-table-wrapper" style="overflow-x: auto; background: #FFFFFF; border-radius: 24px; border: 1.5px solid #E2E8F0; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);">
         <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
           <thead>
             <tr style="background: #0F172A; color: #FFFFFF;">
@@ -667,6 +667,162 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Mobile Financial P&L Cards (Visible ONLY on Mobile <= 768px) -->
+      <div class="mobile-pnl-cards-wrapper">
+        <!-- Mobile Card 1: Express Model -->
+        <div style="background: #FFFFFF; border-radius: 20px; border: 1.5px solid #E2E8F0; border-top: 5px solid #991B1B; padding: 20px; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(15,23,42,0.06);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">
+            <h3 style="font-size: 1.25rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading);">Grillista Express</h3>
+            <span style="background: rgba(153,27,27,0.1); color: #991B1B; font-weight: 800; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">200 sq ft</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 9px; font-size: 0.86rem; color: #334155;">
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E8F0; padding-bottom: 6px;">
+              <span><i class="fa-solid fa-users" style="color: #2563EB; margin-right: 6px;"></i> Daily Customers:</span>
+              <strong style="color: #0F172A;">50 / day</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E8F0; padding-bottom: 6px;">
+              <span><i class="fa-solid fa-receipt" style="color: #059669; margin-right: 6px;"></i> Avg Bill Size (AOV):</span>
+              <strong style="color: #0F172A;">₹170</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E8F0; padding-bottom: 6px;">
+              <span><i class="fa-solid fa-cash-register" style="color: #D97706; margin-right: 6px;"></i> Daily Sales:</span>
+              <strong style="color: #0F172A;">₹8,500 / day</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; background: #FFFBEB; padding: 8px 12px; border-radius: 8px; margin: 4px 0; font-weight: 800; color: #92400E;">
+              <span><i class="fa-solid fa-coins" style="color: #D97706; margin-right: 6px;"></i> Monthly Revenue:</span>
+              <strong style="font-size: 0.95rem; color: #0F172A;">₹2,55,000</strong>
+            </div>
+
+            <!-- Expenses breakdown -->
+            <div style="font-size: 0.76rem; font-weight: 800; color: #64748B; text-transform: uppercase; margin-top: 6px; letter-spacing: 0.5px;">Monthly Operating Expenses</div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Food Cost (30% COGS):</span>
+              <strong style="color: #DC2626;">- ₹76,500</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Royalty (5%):</span>
+              <strong style="color: #DC2626;">- ₹12,750</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Store Rent & Utilities:</span>
+              <strong style="color: #475569;">- ₹60,000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Staff & Marketing:</span>
+              <strong style="color: #475569;">- ₹50,000</strong>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #DCFCE7; padding: 12px 14px; border-radius: 12px; margin-top: 10px; border: 1.5px solid #86EFAC;">
+              <span style="font-weight: 900; color: #166534; font-size: 0.88rem;"><i class="fa-solid fa-wallet" style="margin-right: 6px;"></i> Net Monthly Profit:</span>
+              <strong style="font-weight: 900; color: #15803D; font-size: 1.15rem;">₹45,750 / mo</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Card 2: Bistro Model -->
+        <div style="background: #FFFFFF; border-radius: 20px; border: 1.5px solid #E2E8F0; border-top: 5px solid #C88A2B; padding: 20px; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(15,23,42,0.06);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">
+            <h3 style="font-size: 1.25rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading);">Grillista Bistro</h3>
+            <span style="background: rgba(200,138,43,0.12); color: #C88A2B; font-weight: 800; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">600 sq ft</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 9px; font-size: 0.86rem; color: #334155;">
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E8F0; padding-bottom: 6px;">
+              <span><i class="fa-solid fa-users" style="color: #2563EB; margin-right: 6px;"></i> Daily Customers:</span>
+              <strong style="color: #0F172A;">80 / day</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E8F0; padding-bottom: 6px;">
+              <span><i class="fa-solid fa-receipt" style="color: #059669; margin-right: 6px;"></i> Avg Bill Size (AOV):</span>
+              <strong style="color: #0F172A;">₹170</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E8F0; padding-bottom: 6px;">
+              <span><i class="fa-solid fa-cash-register" style="color: #D97706; margin-right: 6px;"></i> Daily Sales:</span>
+              <strong style="color: #0F172A;">₹13,600 / day</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; background: #FFFBEB; padding: 8px 12px; border-radius: 8px; margin: 4px 0; font-weight: 800; color: #92400E;">
+              <span><i class="fa-solid fa-coins" style="color: #D97706; margin-right: 6px;"></i> Monthly Revenue:</span>
+              <strong style="font-size: 0.95rem; color: #0F172A;">₹4,08,000</strong>
+            </div>
+
+            <!-- Expenses breakdown -->
+            <div style="font-size: 0.76rem; font-weight: 800; color: #64748B; text-transform: uppercase; margin-top: 6px; letter-spacing: 0.5px;">Monthly Operating Expenses</div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Food Cost (30% COGS):</span>
+              <strong style="color: #DC2626;">- ₹1,22,400</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Royalty (5%):</span>
+              <strong style="color: #DC2626;">- ₹20,400</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Store Rent & Utilities:</span>
+              <strong style="color: #475569;">- ₹60,000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Staff & Marketing:</span>
+              <strong style="color: #475569;">- ₹50,000</strong>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #FEF3C7; padding: 12px 14px; border-radius: 12px; margin-top: 10px; border: 1.5px solid #FDE68A;">
+              <span style="font-weight: 900; color: #92400E; font-size: 0.88rem;"><i class="fa-solid fa-wallet" style="margin-right: 6px;"></i> Net Monthly Profit:</span>
+              <strong style="font-weight: 900; color: #D97706; font-size: 1.15rem;">₹1,45,200 / mo</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Card 3: Signature Model -->
+        <div style="background: #FFFFFF; border-radius: 20px; border: 1.5px solid #E2E8F0; border-top: 5px solid #0F172A; padding: 20px; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(15,23,42,0.06);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">
+            <h3 style="font-size: 1.25rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading);">Grillista Signature</h3>
+            <span style="background: rgba(15,23,42,0.08); color: #0F172A; font-weight: 800; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">1,000 sq ft</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 9px; font-size: 0.86rem; color: #334155;">
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E8F0; padding-bottom: 6px;">
+              <span><i class="fa-solid fa-users" style="color: #2563EB; margin-right: 6px;"></i> Daily Customers:</span>
+              <strong style="color: #0F172A;">120 / day</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E8F0; padding-bottom: 6px;">
+              <span><i class="fa-solid fa-receipt" style="color: #059669; margin-right: 6px;"></i> Avg Bill Size (AOV):</span>
+              <strong style="color: #0F172A;">₹170</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #E2E8F0; padding-bottom: 6px;">
+              <span><i class="fa-solid fa-cash-register" style="color: #D97706; margin-right: 6px;"></i> Daily Sales:</span>
+              <strong style="color: #0F172A;">₹20,400 / day</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; background: #FFFBEB; padding: 8px 12px; border-radius: 8px; margin: 4px 0; font-weight: 800; color: #92400E;">
+              <span><i class="fa-solid fa-coins" style="color: #D97706; margin-right: 6px;"></i> Monthly Revenue:</span>
+              <strong style="font-size: 0.95rem; color: #0F172A;">₹6,12,000</strong>
+            </div>
+
+            <!-- Expenses breakdown -->
+            <div style="font-size: 0.76rem; font-weight: 800; color: #64748B; text-transform: uppercase; margin-top: 6px; letter-spacing: 0.5px;">Monthly Operating Expenses</div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Food Cost (30% COGS):</span>
+              <strong style="color: #DC2626;">- ₹1,83,600</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Royalty (5%):</span>
+              <strong style="color: #DC2626;">- ₹30,600</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Store Rent & Utilities:</span>
+              <strong style="color: #475569;">- ₹60,000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Staff & Marketing:</span>
+              <strong style="color: #475569;">- ₹50,000</strong>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #0F172A; color: #FFFFFF; padding: 12px 14px; border-radius: 12px; margin-top: 10px;">
+              <span style="font-weight: 900; font-size: 0.88rem;"><i class="fa-solid fa-wallet" style="color: #FACC15; margin-right: 6px;"></i> Net Monthly Profit:</span>
+              <strong style="font-weight: 900; color: #FACC15; font-size: 1.15rem;">₹2,77,800 / mo</strong>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

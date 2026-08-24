@@ -3882,6 +3882,24 @@ img, video, iframe, svg, canvas {
   .section {
     padding: 36px 16px !important;
   }
+/* Official P&L Financial Matrix Mobile Responsiveness Rules */
+.desktop-pnl-table-wrapper {
+  display: block;
+}
+
+.mobile-pnl-cards-wrapper {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-pnl-table-wrapper {
+    display: none !important;
+  }
+  .mobile-pnl-cards-wrapper {
+    display: block !important;
+  }
+}
+
 /* High-Demand Territory Cards Mobile Responsiveness System */
 #city-availability-grid {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
@@ -3947,97 +3965,6 @@ img, video, iframe, svg, canvas {
   .city-status-card div[style*="grid-template-columns: 1fr 1fr"] {
     grid-template-columns: 1fr !important;
     gap: 6px !important;
-  }
-}
-
-/* Interactive ROI Calculator & Profit Simulator Mobile Responsiveness System */
-@media (max-width: 992px) {
-  .calc-wrapper {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-    padding: 24px 18px !important;
-    border-radius: 20px !important;
-  }
-
-  .calculator-modal-overlay {
-    padding: 12px !important;
-  }
-
-  .calculator-modal-card {
-    padding: 24px 16px !important;
-    border-radius: 20px !important;
-    max-height: 92vh !important;
-    width: 100% !important;
-  }
-
-  .calculator-modal-close {
-    top: 14px !important;
-    right: 14px !important;
-    width: 34px !important;
-    height: 34px !important;
-    font-size: 1.1rem !important;
-  }
-
-  .calculator-modal-card h3 {
-    font-size: 1.45rem !important;
-    line-height: 1.3 !important;
-  }
-
-  .calculator-modal-card p {
-    font-size: 0.82rem !important;
-  }
-
-  .calculator-modal-card label,
-  .input-label-row {
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 6px !important;
-    font-size: 0.8rem !important;
-  }
-
-  .calculator-modal-card label span:last-child,
-  .input-val-badge {
-    font-size: 0.78rem !important;
-    padding: 3px 8px !important;
-    white-space: nowrap !important;
-  }
-
-  .calc-outputs,
-  .calculator-modal-card div[style*="background: rgba(255, 255, 255, 0.05)"] {
-    padding: 16px 14px !important;
-    border-radius: 16px !important;
-  }
-
-  .calculator-modal-card div[style*="grid-template-columns: 1fr 1fr"] {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-  }
-
-  #pop-calc-net-profit {
-    font-size: 1.5rem !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .calc-wrapper {
-    padding: 20px 14px !important;
-  }
-
-  .calculator-modal-card {
-    padding: 20px 14px !important;
-  }
-
-  .calculator-modal-card label,
-  .input-label-row {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 4px !important;
-  }
-
-  .calculator-modal-card div[style*="grid-template-columns: 1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-    gap: 8px !important;
   }
 }
 
