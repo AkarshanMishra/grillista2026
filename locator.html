@@ -311,6 +311,9 @@
             <i class="fa-solid fa-lightbulb" style="color: #FACC15;"></i>
             <span>If Grillista is present in your city → <strong>Apply to Expand Next Store</strong> | If not present → <strong>Apply to Open 1st Store</strong>!</span>
           </div>
+
+          <!-- Smart Typo Auto-Correction Suggestion Box -->
+          <div id="typo-suggestion-box"></div>
         </div>
 
       </div>
@@ -861,6 +864,119 @@
   <!-- Scripts -->
   <script src="js/main.js"></script>
   <script>
+    const INDIAN_CITIES_DB = [
+      { name: 'Kanpur', aliases: ['cawnpore', 'knpur', 'kanpor', 'kanpore'] },
+      { name: 'Lucknow', aliases: ['lknw', 'lakhnau', 'lukhnow', 'luknow', 'lcknow'] },
+      { name: 'Varanasi', aliases: ['banaras', 'kashi', 'varnasi', 'vns', 'varanaci', 'benares'] },
+      { name: 'Prayagraj', aliases: ['allahabad', 'prayag', 'praygraj', 'pragraj', 'allahbad'] },
+      { name: 'Agra', aliases: ['agar', 'agraa'] },
+      { name: 'Gorakhpur', aliases: ['gkp', 'gorkhpur', 'gorakhpor'] },
+      { name: 'Bareilly', aliases: ['barely', 'bareli', 'baraily'] },
+      { name: 'Noida', aliases: ['greater noida', 'noda'] },
+      { name: 'Delhi', aliases: ['dilli', 'new delhi', 'ncr', 'gurgaon', 'gurugram', 'faridabad', 'ghaziabad'] },
+      { name: 'Jaipur', aliases: ['jaipure', 'pink city', 'jeypore', 'japur'] },
+      { name: 'Patna', aliases: ['patana', 'patnaa', 'patliputra'] },
+      { name: 'Indore', aliases: ['indor'] },
+      { name: 'Bhopal', aliases: ['bhopel', 'bopal'] },
+      { name: 'Dehradun', aliases: ['doon', 'dehra doon'] },
+      { name: 'Ranchi', aliases: ['ranci'] },
+      { name: 'Mumbai', aliases: ['bombay', 'mumbay', 'navi mumbai', 'thane'] },
+      { name: 'Pune', aliases: ['poona'] },
+      { name: 'Ahmedabad', aliases: ['ahmedbad', 'amdavad', 'ahmadabad'] },
+      { name: 'Surat', aliases: ['soorat'] },
+      { name: 'Bengaluru', aliases: ['bangalore', 'blr'] },
+      { name: 'Hyderabad', aliases: ['hyd', 'hiderabad'] },
+      { name: 'Kolkata', aliases: ['calcutta', 'kolkatta'] },
+      { name: 'Chandigarh', aliases: ['chandigar', 'chd'] }
+    ];
+
+    function getLevenshteinDistance(a, b) {
+      const matrix = [];
+      for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+      for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+      for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+          if (b.charAt(i - 1) === a.charAt(j - 1)) {
+            matrix[i][j] = matrix[i - 1][j - 1];
+          } else {
+            matrix[i][j] = Math.min(
+              matrix[i - 1][j - 1] + 1,
+              matrix[i][j - 1] + 1,
+              matrix[i - 1][j] + 1
+            );
+          }
+        }
+      }
+      return matrix[b.length][a.length];
+    }
+
+    function checkTypoSuggestions(query) {
+      const suggestionBox = document.getElementById('typo-suggestion-box');
+      if (!suggestionBox) return;
+
+      if (!query || query.length < 2) {
+        suggestionBox.innerHTML = '';
+        return;
+      }
+
+      const matches = [];
+
+      INDIAN_CITIES_DB.forEach(item => {
+        const canonical = item.name;
+        const canonicalLower = canonical.toLowerCase();
+
+        if (query === canonicalLower) return;
+
+        let isAliasMatch = item.aliases.some(alias => alias === query || alias.startsWith(query) || query.startsWith(alias));
+        let isFuzzyMatch = false;
+
+        if (!isAliasMatch) {
+          const distName = getLevenshteinDistance(query, canonicalLower);
+          let minDistAlias = 999;
+          item.aliases.forEach(alias => {
+            const d = getLevenshteinDistance(query, alias);
+            if (d < minDistAlias) minDistAlias = d;
+          });
+          const minDist = Math.min(distName, minDistAlias);
+          const maxDist = query.length <= 4 ? 2 : 3;
+          if (minDist > 0 && minDist <= maxDist) {
+            isFuzzyMatch = true;
+          }
+        }
+
+        if (isAliasMatch || isFuzzyMatch) {
+          if (!matches.includes(canonical)) matches.push(canonical);
+        }
+      });
+
+      if (matches.length > 0) {
+        const buttonsHTML = matches.slice(0, 3).map(city => `
+          <button type="button" onclick="selectSuggestedCity('${city}')" style="background: linear-gradient(135deg, #FACC15 0%, #EAB308 100%); color: #0F172A; font-weight: 900; font-size: 0.82rem; padding: 6px 14px; border-radius: 99px; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(250, 204, 21, 0.3); transition: all 0.2s ease;">
+            ${city}
+          </button>
+        `).join('');
+
+        suggestionBox.innerHTML = `
+          <div style="margin-top: 12px; background: rgba(250, 204, 21, 0.12); border: 1.5px solid rgba(250, 204, 21, 0.4); padding: 10px 16px; border-radius: 14px; font-size: 0.86rem; color: #FFFFFF; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <span style="font-weight: 700; color: #FACC15;"><i class="fa-solid fa-wand-magic-sparkles"></i> Did you mean:</span>
+            ${buttonsHTML}
+          </div>
+        `;
+      } else {
+        suggestionBox.innerHTML = '';
+      }
+    }
+
+    window.selectSuggestedCity = function(cityName) {
+      const citySearchInput = document.getElementById('city-search-input');
+      if (citySearchInput) {
+        citySearchInput.value = cityName;
+        const event = new Event('input', { bubbles: true });
+        citySearchInput.dispatchEvent(event);
+      }
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
       const citySearchInput = document.getElementById('city-search-input');
       const stateSelectFilter = document.getElementById('state-select-filter');
@@ -872,6 +988,8 @@
       function filterCities() {
         const query = (citySearchInput ? citySearchInput.value : '').toLowerCase().trim();
         const selectedState = stateSelectFilter ? stateSelectFilter.value : 'all';
+
+        checkTypoSuggestions(query);
 
         let visibleCount = 0;
         cityCards.forEach(card => {
