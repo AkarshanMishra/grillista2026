@@ -3882,14 +3882,71 @@ img, video, iframe, svg, canvas {
   .section {
     padding: 36px 16px !important;
   }
-  .section-title {
-    font-size: 1.85rem !important;
+/* High-Demand Territory Cards Mobile Responsiveness System */
+#city-availability-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 18px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  #city-availability-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 0 4px !important;
   }
-  .section-subtitle {
-    font-size: 0.9rem !important;
+
+  .city-status-card {
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
-  .btn, button, input, select, textarea {
-    min-height: 48px !important;
+
+  .city-status-card > div > div:first-child {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .city-status-card h3 {
+    font-size: 1.35rem !important;
+  }
+
+  .city-status-card span[style*="color: #64748B"] {
+    font-size: 0.76rem !important;
+    display: block !important;
+    margin-top: 2px !important;
+    line-height: 1.4 !important;
+  }
+
+  .city-status-card span[style*="AVAILABLE NOW"] {
+    font-size: 0.7rem !important;
+    padding: 4px 10px !important;
+    white-space: nowrap !important;
+  }
+
+  .city-status-card div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px 12px !important;
+    padding: 12px 14px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .city-status-card button {
+    font-size: 0.88rem !important;
+    padding: 12px 10px !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .city-status-card div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
   }
 }
 
