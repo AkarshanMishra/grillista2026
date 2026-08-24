@@ -3619,3 +3619,69 @@ div[style*="clip-path"]:hover img {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25) !important;
   border-color: #FACC15 !important;
 }
+
+/* ==========================================================================
+   ULTRA-PREMIUM FLOATING FOODIE BACKGROUND ICONS & WATERMARK SYSTEM
+   ========================================================================== */
+
+@keyframes floatFoodieIcon1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-22px) rotate(8deg) scale(1.08);
+  }
+}
+
+@keyframes floatFoodieIcon2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(24px) rotate(-10deg) scale(1.06);
+  }
+}
+
+.foodie-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  overflow: hidden;
+}
+
+.foodie-bg-icon {
+  position: absolute;
+  color: #C88A2B;
+  opacity: 0.06;
+  pointer-events: none !important;
+  user-select: none;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.08));
+  animation: floatFoodieIcon1 10s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+.foodie-bg-icon.alt-color {
+  color: #B91C1C;
+  opacity: 0.05;
+  animation: floatFoodieIcon2 13s ease-in-out infinite;
+}
+
+.foodie-bg-icon.green-color {
+  color: #00C853;
+  opacity: 0.06;
+  animation: floatFoodieIcon1 15s ease-in-out infinite;
+}
+
+body.dark-theme .foodie-bg-icon {
+  opacity: 0.09 !important;
+  color: #FACC15 !important;
+}
+
+body.dark-theme .foodie-bg-icon.alt-color {
+  color: #EF4444 !important;
+}
+

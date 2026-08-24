@@ -1207,4 +1207,42 @@ Operating Outlets: 2 Live Outlets in Kanpur (Barra 2 & Kakadeo)
       }
     });
   }
+
+  // Auto-Inject Floating Foodie Background Icons System
+  function injectFoodieBackgroundIcons() {
+    if (document.getElementById('foodie-bg-container')) return;
+
+    const container = document.createElement('div');
+    container.id = 'foodie-bg-container';
+    container.className = 'foodie-bg-container';
+
+    const foodieIcons = [
+      { icon: 'fa-burger', top: '8%', left: '3%', size: '3.2rem', color: '', rotate: '-15deg' },
+      { icon: 'fa-pizza-slice', top: '24%', left: '92%', size: '3.8rem', color: 'alt-color', rotate: '18deg' },
+      { icon: 'fa-fire-burner', top: '42%', left: '2.5%', size: '3rem', color: 'green-color', rotate: '12deg' },
+      { icon: 'fa-pepper-hot', top: '58%', left: '94%', size: '3.4rem', color: 'alt-color', rotate: '-14deg' },
+      { icon: 'fa-utensils', top: '74%', left: '3.5%', size: '3.6rem', color: '', rotate: '25deg' },
+      { icon: 'fa-mug-hot', top: '88%', left: '91%', size: '3.1rem', color: '', rotate: '-20deg' },
+      { icon: 'fa-ice-cream', top: '16%', left: '88%', size: '2.8rem', color: 'green-color', rotate: '15deg' },
+      { icon: 'fa-bowl-food', top: '35%', left: '4%', size: '3.5rem', color: 'alt-color', rotate: '-10deg' },
+      { icon: 'fa-cheese', top: '51%', left: '90%', size: '3rem', color: '', rotate: '10deg' },
+      { icon: 'fa-leaf', top: '68%', left: '2%', size: '3.2rem', color: 'green-color', rotate: '-12deg' },
+      { icon: 'fa-wheat-awn', top: '82%', left: '93%', size: '2.9rem', color: '', rotate: '16deg' },
+      { icon: 'fa-stroopwafel', top: '92%', left: '5%', size: '3.2rem', color: 'alt-color', rotate: '-18deg' }
+    ];
+
+    foodieIcons.forEach(item => {
+      const el = document.createElement('i');
+      el.className = `fa-solid ${item.icon} foodie-bg-icon ${item.color}`;
+      el.style.top = item.top;
+      el.style.left = item.left;
+      el.style.fontSize = item.size;
+      el.style.transform = `rotate(${item.rotate})`;
+      container.appendChild(el);
+    });
+
+    document.body.appendChild(container);
+  }
+
+  injectFoodieBackgroundIcons();
 });
