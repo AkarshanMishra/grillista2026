@@ -3685,3 +3685,27 @@ body.dark-theme .foodie-bg-icon.alt-color {
   color: #EF4444 !important;
 }
 
+/* ==========================================================================
+   WHATSAPP-STYLE TILED FOODIE DOODLE WALLPAPER BACKGROUND OVERLAY
+   ========================================================================== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220' fill='none' stroke='%23C88A2B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3C!-- Burger --%3E%3Cg transform='translate(20, 20) scale(0.85)'%3E%3Cpath d='M6 22 C6 11 16 5 30 5 C44 5 54 11 54 22 Z' /%3E%3Cpath d='M6 27 H54' /%3E%3Cpath d='M10 32 C15 36 25 36 30 32 C35 36 45 36 50 32' /%3E%3Cpath d='M6 37 C6 46 16 50 30 50 C44 50 54 46 54 37 Z' /%3E%3C/g%3E%3C!-- Pizza Slice --%3E%3Cg transform='translate(135, 20) scale(0.85)'%3E%3Cpath d='M10 10 L50 30 L22 55 Z' /%3E%3Ccircle cx='26' cy='26' r='3.5' /%3E%3Ccircle cx='36' cy='36' r='3.5' /%3E%3Cpath d='M8 8 C16 16 26 16 34 22' /%3E%3C/g%3E%3C!-- French Fries --%3E%3Cg transform='translate(20, 135) scale(0.85)'%3E%3Cpath d='M12 25 L16 52 H44 L48 25 Z' /%3E%3Cpath d='M18 25 V8' /%3E%3Cpath d='M26 25 V5' /%3E%3Cpath d='M34 25 V5' /%3E%3Cpath d='M42 25 V10' /%3E%3C/g%3E%3C!-- Cutlery --%3E%3Cg transform='translate(135, 135) scale(0.85)'%3E%3Cpath d='M15 8 V52' /%3E%3Cpath d='M8 8 V22 C8 27 15 28 15 28' /%3E%3Cpath d='M22 8 V22 C22 27 15 28 15 28' /%3E%3Cpath d='M45 8 C38 8 38 25 45 30 V52' /%3E%3C/g%3E%3C!-- Beverage Cup --%3E%3Cg transform='translate(80, 75) scale(0.8)'%3E%3Cpath d='M10 15 H45 L40 50 H15 Z' /%3E%3Cpath d='M5 15 H50' /%3E%3Cpath d='M28 5 L23 15' /%3E%3Cpath d='M45 22 H50 C54 22 55 24 55 28 C55 32 54 34 50 34 H43' /%3E%3C/g%3E%3C!-- Flame Grill --%3E%3Cg transform='translate(85, 10) scale(0.7)'%3E%3Cpath d='M20 40 C12 40 8 32 10 22 C12 30 18 32 20 25 C22 32 30 30 30 40 Z' /%3E%3C/g%3E%3C!-- Ice Cream --%3E%3Cg transform='translate(10, 80) scale(0.7)'%3E%3Cpath d='M20 25 L10 50 L30 50 Z' /%3E%3Ccircle cx='20' cy='18' r='10' /%3E%3C/g%3E%3C!-- Chilli Pepper --%3E%3Cg transform='translate(150, 85) scale(0.7)'%3E%3Cpath d='M10 15 C22 12 32 24 28 42 C25 48 16 42 14 32 C12 22 8 18 10 15 Z' /%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 210px 210px;
+  opacity: 0.055;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+body.dark-theme::before {
+  opacity: 0.085;
+  filter: invert(1) hue-rotate(180deg);
+}
+
+
