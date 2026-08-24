@@ -3882,15 +3882,18 @@ img, video, iframe, svg, canvas {
   .section {
     padding: 36px 16px !important;
   }
-/* Single Unified Official P&L Financial Matrix Component */
-.pnl-table-scroll-container {
-  overflow-x: auto !important;
-  -webkit-overflow-scrolling: touch !important;
+/* Official P&L Financial Matrix Universal Responsiveness Rules */
+.pnl-matrix-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 24px !important;
+  width: 100% !important;
 }
 
 @media (max-width: 768px) {
-  .mobile-pnl-swipe-hint {
-    display: block !important;
+  .pnl-matrix-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 }
 
