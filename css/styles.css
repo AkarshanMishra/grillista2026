@@ -3882,20 +3882,14 @@ img, video, iframe, svg, canvas {
   .section {
     padding: 36px 16px !important;
   }
-/* Official P&L Financial Matrix Mobile Responsiveness Rules */
-.desktop-pnl-table-wrapper {
-  display: block;
-}
-
-.mobile-pnl-cards-wrapper {
-  display: none;
+/* Single Unified Official P&L Financial Matrix Component */
+.pnl-table-scroll-container {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 
 @media (max-width: 768px) {
-  .desktop-pnl-table-wrapper {
-    display: none !important;
-  }
-  .mobile-pnl-cards-wrapper {
+  .mobile-pnl-swipe-hint {
     display: block !important;
   }
 }
