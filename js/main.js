@@ -545,35 +545,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Sleek Corporate Mobile Hamburger Drawer Toggle
-  const mobileBtn = document.getElementById('mobile-toggle-btn');
-  const mobileDrawer = document.getElementById('navbar-mobile-drawer');
-
-  if (mobileBtn && mobileDrawer) {
-    mobileBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
+  // Sleek Corporate Mobile Hamburger Drawer Toggle (Global Fail-Safe)
+  window.toggleMobileNavbar = function(e) {
+    if (e) e.stopPropagation();
+    const mobileBtn = document.getElementById('mobile-toggle-btn');
+    const mobileDrawer = document.getElementById('navbar-mobile-drawer');
+    if (mobileDrawer) {
       mobileDrawer.classList.toggle('active');
-      const icon = mobileBtn.querySelector('i');
-      if (icon) {
-        icon.className = mobileDrawer.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-      }
-    });
-
-    mobileDrawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileDrawer.classList.remove('active');
+      if (mobileBtn) {
         const icon = mobileBtn.querySelector('i');
-        if (icon) icon.className = 'fa-solid fa-bars';
+        if (icon) {
+          icon.className = mobileDrawer.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+      }
+    }
+  };
+
+  function initMobileNavbar() {
+    const mobileBtn = document.getElementById('mobile-toggle-btn');
+    const mobileDrawer = document.getElementById('navbar-mobile-drawer');
+
+    if (mobileBtn && mobileDrawer) {
+      mobileBtn.onclick = window.toggleMobileNavbar;
+
+      mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileDrawer.classList.remove('active');
+          const icon = mobileBtn.querySelector('i');
+          if (icon) icon.className = 'fa-solid fa-bars';
+        });
       });
-    });
 
-    document.addEventListener('click', (e) => {
-      if (!mobileDrawer.contains(e.target) && !mobileBtn.contains(e.target)) {
-        mobileDrawer.classList.remove('active');
-        const icon = mobileBtn.querySelector('i');
-        if (icon) icon.className = 'fa-solid fa-bars';
-      }
-    });
+      document.addEventListener('click', (e) => {
+        if (!mobileDrawer.contains(e.target) && !mobileBtn.contains(e.target)) {
+          mobileDrawer.classList.remove('active');
+          const icon = mobileBtn.querySelector('i');
+          if (icon) icon.className = 'fa-solid fa-bars';
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileNavbar);
+  } else {
+    initMobileNavbar();
   }
 
   // Interactive Investor Calculator Popup Modal Logic
