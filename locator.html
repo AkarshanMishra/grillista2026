@@ -1117,37 +1117,90 @@
                     </button>
                   </div>
                 </div>
-              `;
             }
           };
 
-          // Try HTML5 Browser Geolocation
+          // Kanpur Flagship Center Coordinates for Proximity Check
+          const KANPUR_LAT = 26.4499;
+          const KANPUR_LON = 80.3319;
+          function getDistanceFromKanpurKm(lat, lon) {
+            const R = 6371;
+            const dLat = (KANPUR_LAT - lat) * Math.PI / 180;
+            const dLon = (KANPUR_LON - lon) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.cos(lat * Math.PI / 180) * Math.cos(KANPUR_LAT * Math.PI / 180) *
+                      Math.sin(dLon/2) * Math.sin(dLon/2);
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+          }
+
+          function updateOutletDistances(userLat, userLon) {
+            const BARRA_LAT = 26.4380, BARRA_LON = 80.3015;
+            const KAKADEO_LAT = 26.4750, KAKADEO_LON = 80.2980;
+            const distB = getDistanceFromKanpurKm(userLat, userLon);
+            const distK = getDistanceFromKanpurKm(userLat, userLon);
+
+            const distBarraEl = document.getElementById('distance-barra');
+            const distKakadeoEl = document.getElementById('distance-kakadeo');
+            if (distBarraEl) distBarraEl.innerHTML = `<i class="fa-solid fa-route"></i> ${distB.toFixed(1)} km from your location`;
+            if (distKakadeoEl) distKakadeoEl.innerHTML = `<i class="fa-solid fa-route"></i> ${distK.toFixed(1)} km from your location`;
+          }
+
+          // Options for High-Precision Hardware GPS Detection
+          const geoOptions = {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+          };
+
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
               (pos) => {
                 const lat = pos.coords.latitude;
                 const lon = pos.coords.longitude;
-                fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+
+                updateOutletDistances(lat, lon);
+
+                // Check Proximity to Kanpur Outlet Hub (within 45 km radius)
+                if (getDistanceFromKanpurKm(lat, lon) <= 45) {
+                  renderDetectedCityResult('Kanpur');
+                  return;
+                }
+
+                // Reverse Geocode using Nominatim OpenStreetMap
+                fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`)
                   .then(res => res.json())
                   .then(data => {
-                    const city = (data.address && (data.address.city || data.address.town || data.address.district || data.address.county || data.address.state_district)) || 'Lucknow';
+                    let city = '';
+                    if (data && data.address) {
+                      city = data.address.city || data.address.town || data.address.municipality || data.address.suburb || data.address.district || data.address.county || data.address.state_district || data.address.state;
+                    }
+                    if (!city) city = 'Lucknow';
                     renderDetectedCityResult(city);
                   })
                   .catch(() => {
-                    fetch('https://ipapi.co/json/')
+                    // Fallback to BigDataCloud Reverse Geocoding API
+                    fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`)
                       .then(res => res.json())
-                      .then(ipData => renderDetectedCityResult(ipData.city || 'Lucknow'))
-                      .catch(() => renderDetectedCityResult('Lucknow'));
+                      .then(bdcData => {
+                        const city = bdcData.city || bdcData.locality || bdcData.principalSubdivision || 'Lucknow';
+                        renderDetectedCityResult(city);
+                      })
+                      .catch(() => {
+                        fetch('https://ipapi.co/json/')
+                          .then(res => res.json())
+                          .then(ipData => renderDetectedCityResult(ipData.city || 'Lucknow'))
+                          .catch(() => renderDetectedCityResult('Lucknow'));
+                      });
                   });
               },
               (err) => {
-                // Fallback to IP geolocation if GPS blocked or refused
+                // Fallback to IP geolocation if hardware GPS denied or timed out
                 fetch('https://ipapi.co/json/')
                   .then(res => res.json())
                   .then(ipData => renderDetectedCityResult(ipData.city || 'Lucknow'))
                   .catch(() => renderDetectedCityResult('Lucknow'));
               },
-              { timeout: 6000 }
+              geoOptions
             );
           } else {
             fetch('https://ipapi.co/json/')
