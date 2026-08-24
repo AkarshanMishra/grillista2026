@@ -7,7 +7,7 @@
   
   <!-- FontAwesome Icons & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
   
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
@@ -42,7 +42,7 @@
           <span class="nav-phone-number"><i class="fa-solid fa-phone"></i> +91 63868 18682</span>
           <span class="nav-phone-label">FOR ENQUIRY & SUPPORT</span>
         </a>
-        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Mobile Menu">
+        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Mobile Menu" onclick="toggleMobileNavbar(event)">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
@@ -61,317 +61,222 @@
     </nav>
   </header>
 
-  <!-- Terms Header Banner -->
-  <section style="padding-top: calc(var(--nav-height) + 40px); padding-bottom: 48px; background: linear-gradient(135deg, #991B1B 0%, #7F1D1D 100%); color: #FFFFFF; text-align: center;">
-    <div class="container">
-      <span class="badge-gold" style="background: rgba(250, 204, 21, 0.15); color: #FACC15; border-color: rgba(250, 204, 21, 0.3); margin-bottom: 12px; display: inline-flex;">
-        <i class="fa-solid fa-scale-balanced"></i> Corporate Legal Framework
-      </span>
-      <h1 style="font-family: var(--font-heading); font-size: 3.2rem; font-weight: 900; margin: 8px 0 12px 0; color: #FFFFFF; text-transform: uppercase;">TERMS & <span style="color: #FACC15 !important;">CONDITIONS</span></h1>
-      <p style="font-size: 1rem; color: rgba(255, 255, 255, 0.85); max-width: 650px; margin: 0 auto;">
-        Official Operating Rules, Franchise Disclaimer, and User Agreement for Grillista Food Franchise Systems & RK Group of Industries.
-      </p>
-      <div style="font-size: 0.82rem; color: #FACC15; margin-top: 16px; font-weight: 700;">Last Updated: August 2026 | Effective Date: Immediate</div>
-    </div>
-  </section>
-
-  <!-- Terms Content Container -->
-  <section style="padding: 60px 0; background: #FAF7F2;">
-    <div class="container" style="max-width: 960px;">
-      
-      <div style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 24px; padding: 44px; box-shadow: 0 10px 35px rgba(15, 23, 42, 0.04); display: flex; flex-direction: column; gap: 32px;">
-        
-        <!-- Section 1 -->
-        <div>
-          <h3 style="font-size: 1.35rem; color: #991B1B; font-weight: 800; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
-            <i class="fa-solid fa-circle-info" style="color: #C88A2B;"></i> 1. Acceptance of Terms
-          </h3>
-          <p style="font-size: 0.95rem; color: #475569; line-height: 1.7; margin: 0;">
-            By accessing, browsing, or using the website of <strong>Grillista</strong> ("Company", "We", "Us", "Our"), submitting franchise inquiry forms, or utilizing our interactive ROI calculator tools, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions. If you do not agree to these terms, please discontinue using this platform immediately.
-          </p>
-        </div>
-
-        <!-- Section 2 -->
-        <div>
-          <h3 style="font-size: 1.35rem; color: #991B1B; font-weight: 800; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
-            <i class="fa-solid fa-building-columns" style="color: #C88A2B;"></i> 2. Corporate Parent & Ownership
-          </h3>
-          <p style="font-size: 0.95rem; color: #475569; line-height: 1.7; margin: 0;">
-            <strong>Grillista</strong> is a registered 100% Pure Veg Fast-Food Franchise brand operated under the corporate umbrella of <strong>RK Group of Industries</strong>. Official Headquarters: <em>621/18, Block-W, Juhi Kala, VR Tower, Near Bharat Petroleum, Kanpur, Uttar Pradesh - 208014</em>. All corporate governance, logistics, central billing, and franchise agreements are managed by RK Group of Industries.
-          </p>
-        </div>
-
-        <!-- Section 3 -->
-        <div>
-          <h3 style="font-size: 1.35rem; color: #991B1B; font-weight: 800; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
-            <i class="fa-solid fa-calculator" style="color: #C88A2B;"></i> 3. Franchise Inquiries & Financial Disclaimer
-          </h3>
-          <p style="font-size: 0.95rem; color: #475569; line-height: 1.7; margin: 0 0 12px 0;">
-            Information presented on this website—including projected revenue figures, ROI payback timelines (10–14 months), gross profit margins (65%+), and estimated monthly net profits generated by our Interactive Investor Calculator—is provided for illustrative and educational purposes only.
-          </p>
-          <ul style="font-size: 0.92rem; color: #475569; line-height: 1.6; display: flex; flex-direction: column; gap: 8px; padding-left: 20px; margin: 0;">
-            <li>Submitting a franchise application form does not guarantee store allocation or create a binding franchise relationship.</li>
-            <li>Actual store performance, revenues, and net profits vary depending on city demographics, footfall, local operational efficiency, and rent.</li>
-            <li>Final franchise grants are subject to territory approval, background checks, and execution of a legally binding FOFO (Franchise Owned Franchise Operated) Franchise Agreement.</li>
-          </ul>
-        </div>
-
-        <!-- Section 4 -->
-        <div>
-          <h3 style="font-size: 1.35rem; color: #991B1B; font-weight: 800; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
-            <i class="fa-solid fa-copyright" style="color: #C88A2B;"></i> 4. Intellectual Property Rights
-          </h3>
-          <p style="font-size: 0.95rem; color: #475569; line-height: 1.7; margin: 0;">
-            All content on this website—including the Grillista logo, 100% Pure Veg QSR food photography, menu formulations, automated chef-less SOPs, branding artwork, prospectus copy, graphics, and code—is the exclusive intellectual property of <strong>RK Group of Industries / Grillista Franchise Systems</strong>. Unauthorized reproduction, copying, or commercial distribution is strictly prohibited under Indian Copyright and Trademark laws.
-          </p>
-        </div>
-
-        <!-- Section 5 -->
-        <div>
-          <h3 style="font-size: 1.35rem; color: #991B1B; font-weight: 800; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
-            <i class="fa-solid fa-shield-halved" style="color: #C88A2B;"></i> 5. User Submissions & Accuracy
-          </h3>
-          <p style="font-size: 0.95rem; color: #475569; line-height: 1.7; margin: 0;">
-            Applicants submitting franchise inquiry forms warrant that all information provided—including full name, phone number, email address, proposed city, space availability, and investment budget—is accurate, truthful, and current. Submitting fraudulent or misleading details will result in immediate rejection of the franchise application.
-          </p>
-        </div>
-
-        <!-- Section 6 -->
-        <div>
-          <h3 style="font-size: 1.35rem; color: #991B1B; font-weight: 800; margin: 0 0 12px 0; display: flex; align-items: center; gap: 10px;">
-            <i class="fa-solid fa-gavel" style="color: #C88A2B;"></i> 6. Governing Law & Jurisdiction
-          </h3>
-          <p style="font-size: 0.95rem; color: #475569; line-height: 1.7; margin: 0;">
-            These Terms & Conditions and any disputes arising out of or related to this website or franchise inquiries shall be governed by and construed in accordance with the laws of India. Courts in <strong>Kanpur, Uttar Pradesh</strong> shall have exclusive jurisdiction over any legal proceedings.
-          </p>
-        </div>
-
-        <!-- Section 7 -->
-        <div style="background: #FAF7F2; border: 1px solid #E2E8F0; padding: 24px; border-radius: 16px;">
-          <h3 style="font-size: 1.15rem; color: #0F172A; font-weight: 800; margin: 0 0 8px 0;">Corporate Contact & Legal Queries</h3>
-          <p style="font-size: 0.9rem; color: #64748B; margin: 0 0 12px 0; line-height: 1.5;">For questions regarding these Terms & Conditions or corporate franchise policies, contact HQ:</p>
-          <div style="font-size: 0.88rem; color: #1E293B; display: flex; flex-direction: column; gap: 6px; font-weight: 700;">
-            <div><i class="fa-solid fa-building" style="color: #991B1B;"></i> RK Group of Industries / Grillista HQ</div>
-            <div><i class="fa-solid fa-location-dot" style="color: #991B1B;"></i> VR Tower, Near Bharat Petroleum, Juhi Kala, Kanpur, UP - 208014</div>
-            <div><i class="fa-solid fa-phone" style="color: #991B1B;"></i> +91 63868 18682</div>
-            <div><i class="fa-solid fa-envelope" style="color: #991B1B;"></i> grillistakanpur@gmail.com</div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Ultra-Premium Executive Corporate Footer -->
-  <footer class="footer" style="background: linear-gradient(180deg, #090D14 0%, #0F172A 100%); color: #FFFFFF; border-top: 3px solid #C88A2B; padding-top: 64px; padding-bottom: 32px; position: relative; overflow: hidden;">
+  <!-- Executive Legal Hero Section -->
+  <section style="padding-top: calc(var(--nav-height, 84px) + 36px); padding-bottom: 54px; background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #991B1B 100%); color: #FFFFFF; position: relative; overflow: hidden;">
     
-    <!-- Soft Background Radial Glow Accent -->
-    <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 350px; background: radial-gradient(circle, rgba(200, 138, 43, 0.08) 0%, rgba(15, 23, 42, 0) 70%); pointer-events: none;"></div>
+    <!-- Ambient Radial Light -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
 
     <div class="container" style="position: relative; z-index: 2;">
-      
-      <!-- Top Executive CTA Banner Strip -->
-      <div style="background: linear-gradient(135deg, rgba(200, 138, 43, 0.15) 0%, rgba(153, 27, 27, 0.15) 100%); border: 1.5px solid rgba(200, 138, 43, 0.35); border-radius: 20px; padding: 24px 36px; margin-bottom: 56px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-        <div style="display: flex; align-items: center; gap: 16px;">
-          <div style="width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #C88A2B 0%, #D97706 100%); color: #FFF; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.3);">
-            <i class="fa-solid fa-store"></i>
-          </div>
-          <div>
-            <h4 style="font-size: 1.2rem; font-weight: 900; color: #FFFFFF; margin: 0 0 4px 0; font-family: var(--font-heading);">Ready to Build Your High-ROI Food Empire?</h4>
-            <p style="font-size: 0.88rem; color: rgba(255,255,255,0.75); margin: 0; font-weight: 500;">Partner with India's fastest-growing 100% Pure Veg QSR brand backed by RK Group of Industries.</p>
-          </div>
-        </div>
-        <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center;">
-          <a href="franchise.html#apply-form" style="background: #991B1B; color: #FFFFFF; font-weight: 800; border-radius: 99px; padding: 12px 28px; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(153, 27, 27, 0.3); transition: all 0.3s ease;">
-            <i class="fa-solid fa-file-signature"></i> Apply for Franchise
-          </a>
-          <a href="tel:+916386818682" style="background: rgba(255,255,255,0.1); color: #FACC15; font-weight: 800; border-radius: 99px; padding: 12px 24px; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(250, 204, 21, 0.4); transition: all 0.3s ease;">
-            <i class="fa-solid fa-phone"></i> +91 63868 18682
-          </a>
-        </div>
+      <!-- Breadcrumb -->
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 0.84rem; color: #94A3B8; font-weight: 600; margin-bottom: 18px;">
+        <a href="index.html" style="color: #CBD5E1; text-decoration: none;">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; color: #64748B;"></i>
+        <span style="color: #FACC15;">Terms & Conditions</span>
       </div>
 
-      <!-- Main 4-Column Footer Grid -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 48px;">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+        <div style="max-width: 720px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(250, 204, 21, 0.12); border: 1.5px solid rgba(250, 204, 21, 0.35); color: #FACC15; padding: 6px 18px; border-radius: 99px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;">
+            <i class="fa-solid fa-scale-balanced"></i> Corporate Operating Agreement
+          </div>
+
+          <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; margin: 0 0 14px 0; color: #FFFFFF; line-height: 1.15; letter-spacing: -0.02em;">
+            TERMS & <span style="background: linear-gradient(135deg, #FACC15 0%, #EAB308 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">CONDITIONS</span>
+          </h1>
+
+          <p style="font-size: 1.05rem; color: #CBD5E1; line-height: 1.65; margin: 0; font-weight: 500;">
+            Official Operating Governance, Franchise Application Disclaimer, and Platform User Agreement for Grillista Fast-Casual Systems & RK Group of Industries.
+          </p>
+        </div>
+
+        <!-- Quick Document Info Card -->
+        <div style="background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(12px); border: 1.5px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 20px 24px; min-width: 260px;">
+          <div style="font-size: 0.8rem; color: #94A3B8; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Document Metadata</div>
+          <div style="font-size: 0.9rem; color: #FFF; font-weight: 700; margin-bottom: 4px;"><i class="fa-solid fa-calendar-check" style="color: #FACC15; margin-right: 6px;"></i> Updated: August 2026</div>
+          <div style="font-size: 0.86rem; color: #86EFAC; font-weight: 700; margin-bottom: 12px;"><i class="fa-solid fa-circle-check" style="margin-right: 6px;"></i> Status: Effective Immediately</div>
+          <button onclick="window.print()" style="background: linear-gradient(135deg, #FACC15 0%, #EAB308 100%); color: #0F172A; font-weight: 900; border-radius: 99px; padding: 10px 20px; font-size: 0.85rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; box-shadow: 0 6px 18px rgba(250, 204, 21, 0.3);">
+            <i class="fa-solid fa-print"></i> Print / Save Document
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive 2-Column Main Document Section -->
+  <section style="padding: 60px 0; background: #FAF7F2;">
+    <div class="container">
+      <div class="legal-layout-grid">
         
-        <!-- Column 1: Brand & Parent Corporate -->
-        <div>
-          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
-            <div style="position: relative;">
-              <img src="assets/images/logo.jpg" alt="Grillista Logo" style="width: 52px; height: 52px; border-radius: 50%; border: 2.5px solid #FACC15; box-shadow: 0 6px 18px rgba(0,0,0,0.4); object-fit: cover;">
-              <span style="position: absolute; bottom: -2px; right: -2px; background: #00C853; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #0F172A;" title="100% Pure Veg Verified"></span>
-            </div>
-            <div>
-              <h3 style="color: #FFFFFF; font-size: 1.4rem; margin: 0; font-weight: 900; letter-spacing: 0.5px; font-family: var(--font-heading);">GRILLISTA</h3>
-              <span style="color: #FACC15; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;">RK GROUP OF INDUSTRIES ENTERPRISE</span>
-            </div>
-          </div>
+        <!-- Sticky Sidebar Index Navigation -->
+        <aside class="legal-sidebar">
+          <div class="legal-sidebar-title"><i class="fa-solid fa-list-ol"></i> Document Sections</div>
+          <ul class="legal-nav-list">
+            <li><a href="#sec-1" class="legal-nav-link active"><i class="fa-solid fa-circle-info"></i> 1. Acceptance of Terms</a></li>
+            <li><a href="#sec-2" class="legal-nav-link"><i class="fa-solid fa-building-columns"></i> 2. Corporate Ownership</a></li>
+            <li><a href="#sec-3" class="legal-nav-link"><i class="fa-solid fa-store"></i> 3. Franchise Application</a></li>
+            <li><a href="#sec-4" class="legal-nav-link"><i class="fa-solid fa-calculator"></i> 4. Financial Calculations</a></li>
+            <li><a href="#sec-5" class="legal-nav-link"><i class="fa-solid fa-map-location-dot"></i> 5. Territory & Booking</a></li>
+            <li><a href="#sec-6" class="legal-nav-link"><i class="fa-solid fa-shield-cat"></i> 6. Intellectual Property</a></li>
+            <li><a href="#sec-7" class="legal-nav-link"><i class="fa-solid fa-gavel"></i> 7. Governing Law</a></li>
+            <li><a href="#sec-8" class="legal-nav-link"><i class="fa-solid fa-headset"></i> 8. Legal Desk Contact</a></li>
+          </ul>
+        </aside>
+
+        <!-- Right Main Content Cards -->
+        <main class="legal-document-body">
           
-          <p style="font-size: 0.9rem; color: #94A3B8; line-height: 1.65; margin-bottom: 20px; font-weight: 500;">
-            India's premier flame-grilled 100% pure veg QSR chain. Delivering 5-star taste with <strong>65%+ gross margins</strong> and automated chef-less kitchen operations.
-          </p>
-
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <span style="background: rgba(22, 163, 74, 0.15); color: #4ADE80; border: 1px solid rgba(74, 222, 128, 0.3); font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
-              <i class="fa-solid fa-leaf"></i> 100% Pure Veg
-            </span>
-            <span style="background: rgba(200, 138, 43, 0.15); color: #FACC15; border: 1px solid rgba(250, 204, 21, 0.3); font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">
-              <i class="fa-solid fa-utensils"></i> FOFO Model
-            </span>
-          </div>
-        </div>
-
-        <!-- Column 2: Quick Links -->
-        <div>
-          <h4 style="color: #FFFFFF; font-size: 1.05rem; font-weight: 800; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px; border-left: 3px solid #C88A2B; padding-left: 10px;">
-            Quick Navigation
-          </h4>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem;">
-            <li><a href="index.html" style="color: #CBD5E1; text-decoration: none; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; color: #C88A2B;"></i> Home</a></li>
-            <li><a href="about.html" style="color: #CBD5E1; text-decoration: none; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; color: #C88A2B;"></i> About Us & Team</a></li>
-            <li><a href="menu.html" style="color: #CBD5E1; text-decoration: none; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; color: #C88A2B;"></i> 100% Pure Veg Menu</a></li>
-            <li><a href="franchise.html" style="color: #CBD5E1; text-decoration: none; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; color: #C88A2B;"></i> Franchise FOFO Models</a></li>
-            <li><a href="gallery.html" style="color: #CBD5E1; text-decoration: none; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; color: #C88A2B;"></i> Outlet Photo Gallery</a></li>
-            <li><a href="locator.html" style="color: #CBD5E1; text-decoration: none; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; color: #C88A2B;"></i> Live Kanpur Outlets</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Franchise Models & Unit Economics -->
-        <div>
-          <h4 style="color: #FFFFFF; font-size: 1.05rem; font-weight: 800; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px; border-left: 3px solid #991B1B; padding-left: 10px;">
-            Franchise Plans
-          </h4>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem;">
-            <li><a href="franchise.html#models" style="color: #CBD5E1; text-decoration: none; display: flex; justify-content: space-between; align-items: center;"><span><i class="fa-solid fa-shop" style="color: #991B1B; margin-right: 6px;"></i> Express Kiosk:</span> <strong style="color: #FACC15;">₹10-12L</strong></a></li>
-            <li><a href="franchise.html#models" style="color: #CBD5E1; text-decoration: none; display: flex; justify-content: space-between; align-items: center;"><span><i class="fa-solid fa-store" style="color: #C88A2B; margin-right: 6px;"></i> Smart Bistro:</span> <strong style="color: #FACC15;">₹16-18L</strong></a></li>
-            <li><a href="franchise.html#models" style="color: #CBD5E1; text-decoration: none; display: flex; justify-content: space-between; align-items: center;"><span><i class="fa-solid fa-couch" style="color: #00C853; margin-right: 6px;"></i> Signature Lounge:</span> <strong style="color: #FACC15;">₹38-40L</strong></a></li>
-            <li style="border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 10px; margin-top: 4px;">
-              <button class="trigger-calculator-modal" style="background: rgba(200, 138, 43, 0.15); color: #FACC15; border: 1px solid rgba(250, 204, 21, 0.4); border-radius: 8px; padding: 8px 14px; font-size: 0.82rem; font-weight: 800; cursor: pointer; width: 100%; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
-                <i class="fa-solid fa-calculator"></i> Launch Profit Simulator
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Corporate HQ & Direct Support -->
-        <div>
-          <h4 style="color: #FFFFFF; font-size: 1.05rem; font-weight: 800; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px; border-left: 3px solid #00C853; padding-left: 10px;">
-            Corporate HQ
-          </h4>
-          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.65; margin: 0 0 16px 0;">
-            <strong style="color: #FFF;">RK Group of Industries</strong><br>
-            621/18, Block-W, Juhi Kala, VR Tower, Near Bharat Petroleum, Kanpur, UP - 208014
-          </p>
-
-          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; margin-bottom: 20px;">
-            <a href="tel:+916386818682" style="color: #FACC15; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 8px;">
-              <i class="fa-solid fa-phone-volume" style="color: #00C853;"></i> +91 63868 18682
-            </a>
-            <a href="mailto:grillistakanpur@gmail.com" style="color: #94A3B8; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
-              <i class="fa-solid fa-envelope" style="color: #C88A2B;"></i> grillistakanpur@gmail.com
-            </a>
+          <!-- Section 1 -->
+          <div id="sec-1" class="legal-section-card">
+            <div class="legal-section-header">
+              <div class="legal-section-icon"><i class="fa-solid fa-circle-info"></i></div>
+              <h2 class="legal-section-title">1. Acceptance & Scope of Agreement</h2>
+            </div>
+            <p style="font-size: 0.98rem; color: #334155; line-height: 1.7; margin: 0 0 14px 0;">
+              By accessing, browsing, or using the digital platforms of <strong>Grillista</strong> ("Company", "We", "Us", "Our"), submitting franchise application forms, or utilizing our interactive financial forecasting tools, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.
+            </p>
+            <p style="font-size: 0.95rem; color: #64748B; line-height: 1.65; margin: 0;">
+              These terms constitute a legally binding agreement between you (whether an individual investor, corporate representative, or site visitor) and Grillista Food Franchise Systems. If you do not agree to these terms, you must discontinue using our platform immediately.
+            </p>
           </div>
 
-          <!-- Social Media Golden Glow Icons -->
-          <div style="display: flex; gap: 10px;">
-            <a href="https://wa.me/916386818682" target="_blank" aria-label="WhatsApp" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: #4ADE80; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); transition: all 0.3s ease;">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: #E11D48; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); transition: all 0.3s ease;">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: #3B82F6; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); transition: all 0.3s ease;">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a href="https://youtube.com" target="_blank" aria-label="YouTube" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: #EF4444; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); transition: all 0.3s ease;">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
+          <!-- Section 2 -->
+          <div id="sec-2" class="legal-section-card">
+            <div class="legal-section-header">
+              <div class="legal-section-icon"><i class="fa-solid fa-building-columns"></i></div>
+              <h2 class="legal-section-title">2. Corporate Governance & Parent Company</h2>
+            </div>
+            <p style="font-size: 0.98rem; color: #334155; line-height: 1.7; margin: 0 0 14px 0;">
+              <strong>Grillista</strong> is a registered 100% Pure Veg Fast-Casual QSR brand incubated and operated under the corporate parent umbrella of <strong>RK Group of Industries</strong>.
+            </p>
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; margin: 14px 0; font-size: 0.92rem; color: #1E293B;">
+              <strong>Corporate Headquarters:</strong><br>
+              RK Group of Industries, 621/18, Block-W, Juhi Kala, VR Tower, Near Bharat Petroleum, Kanpur, Uttar Pradesh - 208014, India.<br>
+              <strong>Corporate Registration:</strong> Registered under applicable Indian Business & Commercial Laws.
+            </div>
+            <p style="font-size: 0.95rem; color: #64748B; line-height: 1.65; margin: 0;">
+              All central supply chain logistics, master billing agreements, corporate franchise contracts, and legal compliance audits are governed directly by RK Group of Industries.
+            </p>
           </div>
-        </div>
 
+          <!-- Section 3 -->
+          <div id="sec-3" class="legal-section-card">
+            <div class="legal-section-header">
+              <div class="legal-section-icon"><i class="fa-solid fa-store"></i></div>
+              <h2 class="legal-section-title">3. Franchise Application & FOFO Model Disclaimer</h2>
+            </div>
+            <p style="font-size: 0.98rem; color: #334155; line-height: 1.7; margin: 0 0 14px 0;">
+              Submitting a franchise inquiry or application form on this platform does <strong>not</strong> constitute a binding grant of franchise rights or a formal franchise agreement.
+            </p>
+            <div class="legal-callout-box">
+              <strong style="display: block; margin-bottom: 6px; font-size: 0.98rem;"><i class="fa-solid fa-triangle-exclamation"></i> Important Notice on Franchise Selection:</strong>
+              All franchise applications undergo comprehensive background evaluation, credit review, and territorial feasibility assessments by the Board of RK Group of Industries. Formal rights are granted exclusively via executed Franchise Disclosure Agreements (FDA).
+            </div>
+          </div>
+
+          <!-- Section 4 -->
+          <div id="sec-4" class="legal-section-card">
+            <div class="legal-section-header">
+              <div class="legal-section-icon"><i class="fa-solid fa-calculator"></i></div>
+              <h2 class="legal-section-title">4. Financial Estimates & Financial Matrix Disclaimer</h2>
+            </div>
+            <p style="font-size: 0.98rem; color: #334155; line-height: 1.7; margin: 0 0 14px 0;">
+              All financial metrics, monthly sales figures, and operational cost matrices displayed across our website or generated via our ROI Calculator are strictly for <strong>illustrative financial modeling purposes</strong> based on operational data from existing flagship Kanpur outlets.
+            </p>
+            <ul style="font-size: 0.95rem; color: #475569; line-height: 1.7; display: flex; flex-direction: column; gap: 10px; padding-left: 20px; margin: 12px 0;">
+              <li>Actual monthly revenues and profits depend on local city footfalls, property location, staff management, and local operational execution.</li>
+              <li>Grillista / RK Group does not guarantee fixed financial returns or fixed profit promises.</li>
+              <li>Prospective investors are advised to conduct independent financial due diligence before executing formal franchise contracts.</li>
+            </ul>
+          </div>
+
+          <!-- Section 5 -->
+          <div id="sec-5" class="legal-section-card">
+            <div class="legal-section-header">
+              <div class="legal-section-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <h2 class="legal-section-title">5. Pan India Territory Reservation & Rights</h2>
+            </div>
+            <p style="font-size: 0.98rem; color: #334155; line-height: 1.7; margin: 0 0 14px 0;">
+              Territory availability indicators displayed on our Pan India Territory Console are updated in real-time. Reserving city rights requires approval and token commitment.
+            </p>
+            <p style="font-size: 0.95rem; color: #64748B; line-height: 1.65; margin: 0;">
+              Exclusive city protection guarantees that no second Grillista store will be opened within your designated territorial radius without written consent from the master franchisee.
+            </p>
+          </div>
+
+          <!-- Section 6 -->
+          <div id="sec-6" class="legal-section-card">
+            <div class="legal-section-header">
+              <div class="legal-section-icon"><i class="fa-solid fa-shield-cat"></i></div>
+              <h2 class="legal-section-title">6. Intellectual Property & Brand Trademarks</h2>
+            </div>
+            <p style="font-size: 0.98rem; color: #334155; line-height: 1.7; margin: 0 0 14px 0;">
+              All brand names, logos, recipes, trade dress, website designs, text, graphics, and proprietary software algorithms are the exclusive intellectual property of <strong>RK Group of Industries</strong>.
+            </p>
+            <p style="font-size: 0.95rem; color: #64748B; line-height: 1.65; margin: 0;">
+              Unauthorized reproduction, copying, or commercial exploitation of any Grillista assets without written license is strictly prohibited and subject to legal prosecution.
+            </p>
+          </div>
+
+          <!-- Section 7 -->
+          <div id="sec-7" class="legal-section-card">
+            <div class="legal-section-header">
+              <div class="legal-section-icon"><i class="fa-solid fa-gavel"></i></div>
+              <h2 class="legal-section-title">7. Governing Law & Dispute Resolution</h2>
+            </div>
+            <p style="font-size: 0.98rem; color: #334155; line-height: 1.7; margin: 0 0 14px 0;">
+              These Terms & Conditions shall be governed by and construed in accordance with the laws of the Republic of India.
+            </p>
+            <p style="font-size: 0.95rem; color: #64748B; line-height: 1.65; margin: 0;">
+              Any legal disputes, claims, or arbitration proceedings arising out of platform use or franchise contracts shall be subject to the exclusive jurisdiction of the courts in <strong>Kanpur, Uttar Pradesh</strong>.
+            </p>
+          </div>
+
+          <!-- Section 8 -->
+          <div id="sec-8" class="legal-section-card" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #FFFFFF; border: 2px solid #C88A2B;">
+            <div class="legal-section-header" style="border-bottom-color: rgba(255,255,255,0.15);">
+              <div class="legal-section-icon" style="background: rgba(250, 204, 21, 0.2); color: #FACC15; border-color: rgba(250, 204, 21, 0.4);"><i class="fa-solid fa-headset"></i></div>
+              <h2 class="legal-section-title" style="color: #FFFFFF;">8. Corporate Legal Contact Desk</h2>
+            </div>
+            <p style="font-size: 0.95rem; color: #CBD5E1; line-height: 1.65; margin: 0 0 20px 0;">
+              If you have any questions regarding these Terms & Conditions or wish to contact our corporate legal department:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+              <div style="background: rgba(255,255,255,0.08); padding: 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);">
+                <div style="font-size: 0.78rem; color: #94A3B8; font-weight: 700; text-transform: uppercase;">Legal Hotline</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #FACC15; margin-top: 4px;"><i class="fa-solid fa-phone"></i> +91 63868 18682</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.08); padding: 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);">
+                <div style="font-size: 0.78rem; color: #94A3B8; font-weight: 700; text-transform: uppercase;">Corporate Headquarters</div>
+                <div style="font-size: 0.88rem; font-weight: 700; color: #FFF; margin-top: 4px;"><i class="fa-solid fa-building"></i> RK Group, Juhi Kala, Kanpur</div>
+              </div>
+            </div>
+          </div>
+
+        </main>
       </div>
+    </div>
+  </section>
 
-      <!-- Bottom Bar Divider -->
-      <div style="border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-        <p style="font-size: 0.85rem; color: #94A3B8; margin: 0; font-weight: 500;">
-          &copy; 2026 <strong>GRILLISTA Franchise Systems Pvt Ltd</strong>. Corporate Parent: <strong>RK Group of Industries</strong>. All rights reserved.
-        </p>
-        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-          <a href="terms.html" style="color: #94A3B8; text-decoration: none; font-size: 0.84rem; font-weight: 600; transition: color 0.2s ease;">Terms & Conditions</a>
-          <span style="color: rgba(255, 255, 255, 0.2);">|</span>
-          <a href="privacy.html" style="color: #94A3B8; text-decoration: none; font-size: 0.84rem; font-weight: 600; transition: color 0.2s ease;">Privacy Policy</a>
+  <!-- Footer -->
+  <footer style="background: #090D16; color: #FFFFFF; padding: 60px 0 30px 0; border-top: 3px solid #991B1B;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div>
+          <h3 style="font-size: 1.4rem; font-weight: 900; color: #FFFFFF; margin: 0 0 6px 0; font-family: var(--font-heading);">GRILLISTA</h3>
+          <p style="font-size: 0.84rem; color: #94A3B8; margin: 0;">100% Pure Veg Flame-Grilled QSR Franchise • RK Group of Industries</p>
+        </div>
+        <div style="display: flex; gap: 16px;">
+          <a href="terms.html" style="color: #FACC15; text-decoration: none; font-size: 0.86rem; font-weight: 700;">Terms & Conditions</a>
+          <span style="color: rgba(255,255,255,0.2);">|</span>
+          <a href="privacy.html" style="color: #94A3B8; text-decoration: none; font-size: 0.86rem; font-weight: 700;">Privacy Policy</a>
         </div>
       </div>
-
+      <div style="text-align: center; font-size: 0.8rem; color: #64748B; margin-top: 24px;">
+        &copy; 2026 <strong>Grillista Food Franchise Systems</strong>. Parent Company: <strong>RK Group of Industries</strong>. All Rights Reserved.
+      </div>
     </div>
   </footer>
-
-  <!-- Floating Side Action Dock (WhatsApp, Call, Email) -->
-  <div class="floating-side-dock" id="side-action-dock">
-    <button class="dock-item dock-item-toggle" id="dock-toggle-btn" title="Toggle Quick Actions">
-      <i class="fa-solid fa-arrow-left" id="dock-toggle-icon"></i>
-    </button>
-    <a href="https://wa.me/916386818682?text=Hi%20Grillista%20Team%2C%20I%20am%20interested%20in%20a%20Franchise!" target="_blank" class="dock-item dock-item-whatsapp" title="WhatsApp Us">
-      <i class="fa-brands fa-whatsapp"></i>
-      <span class="dock-tooltip">Chat on WhatsApp</span>
-    </a>
-    <a href="tel:+916386818682" class="dock-item dock-item-phone" title="Call Support">
-      <i class="fa-solid fa-phone"></i>
-      <span class="dock-tooltip">Call +91 63868 18682</span>
-    </a>
-    <a href="mailto:grillistakanpur@gmail.com" class="dock-item dock-item-email" title="Send Email">
-      <i class="fa-solid fa-envelope"></i>
-      <span class="dock-tooltip">Email HQ</span>
-    </a>
-  </div>
-
-  <!-- AI Franchise Assistant Chatbot Launcher Button -->
-  <button class="chatbot-launcher-btn" id="chatbot-launcher-btn" title="Ask Grillista AI Assistant">
-    <i class="fa-solid fa-headset"></i>
-    <span class="chatbot-badge">AI</span>
-  </button>
-
-  <!-- AI Franchise Assistant Chat Window -->
-  <div class="chatbot-window" id="chatbot-window">
-    <div class="chatbot-header">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: #FACC15;">
-          <i class="fa-solid fa-robot"></i>
-        </div>
-        <div>
-          <h4 style="font-size: 0.95rem; margin: 0; color: #FFF; font-weight: 800;">Grillista AI Assistant</h4>
-          <span style="font-size: 0.7rem; color: #86EFAC; font-weight: 700;">● Online | 24/7 Support</span>
-        </div>
-      </div>
-      <button id="chatbot-close-btn" style="background: none; border: none; color: #FFF; font-size: 1.2rem; cursor: pointer;">&times;</button>
-    </div>
-
-    <div class="chatbot-messages" id="chatbot-messages">
-      <div class="chat-msg bot">
-        <strong>Namaste! 🙏 Welcome to Grillista.</strong><br>
-        I am your AI Franchise Advisor. How can I assist your food franchise journey today?
-        <div class="chat-quick-btns">
-          <button class="chat-quick-btn" onclick="sendChatQuery('Franchise Cost & Models')">💰 Models & Royalty</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Kanpur Outlets')">📍 Outlet Locations</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Download Prospectus')">📜 Get Prospectus PDF</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Call Franchise Team')">📞 Call (+91 63868 18682)</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="chatbot-input-area">
-      <input type="text" id="chatbot-input" placeholder="Type your franchise question..." onkeypress="handleChatKeyPress(event)">
-      <button class="chatbot-send-btn" onclick="submitChatInput()">
-        <i class="fa-solid fa-paper-plane"></i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Back to Top Floating Arrow Button -->
-  <button class="back-to-top-btn" id="back-to-top-btn" title="Back to Top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
 
   <script src="js/main.js"></script>
 </body>
