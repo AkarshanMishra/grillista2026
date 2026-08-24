@@ -65,19 +65,20 @@
     }
     .city-chip-btn {
       padding: 6px 14px;
-      border: 1px solid var(--border-light);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 99px;
-      background: #FAF7F2;
-      color: var(--text-primary);
-      font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.08);
+      color: #CBD5E1;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
     }
     .city-chip-btn:hover, .city-chip-btn.active {
-      background: var(--brand-emerald);
+      background: linear-gradient(135deg, #C88A2B 0%, #D97706 100%);
       color: #FFFFFF;
-      border-color: var(--brand-emerald);
+      border-color: #FACC15;
+      box-shadow: 0 4px 14px rgba(200, 138, 43, 0.35);
     }
   </style>
 </head>
@@ -269,57 +270,75 @@
     </div>
   </section>
 
-  <!-- Check Available City Section (Replacing Territory Map) -->
-  <section class="section" id="check-city-section" style="background: #FAF7F2; border-top: 1.5px solid var(--border-light);">
-    <div class="container">
-      <!-- Ultra-Modern Sleek Section Header (Black Base + Amber Gold Accent) -->
-      <div style="text-align: center; margin-bottom: 36px; position: relative;">
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(217, 119, 6, 0.08); border: 1.5px solid rgba(217, 119, 6, 0.25); color: #D97706; padding: 6px 18px; border-radius: 99px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(217, 119, 6, 0.08);">
-          <span style="width: 8px; height: 8px; border-radius: 50%; background: #D97706; display: inline-block; box-shadow: 0 0 8px #D97706;"></span>
-          REAL-TIME TERRITORY ENGINE
+  <!-- Check Available City Section (REAL-TIME TERRITORY ENGINE) -->
+  <section class="section" id="check-city-section" style="background: linear-gradient(180deg, #FAF7F2 0%, #FFFDF9 100%); border-top: 1.5px solid #E2E8F0; padding: 80px 0; position: relative; overflow: hidden;">
+    
+    <!-- Ambient Radial Light Aura -->
+    <div style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(circle, rgba(200, 138, 43, 0.06) 0%, rgba(250, 247, 242, 0) 70%); pointer-events: none;"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      
+      <!-- Section Header (Ultra-Executive Premium Badge) -->
+      <div style="text-align: center; margin-bottom: 48px; position: relative;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(200, 138, 43, 0.12); border: 1.5px solid rgba(200, 138, 43, 0.35); color: #C88A2B; padding: 6px 20px; border-radius: 99px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 14px; box-shadow: 0 4px 15px rgba(200, 138, 43, 0.1);">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #C88A2B; display: inline-block; box-shadow: 0 0 8px #C88A2B;"></span>
+          <i class="fa-solid fa-compass" style="color: #C88A2B;"></i> REAL-TIME TERRITORY ENGINE
         </div>
         
-        <h2 class="section-title" style="font-size: 2.8rem; color: #000000 !important;">
-          CHECK AVAILABLE <span style="color: #D97706 !important;">FRANCHISE CITIES</span>
+        <h2 class="section-title" style="font-size: 3rem; color: #0F172A !important; font-family: var(--font-heading); margin-bottom: 12px;">
+          CHECK AVAILABLE <span style="background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">FRANCHISE CITIES</span>
         </h2>
         
-        <p style="font-size: 1.05rem; color: #64748B; max-width: 680px; margin: 0 auto; font-weight: 600; line-height: 1.6;">
-          Select or search your target city across Uttar Pradesh & India to check instant territory availability and exclusive rights status.
+        <p style="font-size: 1.05rem; color: #64748B; max-width: 720px; margin: 0 auto; font-weight: 600; line-height: 1.65;">
+          Use instant GPS location detection or search target cities across Uttar Pradesh & India to check territory availability, active operating outlets, and exclusive rights status.
         </p>
       </div>
 
-      <!-- City Search & Filter Control Bar -->
-      <div style="max-width: 960px; margin: 0 auto 36px auto; background: #FFFFFF; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 20px; padding: 24px; box-shadow: 0 15px 40px rgba(15, 46, 35, 0.06);">
+      <!-- City Search & Filter Executive Control Console -->
+      <div style="max-width: 980px; margin: 0 auto 40px auto; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border: 2px solid #C88A2B; border-radius: 28px; padding: 32px 36px; box-shadow: 0 25px 60px rgba(15, 23, 42, 0.2); color: #FFFFFF;">
         
-        <!-- Top Bar: Search + State Filter + GPS Find Nearby Button -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; align-items: center;">
-          <div style="position: relative;">
-            <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
-            <input type="text" id="city-search-input" placeholder="Type city name (e.g. Lucknow, Varanasi, Kanpur...)" style="width: 100%; padding: 14px 16px 14px 44px; border: 1.5px solid var(--border-light); border-radius: 12px; font-size: 0.95rem; outline: none; font-family: var(--font-main);">
-          </div>
-          
-          <div>
-            <select id="state-select-filter" style="width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-light); border-radius: 12px; font-size: 0.95rem; outline: none; font-family: var(--font-main); background: #FFF; color: var(--text-primary); cursor: pointer;">
-              <option value="all">All States / UTs</option>
-              <option value="UP" selected>Uttar Pradesh (Core Focus)</option>
-              <option value="NCR">Delhi / NCR</option>
-              <option value="MP">Madhya Pradesh</option>
-              <option value="BR">Bihar</option>
-              <option value="RJ">Rajasthan</option>
-            </select>
+        <!-- Header Strip inside Console -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 18px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(200, 138, 43, 0.2); color: #FACC15; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; border: 1px solid rgba(250, 204, 21, 0.4);">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin: 0;">Interactive Territory & GPS Console</h4>
+              <span style="font-size: 0.8rem; color: #94A3B8; font-weight: 500;">Instant GPS city detector & location status scanner</span>
+            </div>
           </div>
 
           <!-- GPS Find Nearby Outlets Button -->
-          <div>
-            <button id="gps-find-nearby-btn" style="width: 100%; background: linear-gradient(135deg, #00C853 0%, #15803D 100%); color: #FFFFFF; font-weight: 800; border-radius: 12px; padding: 14px 20px; font-size: 0.9rem; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 6px 20px rgba(0, 200, 83, 0.25); transition: all 0.3s ease;">
-              <i class="fa-solid fa-location-crosshairs"></i> Find Outlets in My City (GPS)
-            </button>
+          <button id="gps-find-nearby-btn" style="background: linear-gradient(135deg, #00C853 0%, #15803D 100%); color: #FFFFFF; font-weight: 800; border-radius: 99px; padding: 12px 24px; font-size: 0.88rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(0, 200, 83, 0.35); transition: all 0.3s ease;">
+            <i class="fa-solid fa-location-crosshairs"></i> Find Outlets in My City (GPS)
+          </button>
+        </div>
+
+        <!-- Control Inputs Grid (Search + State Filter) -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 24px;">
+          
+          <div style="position: relative;">
+            <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #FACC15; font-size: 1rem;"></i>
+            <input type="text" id="city-search-input" placeholder="Type city name (e.g. Lucknow, Varanasi, Kanpur, Agra...)" style="width: 100%; padding: 14px 18px 14px 48px; border: 1.5px solid rgba(255, 255, 255, 0.2); border-radius: 14px; font-size: 0.95rem; outline: none; font-family: var(--font-main); background: rgba(255, 255, 255, 0.08); color: #FFFFFF; box-sizing: border-box;">
           </div>
+          
+          <div>
+            <select id="state-select-filter" style="width: 100%; padding: 14px 18px; border: 1.5px solid rgba(255, 255, 255, 0.2); border-radius: 14px; font-size: 0.95rem; outline: none; font-family: var(--font-main); background: #1E293B; color: #FFFFFF; cursor: pointer; box-sizing: border-box;">
+              <option value="all" style="background: #1E293B; color: #FFF;">All States / UTs</option>
+              <option value="UP" selected style="background: #1E293B; color: #FFF;">Uttar Pradesh (Core Focus)</option>
+              <option value="NCR" style="background: #1E293B; color: #FFF;">Delhi / NCR</option>
+              <option value="MP" style="background: #1E293B; color: #FFF;">Madhya Pradesh</option>
+              <option value="BR" style="background: #1E293B; color: #FFF;">Bihar</option>
+              <option value="RJ" style="background: #1E293B; color: #FFF;">Rajasthan</option>
+            </select>
+          </div>
+
         </div>
 
         <!-- Quick Filter City Chips -->
         <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-right: 4px;">Popular Cities:</span>
+          <span style="font-size: 0.82rem; font-weight: 700; color: #94A3B8; text-transform: uppercase; margin-right: 6px;">Popular Cities:</span>
           <button class="city-chip-btn active" data-city="all">All Cities</button>
           <button class="city-chip-btn" data-city="Lucknow">Lucknow</button>
           <button class="city-chip-btn" data-city="Varanasi">Varanasi</button>
@@ -333,7 +352,7 @@
       </div>
 
       <!-- GPS Detection Result Card Container -->
-      <div id="gps-result-card" style="display: none; max-width: 1100px; margin: 0 auto 36px auto; animation: fadeInUpKeyframe 0.4s ease;"></div>
+      <div id="gps-result-card" style="display: none; max-width: 980px; margin: 0 auto 36px auto; animation: fadeInUpKeyframe 0.4s ease;"></div>
 
       <!-- City Availability Grid -->
       <div id="city-availability-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto;">
