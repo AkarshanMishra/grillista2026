@@ -137,7 +137,7 @@ img, video, iframe, picture, svg, canvas {
   align-items: center;
   border-bottom: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  overflow: visible !important;
 }
 
 .navbar::before {
@@ -4125,6 +4125,68 @@ img, video, iframe, svg, canvas {
   .legal-section-card {
     padding: 24px 20px;
     border-radius: 20px;
+  }
+}
+
+/* Laptop & Tablet Responsiveness Rules for Navbar Emblem Logo (993px - 1400px) */
+@media (min-width: 993px) and (max-width: 1400px) {
+  .navbar {
+    overflow: visible !important;
+    padding: 0 16px !important;
+  }
+
+  .nav-container-split {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    gap: 12px !important;
+    padding: 0 12px !important;
+  }
+
+  .nav-group-left,
+  .nav-group-right {
+    gap: 12px !important;
+  }
+
+  .nav-links-split {
+    gap: 16px !important;
+  }
+
+  .nav-link {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.3px !important;
+    padding: 6px 4px !important;
+  }
+
+  .nav-phone-box {
+    padding: 6px 12px !important;
+  }
+
+  .nav-phone-number {
+    font-size: 0.78rem !important;
+  }
+
+  .nav-center-logo {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1000 !important;
+    padding: 0 8px !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+  }
+
+  .nav-center-logo img {
+    width: 72px !important;
+    height: 72px !important;
+    object-fit: contain !important;
+    background: #FFFFFF !important;
+    padding: 2px !important;
+    border: 3px solid #FFD700 !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border-radius: 50% !important;
   }
 }
 
