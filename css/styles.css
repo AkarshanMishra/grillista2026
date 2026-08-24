@@ -135,7 +135,7 @@ img, video, iframe, picture, svg, canvas {
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
-  border-bottom: 3.5px solid #B91C1C;
+  border-bottom: none;
   transition: all 0.3s ease;
   overflow: hidden;
 }
