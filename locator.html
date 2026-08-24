@@ -1002,46 +1002,42 @@
       if (gpsBtn) {
         gpsBtn.addEventListener('click', () => {
           const originalBtnHtml = gpsBtn.innerHTML;
-          gpsBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Detecting City (GPS)...`;
+          gpsBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Detecting Your City...`;
           gpsBtn.disabled = true;
 
-          const renderDetectedCityResult = (cityName) => {
+          const resetBtn = () => {
             gpsBtn.innerHTML = originalBtnHtml;
             gpsBtn.disabled = false;
+          };
 
+          const renderDetectedCityResult = (cityName, isFallback = false) => {
+            resetBtn();
             const normalizedCity = (cityName || 'Kanpur').trim();
             const lowerCity = normalizedCity.toLowerCase();
 
-            // Filter city status cards
-            if (citySearchInput) {
-              citySearchInput.value = normalizedCity;
-            }
-            filterCities();
-
             if (!gpsResultCard) return;
             gpsResultCard.style.display = 'block';
-
-            // Smooth scroll to results
             gpsResultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Check if Kanpur (which has 2 active running outlets)
-            if (lowerCity.includes('kanpur')) {
+            const isKanpur = lowerCity.includes('kanpur');
+
+            if (isKanpur) {
               gpsResultCard.innerHTML = `
                 <div style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border: 2.5px solid #00C853; border-radius: 24px; padding: 28px 32px; color: #FFF; box-shadow: 0 20px 45px rgba(0, 200, 83, 0.18);">
                   <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
                     <div>
                       <span style="background: rgba(0, 200, 83, 0.15); color: #4ADE80; font-size: 0.78rem; font-weight: 800; padding: 4px 14px; border-radius: 99px; border: 1px solid rgba(74, 222, 128, 0.3); text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;">
-                        <i class="fa-solid fa-location-crosshairs"></i> GPS Detected: KANPUR, UP
+                        <i class="fa-solid fa-location-crosshairs"></i> LOCATION: KANPUR, UP ${isFallback ? '(Selected)' : '(GPS Verified)'}
                       </span>
                       <h3 style="font-size: 1.8rem; font-weight: 900; color: #FFF; margin: 8px 0 4px 0; font-family: var(--font-heading);">
-                        🎉 2 Active Grillista Outlets Operating in Kanpur!
+                        🎉 2 Active Outlets Serving in Kanpur!
                       </h3>
                       <p style="font-size: 0.92rem; color: #94A3B8; margin: 0; font-weight: 500;">
                         Grillista is actively serving gourmet 100% Pure Veg flame-grilled food in your city.
                       </p>
                     </div>
                     <span style="background: #00C853; color: #FFF; font-weight: 900; font-size: 0.85rem; padding: 8px 18px; border-radius: 99px; box-shadow: 0 4px 15px rgba(0, 200, 83, 0.4);">
-                      2 OUTLETS LIVE NOW
+                      2 STORES LIVE NOW
                     </span>
                   </div>
 
@@ -1051,13 +1047,13 @@
                       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
                         <div style="width: 32px; height: 32px; border-radius: 50%; background: #00C853; color: #FFF; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 900;">1</div>
                         <div>
-                          <h4 style="font-size: 1.05rem; color: #FFF; font-weight: 800; margin: 0;">Barra 2 Outlet (Kanpur)</h4>
-                          <span style="font-size: 0.78rem; color: #FACC15; font-weight: 700;">Flagship • High Street QSR</span>
+                          <h4 style="font-size: 1.05rem; color: #FFF; font-weight: 800; margin: 0;">Barra 2 Flagship Outlet</h4>
+                          <span style="font-size: 0.78rem; color: #FACC15; font-weight: 700;">Kanpur South • Flagship QSR</span>
                         </div>
                       </div>
-                      <p style="font-size: 0.84rem; color: #CBD5E1; margin: 6px 0 12px 0;">Barra 2 Main Market, Kanpur, UP</p>
-                      <a href="#store-map-section" style="color: #4ADE80; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-                        <i class="fa-solid fa-map-pin"></i> View Outlet Directions
+                      <p style="font-size: 0.84rem; color: #CBD5E1; margin: 6px 0 12px 0;">Barra 2 Main Bypass Road, Kanpur, UP</p>
+                      <a href="https://maps.google.com/?q=Grillista+Barra+2+Kanpur" target="_blank" style="color: #4ADE80; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Navigate to Barra 2 Outlet
                       </a>
                     </div>
 
@@ -1065,13 +1061,13 @@
                       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
                         <div style="width: 32px; height: 32px; border-radius: 50%; background: #00C853; color: #FFF; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 900;">2</div>
                         <div>
-                          <h4 style="font-size: 1.05rem; color: #FFF; font-weight: 800; margin: 0;">Kakadeo Outlet (Kanpur)</h4>
-                          <span style="font-size: 0.78rem; color: #FACC15; font-weight: 700;">Active • Student Hub QSR</span>
+                          <h4 style="font-size: 1.05rem; color: #FFF; font-weight: 800; margin: 0;">Kakadeo Express Hub</h4>
+                          <span style="font-size: 0.78rem; color: #FACC15; font-weight: 700;">Kanpur Central • Express QSR</span>
                         </div>
                       </div>
-                      <p style="font-size: 0.84rem; color: #CBD5E1; margin: 6px 0 12px 0;">Coaching Hub, Kakadeo, Kanpur, UP</p>
-                      <a href="#store-map-section" style="color: #4ADE80; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-                        <i class="fa-solid fa-map-pin"></i> View Outlet Directions
+                      <p style="font-size: 0.84rem; color: #CBD5E1; margin: 6px 0 12px 0;">Coaching Hub Market, Kakadeo, Kanpur, UP</p>
+                      <a href="https://maps.google.com/?q=Grillista+Kakadeo+Kanpur" target="_blank" style="color: #4ADE80; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Navigate to Kakadeo Hub
                       </a>
                     </div>
                   </div>
@@ -1079,22 +1075,21 @@
                   <!-- Expand / Action Options -->
                   <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 20px;">
                     <a href="franchise.html#apply-form" style="background: #991B1B; color: #FFF; font-weight: 800; border-radius: 99px; padding: 12px 24px; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(153, 27, 27, 0.4);">
-                      <i class="fa-solid fa-chart-line"></i> Expand More: Apply to Open Next Location in Kanpur
+                      <i class="fa-solid fa-chart-line"></i> Apply to Open Next Outlet in Kanpur
                     </a>
                     <button onclick="resetGpsSearch()" style="background: rgba(255,255,255,0.1); color: #CBD5E1; border: 1px solid rgba(255,255,255,0.2); border-radius: 99px; padding: 10px 20px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
-                      <i class="fa-solid fa-rotate-right"></i> Search Another City
+                      <i class="fa-solid fa-rotate-right"></i> Check Another City
                     </button>
                   </div>
                 </div>
               `;
             } else {
-              // City has 0 active outlets -> Option to Open First Outlet in City!
               gpsResultCard.innerHTML = `
                 <div style="background: linear-gradient(135deg, #7F1D1D 0%, #991B1B 100%); border: 2.5px solid #FACC15; border-radius: 24px; padding: 28px 32px; color: #FFF; box-shadow: 0 20px 45px rgba(153, 27, 27, 0.25);">
                   <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
                     <div>
                       <span style="background: rgba(250, 204, 21, 0.2); color: #FACC15; font-size: 0.78rem; font-weight: 800; padding: 4px 14px; border-radius: 99px; border: 1px solid rgba(250, 204, 21, 0.4); text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;">
-                        <i class="fa-solid fa-location-crosshairs"></i> GPS Detected: ${normalizedCity.toUpperCase()}
+                        <i class="fa-solid fa-location-crosshairs"></i> CITY DETECTED: ${normalizedCity.toUpperCase()}
                       </span>
                       <h3 style="font-size: 1.8rem; font-weight: 900; color: #FFF; margin: 8px 0 4px 0; font-family: var(--font-heading);">
                         ⚡ 0 Outlets Currently Operating in ${normalizedCity}!
@@ -1113,100 +1108,110 @@
                       <i class="fa-solid fa-rocket"></i> Be First: Open 1st Grillista Outlet in ${normalizedCity}
                     </a>
                     <button onclick="resetGpsSearch()" style="background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.3); border-radius: 99px; padding: 12px 20px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
-                      <i class="fa-solid fa-rotate-right"></i> Search Another City
+                      <i class="fa-solid fa-rotate-right"></i> Check Another City
                     </button>
                   </div>
                 </div>
+              `;
             }
           };
 
-          // Kanpur Flagship Center Coordinates for Proximity Check
-          const KANPUR_LAT = 26.4499;
-          const KANPUR_LON = 80.3319;
-          function getDistanceFromKanpurKm(lat, lon) {
-            const R = 6371;
-            const dLat = (KANPUR_LAT - lat) * Math.PI / 180;
-            const dLon = (KANPUR_LON - lon) * Math.PI / 180;
-            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                      Math.cos(lat * Math.PI / 180) * Math.cos(KANPUR_LAT * Math.PI / 180) *
-                      Math.sin(dLon/2) * Math.sin(dLon/2);
-            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-          }
+          const showManualCityPicker = (reasonMsg) => {
+            resetBtn();
+            if (!gpsResultCard) return;
+            gpsResultCard.style.display = 'block';
+            gpsResultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            gpsResultCard.innerHTML = `
+              <div style="background: #0F172A; border: 2px solid #C88A2B; border-radius: 24px; padding: 28px 32px; color: #FFF; box-shadow: 0 20px 45px rgba(15, 23, 42, 0.3);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                  <span style="background: rgba(200, 138, 43, 0.2); color: #FACC15; padding: 4px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 800;">
+                    <i class="fa-solid fa-city"></i> SELECT YOUR CITY
+                  </span>
+                </div>
+                <h3 style="font-size: 1.6rem; font-weight: 900; color: #FFF; margin-bottom: 6px;">
+                  Select Your City to Check Outlet Status
+                </h3>
+                <p style="font-size: 0.9rem; color: #94A3B8; margin-bottom: 20px;">
+                  ${reasonMsg || 'Click your city below or select to check active outlets & franchise availability.'}
+                </p>
 
-          function updateOutletDistances(userLat, userLon) {
-            const BARRA_LAT = 26.4380, BARRA_LON = 80.3015;
-            const KAKADEO_LAT = 26.4750, KAKADEO_LON = 80.2980;
-            const distB = getDistanceFromKanpurKm(userLat, userLon);
-            const distK = getDistanceFromKanpurKm(userLat, userLon);
-
-            const distBarraEl = document.getElementById('distance-barra');
-            const distKakadeoEl = document.getElementById('distance-kakadeo');
-            if (distBarraEl) distBarraEl.innerHTML = `<i class="fa-solid fa-route"></i> ${distB.toFixed(1)} km from your location`;
-            if (distKakadeoEl) distKakadeoEl.innerHTML = `<i class="fa-solid fa-route"></i> ${distK.toFixed(1)} km from your location`;
-          }
-
-          // Options for High-Precision Hardware GPS Detection
-          const geoOptions = {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 0
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+                  <button onclick="renderDetectedCityResult('Kanpur')" style="background: #16A34A; color: #FFF; border: none; font-weight: 800; padding: 10px 20px; border-radius: 99px; cursor: pointer;">
+                    🟢 Kanpur (2 Outlets Live)
+                  </button>
+                  <button onclick="renderDetectedCityResult('Lucknow')" style="background: rgba(255,255,255,0.1); color: #FFF; border: 1px solid rgba(255,255,255,0.2); font-weight: 700; padding: 10px 20px; border-radius: 99px; cursor: pointer;">
+                    📍 Lucknow
+                  </button>
+                  <button onclick="renderDetectedCityResult('Varanasi')" style="background: rgba(255,255,255,0.1); color: #FFF; border: 1px solid rgba(255,255,255,0.2); font-weight: 700; padding: 10px 20px; border-radius: 99px; cursor: pointer;">
+                    📍 Varanasi
+                  </button>
+                  <button onclick="renderDetectedCityResult('Agra')" style="background: rgba(255,255,255,0.1); color: #FFF; border: 1px solid rgba(255,255,255,0.2); font-weight: 700; padding: 10px 20px; border-radius: 99px; cursor: pointer;">
+                    📍 Agra
+                  </button>
+                  <button onclick="renderDetectedCityResult('Prayagraj')" style="background: rgba(255,255,255,0.1); color: #FFF; border: 1px solid rgba(255,255,255,0.2); font-weight: 700; padding: 10px 20px; border-radius: 99px; cursor: pointer;">
+                    📍 Prayagraj
+                  </button>
+                  <button onclick="renderDetectedCityResult('Noida')" style="background: rgba(255,255,255,0.1); color: #FFF; border: 1px solid rgba(255,255,255,0.2); font-weight: 700; padding: 10px 20px; border-radius: 99px; cursor: pointer;">
+                    📍 Noida
+                  </button>
+                </div>
+              </div>
+            `;
           };
 
+          window.renderDetectedCityResult = renderDetectedCityResult;
+
+          // Attempt HTML5 Geolocation
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
               (pos) => {
                 const lat = pos.coords.latitude;
                 const lon = pos.coords.longitude;
 
-                updateOutletDistances(lat, lon);
+                // Kanpur Radius Check
+                const KANPUR_LAT = 26.4499, KANPUR_LON = 80.3319;
+                const dLat = (KANPUR_LAT - lat) * Math.PI / 180;
+                const dLon = (KANPUR_LON - lon) * Math.PI / 180;
+                const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                          Math.cos(lat * Math.PI / 180) * Math.cos(KANPUR_LAT * Math.PI / 180) *
+                          Math.sin(dLon/2) * Math.sin(dLon/2);
+                const distKanpur = 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
-                // Check Proximity to Kanpur Outlet Hub (within 45 km radius)
-                if (getDistanceFromKanpurKm(lat, lon) <= 45) {
+                if (distKanpur <= 45) {
                   renderDetectedCityResult('Kanpur');
                   return;
                 }
 
-                // Reverse Geocode using Nominatim OpenStreetMap
+                // Reverse Geocode lookup
                 fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`)
                   .then(res => res.json())
                   .then(data => {
-                    let city = '';
-                    if (data && data.address) {
-                      city = data.address.city || data.address.town || data.address.municipality || data.address.suburb || data.address.district || data.address.county || data.address.state_district || data.address.state;
+                    let city = data.address ? (data.address.city || data.address.town || data.address.district || data.address.county || data.address.state_district) : '';
+                    if (city) {
+                      renderDetectedCityResult(city);
+                    } else {
+                      showManualCityPicker();
                     }
-                    if (!city) city = 'Lucknow';
-                    renderDetectedCityResult(city);
                   })
-                  .catch(() => {
-                    // Fallback to BigDataCloud Reverse Geocoding API
-                    fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`)
-                      .then(res => res.json())
-                      .then(bdcData => {
-                        const city = bdcData.city || bdcData.locality || bdcData.principalSubdivision || 'Lucknow';
-                        renderDetectedCityResult(city);
-                      })
-                      .catch(() => {
-                        fetch('https://ipapi.co/json/')
-                          .then(res => res.json())
-                          .then(ipData => renderDetectedCityResult(ipData.city || 'Lucknow'))
-                          .catch(() => renderDetectedCityResult('Lucknow'));
-                      });
-                  });
+                  .catch(() => showManualCityPicker());
               },
               (err) => {
-                // Fallback to IP geolocation if hardware GPS denied or timed out
+                // IP Geolocation fallback if GPS permission is denied or unsupported on HTTP
                 fetch('https://ipapi.co/json/')
                   .then(res => res.json())
-                  .then(ipData => renderDetectedCityResult(ipData.city || 'Lucknow'))
-                  .catch(() => renderDetectedCityResult('Lucknow'));
+                  .then(ipData => {
+                    if (ipData && ipData.city) {
+                      renderDetectedCityResult(ipData.city, true);
+                    } else {
+                      showManualCityPicker('Location access blocked. Select your city below:');
+                    }
+                  })
+                  .catch(() => showManualCityPicker('Location access blocked. Select your city below:'));
               },
-              geoOptions
+              { timeout: 7000, enableHighAccuracy: true }
             );
           } else {
-            fetch('https://ipapi.co/json/')
-              .then(res => res.json())
-              .then(ipData => renderDetectedCityResult(ipData.city || 'Lucknow'))
-              .catch(() => renderDetectedCityResult('Lucknow'));
+            showManualCityPicker('GPS not supported by your browser. Select your city below:');
           }
         });
       }
