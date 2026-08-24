@@ -29,49 +29,27 @@
   </script>
   
   <style>
-    .menu-cat-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
-      padding-bottom: 14px;
-      border-bottom: 2px solid var(--border-light);
-    }
-    .menu-cat-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: var(--radius-md);
-      background: rgba(200, 138, 43, 0.12);
-      border: 1px solid var(--border-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: var(--accent-gold);
-    }
-    .premium-menu-card {
+    .menu-cat-card {
       background: #FFFFFF;
-      border: 1px solid var(--border-emerald);
-      border-left: 5px solid var(--accent-gold);
-      border-radius: var(--radius-md);
-      padding: 24px 28px;
-      transition: var(--transition);
-      box-shadow: var(--shadow-premium);
+      border: 1.5px solid #E2E8F0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      transition: all 0.3s ease;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: space-between;
     }
-    .premium-menu-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--brand-emerald);
-      border-left-color: var(--brand-emerald);
-      box-shadow: var(--shadow-hover);
+    .menu-cat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      border-color: rgba(225, 29, 72, 0.3);
     }
     .veg-symbol {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       border: 1.5px solid #15803D;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 2px;
@@ -79,8 +57,8 @@
       flex-shrink: 0;
     }
     .veg-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #15803D;
     }
@@ -135,861 +113,487 @@
   </header>
 
   <!-- Premium Menu Hero Section -->
-  <section class="section" style="padding-top: calc(var(--nav-height) + 50px); background: #FAF7F2;">
+  <section class="section" style="padding-top: calc(var(--nav-height) + 40px); background: #FAF7F2; padding-bottom: 80px;">
     <div class="container">
-      <!-- Ultra-Modern Sleek Section Header (Black Base + Vibrant Electric Neon Red Accent) -->
+      
+      <!-- Sleek Section Header -->
       <div style="text-align: center; margin-bottom: 36px; position: relative;">
         <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 23, 68, 0.08); border: 1.5px solid rgba(255, 23, 68, 0.25); color: #FF1744; padding: 6px 18px; border-radius: 99px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(255, 23, 68, 0.08);">
           <span style="width: 8px; height: 8px; border-radius: 50%; background: #FF1744; display: inline-block; box-shadow: 0 0 8px #FF1744;"></span>
           100% PURE VEG GOURMET COLLECTION
         </div>
         
-        <h1 class="section-title" style="font-size: 3.4rem; color: #000000 !important;">
-          THE GOURMET <span style="color: #FF1744 !important;">VISUAL MENU</span>
+        <h1 class="section-title" style="font-size: 3.2rem; color: #0F172A !important; font-family: var(--font-heading); font-weight: 900; letter-spacing: -0.02em;">
+          OUR CULINARY <span style="color: #FF1744 !important;">CATEGORY MENU</span>
         </h1>
         
         <p style="font-size: 1.05rem; color: #64748B; max-width: 720px; margin: 0 auto; font-weight: 600; line-height: 1.6;">
-          Explore our signature flame-grilled 100% pure veg creations, loaded peri-peri fries, refreshing mint coolers, and rich shakes handcrafted daily across operational Kanpur outlets.
+          Explore our handcrafted 100% Pure Veg food categories — from Kulhad Chai & Steamed Momos to Charcoal Burgers, Hand-Tossed Pizzas & Chilled Coolers across Kanpur.
         </p>
       </div>
 
-      <!-- Category Filter Pills Bar (Clean Minimal Corporate Bar) -->
+      <!-- Category Filter Pills Bar -->
       <div class="menu-controls" style="margin-bottom: 48px; gap: 10px; flex-wrap: wrap; justify-content: center; display: flex; background: #FFFFFF; padding: 14px 20px; border-radius: 16px; border: 1.5px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
-        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> Entire Menu</button>
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> All Categories</button>
+        <button class="filter-btn" data-filter="tea"><i class="fa-solid fa-mug-hot"></i> Tea & Chai</button>
+        <button class="filter-btn" data-filter="momos"><i class="fa-solid fa-bowl-food"></i> Momos</button>
+        <button class="filter-btn" data-filter="burgers"><i class="fa-solid fa-burger"></i> Burgers & Breads</button>
         <button class="filter-btn" data-filter="pizzas"><i class="fa-solid fa-pizza-slice"></i> Pizzas</button>
-        <button class="filter-btn" data-filter="burgers"><i class="fa-solid fa-burger"></i> Burgers & Garlic Breads</button>
-        <button class="filter-btn" data-filter="wraps"><i class="fa-solid fa-scroll"></i> Wraps, Rolls & Sandwiches</button>
-        <button class="filter-btn" data-filter="combos"><i class="fa-solid fa-box-open"></i> Combos & Thalis</button>
-        <button class="filter-btn" data-filter="chinese"><i class="fa-solid fa-bowl-food"></i> Maggi, Momos & Chinese</button>
-        <button class="filter-btn" data-filter="pasta"><i class="fa-solid fa-utensils"></i> Pasta, Soups & Noodles</button>
+        <button class="filter-btn" data-filter="wraps"><i class="fa-solid fa-scroll"></i> Wraps & Sandwiches</button>
+        <button class="filter-btn" data-filter="fries"><i class="fa-solid fa-fire"></i> Fries & Sides</button>
+        <button class="filter-btn" data-filter="pasta"><i class="fa-solid fa-utensils"></i> Pasta & Noodles</button>
         <button class="filter-btn" data-filter="drinks"><i class="fa-solid fa-glass-water"></i> Beverages & Shakes</button>
         <button class="filter-btn" data-filter="desserts"><i class="fa-solid fa-ice-cream"></i> Desserts</button>
       </div>
 
-      <!-- Modern Gourmet Menu Items Showcase Grid -->
-      <div style="margin-top: 48px;">
-        <div style="text-align: center; margin-bottom: 36px;">
-          <h2 style="font-size: 2.2rem; font-weight: 900; color: #000000 !important; font-family: var(--font-heading);">
-            OFFICIAL GRILLISTA <span style="color: #FF1744 !important;">GOURMET MENU</span>
-          </h2>
-          <p style="font-size: 0.95rem; color: #64748B; font-weight: 600;">100% Pure Veg Handcrafted Fast Food &bull; 2 Live Outlets in Kanpur (Barra 2 & Kakadeo)</p>
+      <!-- Category Card Menu Board Grid (Matching Uploaded Reference Design) -->
+      <div id="category-card-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px;">
+        
+        <!-- CARD 1: TEA & CHAI COLLECTION -->
+        <div class="menu-cat-card" data-category="tea">
+          <div style="height: 240px; overflow: hidden; position: relative;">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80" alt="Milk Base Tea & Chai" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(250, 204, 21, 0.4);">
+              🍵 FRESH KULHAD CHAI
+            </span>
+          </div>
+          <div style="padding: 26px;">
+            <h3 style="font-size: 1.45rem; font-family: var(--font-heading); font-weight: 900; color: #2563EB; margin: 0 0 4px 0; letter-spacing: -0.01em;">
+              Milk Base Tea & Herbal Chai
+            </h3>
+            <p style="font-size: 0.88rem; color: #64748B; font-weight: 500; margin: 0 0 20px 0; line-height: 1.4;">
+              Delhiwali, Tulsi, Kulhad, Kesar, Haldi & Classic Ginger Tea
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Delhiwali Cutting Chai</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹25</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Special Tulsi Chai</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹35</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Premium Kulhad Chai</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹40</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Royal Kesar Chai</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹50</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Haldi Kesar Immunity Chai</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹55</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Classic Adrak Elaichi Chai</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹35</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Lemon & Mint Green Tea</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹45</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div id="gourmet-menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
-          
-          <!-- ================= PIZZAS SECTION (5 ITEMS) ================= -->
-          
-          <!-- Item 1: Farmhouse Pizza -->
-          <div class="menu-item-card" data-category="pizzas" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=80" alt="Farmhouse Pizza" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #FF1744; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.05rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">Reg ₹189 | Med ₹389</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Farmhouse Pizza</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Fresh farmhouse style pizza topped with garden vegetables & rich mozzarella cheese.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #D97706; font-size: 0.78rem; font-weight: 700;">Cheese Burst: Reg ₹219 / Med ₹489</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
+        <!-- CARD 2: MOMOS COLLECTION -->
+        <div class="menu-cat-card" data-category="momos">
+          <div style="height: 240px; overflow: hidden; position: relative;">
+            <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=800&auto=format&fit=crop&q=80" alt="Grillista Momos Collection" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FF1744; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(255, 23, 68, 0.4);">
+              🥟 STEAM & KURKURE MOMOS
+            </span>
           </div>
+          <div style="padding: 26px;">
+            <h3 style="font-size: 1.45rem; font-family: var(--font-heading); font-weight: 900; color: #0F172A; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: -0.01em;">
+              MOMOS COLLECTION
+            </h3>
+            <p style="font-size: 0.88rem; color: #64748B; font-weight: 500; margin: 0 0 20px 0; line-height: 1.4;">
+              Pan-Fried, Fried, Gravy, Steam, Kurkure & Tandoori
+            </p>
 
-          <!-- Item 2: Mexican Veg Pizza -->
-          <div class="menu-item-card" data-category="pizzas" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&auto=format&fit=crop&q=80" alt="Mexican Veg Pizza" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.05rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">Reg ₹169 | Med ₹350</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Mexican Veg Pizza</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Mexican style spicy veg pizza loaded with jalapeno, paprika & cheesy goodness.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #DC2626; font-size: 0.78rem; font-weight: 700;">🌶️ Spicy Jalapeno</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Classic Veg Steam Momos</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹89</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Paneer Tikka Steam Momos</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹109</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Sweet Corn & Cheese Momos</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹119</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Fiery Kurkure Veg Momos</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹129</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Tandoori Gravy Paneer Momos</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹139</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Butter Garlic Pan-Fried Momos</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹129</span>
+              </li>
+            </ul>
           </div>
-
-          <!-- Item 3: Kadhai Paneer Pizza -->
-          <div class="menu-item-card" data-category="pizzas" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&auto=format&fit=crop&q=80" alt="Kadhai Paneer Pizza" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.05rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">Reg ₹189 | Med ₹399</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Kadhai Paneer Pizza</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Spicy kadhai paneer topping paired with rich cheese and Indian spices.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #EA580C; font-size: 0.78rem; font-weight: 700;">Desi Tandoori Spice</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 4: Golden Corn Pizza -->
-          <div class="menu-item-card" data-category="pizzas" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=800&auto=format&fit=crop&q=80" alt="Golden Corn Pizza" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.05rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">Reg ₹89 | Med ₹259</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Golden Corn Pizza</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Sweet golden corn with creamy mozzarella cheese & freshly baked crust.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #D97706; font-size: 0.78rem; font-weight: 700;">Cheese Burst: Reg ₹139 / Med ₹359</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 5: Reshmi Paneer Pizza -->
-          <div class="menu-item-card" data-category="pizzas" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?w=800&auto=format&fit=crop&q=80" alt="Reshmi Paneer Pizza" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.05rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">Reg ₹189 | Med ₹399</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Reshmi Paneer Pizza</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Soft paneer chunks with creamy cheesy texture & smoky roasted flavours.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #059669; font-size: 0.78rem; font-weight: 700;">Smoky Tandoori Cream</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- ================= BURGERS & GARLIC BREADS (5 ITEMS) ================= -->
-
-          <!-- Item 1: Stuffed Garlic Bread -->
-          <div class="menu-item-card" data-category="burgers" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=800&auto=format&fit=crop&q=80" alt="Stuffed Garlic Bread" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #FF1744; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹119</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Stuffed Garlic Bread</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Freshly baked garlic bread stuffed with cheese, jalapeno & golden corn.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #D97706; font-size: 0.78rem; font-weight: 700;">Cheesy Oven Baked</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 2: Red Paprika & Paneer Garlic Bread -->
-          <div class="menu-item-card" data-category="burgers" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?w=800&auto=format&fit=crop&q=80" alt="Red Paprika Paneer Garlic Bread" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #FF1744; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹169</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Red Paprika & Paneer Garlic Bread</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Freshly baked garlic bread stuffed with spicy red paprika & cottage cheese.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #DC2626; font-size: 0.78rem; font-weight: 700;">🌶️ Spicy Red Paprika</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Aloo Tikki Burger -->
-          <div class="menu-item-card" data-category="burgers" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="assets/images/burger.jpg" alt="Aloo Tikki Burger" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #00C853; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹59</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Aloo Tikki Burger</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Crispy aloo tikki burger layered with fresh veggies & creamy mayo.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #64748B; font-size: 0.78rem; font-weight: 700;">Classic Indian Snack</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 4: Paneer Tikki Cheese Burger -->
-          <div class="menu-item-card" data-category="burgers" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80" alt="Paneer Tikki Cheese Burger" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹119</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Paneer Tikki Cheese Burger</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Soft paneer tikki burger loaded with cheese slice & signature spicy sauces.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #EA580C; font-size: 0.78rem; font-weight: 700;">Cheesy Paneer Delight</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 5: Udta Punjab 2.0 Veg Burger -->
-          <div class="menu-item-card" data-category="burgers" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="assets/images/burger.jpg" alt="Udta Punjab Burger" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #00C853; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">🌱 STUDENT FAVORITE</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹119</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Udta Punjab 2.0 Veg Burger</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Loaded spiced potato patty, onion rings, pickled jalapenos & tandoori mayo.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #EA580C; font-size: 0.78rem; font-weight: 700;">🌶️ Tangy Spicy</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- ================= WRAPS, ROLLS & SANDWICHES (5 ITEMS) ================= -->
-
-          <!-- Item 1: Paneer Veg Wrap -->
-          <div class="menu-item-card" data-category="wraps" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&auto=format&fit=crop&q=80" alt="Paneer Veg Wrap" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹139</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Paneer Veg Wrap</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Soft paneer wrap packed with rich flavours & cheesy goodness.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #D97706; font-size: 0.78rem; font-weight: 700;">Loaded Soft Tortilla</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 2: Mexican Veg Taco -->
-          <div class="menu-item-card" data-category="wraps" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=800&auto=format&fit=crop&q=80" alt="Veg Taco" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹149</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Mexican Veg Taco</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Fresh veggies, signature sauces, and cheese served in a crispy taco shell.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #EA580C; font-size: 0.78rem; font-weight: 700;">Crispy Shell Delight</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Paneer Grilled Sandwich -->
-          <div class="menu-item-card" data-category="wraps" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800&auto=format&fit=crop&q=80" alt="Paneer Sandwich" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹169</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Paneer Grilled Sandwich</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Premium paneer sandwich grilled with cheese and signature sauces.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #D97706; font-size: 0.78rem; font-weight: 700;">Golden Grilled Crust</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 4: Pizza Roll -->
-          <div class="menu-item-card" data-category="wraps" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80" alt="Pizza Roll" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹79</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Cheesy Pizza Roll</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Crispy outside, cheesy inside - the perfect pizza-inspired handheld roll.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #64748B; font-size: 0.78rem; font-weight: 700;">Handheld Pizza Snack</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 5: Butter Corn Chaat -->
-          <div class="menu-item-card" data-category="wraps" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=800&auto=format&fit=crop&q=80" alt="Corn Chaat" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #FF1744; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹89</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Butter Corn Chaat</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Sweet golden corn tossed with butter, tangy Indian spices and fresh herbs.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #059669; font-size: 0.78rem; font-weight: 700;">Desi Street Chatpata</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- ================= COMBOS & THALIS (5 ITEMS) ================= -->
-
-          <!-- Item 1: Everyday Value Deal -->
-          <div class="menu-item-card" data-category="combos" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
-                <div style="text-align: center; color: #FFF;">
-                  <i class="fa-solid fa-burger" style="font-size: 3rem; color: #FACC15; margin-bottom: 8px;"></i>
-                  <div style="font-weight: 900; font-size: 1.1rem; color: #FFF;">BURGER + FRIES + COKE</div>
-                </div>
-                <span style="position: absolute; top: 14px; left: 14px; background: #FF1744; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER COMBO</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹109</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Everyday Value Deal</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Aloo Tikki Burger + Salted Fries + Cold Coke drink combo.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #00C853; font-size: 0.78rem; font-weight: 700;">Super Savings Combo</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 2: Signature Saver Combo -->
-          <div class="menu-item-card" data-category="combos" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden; background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
-                <div style="text-align: center; color: #FFF;">
-                  <i class="fa-solid fa-box" style="font-size: 3rem; color: #FACC15; margin-bottom: 8px;"></i>
-                  <div style="font-weight: 900; font-size: 1.1rem; color: #FFF;">BURGER + PIZZA + ROLL + COKE</div>
-                </div>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹210</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Signature Saver Combo</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Aloo Tikki Burger + Capsicum Pizza + Pizza Roll + Chilled Coke.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #0284C7; font-size: 0.78rem; font-weight: 700;">Full Meal Saver Box</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Chinese Platter Combo -->
-          <div class="menu-item-card" data-category="combos" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden; background: linear-gradient(135deg, #991B1B 0%, #7F1D1D 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
-                <div style="text-align: center; color: #FFF;">
-                  <i class="fa-solid fa-bowl-rice" style="font-size: 3rem; color: #FACC15; margin-bottom: 8px;"></i>
-                  <div style="font-weight: 900; font-size: 1.1rem; color: #FFF;">NOODLES + RICE + PANEER + MANCHURIAN</div>
-                </div>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹299</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Grand Chinese Platter</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Veg Noodles + Veg Fried Rice + Chili Paneer + Veg Manchurian.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #DC2626; font-size: 0.78rem; font-weight: 700;">Indo-Chinese Feast</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 4: Super Deluxe Thali -->
-          <div class="menu-item-card" data-category="combos" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden; background: linear-gradient(135deg, #451A03 0%, #78350F 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
-                <div style="text-align: center; color: #FFF;">
-                  <i class="fa-solid fa-utensils" style="font-size: 3rem; color: #FACC15; margin-bottom: 8px;"></i>
-                  <div style="font-weight: 900; font-size: 1.1rem; color: #FFF;">GRAND INDIAN THALI</div>
-                </div>
-                <span style="position: absolute; top: 14px; left: 14px; background: #D97706; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">👑 KING THALI</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹299</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Super Deluxe Thali</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Seasonal Veg + Dal Makhani + Paneer + Rice + Naan + Paratha + Sweet + Raita.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #EA580C; font-size: 0.78rem; font-weight: 700;">Complete Royal Feast</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 5: Economy Thali -->
-          <div class="menu-item-card" data-category="combos" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden; background: linear-gradient(135deg, #15803D 0%, #166534 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
-                <div style="text-align: center; color: #FFF;">
-                  <i class="fa-solid fa-plate-wheat" style="font-size: 3rem; color: #FACC15; margin-bottom: 8px;"></i>
-                  <div style="font-weight: 900; font-size: 1.1rem; color: #FFF;">DESI ECONOMY THALI</div>
-                </div>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹99</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Economy Veg Thali</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Seasonal Veg + Dal Fry + Steamed Rice + 2 Butter Tawa Rotis.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #15803D; font-size: 0.78rem; font-weight: 700;">Healthy Home Style</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- ================= MAGGI, MOMOS & CHINESE (5 ITEMS) ================= -->
-
-          <!-- Item 1: Special Veg Maggi -->
-          <div class="menu-item-card" data-category="chinese" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1612927601601-6638404737ce?w=800&auto=format&fit=crop&q=80" alt="Veg Maggi" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹69</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Special Veg Maggi</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Hot masala Maggi cooked with fresh veggies, butter & spices.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #64748B; font-size: 0.78rem; font-weight: 700;">Plain Maggi: ₹59</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 2: Steamed Veg Momos -->
-          <div class="menu-item-card" data-category="chinese" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=800&auto=format&fit=crop&q=80" alt="Steamed Momos" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹99</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Steamed Veg Momos</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Classic soft steamed vegetable dumplings served with spicy garlic chutney.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #059669; font-size: 0.78rem; font-weight: 700;">Paneer Momos: ₹129</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Veg Manchurian -->
-          <div class="menu-item-card" data-category="chinese" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=800&auto=format&fit=crop&q=80" alt="Veg Manchurian" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #FF1744; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹125</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Veg Manchurian</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Crispy veg balls tossed in tangy Manchurian gravy/sauce with spring onions.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #EA580C; font-size: 0.78rem; font-weight: 700;">Wok Tossed Indo-Chinese</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 4: Chilli Paneer Dry -->
-          <div class="menu-item-card" data-category="chinese" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=800&auto=format&fit=crop&q=80" alt="Chilli Paneer" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹149</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Chilli Paneer Dry</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Wok-tossed cottage cheese cubes with bell peppers & spicy soya chili sauce.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #DC2626; font-size: 0.78rem; font-weight: 700;">🌶️🌶️ Fiery Hot</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 5: Honey Chilli Potato -->
-          <div class="menu-item-card" data-category="chinese" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=800&auto=format&fit=crop&q=80" alt="Honey Chilli Potato" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹149</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Honey Chilli Potato</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Crispy potato fingers coated in sweet & spicy honey chili glaze with sesame seeds.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #D97706; font-size: 0.78rem; font-weight: 700;">Sweet & Spicy Crunchy</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- ================= PASTA, SOUPS & NOODLES (4 ITEMS) ================= -->
-
-          <!-- Item 1: Hakha Veg Noodles -->
-          <div class="menu-item-card" data-category="pasta" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=800&auto=format&fit=crop&q=80" alt="Veg Noodles" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #FF1744; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹99</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Hakha Veg Noodles</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Classic street style wok noodles tossed with crunchy fresh vegetables.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #059669; font-size: 0.78rem; font-weight: 700;">Schezwan Noodles: ₹129</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 2: White Sauce Pasta -->
-          <div class="menu-item-card" data-category="pasta" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="assets/images/pasta.jpg" alt="White Sauce Pasta" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹199</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">White Sauce Creamy Pasta</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Creamy white sauce penne pasta loaded with rich cheese, herbs & corn.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #0284C7; font-size: 0.78rem; font-weight: 700;">Red Sauce Pasta: ₹169</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Hot & Sour Soup -->
-          <div class="menu-item-card" data-category="pasta" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&auto=format&fit=crop&q=80" alt="Hot & Sour Soup" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹79</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Hot & Sour Veg Soup</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Tangy & spicy Asian vegetable soup infused with black pepper & chili sauce.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #EA580C; font-size: 0.78rem; font-weight: 700;">Tomato Soup: ₹79</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 4: Manchow Soup -->
-          <div class="menu-item-card" data-category="pasta" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&auto=format&fit=crop&q=80" alt="Manchow Soup" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹79</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Vegetable Manchow Soup</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Spicy garlic vegetable broth served with crispy fried noodle topping.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #D97706; font-size: 0.78rem; font-weight: 700;">Crispy Noodle Crunch</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- ================= BEVERAGES & SHAKES (3 ITEMS) ================= -->
-
-          <!-- Item 1: Blue Lagoon Mocktail -->
-          <div class="menu-item-card" data-category="drinks" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&auto=format&fit=crop&q=80" alt="Blue Lagoon Mocktail" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #0284C7; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹99</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Blue Lagoon Mocktail</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Chilled citrus curacao mint cooler served with sparkling lemon fizz.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #0284C7; font-size: 0.78rem; font-weight: 700;">Virgin Mojito: ₹99</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 2: Cold Coffee -->
-          <div class="menu-item-card" data-category="drinks" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=800&auto=format&fit=crop&q=80" alt="Cold Coffee" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #8B5CF6; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.05rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">S ₹99 | M ₹179</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Classic Thick Cold Coffee</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Thick blended espresso coffee served cold with chocolate drizzle.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #64748B; font-size: 0.78rem; font-weight: 700;">Large Size: ₹279</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Double Thick Hazelnut Shake -->
-          <div class="menu-item-card" data-category="drinks" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1577805947697-89e18249d767?w=800&auto=format&fit=crop&q=80" alt="Hazelnut Shake" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹139</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Double Thick Hazelnut Shake</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Ultra-thick whole milk shake blended with Roasted Hazelnut praline.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #451A03; font-size: 0.78rem; font-weight: 700;">Chocolate Shake: ₹179</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- ================= DESSERTS (3 ITEMS) ================= -->
-
-          <!-- Item 1: Hot Chocolate Brownie -->
-          <div class="menu-item-card" data-category="desserts" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&auto=format&fit=crop&q=80" alt="Hot Chocolate Brownie" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; left: 14px; background: #FF1744; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 99px;">⭐ BESTSELLER</span>
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹119</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Hot Chocolate Brownie</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Warm fudge chocolate brownie topped with hot dark chocolate fudge sauce.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #451A03; font-size: 0.78rem; font-weight: 700;">Brownie with Ice Cream: ₹129</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 2: Choco Lava Cake -->
-          <div class="menu-item-card" data-category="desserts" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?w=800&auto=format&fit=crop&q=80" alt="Choco Lava Cake" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹104</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Choco Lava Cake</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Warm chocolate cake oozing with molten hot cocoa ganache.</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #881337; font-size: 0.78rem; font-weight: 700;">Molten Cocoa Core</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Ice Cream Scoop -->
-          <div class="menu-item-card" data-category="desserts" style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="position: relative; height: 190px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=800&auto=format&fit=crop&q=80" alt="Ice Cream Scoop" style="width: 100%; height: 100%; object-fit: cover;">
-                <span style="position: absolute; top: 14px; right: 14px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #FACC15; font-size: 1.1rem; font-weight: 900; padding: 4px 14px; border-radius: 99px;">₹69</span>
-              </div>
-              <div style="padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div class="veg-symbol"><div class="veg-dot"></div></div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin: 0;">Gourmet Ice Cream Scoop</h3>
-                </div>
-                <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin: 0;">Rich premium ice cream scoop (Vanilla / Rich Chocolate / Strawberry).</p>
-              </div>
-            </div>
-            <div style="padding: 0 20px 20px 20px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 12px;">
-              <span style="color: #D97706; font-size: 0.78rem; font-weight: 700;">Chilled Gourmet Scoop</span>
-              <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 99px;">100% Veg</span>
-            </div>
-          </div>
-
         </div>
+
+        <!-- CARD 3: BURGERS & GARLIC BREADS -->
+        <div class="menu-cat-card" data-category="burgers">
+          <div style="height: 240px; overflow: hidden; position: relative;">
+            <img src="assets/images/burger.jpg" alt="Charcoal Burgers & Breads" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #EA580C; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(234, 88, 12, 0.4);">
+              🔥 CHARCOAL BRIOCHE
+            </span>
+          </div>
+          <div style="padding: 26px;">
+            <h3 style="font-size: 1.45rem; font-family: var(--font-heading); font-weight: 900; color: #0F172A; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: -0.01em;">
+              BURGERS & GARLIC BREADS
+            </h3>
+            <p style="font-size: 0.88rem; color: #64748B; font-weight: 500; margin: 0 0 20px 0; line-height: 1.4;">
+              Charcoal Brioche Buns, Stuffed Mozzarella Garlic Loaves
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Charcoal Paneer Tikka Burger</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹129</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Grillista Classic Veg Patty Burger</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹79</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Spicy Peri-Peri Cheese Burger</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹99</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Double Cheese Crunch Burger</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹119</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Oven Baked Stuffed Garlic Bread</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹139</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Supreme Herbed Garlic Toasties</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹99</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CARD 4: GOURMET PIZZAS -->
+        <div class="menu-cat-card" data-category="pizzas">
+          <div style="height: 240px; overflow: hidden; position: relative;">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=80" alt="Hand-Tossed Gourmet Pizzas" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #16A34A; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(22, 163, 74, 0.4);">
+              🍕 HAND-TOSSED CRUSTS
+            </span>
+          </div>
+          <div style="padding: 26px;">
+            <h3 style="font-size: 1.45rem; font-family: var(--font-heading); font-weight: 900; color: #0F172A; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: -0.01em;">
+              GOURMET PIZZAS
+            </h3>
+            <p style="font-size: 0.88rem; color: #64748B; font-weight: 500; margin: 0 0 20px 0; line-height: 1.4;">
+              Hand-Tossed Italian Crusts & 100% Mozzarella Cheese Burst
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Loaded Farmhouse Veg Pizza</span>
+                <span style="color: #64748B; font-size: 0.85rem;">Reg ₹189 | Med ₹389</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Mexican Jalapeno & Corn Pizza</span>
+                <span style="color: #64748B; font-size: 0.85rem;">Reg ₹169 | Med ₹350</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Kadhai Paneer Special Pizza</span>
+                <span style="color: #64748B; font-size: 0.85rem;">Reg ₹189 | Med ₹399</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Sweet Corn & Double Cheese Pizza</span>
+                <span style="color: #64748B; font-size: 0.85rem;">Reg ₹149 | Med ₹299</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Classic Margherita Deluxe Pizza</span>
+                <span style="color: #64748B; font-size: 0.85rem;">Reg ₹129 | Med ₹259</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Veggie Overload Supreme Pizza</span>
+                <span style="color: #64748B; font-size: 0.85rem;">Reg ₹199 | Med ₹429</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CARD 5: WRAPS, ROLLS & SANDWICHES -->
+        <div class="menu-cat-card" data-category="wraps">
+          <div style="height: 240px; overflow: hidden; position: relative;">
+            <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&auto=format&fit=crop&q=80" alt="Grilled Wraps & Sandwiches" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #0284C7; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(2, 132, 199, 0.4);">
+              🌯 KATHI ROLLS & WRAPS
+            </span>
+          </div>
+          <div style="padding: 26px;">
+            <h3 style="font-size: 1.45rem; font-family: var(--font-heading); font-weight: 900; color: #0F172A; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: -0.01em;">
+              WRAPS & SANDWICHES
+            </h3>
+            <p style="font-size: 0.88rem; color: #64748B; font-weight: 500; margin: 0 0 20px 0; line-height: 1.4;">
+              Tortilla Wraps, Kathi Rolls & Multi-Grain Toasties
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Flame-Grilled Paneer Kathi Roll</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹119</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Crunchy Veg Supreme Tortilla Wrap</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹99</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Cheese Corn Grilled Sandwich</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹89</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Paneer Tikka Club Sandwich</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹129</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Spicy Peri-Peri Veggie Roll</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹109</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Bombay Masala Toast Sandwich</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹79</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CARD 6: CRISPY FRIES & SIDES -->
+        <div class="menu-cat-card" data-category="fries">
+          <div style="height: 240px; overflow: hidden; position: relative;">
+            <img src="assets/images/french_fries.jpg" alt="Loaded Fries & Crispy Sides" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #D97706; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(217, 119, 6, 0.4);">
+              🍟 PERI-PERI LOADED FRIES
+            </span>
+          </div>
+          <div style="padding: 26px;">
+            <h3 style="font-size: 1.45rem; font-family: var(--font-heading); font-weight: 900; color: #0F172A; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: -0.01em;">
+              FRIES & CRISPY SIDES
+            </h3>
+            <p style="font-size: 0.88rem; color: #64748B; font-weight: 500; margin: 0 0 20px 0; line-height: 1.4;">
+              Golden Fries, Potato Wedges, Veg Nuggets & Nachos
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Peri-Peri Cheese Loaded Fries</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹129</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Classic Salted French Fries</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹79</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Cheesy Jalapeno Potato Wedges</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹109</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Crispy Veg Nuggets (8 Pcs)</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹99</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Loaded Cheese Nachos Supreme</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹139</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Seasoned Potato Twisters</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹89</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CARD 7: PASTA, MAGGI & CHINESE NOODLES -->
+        <div class="menu-cat-card" data-category="pasta">
+          <div style="height: 240px; overflow: hidden; position: relative;">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6288090?w=800&auto=format&fit=crop&q=80" alt="Pasta & Chinese Noodles" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #7C3AED; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(124, 58, 237, 0.4);">
+              🍝 ITALIAN PASTA & NOODLES
+            </span>
+          </div>
+          <div style="padding: 26px;">
+            <h3 style="font-size: 1.45rem; font-family: var(--font-heading); font-weight: 900; color: #0F172A; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: -0.01em;">
+              PASTA & CHINESE NOODLES
+            </h3>
+            <p style="font-size: 0.88rem; color: #64748B; font-weight: 500; margin: 0 0 20px 0; line-height: 1.4;">
+              White Alfredo, Red Arrabbiata, Butter Maggi & Hakka Noodles
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Creamy White Sauce Alfredo Pasta</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹149</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Fiery Red Sauce Arrabbiata Pasta</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹139</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Grillista Special Cheese Butter Maggi</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹69</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Veg Hakka Manchurian Noodles</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹119</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Chilli Garlic Veg Fried Rice</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹109</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Schezwan Paneer Gravy Noodles</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹139</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CARD 8: CHILLED SHAKES & COOLERS -->
+        <div class="menu-cat-card" data-category="drinks">
+          <div style="height: 240px; overflow: hidden; position: relative;">
+            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&auto=format&fit=crop&q=80" alt="Chilled Coolers & Shakes" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #0284C7; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(2, 132, 199, 0.4);">
+              🍹 SHAKES & COOLERS
+            </span>
+          </div>
+          <div style="padding: 26px;">
+            <h3 style="font-size: 1.45rem; font-family: var(--font-heading); font-weight: 900; color: #0F172A; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: -0.01em;">
+              SHAKES & COOLERS
+            </h3>
+            <p style="font-size: 0.88rem; color: #64748B; font-weight: 500; margin: 0 0 20px 0; line-height: 1.4;">
+              Cold Coffee, Oreo Shake, Blue Lagoon & Virgin Mojito
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Blue Lagoon Citrus Mint Cooler</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹99</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Signature Cold Coffee with Ice Cream</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹109</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Oreo Chocolate Fudge Thick Shake</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹119</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> KitKat Crunch Thick Shake</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹129</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Virgin Mint Mojito Cooler</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹89</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Strawberry Blossom Shake</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹99</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CARD 9: HOT & COLD DESSERTS -->
+        <div class="menu-cat-card" data-category="desserts">
+          <div style="height: 240px; overflow: hidden; position: relative;">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&auto=format&fit=crop&q=80" alt="Hot & Cold Desserts" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #E11D48; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(225, 29, 72, 0.4);">
+              🍰 HOT FUDGE DESSERTS
+            </span>
+          </div>
+          <div style="padding: 26px;">
+            <h3 style="font-size: 1.45rem; font-family: var(--font-heading); font-weight: 900; color: #0F172A; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: -0.01em;">
+              HOT & COLD DESSERTS
+            </h3>
+            <p style="font-size: 0.88rem; color: #64748B; font-weight: 500; margin: 0 0 20px 0; line-height: 1.4;">
+              Molten Chocolate Brownies, Lava Cakes & Waffles
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Sizzling Hot Chocolate Fudge Brownie</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹129</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Choco Lava Cake</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹89</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Vanilla Ice Cream with Hot Fudge</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹79</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Nutella Loaded Waffles</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹139</span>
+              </li>
+              <li style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: #334155; font-weight: 600;">
+                <span style="display: flex; align-items: center; gap: 8px;"><div class="veg-symbol"><div class="veg-dot"></div></div> Choco Brownie Fudge Sundae</span>
+                <span style="color: #64748B; font-size: 0.85rem;">₹149</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Luxury Corporate Economics Banner -->
-      <div style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-radius: 28px; padding: 52px 40px; text-align: center; color: #FFF; box-shadow: 0 25px 60px rgba(0,0,0,0.3); border: 2.5px solid var(--accent-gold); margin-top: 64px; clear: both; position: relative; z-index: 1;">
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(250, 204, 21, 0.15); color: #FACC15; border: 1.5px solid rgba(250, 204, 21, 0.3); padding: 6px 18px; border-radius: 99px; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; margin-bottom: 16px;">
-          <i class="fa-solid fa-chart-line"></i> FRANCHISE ECONOMICS
-        </div>
-        <h2 style="font-size: 2.5rem; color: #FFF; margin-bottom: 14px; font-weight: 900; font-family: var(--font-heading);">65%+ Gross Margin. Standardized Recipes.</h2>
-        <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.88); max-width: 720px; margin: 0 auto 32px auto; line-height: 1.7;">
-          Our chef-less kitchen system delivers consistent 5-star taste with zero dependency on skilled chefs. Turnkey setup supported end-to-end.
+      <!-- Bottom Order Callout Banner -->
+      <div style="margin-top: 60px; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-radius: 28px; padding: 40px; text-align: center; color: #FFFFFF; border: 2px solid var(--accent-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.15);">
+        <span style="background: rgba(250, 204, 21, 0.15); border: 1.5px solid rgba(250, 204, 21, 0.4); color: #FACC15; padding: 6px 18px; border-radius: 99px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">
+          <i class="fa-solid fa-motorcycle"></i> INSTANT TAKEOUT & DELIVERY
+        </span>
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin: 16px 0 8px 0; font-family: var(--font-heading);">
+          Ready to Taste Kanpur's Favorite 100% Pure Veg Menu?
+        </h2>
+        <p style="color: #94A3B8; font-size: 1rem; max-width: 600px; margin: 0 auto 28px auto;">
+          Visit our Barra 2 Flagship or Kakadeo Youth Hub outlets, or order online via Swiggy & Zomato!
         </p>
-        <a href="franchise.html" class="btn btn-gold" style="font-size: 1.05rem; padding: 16px 36px; border-radius: 12px; font-weight: 800;">
-          <i class="fa-solid fa-rocket"></i> Explore Franchise Plans (₹12L & ₹16L)
-        </a>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-gold trigger-order-modal" style="padding: 14px 32px; font-size: 1rem; font-weight: 800; border-radius: 12px;">
+            <i class="fa-solid fa-bag-shopping"></i> Order Online Now
+          </button>
+          <a href="locator.html" class="btn btn-outline" style="padding: 14px 28px; font-size: 0.95rem; font-weight: 800; border-radius: 12px; color: #FFF; border-color: rgba(255,255,255,0.4);">
+            <i class="fa-solid fa-location-dot"></i> Locate Outlets
+          </a>
+        </div>
       </div>
 
     </div>
   </section>
 
+  <!-- Filter JavaScript Script for Category Cards -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const filterBtns = document.querySelectorAll('.filter-btn');
-      const itemCards = document.querySelectorAll('.menu-item-card');
+      const catCards = document.querySelectorAll('.menu-cat-card');
 
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           filterBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
 
-          const filterValue = btn.getAttribute('data-filter');
-
-          itemCards.forEach(card => {
-            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+          const filter = btn.getAttribute('data-filter');
+          catCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
               card.style.display = 'flex';
             } else {
               card.style.display = 'none';
@@ -1078,8 +682,6 @@
       <span class="dock-tooltip">Email HQ</span>
     </a>
   </div>
-
-
 
   <!-- AI Franchise Assistant Chatbot Launcher Button -->
   <button class="chatbot-launcher-btn" id="chatbot-launcher-btn" title="Ask Grillista AI Assistant">
