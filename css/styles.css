@@ -3409,6 +3409,62 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
     gap: 24px !important;
   }
 
+  /* Industry Insights / RK Corporate Reports Mobile Layout */
+  .blog-slideshow-container {
+    max-width: 100% !important;
+    margin-top: 24px !important;
+    padding: 0 4px !important;
+    margin-bottom: 60px !important;
+  }
+
+  .blog-slide > div {
+    flex-direction: column !important;
+    min-height: auto !important;
+    border-radius: 20px !important;
+  }
+
+  .blog-slide > div > div:first-child {
+    flex: none !important;
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1.5px solid #E2E8F0 !important;
+  }
+
+  .blog-slide > div > div:last-child {
+    flex: none !important;
+    width: 100% !important;
+    padding: 24px 18px !important;
+  }
+
+  .blog-slide h3 {
+    font-size: 1.35rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .blog-slide p {
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+  }
+
+  #prev-blog-btn,
+  #next-blog-btn {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.1rem !important;
+    top: auto !important;
+    bottom: -54px !important;
+    transform: none !important;
+  }
+
+  #prev-blog-btn {
+    left: calc(50% - 54px) !important;
+  }
+
+  #next-blog-btn {
+    right: calc(50% - 54px) !important;
+  }
+
   .hero-card-box {
     width: 100% !important;
     padding: 0 !important;
