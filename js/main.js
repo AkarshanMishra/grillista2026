@@ -1330,4 +1330,16 @@ Operating Outlets: 2 Live Outlets in Kanpur (Barra 2 & Kakadeo)
   }
 
   injectFoodieBackgroundIcons();
+
+  // Dynamic Cool Navbar Scroll Shrink & Glass Glow Effect
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
 });
