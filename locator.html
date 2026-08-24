@@ -291,7 +291,7 @@
             </div>
             <div>
               <h4 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin: 0;">Pan India Territory & GPS Console</h4>
-              <span style="font-size: 0.8rem; color: #94A3B8; font-weight: 500;">Anyone in India can apply for any city or zone</span>
+              <span style="font-size: 0.8rem; color: #94A3B8; font-weight: 500;">Check availability, open 1st store, or expand in your city</span>
             </div>
           </div>
 
@@ -301,6 +301,17 @@
           </button>
         </div>
 
+        <!-- Real-Time Interactive Search Input Box -->
+        <div style="position: relative; margin-top: 14px;">
+          <div style="position: relative; display: flex; align-items: center;">
+            <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 22px; color: #FACC15; font-size: 1.15rem; pointer-events: none;"></i>
+            <input type="text" id="city-search-input" placeholder="Type your city (e.g. Kanpur, Lucknow, Jaipur, Delhi, Patna, Indore)..." style="width: 100%; padding: 18px 24px 18px 56px; background: rgba(255, 255, 255, 0.08); border: 2px solid rgba(250, 204, 21, 0.4); border-radius: 99px; color: #FFFFFF; font-size: 1.05rem; font-weight: 700; outline: none; transition: all 0.3s ease; box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);">
+          </div>
+          <div style="font-size: 0.82rem; color: #CBD5E1; margin-top: 10px; margin-left: 18px; font-weight: 500; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+            <i class="fa-solid fa-lightbulb" style="color: #FACC15;"></i>
+            <span>If Grillista is present in your city → <strong>Apply to Expand Next Store</strong> | If not present → <strong>Apply to Open 1st Store</strong>!</span>
+          </div>
+        </div>
 
       </div>
 
@@ -892,34 +903,33 @@
             grid.appendChild(dynamicCard);
           }
           if (dynamicCard) {
-            dynamicCard.style.cssText = 'background: #FFFFFF; border: 1.5px solid #E2E8F0; border-top: 5px solid #C88A2B; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column; justify-content: space-between; grid-column: 1 / -1;';
+            dynamicCard.style.cssText = 'background: #FFFFFF; border: 2px solid #C88A2B; border-top: 6px solid #16A34A; border-radius: 24px; padding: 28px 24px; box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08); display: flex; flex-direction: column; justify-content: space-between; grid-column: 1 / -1; animation: fadeInUpKeyframe 0.3s ease;';
             dynamicCard.innerHTML = `
               <div>
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; flex-wrap: wrap;">
                   <div>
                     <h3 style="font-size: 1.5rem; font-weight: 900; color: #0F172A; margin: 0; font-family: var(--font-heading);">${formattedCity} (Pan India Territory)</h3>
-                    <span style="font-size: 0.85rem; color: #C88A2B; font-weight: 700;">🇮🇳 Available for Exclusive City / Zone Franchise Booking</span>
+                    <span style="font-size: 0.85rem; color: #C88A2B; font-weight: 700;">🇮🇳 No Store Yet in ${formattedCity} — 100% Open to Open 1st Franchise!</span>
                   </div>
-                  <span style="background: rgba(0, 200, 83, 0.1); color: #00C853; border: 1.5px solid rgba(0, 200, 83, 0.3); font-size: 0.78rem; font-weight: 800; padding: 6px 14px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
-                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #00C853; box-shadow: 0 0 8px #00C853;"></span> 100% OPEN FOR BOOKING
+                  <span style="background: rgba(22, 163, 74, 0.1); color: #16A34A; border: 1.5px solid rgba(22, 163, 74, 0.3); font-size: 0.78rem; font-weight: 800; padding: 6px 14px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px;">
+                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 8px #16A34A;"></span> OPEN FOR 1ST STORE
                   </span>
                 </div>
 
                 <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; margin-bottom: 20px;">
-                  <p style="font-size: 0.92rem; color: #334155; margin: 0 0 10px 0; font-weight: 500;">
-                    Grillista is actively expanding <strong>Pan India</strong>! You can be the pioneer partner to open the 1st Grillista 100% Pure Veg QSR outlet in <strong>${formattedCity}</strong> with full corporate setup support from RK Group of Industries.
+                  <p style="font-size: 0.95rem; color: #334155; margin: 0 0 10px 0; font-weight: 600; line-height: 1.6;">
+                    Grillista is actively expanding across India! <strong>${formattedCity}</strong> currently has no operating outlet. Be the pioneer franchisee to open the 1st Grillista 100% Pure Veg QSR store in <strong>${formattedCity}</strong> with turnkey corporate setup support from RK Group of Industries.
                   </p>
                   <div style="display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.84rem; color: #0F172A; font-weight: 700;">
-                    <span><i class="fa-solid fa-store" style="color: #C88A2B;"></i> Models: Express / Bistro / Lounge</span>
-                    <span><i class="fa-solid fa-chart-line" style="color: #00C853;"></i> ROI: 12-18 Months</span>
-                    <span><i class="fa-solid fa-shield-halved" style="color: #991B1B;"></i> Exclusive Territory Protection</span>
+                    <span><i class="fa-solid fa-store" style="color: #C88A2B;"></i> Models: Express / Bistro / Signature</span>
+                    <span><i class="fa-solid fa-shield-halved" style="color: #991B1B;"></i> Exclusive City Territory Rights</span>
                   </div>
                 </div>
               </div>
 
-              <a href="franchise.html#apply-form" class="btn btn-gold trigger-apply-modal" style="width: 100%; justify-content: center; padding: 14px; font-weight: 900; border-radius: 99px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.3);">
-                <i class="fa-solid fa-rocket"></i> Apply to Reserve Exclusive Rights for ${formattedCity} (Pan India)
-              </a>
+              <button class="btn btn-gold trigger-apply-modal" data-city="${formattedCity}" style="width: 100%; justify-content: center; padding: 14px; font-weight: 900; border-radius: 99px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(200, 138, 43, 0.3);">
+                <i class="fa-solid fa-rocket"></i> Apply to Open 1st Store in ${formattedCity} (₹)
+              </button>
             `;
           }
         } else if (dynamicCard) {
