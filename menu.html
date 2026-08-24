@@ -29,6 +29,20 @@
   </script>
   
   <style>
+    .menu-cat-masonry {
+      columns: 3 340px;
+      column-gap: 28px;
+    }
+    @media (max-width: 1100px) {
+      .menu-cat-masonry {
+        columns: 2 300px;
+      }
+    }
+    @media (max-width: 768px) {
+      .menu-cat-masonry {
+        columns: 1;
+      }
+    }
     .menu-cat-card {
       background: #FFFFFF;
       border: 1.5px solid #E2E8F0;
@@ -36,9 +50,10 @@
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
       transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 28px;
+      break-inside: avoid;
     }
     .menu-cat-card:hover {
       transform: translateY(-6px);
@@ -129,8 +144,8 @@
         </p>
       </div>
 
-      <!-- Price-Free 24-Category Card Menu Board Grid -->
-      <div id="category-card-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; align-items: start;">
+      <!-- Price-Free 24-Category Card Menu Board Masonry Grid -->
+      <div id="category-card-grid" class="menu-cat-masonry">
         
         <!-- CARD 1: MILK BASE TEA -->
         <div class="menu-cat-card">
