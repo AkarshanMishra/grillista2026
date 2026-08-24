@@ -121,51 +121,46 @@ img, video, iframe, picture, svg, canvas {
 */
 
 /*
-  FLOATING ISLAND GLASS CAPSULE NAVBAR
+  BURGER SINGH STYLE BRAND CORPORATE NAVBAR
 */
 
 .navbar {
   position: fixed;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(1340px, calc(100% - 32px));
-  height: 76px;
-  background: linear-gradient(135deg, rgba(153, 27, 27, 0.92) 0%, rgba(15, 23, 42, 0.94) 100%);
-  backdrop-filter: blur(20px) saturate(200%);
-  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 88px;
+  background: #C8102E;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+  background-size: 16px 16px;
   z-index: 10000;
-  border: 1.5px solid rgba(250, 204, 21, 0.5);
-  border-radius: 999px;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35), 0 0 25px rgba(250, 204, 21, 0.2);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-bottom: 3.5px solid #990011;
+  transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-  top: 10px;
-  height: 68px;
-  width: min(1280px, calc(100% - 24px));
-  background: linear-gradient(135deg, rgba(127, 29, 29, 0.96) 0%, rgba(9, 13, 22, 0.98) 100%);
-  border-color: rgba(250, 204, 21, 0.75);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 35px rgba(250, 204, 21, 0.35);
+  height: 76px;
+  background: #B91C1C;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 .nav-container-split {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
-  max-width: 1360px;
+  max-width: 1540px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .nav-group-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
   justify-content: flex-start;
   white-space: nowrap;
 }
@@ -173,15 +168,14 @@ img, video, iframe, picture, svg, canvas {
 .nav-group-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   justify-content: flex-end;
   white-space: nowrap;
 }
 
 .nav-phone-box {
-  background: linear-gradient(135deg, rgba(250, 204, 21, 0.2) 0%, rgba(255, 255, 255, 0.08) 100%);
-  border: 1.5px solid rgba(250, 204, 21, 0.6);
-  border-radius: 99px;
+  border: 2px solid #FFFFFF;
+  border-radius: 12px;
   padding: 5px 16px;
   color: #FFF;
   text-decoration: none;
@@ -189,47 +183,44 @@ img, video, iframe, picture, svg, canvas {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  line-height: 1.2;
+  transition: all 0.25s ease;
+  line-height: 1.25;
   white-space: nowrap;
   flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  min-width: 180px;
 }
 
 .nav-phone-box:hover {
-  background: linear-gradient(135deg, rgba(250, 204, 21, 0.35) 0%, rgba(255, 255, 255, 0.2) 100%);
-  border-color: #FACC15;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FFD700;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(250, 204, 21, 0.4);
 }
 
 .nav-phone-number {
-  color: #FACC15;
+  color: #FFD700;
   font-weight: 900;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
   gap: 6px;
   white-space: nowrap;
+  font-family: var(--font-heading);
 }
 
 .nav-phone-number i {
-  animation: navPulse 2s infinite;
-}
-
-@keyframes navPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.25); color: #FFF; }
-  100% { transform: scale(1); }
+  color: #FFD700;
+  font-size: 0.9rem;
 }
 
 .nav-phone-label {
-  color: rgba(255, 255, 255, 0.95);
-  font-weight: 800;
-  font-size: 0.6rem;
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 0.68rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   white-space: nowrap;
+  margin-top: 1px;
 }
 
 .nav-center-logo {
@@ -237,39 +228,38 @@ img, video, iframe, picture, svg, canvas {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  padding: 0 14px;
+  padding: 0 16px;
   z-index: 100;
   flex-shrink: 0;
   position: relative;
 }
 
 .nav-center-logo img {
-  height: 66px;
-  width: 66px;
+  height: 82px;
+  width: 82px;
   border-radius: 50%;
-  border: 2.5px solid #FACC15;
-  box-shadow: 0 0 22px rgba(250, 204, 21, 0.5), 0 6px 20px rgba(0, 0, 0, 0.4);
+  border: 3.5px solid #FFD700;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   background: #FFF;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
   object-fit: cover;
 }
 
 .navbar.scrolled .nav-center-logo img {
-  height: 58px;
-  width: 58px;
-  border-width: 2px;
+  height: 72px;
+  width: 72px;
+  border-width: 3px;
 }
 
 .nav-center-logo:hover img {
-  transform: scale(1.1) rotate(3deg);
+  transform: scale(1.08);
   border-color: #FFFFFF;
-  box-shadow: 0 0 35px rgba(250, 204, 21, 0.85), 0 10px 28px rgba(0, 0, 0, 0.5);
 }
 
 .nav-links-split {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 22px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -284,33 +274,21 @@ img, video, iframe, picture, svg, canvas {
 
 .nav-links-split a {
   color: #FFFFFF;
-  font-weight: 800;
-  font-size: 0.8rem;
+  font-weight: 900;
+  font-size: 0.95rem;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.5px;
-  padding: 7px 14px;
-  border-radius: 99px;
-  border: 1px solid transparent;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.6px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  font-family: var(--font-heading);
 }
 
-.nav-links-split a:hover {
-  color: #FACC15;
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(250, 204, 21, 0.4);
-  transform: translateY(-2px);
-}
-
+.nav-links-split a:hover,
 .nav-links-split a.active {
-  color: #FACC15;
-  background: linear-gradient(135deg, rgba(250, 204, 21, 0.25) 0%, rgba(153, 27, 27, 0.5) 100%);
-  border: 1.5px solid rgba(250, 204, 21, 0.7);
-  box-shadow: 0 4px 18px rgba(250, 204, 21, 0.3);
+  color: #FFD700;
 }
 
 :root {
