@@ -1,6 +1,6 @@
-/* Universal Responsive Image & Video Box-Fit Guarantee */
-img, video, iframe, picture {
-  max-width: 100%;
+/* Universal 100% Screen-Fit Image & Media Guarantee */
+img, video, iframe, picture, svg, canvas {
+  max-width: 100% !important;
   height: auto;
   object-fit: cover;
   object-position: center;
@@ -18,11 +18,16 @@ img, video, iframe, picture {
 .featured-card img,
 .lightbox-content img,
 .lightbox-content video,
-.real-food-img {
+.real-food-img,
+.city-status-card img,
+.store-card img,
+.hero-store-img {
   width: 100% !important;
   height: 100% !important;
+  max-width: 100% !important;
   object-fit: cover !important;
   object-position: center !important;
+  display: block;
 }
 
 .gallery-card > div,
@@ -30,8 +35,20 @@ img, video, iframe, picture {
 .blog-slide > div,
 .media-container,
 .video-box,
-.image-box {
+.image-box,
+.city-status-card > div:first-child {
+  max-width: 100% !important;
   overflow: hidden !important;
+}
+
+/* Mobile responsive image container height adjustment */
+@media (max-width: 768px) {
+  .city-status-card > div:first-child,
+  .premium-menu-card > div:first-child,
+  .featured-card > div:first-child {
+    height: 200px !important;
+    max-height: 220px !important;
+  }
 }
 
 /* Luxury Corporate Animations & Micro-Interactions */
