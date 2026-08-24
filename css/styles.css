@@ -3195,7 +3195,8 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
     left: 0 !important;
     width: 100% !important;
     z-index: 9999 !important;
-    background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%) !important;
+    background: linear-gradient(135deg, #E52920 0%, #C8102E 100%) !important;
+    overflow: visible !important;
   }
 
   .nav-container-split {
@@ -3247,12 +3248,22 @@ h1, h2, h3, h4, h5, h6, p, span, a, label, button, div {
     padding: 0 !important;
     margin: 0 !important;
     z-index: 100 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .nav-center-logo img {
-    width: 54px !important;
-    height: 54px !important;
-    border-width: 2.5px !important;
+    width: 60px !important;
+    height: 60px !important;
+    border: 2.5px solid #FFD700 !important;
+    outline: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    object-fit: contain !important;
+    background: #FFFFFF !important;
+    padding: 2px !important;
+    border-radius: 50% !important;
+    box-sizing: border-box !important;
   }
 
   .mobile-toggle-btn {
@@ -3853,8 +3864,13 @@ img, video, iframe, svg, canvas {
     padding: 0 !important;
   }
   .nav-center-logo img {
-    height: 60px !important;
-    width: 60px !important;
+    height: 58px !important;
+    width: 58px !important;
+    object-fit: contain !important;
+    background: #FFFFFF !important;
+    padding: 2px !important;
+    border: 2.5px solid #FFD700 !important;
+    outline: none !important;
   }
 }
 
@@ -3882,6 +3898,11 @@ img, video, iframe, svg, canvas {
   .nav-center-logo img {
     height: 52px !important;
     width: 52px !important;
+    object-fit: contain !important;
+    background: #FFFFFF !important;
+    padding: 2px !important;
+    border: 2px solid #FFD700 !important;
+    outline: none !important;
   }
   .mobile-toggle-btn {
     width: 40px !important;
