@@ -395,155 +395,170 @@
         </p>
       </div>
 
-      <!-- Two Phase Columns Grid -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 36px; align-items: start;">
+      <!-- Interactive Dual-Tab Phase Framework Suite -->
+      <div style="background: #FFFFFF; border: 2px solid #E2E8F0; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);">
         
-        <!-- PHASE 1: BEFORE YOU OPEN -->
-        <div style="background: #FFFFFF; border: 2.5px solid #991B1B; border-radius: 28px; padding: 36px; box-shadow: 0 15px 40px rgba(153, 27, 27, 0.08); position: relative; transition: all 0.3s ease;">
-          
-          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #991B1B; padding-bottom: 18px; margin-bottom: 28px;">
-            <div>
-              <span style="font-size: 0.75rem; font-weight: 900; color: #991B1B; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(153, 27, 27, 0.08); padding: 3px 10px; border-radius: 6px;">PHASE 01</span>
-              <h3 style="font-size: 1.7rem; font-weight: 900; color: #0F172A; margin: 6px 0 0 0; font-family: var(--font-heading);">BEFORE YOU OPEN</h3>
-              <span style="font-size: 0.9rem; color: #64748B; font-weight: 700;">Building the Right Foundation</span>
-            </div>
-            <div style="width: 56px; height: 56px; border-radius: 18px; background: linear-gradient(135deg, #991B1B 0%, #7F1D1D 100%); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 8px 20px rgba(153, 27, 27, 0.3);">
-              <i class="fa-solid fa-flag-checkered"></i>
-            </div>
-          </div>
+        <!-- Tab Bar Header -->
+        <div style="display: flex; background: #F8FAFC; border-bottom: 2px solid #E2E8F0; flex-wrap: wrap;">
+          <button class="phase-tab-btn active" data-tab="phase-1-panel" style="flex: 1; min-width: 260px; padding: 18px 28px; font-size: 1.1rem; font-weight: 900; background: #991B1B; color: #FFFFFF; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; font-family: var(--font-heading);">
+            <i class="fa-solid fa-flag-checkered" style="font-size: 1.2rem;"></i> Phase 01: Before You Open
+          </button>
+          <button class="phase-tab-btn" data-tab="phase-2-panel" style="flex: 1; min-width: 260px; padding: 18px 28px; font-size: 1.1rem; font-weight: 900; background: transparent; color: #991B1B; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; font-family: var(--font-heading);">
+            <i class="fa-solid fa-chart-line" style="font-size: 1.2rem; color: #C88A2B;"></i> Phase 02: After You Open
+          </button>
+        </div>
 
-          <div style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Panel 1: Phase 1 (Before You Open) -->
+        <div id="phase-1-panel" class="phase-tab-panel active" style="padding: 36px;">
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
             
-            <!-- Step 01 -->
-            <div style="display: flex; gap: 16px; background: #FAF7F2; padding: 20px; border-radius: 18px; border: 1.5px solid #E2E8F0; transition: transform 0.2s ease;">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #991B1B 0%, #7F1D1D 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(153, 27, 27, 0.25);">01</div>
+            <!-- Item 1: Site Evaluation -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid #E2E8F0; border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(153, 27, 27, 0.08); color: #991B1B; border: 1px solid rgba(153, 27, 27, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">LOCATION & SITE EVALUATION <span style="font-size: 0.8rem; color: #991B1B; font-weight: 700; display: block; margin-top: 2px;">Choosing the Right Location</span></h4>
-                <p style="font-size: 0.86rem; color: #475569; margin: 6px 0 10px 0; line-height: 1.5; font-weight: 500;">Location assessment and evaluation on the basis of below parameters to be done to identify a suitable site for the Grillista outlet:</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                  <span style="background: #FFF; border: 1px solid #CBD5E1; color: #334155; font-size: 0.74rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);"><i class="fa-solid fa-circle-check" style="color: #16A34A; margin-right: 4px;"></i> Minimum Frontage</span>
-                  <span style="background: #FFF; border: 1px solid #CBD5E1; color: #334155; font-size: 0.74rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);"><i class="fa-solid fa-circle-check" style="color: #16A34A; margin-right: 4px;"></i> Dedicated Parking</span>
-                  <span style="background: #FFF; border: 1px solid #CBD5E1; color: #334155; font-size: 0.74rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);"><i class="fa-solid fa-circle-check" style="color: #16A34A; margin-right: 4px;"></i> Expected Footfall</span>
-                  <span style="background: #FFF; border: 1px solid #CBD5E1; color: #334155; font-size: 0.74rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);"><i class="fa-solid fa-circle-check" style="color: #16A34A; margin-right: 4px;"></i> Catchment Population</span>
-                  <span style="background: #FFF; border: 1px solid #CBD5E1; color: #334155; font-size: 0.74rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);"><i class="fa-solid fa-circle-check" style="color: #16A34A; margin-right: 4px;"></i> Rent-to-Sales Threshold</span>
-                  <span style="background: #FFF; border: 1px solid #CBD5E1; color: #334155; font-size: 0.74rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);"><i class="fa-solid fa-circle-check" style="color: #16A34A; margin-right: 4px;"></i> Competition Audit</span>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">Location & Site Audit:</h4>
+                <p style="font-size: 0.86rem; color: #475569; margin: 0 0 10px 0; line-height: 1.55; font-weight: 500;">Location assessment and catchment evaluation to identify high-traffic sites.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                  <span style="background: #FFFFFF; border: 1px solid #CBD5E1; color: #334155; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 99px;"><i class="fa-solid fa-check" style="color: #16A34A;"></i> Frontage & Parking</span>
+                  <span style="background: #FFFFFF; border: 1px solid #CBD5E1; color: #334155; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 99px;"><i class="fa-solid fa-check" style="color: #16A34A;"></i> Footfall Audit</span>
+                  <span style="background: #FFFFFF; border: 1px solid #CBD5E1; color: #334155; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 99px;"><i class="fa-solid fa-check" style="color: #16A34A;"></i> Rent Threshold</span>
                 </div>
               </div>
             </div>
 
-            <!-- Step 02 -->
-            <div style="display: flex; gap: 16px; background: #FAF7F2; padding: 20px; border-radius: 18px; border: 1.5px solid #E2E8F0;">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #991B1B 0%, #7F1D1D 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(153, 27, 27, 0.25);">02</div>
+            <!-- Item 2: Store Design -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid #E2E8F0; border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(153, 27, 27, 0.08); color: #991B1B; border: 1px solid rgba(153, 27, 27, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-compass-drafting"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">STORE DESIGN & SETUP <span style="font-size: 0.8rem; color: #991B1B; font-weight: 700; display: block; margin-top: 2px;">From Space to Store</span></h4>
-                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Store layout, design and kitchen planning aligned with Grillista's operating requirements.</p>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">3D Store Design & Layout:</h4>
+                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Store layout, yellow booth seating fabrication plans, kitchen flow & signages aligned with Grillista standards.</p>
               </div>
             </div>
 
-            <!-- Step 03 -->
-            <div style="display: flex; gap: 16px; background: #FAF7F2; padding: 20px; border-radius: 18px; border: 1.5px solid #E2E8F0;">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #991B1B 0%, #7F1D1D 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(153, 27, 27, 0.25);">03</div>
+            <!-- Item 3: Procurement Support -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid #E2E8F0; border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(153, 27, 27, 0.08); color: #991B1B; border: 1px solid rgba(153, 27, 27, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-boxes-packing"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">PROCUREMENT & SETUP SUPPORT <span style="font-size: 0.8rem; color: #991B1B; font-weight: 700; display: block; margin-top: 2px;">Getting the Right Resources in Place</span></h4>
-                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Guidance on equipment, materials and procurement requirements to prepare the outlet efficiently.</p>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">Equipment Procurement:</h4>
+                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Guidance on equipment, raw materials and procurement requirements to prepare the outlet efficiently.</p>
               </div>
             </div>
 
-            <!-- Step 04 -->
-            <div style="display: flex; gap: 16px; background: #FAF7F2; padding: 20px; border-radius: 18px; border: 1.5px solid #E2E8F0;">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #991B1B 0%, #7F1D1D 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(153, 27, 27, 0.25);">04</div>
+            <!-- Item 4: People & Training -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid #E2E8F0; border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(153, 27, 27, 0.08); color: #991B1B; border: 1px solid rgba(153, 27, 27, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-user-graduate"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">PEOPLE & TRAINING <span style="font-size: 0.8rem; color: #991B1B; font-weight: 700; display: block; margin-top: 2px;">Preparing the Team</span></h4>
-                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Hiring support, staff training and operational orientation to prepare the team for launch.</p>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">Staff Training & Orientation:</h4>
+                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Hiring assistance, standardized SOP recipe execution, and hands-on staff orientation before launch day.</p>
               </div>
             </div>
 
-            <!-- Step 05 -->
-            <div style="display: flex; gap: 16px; background: #FAF7F2; padding: 20px; border-radius: 18px; border: 1.5px solid #E2E8F0;">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #991B1B 0%, #7F1D1D 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(153, 27, 27, 0.25);">05</div>
+            <!-- Item 5: Grand Launch Marketing -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid #E2E8F0; border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(153, 27, 27, 0.08); color: #991B1B; border: 1px solid rgba(153, 27, 27, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-bullhorn"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">LAUNCH SUPPORT <span style="font-size: 0.8rem; color: #991B1B; font-weight: 700; display: block; margin-top: 2px;">Starting with the Right Momentum</span></h4>
-                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Launch planning, brand setup and marketing support to establish the outlet in its local market.</p>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">Grand Launch Support:</h4>
+                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Launch planning, brand setup, local marketing and Swiggy/Zomato onboarding to establish local momentum.</p>
               </div>
             </div>
 
-          </div>
+            <!-- Item 6: Total Foundation Summary -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: rgba(153, 27, 27, 0.04); border: 1.5px dashed rgba(153, 27, 27, 0.25); border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: #991B1B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; box-shadow: 0 4px 12px rgba(153, 27, 27, 0.25);">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #991B1B; margin: 0 0 6px 0;">Solid Operational Foundation:</h4>
+                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Building the right foundation for efficient operations, chef-less kitchen workflow, and a stronger start.</p>
+              </div>
+            </div>
 
-          <!-- Phase 1 Bottom Summary Box -->
-          <div style="margin-top: 28px; background: rgba(153, 27, 27, 0.06); border: 1.5px solid rgba(153, 27, 27, 0.25); border-radius: 16px; padding: 16px 20px; font-size: 0.92rem; font-weight: 800; color: #991B1B; display: flex; align-items: center; gap: 12px;">
-            <i class="fa-solid fa-circle-arrow-right" style="font-size: 1.2rem; color: #991B1B;"></i>
-            <span>Building the right foundation for efficient operations and a stronger start</span>
           </div>
 
         </div>
 
-        <!-- PHASE 2: AFTER YOU OPEN -->
-        <div style="background: #FFFFFF; border: 2.5px solid #C88A2B; border-radius: 28px; padding: 36px; box-shadow: 0 15px 40px rgba(200, 138, 43, 0.12); position: relative; transition: all 0.3s ease;">
+        <!-- Panel 2: Phase 2 (After You Open) -->
+        <div id="phase-2-panel" class="phase-tab-panel" style="padding: 36px; display: none;">
           
-          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #C88A2B; padding-bottom: 18px; margin-bottom: 28px;">
-            <div>
-              <span style="font-size: 0.75rem; font-weight: 900; color: #B45309; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(200, 138, 43, 0.12); padding: 3px 10px; border-radius: 6px;">PHASE 02</span>
-              <h3 style="font-size: 1.7rem; font-weight: 900; color: #0F172A; margin: 6px 0 0 0; font-family: var(--font-heading);">AFTER YOU OPEN</h3>
-              <span style="font-size: 0.9rem; color: #64748B; font-weight: 700;">Supporting Continuous Performance</span>
-            </div>
-            <div style="width: 56px; height: 56px; border-radius: 18px; background: linear-gradient(135deg, #C88A2B 0%, #D97706 100%); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 8px 20px rgba(200, 138, 43, 0.3);">
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
             
-            <!-- Step 01 -->
-            <div style="display: flex; gap: 16px; background: #FFFDF9; padding: 20px; border-radius: 18px; border: 1.5px solid rgba(200, 138, 43, 0.25);">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #C88A2B 0%, #D97706 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(200, 138, 43, 0.25);">01</div>
+            <!-- Item 1: Performance Monitoring -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(200, 138, 43, 0.1); color: #C88A2B; border: 1px solid rgba(200, 138, 43, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">PERFORMANCE MONITORING <span style="font-size: 0.8rem; color: #B45309; font-weight: 700; display: block; margin-top: 2px;">Tracking Business Performance</span></h4>
-                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Regular performance reviews to identify opportunities, challenges and areas for improvement.</p>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">Performance Monitoring:</h4>
+                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Regular performance reviews to identify opportunities, challenges and areas for continuous improvement.</p>
               </div>
             </div>
 
-            <!-- Step 02 -->
-            <div style="display: flex; gap: 16px; background: #FFFDF9; padding: 20px; border-radius: 18px; border: 1.5px solid rgba(200, 138, 43, 0.25);">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #C88A2B 0%, #D97706 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(200, 138, 43, 0.25);">02</div>
+            <!-- Item 2: Operational Guidance -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(200, 138, 43, 0.1); color: #C88A2B; border: 1px solid rgba(200, 138, 43, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-headset"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">OPERATIONAL SUPPORT <span style="font-size: 0.8rem; color: #B45309; font-weight: 700; display: block; margin-top: 2px;">Support When You Need It</span></h4>
-                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Ongoing guidance to address operational challenges and maintain smooth day-to-day functioning.</p>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">Operational Support:</h4>
+                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Ongoing guidance to address operational challenges and maintain smooth day-to-day store functioning.</p>
               </div>
             </div>
 
-            <!-- Step 03 -->
-            <div style="display: flex; gap: 16px; background: #FFFDF9; padding: 20px; border-radius: 18px; border: 1.5px solid rgba(200, 138, 43, 0.25);">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #C88A2B 0%, #D97706 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(200, 138, 43, 0.25);">03</div>
+            <!-- Item 3: Quality Audits -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(200, 138, 43, 0.1); color: #C88A2B; border: 1px solid rgba(200, 138, 43, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-clipboard-check"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">QUALITY AUDITS <span style="font-size: 0.8rem; color: #B45309; font-weight: 700; display: block; margin-top: 2px;">Maintaining Grillista Standards</span></h4>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">Quality Audits:</h4>
                 <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Periodic quality and operational audits to maintain consistency across food, service and brand standards.</p>
               </div>
             </div>
 
-            <!-- Step 04 -->
-            <div style="display: flex; gap: 16px; background: #FFFDF9; padding: 20px; border-radius: 18px; border: 1.5px solid rgba(200, 138, 43, 0.25);">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #C88A2B 0%, #D97706 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(200, 138, 43, 0.25);">04</div>
+            <!-- Item 4: Marketing Support -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(200, 138, 43, 0.1); color: #C88A2B; border: 1px solid rgba(200, 138, 43, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-rectangle-ad"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">MARKETING SUPPORT <span style="font-size: 0.8rem; color: #B45309; font-weight: 700; display: block; margin-top: 2px;">Building Local Demand</span></h4>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">Marketing Support:</h4>
                 <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Marketing assets, campaigns and brand support to strengthen customer engagement and local visibility.</p>
               </div>
             </div>
 
-            <!-- Step 05 -->
-            <div style="display: flex; gap: 16px; background: #FFFDF9; padding: 20px; border-radius: 18px; border: 1.5px solid rgba(200, 138, 43, 0.25);">
-              <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; background: linear-gradient(135deg, #C88A2B 0%, #D97706 100%); width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 14px rgba(200, 138, 43, 0.25);">05</div>
+            <!-- Item 5: Menu R&D -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: #FFFDF9; border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(200, 138, 43, 0.1); color: #C88A2B; border: 1px solid rgba(200, 138, 43, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
               <div>
-                <h4 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin: 0 0 4px 0;">MENU IMPROVEMENT <span style="font-size: 0.8rem; color: #B45309; font-weight: 700; display: block; margin-top: 2px;">Keeping the Offering Relevant</span></h4>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0 0 6px 0;">Menu Innovation:</h4>
                 <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Continuous evaluation and refinement of the menu based on customer preferences and market response.</p>
               </div>
             </div>
 
-          </div>
+            <!-- Item 6: Profit Growth Summary -->
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 20px; background: rgba(200, 138, 43, 0.06); border: 1.5px dashed rgba(200, 138, 43, 0.35); border-radius: 18px;">
+              <div style="width: 46px; height: 46px; border-radius: 14px; background: #C88A2B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; box-shadow: 0 4px 12px rgba(200, 138, 43, 0.25);">
+                <i class="fa-solid fa-rocket"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 1.05rem; font-weight: 900; color: #C88A2B; margin: 0 0 6px 0;">Sustained High ROI:</h4>
+                <p style="font-size: 0.86rem; color: #475569; margin: 0; line-height: 1.55; font-weight: 500;">Continuously improving operations, customer demand and business performance for long-term growth.</p>
+              </div>
+            </div>
 
-          <!-- Phase 2 Bottom Summary Box -->
-          <div style="margin-top: 28px; background: rgba(200, 138, 43, 0.1); border: 1.5px solid rgba(200, 138, 43, 0.3); border-radius: 16px; padding: 16px 20px; font-size: 0.92rem; font-weight: 800; color: #B45309; display: flex; align-items: center; gap: 12px;">
-            <i class="fa-solid fa-circle-arrow-right" style="font-size: 1.2rem; color: #C88A2B;"></i>
-            <span>Continuously improving operations, customer demand and business performance</span>
           </div>
 
         </div>
@@ -1383,5 +1398,33 @@
   </button>
 
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const phaseTabBtns = document.querySelectorAll('.phase-tab-btn');
+      const phaseTabPanels = document.querySelectorAll('.phase-tab-panel');
+
+      phaseTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          phaseTabBtns.forEach(b => {
+            b.classList.remove('active');
+            b.style.background = 'transparent';
+            b.style.color = '#991B1B';
+          });
+          btn.classList.add('active');
+          btn.style.background = '#991B1B';
+          btn.style.color = '#FFFFFF';
+
+          const targetId = btn.getAttribute('data-tab');
+          phaseTabPanels.forEach(p => {
+            if (p.id === targetId) {
+              p.style.display = 'block';
+            } else {
+              p.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
