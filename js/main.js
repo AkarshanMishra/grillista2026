@@ -577,89 +577,174 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Interactive Investor Calculator Popup Modal Logic
-  const calcModalOverlay = document.getElementById('calculator-modal-overlay');
-  const calcModalClose = document.getElementById('calculator-modal-close');
+  // Dynamic Calculator Modal & Interactive ROI Simulator (Global Fix for all pages)
+  function ensureCalculatorModalInDOM() {
+    let calcModalOverlay = document.getElementById('calculator-modal-overlay');
+    if (!calcModalOverlay) {
+      calcModalOverlay = document.createElement('div');
+      calcModalOverlay.className = 'calculator-modal-overlay';
+      calcModalOverlay.id = 'calculator-modal-overlay';
+      calcModalOverlay.innerHTML = `
+        <div class="calculator-modal-card">
+          <button class="calculator-modal-close" id="calculator-modal-close" aria-label="Close Calculator">&times;</button>
+          
+          <div style="text-align: center; margin-bottom: 24px;">
+            <span style="background: rgba(22, 163, 74, 0.15); color: #4ADE80; border: 1px solid rgba(74, 222, 128, 0.4); font-size: 0.75rem; font-weight: 800; padding: 4px 14px; border-radius: 99px; text-transform: uppercase;">
+              <i class="fa-solid fa-calculator"></i> Interactive ROI Simulator
+            </span>
+            <h3 style="font-size: 1.8rem; color: #FFFFFF; font-weight: 800; margin-top: 8px;">Calculate Your Monthly Profitability</h3>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-top: 4px;">Adjust expected daily orders and order values to calculate estimated store net profit.</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+            <!-- Controls Column -->
+            <div>
+              <div style="margin-bottom: 20px;">
+                <label style="font-size: 0.88rem; font-weight: 700; color: #FFF; display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <span>Expected Daily Orders:</span>
+                  <span id="pop-roi-orders-val" style="color: #FACC15; font-weight: 800;">120 Orders / Day</span>
+                </label>
+                <input type="range" id="pop-roi-orders-slider" min="50" max="350" value="120" step="5" style="width: 100%; accent-color: #FACC15; height: 8px; cursor: pointer;">
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label style="font-size: 0.88rem; font-weight: 700; color: #FFF; display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <span>Average Order Value (AOV):</span>
+                  <span id="pop-roi-aov-val" style="color: #FACC15; font-weight: 800;">₹180 / Order</span>
+                </label>
+                <input type="range" id="pop-roi-aov-slider" min="100" max="350" value="180" step="10" style="width: 100%; accent-color: #FACC15; height: 8px; cursor: pointer;">
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label style="font-size: 0.88rem; font-weight: 700; color: #FFF; display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <span>Monthly Store Rent (Est.):</span>
+                  <span id="pop-roi-rent-val" style="color: #FACC15; font-weight: 800;">₹35,000 / Mo</span>
+                </label>
+                <input type="range" id="pop-roi-rent-slider" min="15000" max="90000" value="35000" step="5000" style="width: 100%; accent-color: #FACC15; height: 8px; cursor: pointer;">
+              </div>
+            </div>
+
+            <!-- Calculated Output Cards -->
+            <div style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.05); padding: 22px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                <div>
+                  <div style="font-size: 0.72rem; color: rgba(255,255,255,0.7); font-weight: 700; text-transform: uppercase;">Gross Revenue</div>
+                  <div id="pop-calc-revenue" style="font-size: 1.25rem; font-weight: 800; color: #FFF;">₹6,48,000</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.72rem; color: rgba(255,255,255,0.7); font-weight: 700; text-transform: uppercase;">Food Cost (35%)</div>
+                  <div id="pop-calc-cogs" style="font-size: 1.25rem; font-weight: 800; color: #F87171;">-₹2,26,800</div>
+                </div>
+              </div>
+
+              <div style="background: rgba(250, 204, 21, 0.12); border: 1.5px solid #FACC15; padding: 16px; border-radius: 16px; margin-bottom: 16px;">
+                <div style="font-size: 0.75rem; color: #FACC15; font-weight: 800; text-transform: uppercase;">Est. Monthly Net Profit</div>
+                <div id="pop-calc-net-profit" style="font-size: 1.8rem; font-weight: 800; color: #86EFAC; margin-top: 2px;">₹1,75,000 / Mo</div>
+                <div id="pop-calc-payback" style="font-size: 0.76rem; color: rgba(255, 255, 255, 0.8); margin-top: 2px;">Estimated Payback: ~11 Months</div>
+              </div>
+
+              <a href="franchise.html#apply-form" class="btn btn-gold pop-modal-apply-btn" style="width: 100%; text-align: center; justify-content: center; font-weight: 800;">
+                Book Preferred City Rights
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(calcModalOverlay);
+    }
+    setupPopCalculator();
+    return calcModalOverlay;
+  }
+
+  function setupPopCalculator() {
+    const popOrdersSlider = document.getElementById('pop-roi-orders-slider');
+    const popAovSlider = document.getElementById('pop-roi-aov-slider');
+    const popRentSlider = document.getElementById('pop-roi-rent-slider');
+
+    const popOrdersVal = document.getElementById('pop-roi-orders-val');
+    const popAovVal = document.getElementById('pop-roi-aov-val');
+    const popRentVal = document.getElementById('pop-roi-rent-val');
+
+    const popCalcRev = document.getElementById('pop-calc-revenue');
+    const popCalcCogs = document.getElementById('pop-calc-cogs');
+    const popCalcNet = document.getElementById('pop-calc-net-profit');
+    const popCalcPayback = document.getElementById('pop-calc-payback');
+
+    function updatePopCalc() {
+      if (!popOrdersSlider || !popAovSlider || !popRentSlider) return;
+
+      const orders = parseInt(popOrdersSlider.value);
+      const aov = parseInt(popAovSlider.value);
+      const rent = parseInt(popRentSlider.value);
+
+      if (popOrdersVal) popOrdersVal.innerText = `${orders} Orders / Day`;
+      if (popAovVal) popAovVal.innerText = `₹${aov} / Order`;
+      if (popRentVal) popRentVal.innerText = `₹${rent.toLocaleString('en-IN')} / Mo`;
+
+      const dailyRev = orders * aov;
+      const monthlyRev = dailyRev * 30;
+      const cogs = monthlyRev * 0.35;
+      const staffCost = 45000;
+      const utilities = 25000;
+      const royalties = monthlyRev * 0.05;
+      const netProfit = monthlyRev - cogs - rent - staffCost - utilities - royalties;
+
+      if (popCalcRev) popCalcRev.innerText = `₹${monthlyRev.toLocaleString('en-IN')}`;
+      if (popCalcCogs) popCalcCogs.innerText = `-₹${Math.round(cogs).toLocaleString('en-IN')}`;
+      if (popCalcNet) popCalcNet.innerText = `₹${Math.round(netProfit).toLocaleString('en-IN')} / Mo`;
+
+      const investment = 1400000;
+      const months = Math.max(6, Math.round(investment / Math.max(netProfit, 10000)));
+      if (popCalcPayback) popCalcPayback.innerText = `Estimated Payback: ~${months} Months`;
+    }
+
+    if (popOrdersSlider && !popOrdersSlider.dataset.bound) {
+      popOrdersSlider.dataset.bound = 'true';
+      popOrdersSlider.addEventListener('input', updatePopCalc);
+      popAovSlider.addEventListener('input', updatePopCalc);
+      popRentSlider.addEventListener('input', updatePopCalc);
+    }
+
+    updatePopCalc();
+  }
 
   function openCalculatorModal() {
-    if (calcModalOverlay) {
-      calcModalOverlay.classList.add('active');
+    const modal = ensureCalculatorModalInDOM();
+    if (modal) {
+      modal.classList.add('active');
     }
   }
 
   function closeCalculatorModal() {
-    if (calcModalOverlay) {
-      calcModalOverlay.classList.remove('active');
+    const modal = document.getElementById('calculator-modal-overlay');
+    if (modal) {
+      modal.classList.remove('active');
     }
   }
+
+  window.openCalculatorModal = openCalculatorModal;
+  window.closeCalculatorModal = closeCalculatorModal;
 
   // Intercept all links/buttons pointing to #calculator or with trigger class
   document.addEventListener('click', (e) => {
-    const calcTrigger = e.target.closest('a[href="#calculator"], .trigger-calculator-modal, #open-calculator-modal-btn');
+    const calcTrigger = e.target.closest('a[href="#calculator"], .trigger-calculator-modal, #open-calculator-modal-btn, [data-modal="calculator"]');
     if (calcTrigger) {
       e.preventDefault();
       openCalculatorModal();
+      return;
     }
 
-    if (calcModalClose && calcModalClose.contains(e.target)) {
+    const closeBtn = e.target.closest('#calculator-modal-close, .pop-modal-apply-btn');
+    if (closeBtn) {
       closeCalculatorModal();
+      return;
     }
 
-    if (e.target.classList && e.target.classList.contains('pop-modal-apply-btn')) {
-      closeCalculatorModal();
-    }
-
-    if (calcModalOverlay && e.target === calcModalOverlay) {
+    const modal = document.getElementById('calculator-modal-overlay');
+    if (modal && e.target === modal) {
       closeCalculatorModal();
     }
   });
-
-  // Popup Modal Range Slider Calculations
-  const popOrdersSlider = document.getElementById('pop-roi-orders-slider');
-  const popAovSlider = document.getElementById('pop-roi-aov-slider');
-  const popRentSlider = document.getElementById('pop-roi-rent-slider');
-
-  const popOrdersVal = document.getElementById('pop-roi-orders-val');
-  const popAovVal = document.getElementById('pop-roi-aov-val');
-  const popRentVal = document.getElementById('pop-roi-rent-val');
-
-  const popCalcRev = document.getElementById('pop-calc-revenue');
-  const popCalcCogs = document.getElementById('pop-calc-cogs');
-  const popCalcNet = document.getElementById('pop-calc-net-profit');
-  const popCalcPayback = document.getElementById('pop-calc-payback');
-
-  function updatePopCalculator() {
-    if (!popOrdersSlider || !popAovSlider || !popRentSlider) return;
-
-    const orders = parseInt(popOrdersSlider.value);
-    const aov = parseInt(popAovSlider.value);
-    const rent = parseInt(popRentSlider.value);
-
-    if (popOrdersVal) popOrdersVal.innerText = `${orders} Orders / Day`;
-    if (popAovVal) popAovVal.innerText = `₹${aov} / Order`;
-    if (popRentVal) popRentVal.innerText = `₹${rent.toLocaleString('en-IN')} / Mo`;
-
-    const dailyRev = orders * aov;
-    const monthlyRev = dailyRev * 30;
-    const cogs = monthlyRev * 0.35;
-    const staffCost = 45000;
-    const utilities = 25000;
-    const royalties = monthlyRev * 0.05;
-    const netProfit = monthlyRev - cogs - rent - staffCost - utilities - royalties;
-
-    if (popCalcRev) popCalcRev.innerText = `₹${monthlyRev.toLocaleString('en-IN')}`;
-    if (popCalcCogs) popCalcCogs.innerText = `-₹${Math.round(cogs).toLocaleString('en-IN')}`;
-    if (popCalcNet) popCalcNet.innerText = `₹${Math.round(netProfit).toLocaleString('en-IN')} / Mo`;
-
-    const investment = 1400000;
-    const months = Math.max(6, Math.round(investment / Math.max(netProfit, 10000)));
-    if (popCalcPayback) popCalcPayback.innerText = `Estimated Payback: ~${months} Months`;
-  }
-
-  if (popOrdersSlider) popOrdersSlider.addEventListener('input', updatePopCalculator);
-  if (popAovSlider) popAovSlider.addEventListener('input', updatePopCalculator);
-  if (popRentSlider) popRentSlider.addEventListener('input', updatePopCalculator);
-
-  updatePopCalculator();
 
   // Active Nav Link Scroll Highlight
   const sections = document.querySelectorAll('section[id]');
