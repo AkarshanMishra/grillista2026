@@ -3727,4 +3727,118 @@ body.dark-theme::before {
   filter: invert(1) hue-rotate(180deg);
 }
 
+/* ==========================================================================
+   UNIVERSAL 100% RESPONSIVE ENGINE (ALL BRANDS, MOBILES, TABLETS & 4K PC)
+   ========================================================================== */
+
+/* Universal Reset & Overflow Protection */
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit !important;
+}
+
+/* Fluid Responsive Media & Embeds */
+img, video, iframe, svg, canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* 1. Large 4K & Ultra-Wide PC Screens (>= 1920px) */
+@media (min-width: 1920px) {
+  .container, .nav-container-split {
+    max-width: 1600px !important;
+  }
+  .section-title {
+    font-size: 3.5rem !important;
+  }
+}
+
+/* 2. Laptops & Compact PC Screens (1025px - 1366px) */
+@media (max-width: 1366px) {
+  .nav-container-split {
+    max-width: 1200px !important;
+    padding: 0 16px !important;
+  }
+  .nav-links-split {
+    gap: 20px !important;
+  }
+  .nav-links-split a {
+    font-size: 0.88rem !important;
+  }
+}
+
+/* 3. Tablets, iPad & Foldable Devices (769px - 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    height: 72px !important;
+  }
+  .nav-container-split {
+    display: flex !important;
+    justify-content: space-between !important;
+    grid-template-columns: none !important;
+  }
+  .nav-group-left .nav-links-split,
+  .nav-group-right .nav-links-split {
+    display: none !important;
+  }
+  .mobile-toggle-btn {
+    display: flex !important;
+  }
+  .nav-center-logo {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 0 !important;
+  }
+  .nav-center-logo img {
+    height: 60px !important;
+    width: 60px !important;
+  }
+}
+
+/* 4. Standard Mobile Smartphones (481px - 768px) */
+@media (max-width: 768px) {
+  body {
+    padding-top: 72px !important;
+  }
+  .section {
+    padding: 36px 16px !important;
+  }
+  .section-title {
+    font-size: 1.85rem !important;
+  }
+  .section-subtitle {
+    font-size: 0.9rem !important;
+  }
+  .btn, button, input, select, textarea {
+    min-height: 48px !important;
+  }
+}
+
+/* 5. Small Mobiles & Compact Screen Brands (320px - 480px) */
+@media (max-width: 480px) {
+  .nav-center-logo img {
+    height: 52px !important;
+    width: 52px !important;
+  }
+  .mobile-toggle-btn {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.2rem !important;
+  }
+  .section-title {
+    font-size: 1.55rem !important;
+  }
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
 
