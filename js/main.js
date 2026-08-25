@@ -113,6 +113,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 2026 Hero Showcase Slideshow Controller
+  let currentHeroSlideIndex = 0;
+  let heroSlideTimer = null;
+  const HERO_SLIDE_DURATION = 5500;
+
+  window.showHeroSlide = function(index) {
+    const slides = document.querySelectorAll('.hero-slide');
+    const bgSlides = document.querySelectorAll('.hero-bg-slide');
+    const pills = document.querySelectorAll('.hero-indicator-pill');
+    if (!slides || slides.length === 0) return;
+
+    if (index >= slides.length) currentHeroSlideIndex = 0;
+    else if (index < 0) currentHeroSlideIndex = slides.length - 1;
+    else currentHeroSlideIndex = index;
+
+    slides.forEach((slide, i) => {
+      if (i === currentHeroSlideIndex) {
+        slide.classList.add('active');
+        slide.style.display = 'block';
+      } else {
+        slide.classList.remove('active');
+        slide.style.display = 'none';
+      }
+    });
+
+    if (bgSlides && bgSlides.length > 0) {
+      bgSlides.forEach((bg, i) => {
+        if (i === currentHeroSlideIndex) {
+          bg.classList.add('active');
+        } else {
+          bg.classList.remove('active');
+        }
+      });
+    }
+
+    if (pills && pills.length > 0) {
+      pills.forEach((pill, i) => {
+        if (i === currentHeroSlideIndex) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+    }
+  };
+
+  window.moveHeroSlide = function(step) {
+    showHeroSlide(currentHeroSlideIndex + step);
+    resetHeroAutoPlay();
+  };
+
+  window.jumpToHeroSlide = function(index) {
+    showHeroSlide(index);
+    resetHeroAutoPlay();
+  };
+
+  function resetHeroAutoPlay() {
+    if (heroSlideTimer) clearInterval(heroSlideTimer);
+    heroSlideTimer = setInterval(() => {
+      const slides = document.querySelectorAll('.hero-slide');
+      if (slides && slides.length > 0) {
+        showHeroSlide(currentHeroSlideIndex + 1);
+      }
+    }, HERO_SLIDE_DURATION);
+  }
+
+  const heroSection = document.getElementById('hero');
+  if (heroSection) {
+    heroSection.addEventListener('mouseenter', () => {
+      if (heroSlideTimer) clearInterval(heroSlideTimer);
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      resetHeroAutoPlay();
+    });
+  }
+
+  resetHeroAutoPlay();
+
   // Big Single Category Slideshow Auto-Play & Navigation
   let currentCategoryIndex = 0;
   let categoryTimer = null;
@@ -368,6 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Attach Touch & Laptop Touchpad Gestures to All Sliders Site-Wide
+  setupTouchSwipe('#hero', () => window.moveHeroSlide(1), () => window.moveHeroSlide(-1));
   setupTouchSwipe('.blog-slideshow-container', () => window.moveBlogSlide(1), () => window.moveBlogSlide(-1));
   setupTouchSwipe('#testimonial-track', () => window.moveTestimonialMultiSlide(1), () => window.moveTestimonialMultiSlide(-1));
   setupTouchSwipe('.category-slideshow-container', () => window.moveCategorySlide(1), () => window.moveCategorySlide(-1));
