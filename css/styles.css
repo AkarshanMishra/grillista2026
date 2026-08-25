@@ -1749,6 +1749,25 @@ button {
   display: block;
 }
 
+/* Continuous 360° Rotating Curved Text Ring */
+.rotating-curved-text-ring {
+  transform-origin: 100px 100px;
+  animation: sealTextRotate 22s linear infinite;
+}
+
+@keyframes sealTextRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-heritage-seal:hover .rotating-curved-text-ring {
+  animation-duration: 12s;
+}
+
 .hero-estd-tag-left {
   position: absolute;
   top: 24px;
