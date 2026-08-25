@@ -1593,7 +1593,7 @@ button {
   backdrop-filter: blur(20px);
   border: 2px solid rgba(250, 204, 21, 0.45);
   border-radius: 36px;
-  padding: 68px 36px 52px 36px;
+  padding: 46px 36px 42px 36px;
   text-align: center;
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.9), 0 0 60px rgba(250, 204, 21, 0.18);
   overflow: hidden;
@@ -1732,18 +1732,18 @@ button {
   box-shadow: 0 14px 40px rgba(250, 204, 21, 0.6);
 }
 
-/* Circular Gold Heritage Seal Badge (Centered Emblem - Zero Text Overlap Guaranteed) */
+/* Circular Gold Heritage Seal Badge (Compact Small Luxury Emblem) */
 .hero-heritage-seal-center {
-  width: 112px;
-  height: 112px;
-  margin: 0 auto 16px auto;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 12px auto;
   display: block;
-  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 22px rgba(250, 204, 21, 0.4));
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 14px rgba(250, 204, 21, 0.35));
   transition: transform 0.3s ease;
 }
 
 .hero-heritage-seal-center:hover {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .hero-heritage-seal-center svg {
@@ -1773,9 +1773,9 @@ button {
 
 @media (max-width: 991px) {
   .hero-heritage-seal-center {
-    width: 92px;
-    height: 92px;
-    margin: 0 auto 14px auto;
+    width: 58px !important;
+    height: 58px !important;
+    margin: 0 auto 10px auto !important;
   }
 }
 
@@ -1801,26 +1801,7 @@ button {
 
 @media (max-width: 991px) {
   .hero-luxury-cinematic-slide {
-    padding: 32px 18px 36px 18px !important;
-  }
-  .hero-heritage-seal {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    left: auto !important;
-    margin: 0 auto 16px auto !important;
-    width: 92px !important;
-    height: 92px !important;
-    display: block !important;
-  }
-  .hero-estd-tag-left {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    margin: 0 auto 12px auto !important;
-    font-size: 0.75rem !important;
-    padding: 6px 14px !important;
-    display: inline-flex !important;
+    padding: 26px 16px 30px 16px !important;
   }
   .hero-luxury-eyebrow {
     font-size: 0.8rem !important;
