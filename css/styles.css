@@ -366,8 +366,8 @@ body.dark-theme .nav-link {
 /* 3D Interactive Team Flip Card System */
 .team-flip-card {
   background-color: transparent;
-  perspective: 1000px;
-  height: 320px;
+  perspective: 1200px;
+  height: 520px;
   cursor: pointer;
 }
 
@@ -376,7 +376,7 @@ body.dark-theme .nav-link {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   transform-style: preserve-3d;
 }
 
@@ -390,9 +390,9 @@ body.dark-theme .nav-link {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
-  padding: 24px 18px;
+  border-radius: 28px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  padding: 36px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -401,22 +401,22 @@ body.dark-theme .nav-link {
 
 .flip-card-front {
   background: #FFFFFF;
-  border: 1.5px solid var(--border-light);
-  transition: var(--transition);
+  border: 2px solid rgba(200, 138, 43, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .team-flip-card:hover .flip-card-front {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  border-color: #FACC15;
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(200, 138, 43, 0.2);
 }
 
 .flip-card-back {
-  background: #1E1B18;
+  background: linear-gradient(145deg, #0B0F19 0%, #1E293B 100%);
   color: #FFFFFF;
-  border: 1.5px solid var(--accent-gold);
+  border: 2px solid #FACC15;
   transform: rotateY(180deg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
 /* Grillista AI Franchise Assistant Chatbot (Luxury Jet Black & Vibrant Gold Yellow) */
