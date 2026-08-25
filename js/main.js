@@ -516,9 +516,98 @@ document.addEventListener('DOMContentLoaded', () => {
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
   }
 
+  // Open Interactive Inline Quick Inquiry Form inside Chatbot
+  window.startChatInquiryForm = function() {
+    const formHtml = `
+      <div class="chat-inquiry-card">
+        <div style="font-weight: 800; font-size: 0.92rem; color: #0F172A; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+          <i class="fa-solid fa-file-signature" style="color: #FACC15;"></i> Quick Franchise Inquiry Form
+        </div>
+        <p style="font-size: 0.78rem; color: #64748B; margin: 0 0 10px 0;">Fill this 30-second form to reserve your territory & receive our full 2026 Prospectus:</p>
+        
+        <form onsubmit="submitChatInquiry(event)">
+          <div style="margin-bottom: 8px;">
+            <input type="text" id="chat-lead-name" placeholder="Your Full Name *" required style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; box-sizing: border-box;">
+          </div>
+          <div style="margin-bottom: 8px;">
+            <input type="tel" id="chat-lead-phone" placeholder="WhatsApp Number *" required style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; box-sizing: border-box;">
+          </div>
+          <div style="margin-bottom: 8px;">
+            <input type="text" id="chat-lead-city" placeholder="Target City / State *" required style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; box-sizing: border-box;">
+          </div>
+          <div style="margin-bottom: 12px;">
+            <select id="chat-lead-model" style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; background: #FFF; box-sizing: border-box;">
+              <option value="Smart Bistro (₹12-14L)">Smart Bistro (₹12–14 Lakh)</option>
+              <option value="Express Kiosk (₹8-10L)">Express Kiosk (₹8–10 Lakh)</option>
+              <option value="Signature Lounge (₹16-18L)">Signature Lounge (₹16–18 Lakh)</option>
+              <option value="Multi-Unit / Master">Multi-Unit / Master Franchise</option>
+            </select>
+          </div>
+          <button type="submit" style="width: 100%; padding: 10px; background: #15803D; color: #FFF; font-weight: 800; font-size: 0.88rem; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 14px rgba(21,128,61,0.3); transition: all 0.2s ease;">
+            <i class="fa-solid fa-paper-plane"></i> Submit Franchise Inquiry
+          </button>
+        </form>
+      </div>
+    `;
+    addChatMessage(formHtml, 'bot');
+  };
+
+  window.submitChatInquiry = function(e) {
+    if (e) e.preventDefault();
+    const nameEl = document.getElementById('chat-lead-name');
+    const phoneEl = document.getElementById('chat-lead-phone');
+    const cityEl = document.getElementById('chat-lead-city');
+    const modelEl = document.getElementById('chat-lead-model');
+
+    const name = nameEl ? nameEl.value.trim() : '';
+    const phone = phoneEl ? phoneEl.value.trim() : '';
+    const city = cityEl ? cityEl.value.trim() : '';
+    const model = modelEl ? modelEl.value : 'Smart Bistro';
+
+    if (!name || !phone) return;
+
+    // Save lead to local storage
+    const existingLeads = JSON.parse(localStorage.getItem('grillista_leads') || '[]');
+    existingLeads.unshift({
+      name,
+      phone,
+      city,
+      model,
+      date: new Date().toLocaleString(),
+      source: 'AI Chatbot Inquiry Form'
+    });
+    localStorage.setItem('grillista_leads', JSON.stringify(existingLeads));
+
+    // Bot Response Confirmation
+    const successReply = `
+      <div style="background: rgba(34, 197, 94, 0.12); border: 1.5px solid #22C55E; border-radius: 14px; padding: 14px; color: #14532D;">
+        <div style="font-weight: 900; font-size: 0.95rem; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; color: #15803D;">
+          <i class="fa-solid fa-circle-check"></i> Inquiry Successfully Registered!
+        </div>
+        <p style="font-size: 0.82rem; margin: 0 0 10px 0; line-height: 1.45;">
+          Thank you <strong>${name}</strong>! Your inquiry for <strong>${city} (${model})</strong> has been received by our Onboarding Director.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+          <a href="https://wa.me/916386818682?text=${encodeURIComponent('Hi Grillista, I submitted an inquiry for ' + city + ' (' + model + '). My name is ' + name)}" target="_blank" style="background: #25D366; color: #FFF; font-weight: 800; font-size: 0.8rem; padding: 8px 12px; border-radius: 8px; text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <i class="fa-brands fa-whatsapp"></i> Chat with Director on WhatsApp
+          </a>
+          <a href="tel:+916386818682" style="background: #0F172A; color: #FACC15; font-weight: 800; font-size: 0.8rem; padding: 8px 12px; border-radius: 8px; text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <i class="fa-solid fa-phone"></i> Call HQ: +91 63868 18682
+          </a>
+        </div>
+      </div>
+    `;
+    addChatMessage(successReply, 'bot');
+  };
+
   function processChatBotResponse(query) {
     const q = query.toLowerCase();
     let reply = "";
+
+    if (q.includes('inquiry') || q.includes('form') || q.includes('apply') || q.includes('book') || q.includes('register') || q.includes('join') || q.includes('partner')) {
+      startChatInquiryForm();
+      return;
+    }
 
     if (q.includes('cost') || q.includes('model') || q.includes('royalty') || q.includes('investment') || q.includes('fee') || q.includes('price')) {
       reply = "💰 <strong>Grillista FOFO Franchise Models:</strong><br><br>" +
@@ -528,14 +617,16 @@ document.addEventListener('DOMContentLoaded', () => {
               "⚡ <strong>Financial Highlights:</strong><br>" +
               "• <strong>Royalty:</strong> Flat 5% Monthly Royalty (Zero hidden ad fees)<br>" +
               "• <strong>Profit Margins:</strong> Up to <strong>35% Net Profit Margin</strong> (65%+ Gross Margin)<br>" +
-              "• <strong>Expected Payback:</strong> 12 – 18 Months!";
+              "• <strong>Expected Payback:</strong> 12 – 18 Months!<br><br>" +
+              "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Fill Franchise Inquiry</button>";
     } else if (q.includes('kanpur') || q.includes('outlet') || q.includes('location') || q.includes('address') || q.includes('where') || q.includes('store')) {
       reply = "📍 <strong>Live Flagship Operational Outlets:</strong><br><br>" +
               "1. <strong>Barra Outlet:</strong> Main Bypass Road, Barra 2, Kanpur <em>(Dine-In & Drive-Thru)</em><br>" +
               "2. <strong>Kakadeo Outlet:</strong> Coaching Hub Market, Kakadeo, Kanpur <em>(Youth Express Hub)</em><br><br>" +
               "🏢 <strong>Corporate Headquarters:</strong><br>" +
               "621/18, Block-W, Juhi Kala, VR Tower, Kanpur, UP.<br>" +
-              "🚀 <em>Now expanding across prime cities in UP & Pan-India with exclusive 3–5 KM radius protection!</em>";
+              "🚀 <em>Now expanding across prime cities in UP & Pan-India with exclusive 3–5 KM radius protection!</em><br><br>" +
+              "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📍 Check Territory Availability</button>";
     } else if (q.includes('turnkey') || q.includes('roadmap') || q.includes('setup') || q.includes('process') || q.includes('launch') || q.includes('phase') || q.includes('day') || q.includes('step')) {
       reply = "🛠️ <strong>4-Phase Done-For-You Turnkey Store Setup:</strong><br><br>" +
               "• <strong>Phase 1: Location Audit & Agreement</strong> (Footfall density audit & territory lock)<br>" +
@@ -552,7 +643,8 @@ document.addEventListener('DOMContentLoaded', () => {
               "🌿 <em>Zero cross-contamination risk • 65%+ Gross Margins on food!</em>";
     } else if (q.includes('prospectus') || q.includes('pdf') || q.includes('brochure') || q.includes('download') || q.includes('report') || q.includes('document')) {
       reply = "📜 <strong>Official Franchise Prospectus:</strong><br><br>" +
-              "You can download our complete 2026 Franchise Prospectus PDF instantly on this website by submitting the application form, or text us on WhatsApp at <strong>+91 63868 18682</strong> to receive the PDF directly on your phone!";
+              "Fill our quick 30-second inquiry form to download your customized Prospectus PDF instantly, or chat on WhatsApp at <strong>+91 63868 18682</strong>!<br><br>" +
+              "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Get Prospectus via Form</button>";
     } else if (q.includes('call') || q.includes('contact') || q.includes('number') || q.includes('phone') || q.includes('whatsapp') || q.includes('email') || q.includes('talk') || q.includes('owner') || q.includes('team')) {
       reply = "📞 <strong>Official Grillista Franchise Desk:</strong><br><br>" +
               "• <strong>Direct Call / WhatsApp:</strong> <a href='tel:+916386818682' style='color:#FACC15; font-weight:800; text-decoration:underline;'>+91 63868 18682</a><br>" +
@@ -569,7 +661,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       reply = "Namaste! 🙏 Thank you for asking. Our Franchise Onboarding Team is ready to guide you on ROI, available city territories, and store setup.<br><br>" +
               "👉 <strong>Call or WhatsApp us directly at:</strong> <a href='tel:+916386818682' style='color:#FACC15; font-weight:800; text-decoration:underline;'>+91 63868 18682</a><br>" +
-              "📧 <strong>Email:</strong> grillistakanpur@gmail.com";
+              "📧 <strong>Email:</strong> grillistakanpur@gmail.com<br><br>" +
+              "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Fill Franchise Inquiry</button>";
     }
 
     setTimeout(() => {

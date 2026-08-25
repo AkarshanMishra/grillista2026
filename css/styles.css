@@ -541,6 +541,41 @@ body.dark-theme .nav-link {
   color: #FFFFFF;
 }
 
+.chat-quick-btn-highlight {
+  background: #FEF08A !important;
+  color: #854D0E !important;
+  border: 1.5px solid #FACC15 !important;
+  box-shadow: 0 2px 8px rgba(250, 204, 21, 0.35);
+  font-weight: 800;
+}
+
+.chat-quick-btn-highlight:hover {
+  background: #FACC15 !important;
+  color: #000000 !important;
+}
+
+/* Chatbot Inline Quick Inquiry Form */
+.chat-inquiry-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 14px;
+  margin-top: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.chat-inquiry-card input,
+.chat-inquiry-card select {
+  font-family: inherit;
+  color: #0F172A;
+  transition: border-color 0.2s ease;
+}
+
+.chat-inquiry-card input:focus,
+.chat-inquiry-card select:focus {
+  border-color: #00C853 !important;
+}
+
 .chatbot-input-area {
   padding: 12px;
   background: #FFFFFF;
