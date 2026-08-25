@@ -520,23 +520,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const q = query.toLowerCase();
     let reply = "";
 
-    if (q.includes('cost') || q.includes('model') || q.includes('royalty') || q.includes('investment')) {
-      reply = "💰 <strong>Franchise Models:</strong><br>• <strong>FOFO Model:</strong> ₹12 Lakh Investment (5% Royalty)<br>• <strong>FOCO Model:</strong> ₹16 Lakh Investment (5% Royalty)<br>⚡ Expected ROI Payback: 12 - 18 Months!";
-    } else if (q.includes('kanpur') || q.includes('outlet') || q.includes('location') || q.includes('address')) {
-      reply = "📍 <strong>Our 3 Operational Outlets in Kanpur:</strong><br>1. Barra Bypass (Flagship & Event Venue)<br>2. Kakadev (Youth Gaming Hub)<br>3. Juhi Saket Nagar (Rooftop Dining)<br>🏢 <strong>Head Office:</strong> 621/18, Block-W, Juhi Kala, VR Tower, Kanpur.";
-    } else if (q.includes('prospectus') || q.includes('pdf') || q.includes('brochure') || q.includes('download')) {
-      reply = "📜 You can generate & download our official 20-Page Franchise Prospectus PDF anytime on this website by submitting the lead form! Or call us directly.";
-    } else if (q.includes('call') || q.includes('contact') || q.includes('number') || q.includes('phone')) {
-      reply = "📞 <strong>Official Franchise Support Line:</strong><br><a href='tel:+916386818682' style='color:#15803D; font-weight:800;'>+91 63868 18682</a><br>📧 Email: grillistakanpur@gmail.com";
-    } else if (q.includes('menu') || q.includes('food') || q.includes('veg') || q.includes('margin')) {
-      reply = "🍔 <strong>100% Pure Veg Menu:</strong><br>Wood-Fired Pizzas, Smoked Burgers, Grilled Sandwiches, Sizzlers, Mocktails & Desserts with 65%+ Gross Margin!";
+    if (q.includes('cost') || q.includes('model') || q.includes('royalty') || q.includes('investment') || q.includes('fee') || q.includes('price')) {
+      reply = "💰 <strong>Grillista FOFO Franchise Models:</strong><br><br>" +
+              "• <strong>1. Express Kiosk (250–400 sq ft):</strong> ₹8 – ₹10 Lakh <em>(High delivery & takeaway volume)</em><br>" +
+              "• <strong>2. Smart Bistro (600+ sq ft):</strong> ₹12 – ₹14 Lakh <em>(Dine-in youth cafe hub)</em><br>" +
+              "• <strong>3. Signature Lounge (700–1200+ sq ft):</strong> ₹16 – ₹18 Lakh <em>(Full experiential family dining)</em><br><br>" +
+              "⚡ <strong>Financial Highlights:</strong><br>" +
+              "• <strong>Royalty:</strong> Flat 5% Monthly Royalty (Zero hidden ad fees)<br>" +
+              "• <strong>Profit Margins:</strong> Up to <strong>35% Net Profit Margin</strong> (65%+ Gross Margin)<br>" +
+              "• <strong>Expected Payback:</strong> 12 – 18 Months!";
+    } else if (q.includes('kanpur') || q.includes('outlet') || q.includes('location') || q.includes('address') || q.includes('where') || q.includes('store')) {
+      reply = "📍 <strong>Live Flagship Operational Outlets:</strong><br><br>" +
+              "1. <strong>Barra Outlet:</strong> Main Bypass Road, Barra 2, Kanpur <em>(Dine-In & Drive-Thru)</em><br>" +
+              "2. <strong>Kakadeo Outlet:</strong> Coaching Hub Market, Kakadeo, Kanpur <em>(Youth Express Hub)</em><br><br>" +
+              "🏢 <strong>Corporate Headquarters:</strong><br>" +
+              "621/18, Block-W, Juhi Kala, VR Tower, Kanpur, UP.<br>" +
+              "🚀 <em>Now expanding across prime cities in UP & Pan-India with exclusive 3–5 KM radius protection!</em>";
+    } else if (q.includes('turnkey') || q.includes('roadmap') || q.includes('setup') || q.includes('process') || q.includes('launch') || q.includes('phase') || q.includes('day') || q.includes('step')) {
+      reply = "🛠️ <strong>4-Phase Done-For-You Turnkey Store Setup:</strong><br><br>" +
+              "• <strong>Phase 1: Location Audit & Agreement</strong> (Footfall density audit & territory lock)<br>" +
+              "• <strong>Phase 2: 3D Build & Machine Setup</strong> (Store interior architecture, heavy-duty fryers, griddles & POS)<br>" +
+              "• <strong>Phase 3: Staff Training & Raw Stock</strong> (Master chef training, inventory & recipe standardization)<br>" +
+              "• <strong>Phase 4: Grand Opening Marketing Blast</strong> (Local PR, influencer marketing & launch day crowds)<br><br>" +
+              "🛡️ <em>Backed 100% end-to-end by RK Group of Industries!</em>";
+    } else if (q.includes('menu') || q.includes('food') || q.includes('veg') || q.includes('burger') || q.includes('pizza') || q.includes('item') || q.includes('taste')) {
+      reply = "🍔 <strong>100% Pure Veg Gourmet Craving Menu:</strong><br><br>" +
+              "• <strong>Charcoal Burgers:</strong> Gourmet Paneer Tikka, Makhani Burst, Crispy Crunch Burgers<br>" +
+              "• <strong>Artisan Pizzas & Wraps:</strong> Wood-fired style crusts, Tandoori Soya Wraps<br>" +
+              "• <strong>Charred Bites & Fries:</strong> Peri-Peri loaded fries, cheese corn nuggets<br>" +
+              "• <strong>Beverages:</strong> Thick cold coffees, mocktails & positive energy shakes<br><br>" +
+              "🌿 <em>Zero cross-contamination risk • 65%+ Gross Margins on food!</em>";
+    } else if (q.includes('prospectus') || q.includes('pdf') || q.includes('brochure') || q.includes('download') || q.includes('report') || q.includes('document')) {
+      reply = "📜 <strong>Official Franchise Prospectus:</strong><br><br>" +
+              "You can download our complete 2026 Franchise Prospectus PDF instantly on this website by submitting the application form, or text us on WhatsApp at <strong>+91 63868 18682</strong> to receive the PDF directly on your phone!";
+    } else if (q.includes('call') || q.includes('contact') || q.includes('number') || q.includes('phone') || q.includes('whatsapp') || q.includes('email') || q.includes('talk') || q.includes('owner') || q.includes('team')) {
+      reply = "📞 <strong>Official Grillista Franchise Desk:</strong><br><br>" +
+              "• <strong>Direct Call / WhatsApp:</strong> <a href='tel:+916386818682' style='color:#FACC15; font-weight:800; text-decoration:underline;'>+91 63868 18682</a><br>" +
+              "• <strong>Official Email:</strong> grillistakanpur@gmail.com<br>" +
+              "• <strong>Brand Established:</strong> 2021 in Kanpur (RK Group Backed)<br><br>" +
+              "💬 <em>Our Franchise Onboarding Team is available Mon–Sat (10 AM – 8 PM) for discovery calls and site inspections.</em>";
+    } else if (q.includes('order') || q.includes('swiggy') || q.includes('zomato') || q.includes('delivery') || q.includes('eat')) {
+      reply = "🛵 <strong>Order Grillista Food Online:</strong><br><br>" +
+              "• <strong>Direct Web Order:</strong> Tap 'Order Online' on our top navbar for 0% commission direct pricing!<br>" +
+              "• <strong>Swiggy / Zomato:</strong> Search 'Grillista' in Kanpur (Barra & Kakadeo) for express 25-minute home delivery!";
+    } else if (q.includes('who') || q.includes('about') || q.includes('founder') || q.includes('history') || q.includes('rk group') || q.includes('brand')) {
+      reply = "👑 <strong>About Grillista:</strong><br><br>" +
+              "Established in <strong>2021</strong> in Kanpur, Grillista is India's fast-growing 100% Pure Veg charcoal dining brand backed by <strong>RK Group of Industries</strong>. With 10,000+ satisfied customers and 2 thriving operational flagship outlets in Kanpur, we empower ambitious business partners with a high-margin, automated FOFO model.";
     } else {
-      reply = "Thank you for reaching out! 🙏 Our Vice President of Operations, Amitabh Srivastava, & Franchise Onboarding Team can guide you directly at <strong>+91 63868 18682</strong>.";
+      reply = "Namaste! 🙏 Thank you for asking. Our Franchise Onboarding Team is ready to guide you on ROI, available city territories, and store setup.<br><br>" +
+              "👉 <strong>Call or WhatsApp us directly at:</strong> <a href='tel:+916386818682' style='color:#FACC15; font-weight:800; text-decoration:underline;'>+91 63868 18682</a><br>" +
+              "📧 <strong>Email:</strong> grillistakanpur@gmail.com";
     }
 
     setTimeout(() => {
       addChatMessage(reply, 'bot');
-    }, 400);
+    }, 350);
   }
 
   // Floating Side Action Dock (Auto-Hide on Scroll & Manual Toggle)
