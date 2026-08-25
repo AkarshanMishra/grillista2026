@@ -1593,7 +1593,7 @@ button {
   backdrop-filter: blur(20px);
   border: 2px solid rgba(250, 204, 21, 0.45);
   border-radius: 36px;
-  padding: 58px 36px 52px 36px;
+  padding: 68px 36px 52px 36px;
   text-align: center;
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.9), 0 0 60px rgba(250, 204, 21, 0.18);
   overflow: hidden;
@@ -1601,13 +1601,14 @@ button {
 
 .hero-luxury-eyebrow {
   font-family: var(--font-heading);
-  font-size: 0.88rem;
+  font-size: clamp(0.78rem, 1.4vw, 0.88rem);
   font-weight: 900;
-  letter-spacing: 6px;
+  letter-spacing: clamp(3px, 0.5vw, 6px);
   color: #FACC15;
   text-transform: uppercase;
-  margin-bottom: 8px;
-  display: inline-block;
+  margin: 0 auto 8px auto;
+  max-width: 580px;
+  display: block;
   text-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
 }
 
