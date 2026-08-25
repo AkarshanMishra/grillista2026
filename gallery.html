@@ -180,7 +180,13 @@
       <!-- Category Filter Tabs -->
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <button class="gallery-filter-btn active" data-filter="all">
-          <i class="fa-solid fa-border-all" style="margin-right: 6px;"></i> All Media (8)
+          <i class="fa-solid fa-border-all" style="margin-right: 6px;"></i> All Media (14)
+        </button>
+        <button class="gallery-filter-btn" data-filter="youtube">
+          <i class="fa-brands fa-youtube" style="color: #FF0000; margin-right: 6px;"></i> YouTube Videos (3)
+        </button>
+        <button class="gallery-filter-btn" data-filter="instagram">
+          <i class="fa-brands fa-instagram" style="color: #E1306C; margin-right: 6px;"></i> Instagram Reels (3)
         </button>
         <button class="gallery-filter-btn" data-filter="interiors">
           <i class="fa-solid fa-chair" style="margin-right: 6px;"></i> Store Interiors
@@ -199,11 +205,162 @@
   <section class="section" style="padding-top: 50px; padding-bottom: 72px; background: linear-gradient(180deg, #FAF7F2 0%, #FFFDF9 100%);">
     <div class="container">
       
-
-
       <!-- Media Gallery Cards Grid -->
       <div id="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; margin-bottom: 64px;">
         
+        <!-- Video Card 1: YouTube Flagship Store Tour -->
+        <div class="gallery-card gallery-video-card" data-category="youtube" data-title="Grillista Flagship Store Tour & Dining Atmosphere">
+          <div style="position: relative; height: 260px; overflow: hidden; border-radius: 24px 24px 0 0; background: #000;">
+            <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Grillista Store Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border: none; width: 100%; height: 100%;"></iframe>
+            <span style="position: absolute; top: 16px; right: 16px; background: #FF0000; color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(255,0,0,0.4); pointer-events: none;">
+              <i class="fa-brands fa-youtube"></i> YOUTUBE
+            </span>
+          </div>
+          <div style="padding: 24px; background: #FFFFFF; border-top: 1px solid #F1F5F9;">
+            <div style="font-size: 0.75rem; color: #DC2626; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-play"></i> 4K Video Tour • Kanpur Flagship
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 900; color: #0F172A; margin: 0 0 8px 0;">Kanpur Flagship Store Tour</h3>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0;">Inside tour of Grillista's flagship outlet in Kanpur featuring ergonomic yellow booth seating and modern QSR operations.</p>
+            <div style="margin-top: 14px; display: flex; align-items: center; justify-content: space-between;">
+              <a href="https://www.youtube.com" target="_blank" style="color: #DC2626; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <span style="color: #64748B; font-size: 0.75rem; font-weight: 700;"><i class="fa-solid fa-eye"></i> 15K+ Views</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Card 2: YouTube Kitchen Automation -->
+        <div class="gallery-card gallery-video-card" data-category="youtube" data-title="Flame-Grilling & Chef-Less Kitchen Automation">
+          <div style="position: relative; height: 260px; overflow: hidden; border-radius: 24px 24px 0 0; background: #000;">
+            <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Grillista Kitchen Setup" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border: none; width: 100%; height: 100%;"></iframe>
+            <span style="position: absolute; top: 16px; right: 16px; background: #FF0000; color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(255,0,0,0.4); pointer-events: none;">
+              <i class="fa-brands fa-youtube"></i> YOUTUBE
+            </span>
+          </div>
+          <div style="padding: 24px; background: #FFFFFF; border-top: 1px solid #F1F5F9;">
+            <div style="font-size: 0.75rem; color: #DC2626; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-fire-burner"></i> Behind The Scenes • Kitchen Operations
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 900; color: #0F172A; margin: 0 0 8px 0;">Flame Grill & Kitchen Automation</h3>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0;">Watch how standardized temperature-controlled griddles and central spice blends make preparation 100% chef-less.</p>
+            <div style="margin-top: 14px; display: flex; align-items: center; justify-content: space-between;">
+              <a href="https://www.youtube.com" target="_blank" style="color: #DC2626; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <span style="color: #64748B; font-size: 0.75rem; font-weight: 700;"><i class="fa-solid fa-eye"></i> 22K+ Views</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Card 3: YouTube Franchise Blueprint -->
+        <div class="gallery-card gallery-video-card" data-category="youtube" data-title="Turnkey Store Launch & FOFO Franchise Blueprint">
+          <div style="position: relative; height: 260px; overflow: hidden; border-radius: 24px 24px 0 0; background: #000;">
+            <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Grillista Franchise Blueprint" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border: none; width: 100%; height: 100%;"></iframe>
+            <span style="position: absolute; top: 16px; right: 16px; background: #FF0000; color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(255,0,0,0.4); pointer-events: none;">
+              <i class="fa-brands fa-youtube"></i> YOUTUBE
+            </span>
+          </div>
+          <div style="padding: 24px; background: #FFFFFF; border-top: 1px solid #F1F5F9;">
+            <div style="font-size: 0.75rem; color: #DC2626; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-chart-line"></i> Investor Guide • ROI & Models
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 900; color: #0F172A; margin: 0 0 8px 0;">Turnkey Store Launch Blueprint</h3>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0;">Comprehensive investor guide covering the 3 FOFO models (₹8L-18L), 35% net margin, and 4-phase turnkey roadmap.</p>
+            <div style="margin-top: 14px; display: flex; align-items: center; justify-content: space-between;">
+              <a href="https://www.youtube.com" target="_blank" style="color: #DC2626; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <span style="color: #64748B; font-size: 0.75rem; font-weight: 700;"><i class="fa-solid fa-eye"></i> 18K+ Views</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram Card 1: Customer Reactions & Foodie Tasting Reel -->
+        <div class="gallery-card gallery-reel-card" data-category="instagram" data-title="Kanpur Foodies Savoring Paneer Tikka Burger" data-img="images/grillista-interior-hero.jpg">
+          <div style="position: relative; height: 260px; overflow: hidden; border-radius: 24px 24px 0 0; background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);">
+            <img src="images/grillista-interior-hero.jpg" alt="Instagram Foodie Reel" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.88;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #E1306C; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
+              </div>
+            </div>
+            <span style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(225,48,108,0.4); pointer-events: none;">
+              <i class="fa-brands fa-instagram"></i> REELS
+            </span>
+          </div>
+          <div style="padding: 24px; background: #FFFFFF; border-top: 1px solid #F1F5F9;">
+            <div style="font-size: 0.75rem; color: #E1306C; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <i class="fa-brands fa-instagram"></i> Trending Viral Reel • 100K+ Plays
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 900; color: #0F172A; margin: 0 0 8px 0;">Kanpur Foodies Tasting Reel</h3>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0;">Customer reactions tasting our flame-grilled charcoal paneer tikka burger and peri-peri shakes in Kakadeo Hub.</p>
+            <div style="margin-top: 14px; display: flex; align-items: center; justify-content: space-between;">
+              <a href="https://www.instagram.com" target="_blank" style="color: #E1306C; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                Watch on Instagram <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <span style="color: #64748B; font-size: 0.75rem; font-weight: 700;"><i class="fa-solid fa-heart" style="color: #E1306C;"></i> 4.8K Likes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram Card 2: Sizzling Charcoal Burger Prep Reel -->
+        <div class="gallery-card gallery-reel-card" data-category="instagram" data-title="Sizzling Charcoal Burger & Sauce Drizzle Reel" data-img="assets/images/burger.jpg">
+          <div style="position: relative; height: 260px; overflow: hidden; border-radius: 24px 24px 0 0; background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);">
+            <img src="assets/images/burger.jpg" alt="Instagram Burger Reel" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #E1306C; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
+              </div>
+            </div>
+            <span style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(225,48,108,0.4); pointer-events: none;">
+              <i class="fa-brands fa-instagram"></i> REELS
+            </span>
+          </div>
+          <div style="padding: 24px; background: #FFFFFF; border-top: 1px solid #F1F5F9;">
+            <div style="font-size: 0.75rem; color: #E1306C; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <i class="fa-brands fa-instagram"></i> Kitchen Reel • Pure Veg
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 900; color: #0F172A; margin: 0 0 8px 0;">Sizzling Charcoal Burger Prep</h3>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0;">Freshly grilled paneer tikka patty sizzled over volcanic charcoal rock grates with spicy house marinade drizzle.</p>
+            <div style="margin-top: 14px; display: flex; align-items: center; justify-content: space-between;">
+              <a href="https://www.instagram.com" target="_blank" style="color: #E1306C; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                Watch on Instagram <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <span style="color: #64748B; font-size: 0.75rem; font-weight: 700;"><i class="fa-solid fa-heart" style="color: #E1306C;"></i> 8.2K Likes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram Card 3: Barra 2 Grand Opening Celebrations -->
+        <div class="gallery-card gallery-reel-card" data-category="instagram" data-title="Barra 2 Flagship Grand Opening & Youth Vibe" data-img="assets/images/store_bg.jpg">
+          <div style="position: relative; height: 260px; overflow: hidden; border-radius: 24px 24px 0 0; background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);">
+            <img src="assets/images/store_bg.jpg" alt="Instagram Opening Reel" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.88;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #E1306C; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
+              </div>
+            </div>
+            <span style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(225,48,108,0.4); pointer-events: none;">
+              <i class="fa-brands fa-instagram"></i> REELS
+            </span>
+          </div>
+          <div style="padding: 24px; background: #FFFFFF; border-top: 1px solid #F1F5F9;">
+            <div style="font-size: 0.75rem; color: #E1306C; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <i class="fa-brands fa-instagram"></i> Grand Opening • Kanpur
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 900; color: #0F172A; margin: 0 0 8px 0;">Barra 2 Grand Opening Reel</h3>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0;">Celebrations, glowing neon signs, and packed seating at our Barra Bypass flagship launch event.</p>
+            <div style="margin-top: 14px; display: flex; align-items: center; justify-content: space-between;">
+              <a href="https://www.instagram.com" target="_blank" style="color: #E1306C; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                Watch on Instagram <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <span style="color: #64748B; font-size: 0.75rem; font-weight: 700;"><i class="fa-solid fa-heart" style="color: #E1306C;"></i> 6.4K Likes</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Card 1: Barra 2 Yellow Booth Lounge -->
         <div class="gallery-card" data-category="interiors" data-title="Yellow Booth Dine-In Lounge (Barra 2)" data-img="assets/images/store_bg.jpg">
           <div style="position: relative; height: 260px; overflow: hidden; border-radius: 24px 24px 0 0;">
@@ -613,11 +770,12 @@
       const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
 
       galleryCards.forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+          if (card.classList.contains('gallery-video-card') || e.target.closest('iframe') || e.target.closest('a')) return;
           const imgSrc = card.getAttribute('data-img');
           const title = card.getAttribute('data-title');
 
-          if (lightboxModal && lightboxImg && lightboxTitle) {
+          if (imgSrc && lightboxModal && lightboxImg && lightboxTitle) {
             lightboxImg.src = imgSrc;
             lightboxTitle.innerText = title;
             lightboxModal.classList.add('active');
