@@ -1022,7 +1022,7 @@
   <div class="chatbot-window" id="chatbot-window">
     <div class="chatbot-header">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <div style="width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: #FACC15;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: #FACC15;">
           <i class="fa-solid fa-robot"></i>
         </div>
         <div>
@@ -1030,7 +1030,22 @@
           <span style="font-size: 0.7rem; color: #86EFAC; font-weight: 700;">● Online | 24/7 Support</span>
         </div>
       </div>
-      <button id="chatbot-close-btn" style="background: none; border: none; color: #FFF; font-size: 1.2rem; cursor: pointer;">&times;</button>
+      <div class="chatbot-header-actions">
+        <button class="chatbot-action-btn" onclick="resetChatSession()" title="Reset / New Chat" aria-label="Reset Conversation">
+          <i class="fa-solid fa-arrows-rotate"></i>
+        </button>
+        <button class="chatbot-close-btn" id="chatbot-close-btn" aria-label="Close Chat">&times;</button>
+      </div>
+    </div>
+
+    <!-- Quick Navigation Category Tabs -->
+    <div class="chatbot-tabs-bar">
+      <button class="chatbot-tab-btn" onclick="switchChatTab(this, '1. Investment & ROI')"><i class="fa-solid fa-coins"></i> Invest & ROI</button>
+      <button class="chatbot-tab-btn" onclick="switchChatTab(this, '2. Franchise Models')"><i class="fa-solid fa-store"></i> Models</button>
+      <button class="chatbot-tab-btn" onclick="switchChatTab(this, '3. Location Evaluation')"><i class="fa-solid fa-location-dot"></i> Location</button>
+      <button class="chatbot-tab-btn" onclick="switchChatTab(this, 'FORM')"><i class="fa-solid fa-file-signature"></i> Apply Form</button>
+      <button class="chatbot-tab-btn" onclick="switchChatTab(this, '5. Franchise Process')"><i class="fa-solid fa-list-check"></i> Process</button>
+      <button class="chatbot-tab-btn" onclick="switchChatTab(this, 'Official Contact Phone')"><i class="fa-solid fa-phone"></i> Contact</button>
     </div>
 
     <div class="chatbot-messages" id="chatbot-messages">

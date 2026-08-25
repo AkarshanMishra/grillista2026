@@ -516,6 +516,42 @@ document.addEventListener('DOMContentLoaded', () => {
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
   }
 
+  // Reset Chatbot Conversation Session
+  window.resetChatSession = function() {
+    if (!chatbotMessages) return;
+    chatbotMessages.innerHTML = `
+      <div class="chat-msg bot">
+        <strong>Hi! 👋 Welcome to Grillista Franchise.</strong><br><br>
+        I’m your Grillista Franchise Assistant. I can help you explore our franchise models, investment requirements, location suitability, business projections, setup support and the complete franchise journey.<br><br>
+        <strong>To get started, what are you most interested in?</strong>
+        <div class="chat-quick-btns" style="margin-top: 10px; display: flex; flex-direction: column; gap: 6px;">
+          <button class="chat-quick-btn chat-quick-btn-highlight" onclick="sendChatQuery('1. Investment & ROI')">1. 💰 Investment & ROI</button>
+          <button class="chat-quick-btn" onclick="sendChatQuery('2. Franchise Models')">2. 🏪 Franchise Models</button>
+          <button class="chat-quick-btn" onclick="sendChatQuery('3. Location Evaluation')">3. 📍 Location Evaluation</button>
+          <button class="chat-quick-btn" onclick="startChatInquiryForm()">4. 🤝 Become a Franchise Partner</button>
+          <button class="chat-quick-btn" onclick="sendChatQuery('5. Franchise Process')">5. 📋 Franchise Process</button>
+          <button class="chat-quick-btn" onclick="sendChatQuery('6. Ask a Question')">6. ❓ Ask a Question</button>
+        </div>
+        <div style="font-size: 0.76rem; color: #94A3B8; margin-top: 8px; font-style: italic;">
+          You can also simply tell me what you’re looking for, and I’ll guide you.
+        </div>
+      </div>
+    `;
+    document.querySelectorAll('.chatbot-tab-btn').forEach(btn => btn.classList.remove('active'));
+    chatbotMessages.scrollTop = 0;
+  };
+
+  // Switch Quick Category Tabs
+  window.switchChatTab = function(btnEl, queryText) {
+    document.querySelectorAll('.chatbot-tab-btn').forEach(btn => btn.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    if (queryText === 'FORM') {
+      startChatInquiryForm();
+    } else {
+      sendChatQuery(queryText);
+    }
+  };
+
   // Open Interactive Inline Quick Inquiry Form inside Chatbot
   window.startChatInquiryForm = function() {
     const formHtml = `
