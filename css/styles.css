@@ -1582,30 +1582,31 @@ button {
 }
 
 /* ==========================================
-   Luxury Cinematic Hero Slide (User Reference Style)
+   Luxury Cinematic Hero Slide (Vibrant Yellow & Jet Black)
    ========================================== */
 .hero-luxury-cinematic-slide {
   position: relative;
   width: 100%;
-  background: radial-gradient(circle at 50% 40%, rgba(15, 23, 42, 0.72) 0%, rgba(8, 12, 20, 0.95) 85%), rgba(10, 15, 29, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1.5px solid rgba(229, 194, 135, 0.3);
+  background: radial-gradient(circle at 50% 40%, rgba(20, 24, 33, 0.94) 0%, rgba(5, 7, 12, 0.98) 85%), #05070C;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(250, 204, 21, 0.45);
   border-radius: 36px;
   padding: 58px 36px 52px 36px;
   text-align: center;
-  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.7), 0 0 50px rgba(229, 194, 135, 0.08);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.9), 0 0 60px rgba(250, 204, 21, 0.18);
   overflow: hidden;
 }
 
 .hero-luxury-eyebrow {
   font-family: var(--font-heading);
   font-size: 0.88rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 6px;
-  color: #E5C287;
+  color: #FACC15;
   text-transform: uppercase;
   margin-bottom: 8px;
   display: inline-block;
+  text-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
 }
 
 .hero-luxury-divider {
@@ -1619,16 +1620,16 @@ button {
 
 .hero-luxury-divider span {
   flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #E5C287);
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #FACC15);
 }
 
 .hero-luxury-divider span.right {
-  background: linear-gradient(90deg, #E5C287, transparent);
+  background: linear-gradient(90deg, #FACC15, transparent);
 }
 
 .hero-luxury-divider i {
-  color: #E5C287;
+  color: #FACC15;
   font-size: 0.55rem;
 }
 
@@ -1641,27 +1642,28 @@ button {
   line-height: 1.05;
   margin: 0 0 16px 0;
   white-space: nowrap;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 40px rgba(255,255,255,0.15);
+  text-shadow: 0 10px 30px rgba(0,0,0,0.9), 0 0 35px rgba(250, 204, 21, 0.25);
   max-width: 100%;
 }
 
 .hero-luxury-subheading {
   font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
   font-size: clamp(1.2rem, 3.2vw, 2.3rem);
-  font-weight: 700;
-  color: #E5C287;
+  font-weight: 800;
+  color: #FACC15;
   letter-spacing: -0.02em;
   margin: 0 0 18px 0;
   line-height: 1.25;
+  text-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
 }
 
 .hero-luxury-desc {
   font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.85);
+  color: #E2E8F0;
   max-width: 780px;
   margin: 0 auto 34px auto;
   line-height: 1.65;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .hero-luxury-ctas {
@@ -1676,58 +1678,58 @@ button {
 .btn-luxury-outline {
   padding: 16px 36px;
   font-size: 0.88rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #E5C287;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(8px);
-  border: 1.5px solid #E5C287;
-  border-radius: 6px;
+  color: #FACC15;
+  background: #05070C;
+  border: 2px solid #FACC15;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
 .btn-luxury-outline:hover {
-  background: rgba(229, 194, 135, 0.15);
-  color: #FFFFFF;
-  border-color: #FFFFFF;
+  background: #FACC15;
+  color: #000000;
+  border-color: #FACC15;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(229, 194, 135, 0.25);
+  box-shadow: 0 12px 35px rgba(250, 204, 21, 0.4);
 }
 
 .btn-luxury-solid {
   padding: 16px 36px;
   font-size: 0.88rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #17120A;
-  background: #E5C287;
-  border: 1.5px solid #E5C287;
-  border-radius: 6px;
+  color: #000000;
+  background: #FACC15;
+  border: 2px solid #FACC15;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 25px rgba(229, 194, 135, 0.35);
+  box-shadow: 0 10px 30px rgba(250, 204, 21, 0.4);
 }
 
 .btn-luxury-solid:hover {
-  background: #F3D9A8;
-  border-color: #F3D9A8;
+  background: #FEF08A;
+  border-color: #FEF08A;
   color: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(229, 194, 135, 0.5);
+  box-shadow: 0 14px 40px rgba(250, 204, 21, 0.6);
 }
 
-/* Circular Gold Heritage Seal Badge (User Reference Match) */
+/* Circular Gold Heritage Seal Badge (Vibrant Yellow & Jet Black) */
 .hero-heritage-seal {
   position: absolute;
   top: 24px;
@@ -1735,12 +1737,12 @@ button {
   width: 110px;
   height: 110px;
   z-index: 5;
-  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(229, 194, 135, 0.2));
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(250, 204, 21, 0.35));
   transition: transform 0.3s ease;
 }
 
 .hero-heritage-seal:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .hero-heritage-seal svg {
