@@ -485,11 +485,23 @@
 
       </div>
 
+      <!-- Interactive Hero Slider Controller (User Reference Match: Circular Glass Arrows & Expanding Pill) -->
+      <div class="hero-bottom-slider-nav">
+        <button class="hero-slider-arrow-btn" onclick="moveHeroSlide(-1)" aria-label="Previous Slide" title="Previous Slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        
+        <div class="hero-slider-pagination-dots">
+          <span class="hero-dot active" onclick="jumpToHeroSlide(0)" title="Slide 1: Grillista Brand"></span>
+          <span class="hero-dot" onclick="jumpToHeroSlide(1)" title="Slide 2: Gourmet Menu"></span>
+          <span class="hero-dot" onclick="jumpToHeroSlide(2)" title="Slide 3: FOFO Franchise Models"></span>
+          <span class="hero-dot" onclick="jumpToHeroSlide(3)" title="Slide 4: Pan India Expansion"></span>
+        </div>
 
-
-
-
-      <!-- Trust Badges Strip Below Hero Grid -->
+        <button class="hero-slider-arrow-btn" onclick="moveHeroSlide(1)" aria-label="Next Slide" title="Next Slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
       <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 36px;">
         <div style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1.5px solid rgba(255, 255, 255, 0.15); color: #FFF; padding: 8px 18px; border-radius: 99px; font-size: 0.82rem; font-weight: 800; display: flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.2);">
           <i class="fa-solid fa-leaf" style="color: #22C55E;"></i> 100% Pure Veg Kitchens

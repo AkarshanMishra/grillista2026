@@ -148,6 +148,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    const dots = document.querySelectorAll('.hero-dot');
+    if (dots && dots.length > 0) {
+      dots.forEach((dot, i) => {
+        if (i === currentHeroSlideIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
     if (pills && pills.length > 0) {
       pills.forEach((pill, i) => {
         if (i === currentHeroSlideIndex) {

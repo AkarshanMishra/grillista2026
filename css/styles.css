@@ -1831,6 +1831,72 @@ button {
   }
 }
 
+/* Bottom Hero Slider Navigation Controller (User Reference Match) */
+.hero-bottom-slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+  position: relative;
+  z-index: 15;
+}
+
+.hero-slider-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(18, 24, 38, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.hero-slider-arrow-btn:hover {
+  background: #FACC15;
+  color: #000000;
+  border-color: #FACC15;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(250, 204, 21, 0.45);
+}
+
+.hero-slider-pagination-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+}
+
+.hero-dot:hover {
+  background: rgba(250, 204, 21, 0.85);
+}
+
+.hero-dot.active {
+  width: 26px;
+  height: 9px;
+  border-radius: 99px;
+  background: #FFFFFF;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.85);
+}
+
 @keyframes estdGlowPulse {
   0%, 100% {
     box-shadow: 0 8px 25px rgba(250, 204, 21, 0.25);
