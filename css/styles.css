@@ -1732,23 +1732,21 @@ button {
   box-shadow: 0 14px 40px rgba(250, 204, 21, 0.6);
 }
 
-/* Circular Gold Heritage Seal Badge (Vibrant Yellow & Jet Black) */
-.hero-heritage-seal {
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  width: 110px;
-  height: 110px;
-  z-index: 5;
-  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(250, 204, 21, 0.35));
+/* Circular Gold Heritage Seal Badge (Centered Emblem - Zero Text Overlap Guaranteed) */
+.hero-heritage-seal-center {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 16px auto;
+  display: block;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 22px rgba(250, 204, 21, 0.4));
   transition: transform 0.3s ease;
 }
 
-.hero-heritage-seal:hover {
+.hero-heritage-seal-center:hover {
   transform: scale(1.06);
 }
 
-.hero-heritage-seal svg {
+.hero-heritage-seal-center svg {
   width: 100%;
   height: 100%;
   display: block;
@@ -1769,8 +1767,16 @@ button {
   }
 }
 
-.hero-heritage-seal:hover .rotating-curved-text-ring {
+.hero-heritage-seal-center:hover .rotating-curved-text-ring {
   animation-duration: 12s;
+}
+
+@media (max-width: 991px) {
+  .hero-heritage-seal-center {
+    width: 92px;
+    height: 92px;
+    margin: 0 auto 14px auto;
+  }
 }
 
 .hero-estd-tag-left {
