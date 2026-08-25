@@ -1727,27 +1727,26 @@ button {
   box-shadow: 0 12px 35px rgba(229, 194, 135, 0.5);
 }
 
-/* Top Corner Estd 2021 Tag */
-.hero-estd-tag {
+/* Circular Gold Heritage Seal Badge (User Reference Match) */
+.hero-heritage-seal {
   position: absolute;
   top: 24px;
   right: 28px;
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(14px);
-  border: 1.5px solid #E5C287;
-  color: #E5C287;
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-  padding: 8px 18px;
-  border-radius: 99px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 8px 25px rgba(229, 194, 135, 0.25);
+  width: 110px;
+  height: 110px;
   z-index: 5;
-  animation: estdGlowPulse 3s infinite ease-in-out;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(229, 194, 135, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.hero-heritage-seal:hover {
+  transform: scale(1.05);
+}
+
+.hero-heritage-seal svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .hero-estd-tag-left {
@@ -1768,6 +1767,21 @@ button {
   align-items: center;
   gap: 8px;
   z-index: 5;
+}
+
+@media (max-width: 991px) {
+  .hero-heritage-seal {
+    top: 14px;
+    right: 14px;
+    width: 85px;
+    height: 85px;
+  }
+  .hero-estd-tag-left {
+    top: 14px;
+    left: 14px;
+    font-size: 0.72rem;
+    padding: 5px 12px;
+  }
 }
 
 @keyframes estdGlowPulse {
