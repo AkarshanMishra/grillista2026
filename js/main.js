@@ -626,21 +626,53 @@ document.addEventListener('DOMContentLoaded', () => {
       if (el) el.remove();
     };
 
-    const systemPrompt = "You are 'Grillista AI Assistant', the 24/7 franchise & menu advisor for Grillista (100% Pure Veg charcoal QSR brand established in 2021 in Kanpur, backed by RK Group of Industries).\n" +
-      "Details:\n" +
-      "- Outlets: 2 live flagships in Kanpur (Barra 2 Main Bypass & Kakadeo Coaching Hub). HQ: Juhi Kala, VR Tower, Kanpur.\n" +
-      "- FOFO Franchise Models: Express Kiosk (₹8-10 Lakh, 250-400 sq ft), Smart Bistro (₹12-14 Lakh, 600+ sq ft), Signature Lounge (₹16-18 Lakh, 700-1200+ sq ft).\n" +
-      "- Financials: 5% monthly royalty, up to 35% Net Profit Margin, 65%+ gross margin, 12-18 months payback.\n" +
-      "- 4-Phase Turnkey Setup: Location Audit & Territory Lock (3-5 KM radius), 3D Build & Heavy machinery setup, Chef & staff training, Grand opening marketing blast.\n" +
-      "- 100% Pure Veg Menu: Charcoal paneer tikka burgers, tandoori soya wraps, artisan pizzas, charred fries, positive energy shakes.\n" +
-      "- Contact: Call/WhatsApp +91 63868 18682, Email: grillistakanpur@gmail.com.\n" +
-      "Format responses concisely with brief HTML tags (<strong>, <br>, • bullets). Keep answers friendly, crisp, and under 3-4 sentences. Always invite them to fill the inquiry form or call headquarters.";
+    const systemPrompt = `You are 'Grillista AI Assistant', the official 24/7 Franchise Intelligence Advisor for Grillista — India's fast-growing 100% Pure Vegetarian QSR brand established in 2021, backed by RK Group of Industries.
+
+OFFICIAL KNOWLEDGE BASE v1.0:
+1. BRAND PROFILE:
+- Founded: 2021 in Kanpur.
+- 1st Company Outlet: Kakadeo, Kanpur (2021).
+- 2nd Company Outlet: Barra, Kanpur (2024).
+- Customers Served: 10,000+ across company-owned flagships.
+- Parent Backbone: RK Group of Industries (Managing Director: Mr. Rajesh Upadhyay, Director: Mrs. Shiva Upadhyay).
+- Mission: Distinctive dining destination, contemporary comfort cuisine, memorable moments, 100% Pure Veg zero contamination.
+
+2. FRANCHISE MODELS & INVESTMENTS:
+• Model 1 - Grillista Express (Compact): ~200 sq ft | Total: ₹10–12 Lakh
+  - Breakdown: Equipment ₹5L, Interior ₹3L, Franchise Fee ₹3L, Stationery ₹50,000.
+  - Projections: ~50 customers/day @ ₹170 avg bill = ₹8,500 daily sales (₹2,55,000/mo). Food Cost (30%) ₹76,500, Rent ₹50,000, Staff ₹40,000, Royalty (5% after 6 mos free) ₹12,750, Projected Net Profit: ₹45,750/mo.
+• Model 2 - Grillista Bistro (Mid-Size): ~600 sq ft | Total: ₹16–18 Lakh
+  - Breakdown: Equipment ₹7L, Interior ₹9L, Franchise Fee ₹5L, Stationery ₹50,000.
+  - Projections: ~80 customers/day @ ₹170 avg bill = ₹13,600 daily sales (₹4,08,000/mo). Food Cost (30%) ₹1,22,400, Rent ₹50,000, Staff ₹40,000, Royalty (5% after 6 mos free) ₹20,400, Projected Net Profit: ₹1,45,200/mo.
+• Model 3 - Grillista Signature (Full Dining): ~1,000 sq ft | Total: ₹38–40 Lakh
+  - Breakdown: Equipment ₹10L, Interior ₹15L, Franchise Fee ₹6L, Stationery ₹50,000.
+  - Projections: ~120 customers/day @ ₹170 avg bill = ₹20,400 daily sales (₹6,12,000/mo). Food Cost (30%) ₹1,83,600, Rent ₹50,000, Staff ₹40,000, Royalty (5% after 6 mos free) ₹30,600.
+
+3. ROYALTY & FINANCIAL TERMS:
+- Royalty is FREE for the first 6 months, then 5% of monthly sales.
+- NO Profit/Sales/Customer Guarantees: All financial figures are illustrative business projections based on operational assumptions.
+
+4. SITE & LOCATION EVALUATION:
+- Parameters: Minimum frontage, dedicated parking, expected footfall density, catchment population demographics, rent-to-sales threshold, competition analysis.
+- Every proposed site is subject to formal evaluation and Grillista company approval.
+
+5. SUPPORT ECOSYSTEM:
+- Pre-Opening: Site evaluation, store layout & 3D design, kitchen planning, equipment procurement, staff hiring, comprehensive recipe/SOP training, grand launch marketing.
+- Post-Opening: Regular performance reviews, ongoing operational guidance, periodic quality audits, centralized marketing campaigns, continuous menu refinement.
+
+6. CONTACT INFO:
+- Call / WhatsApp: +91 63868 18682 | Email: grillistakanpur@gmail.com
+- Head Office: 621/18, Block-W, Juhi Kala, VR Tower, Kanpur, UP.
+
+INSTRUCTIONS:
+- Answer accurately in English, Hindi (हिन्दी), or Hinglish based on user language.
+- Format with crisp HTML (<strong>, <br>, • bullets). Keep answers structured, professional, and invite the user to fill the franchise inquiry form or connect on WhatsApp.`;
 
     let finalReply = "";
 
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 4000);
+      const timeoutId = setTimeout(() => controller.abort(), 4500);
 
       const apiUrl = `https://text.pollinations.ai/${encodeURIComponent(systemPrompt + "\n\nUser Question: " + query)}?model=openai`;
       const response = await fetch(apiUrl, {
@@ -651,19 +683,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (response.ok) {
         const aiText = await response.text();
-        if (aiText && aiText.trim().length > 10) {
-          // Format markdown-like bold/bullets to html if needed
+        if (aiText && aiText.trim().length > 15) {
+          // Format markdown-like bold/bullets to html
           let formattedText = aiText
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
             .replace(/\n\n/g, '<br><br>')
             .replace(/\n•/g, '<br>•')
             .replace(/\n-/g, '<br>•');
           
-          finalReply = formattedText + "<br><br><button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Fill Franchise Inquiry Form</button>";
+          finalReply = formattedText + "<br><br><button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Apply / Fill Franchise Inquiry</button>";
         }
       }
     } catch (err) {
-      console.log('AI API offline or timed out, switching to local knowledge engine:', err.message);
+      console.log('AI API offline or timed out, switching to smart local knowledge engine:', err.message);
     }
 
     if (!finalReply) {
@@ -675,61 +707,132 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getStructuredKnowledgeResponse(q) {
-    if (q.includes('cost') || q.includes('model') || q.includes('royalty') || q.includes('investment') || q.includes('fee') || q.includes('price')) {
-      return "💰 <strong>Grillista FOFO Franchise Models:</strong><br><br>" +
-              "• <strong>1. Express Kiosk (250–400 sq ft):</strong> ₹8 – ₹10 Lakh <em>(High delivery & takeaway volume)</em><br>" +
-              "• <strong>2. Smart Bistro (600+ sq ft):</strong> ₹12 – ₹14 Lakh <em>(Dine-in youth cafe hub)</em><br>" +
-              "• <strong>3. Signature Lounge (700–1200+ sq ft):</strong> ₹16 – ₹18 Lakh <em>(Full experiential family dining)</em><br><br>" +
-              "⚡ <strong>Financial Highlights:</strong><br>" +
-              "• <strong>Royalty:</strong> Flat 5% Monthly Royalty (Zero hidden ad fees)<br>" +
-              "• <strong>Profit Margins:</strong> Up to <strong>35% Net Profit Margin</strong> (65%+ Gross Margin)<br>" +
-              "• <strong>Expected Payback:</strong> 12 – 18 Months!<br><br>" +
-              "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Fill Franchise Inquiry</button>";
-    } else if (q.includes('kanpur') || q.includes('outlet') || q.includes('location') || q.includes('address') || q.includes('where') || q.includes('store')) {
-      return "📍 <strong>Live Flagship Operational Outlets:</strong><br><br>" +
-              "1. <strong>Barra Outlet:</strong> Main Bypass Road, Barra 2, Kanpur <em>(Dine-In & Drive-Thru)</em><br>" +
-              "2. <strong>Kakadeo Outlet:</strong> Coaching Hub Market, Kakadeo, Kanpur <em>(Youth Express Hub)</em><br><br>" +
-              "🏢 <strong>Corporate Headquarters:</strong><br>" +
-              "621/18, Block-W, Juhi Kala, VR Tower, Kanpur, UP.<br>" +
-              "🚀 <em>Now expanding across prime cities in UP & Pan-India with exclusive 3–5 KM radius protection!</em><br><br>" +
-              "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📍 Check Territory Availability</button>";
-    } else if (q.includes('turnkey') || q.includes('roadmap') || q.includes('setup') || q.includes('process') || q.includes('launch') || q.includes('phase') || q.includes('day') || q.includes('step')) {
-      return "🛠️ <strong>4-Phase Done-For-You Turnkey Store Setup:</strong><br><br>" +
-              "• <strong>Phase 1: Location Audit & Agreement</strong> (Footfall density audit & territory lock)<br>" +
-              "• <strong>Phase 2: 3D Build & Machine Setup</strong> (Store interior architecture, heavy-duty fryers, griddles & POS)<br>" +
-              "• <strong>Phase 3: Staff Training & Raw Stock</strong> (Master chef training, inventory & recipe standardization)<br>" +
-              "• <strong>Phase 4: Grand Opening Marketing Blast</strong> (Local PR, influencer marketing & launch day crowds)<br><br>" +
-              "🛡️ <em>Backed 100% end-to-end by RK Group of Industries!</em>";
-    } else if (q.includes('menu') || q.includes('food') || q.includes('veg') || q.includes('burger') || q.includes('pizza') || q.includes('item') || q.includes('taste')) {
-      return "🍔 <strong>100% Pure Veg Gourmet Craving Menu:</strong><br><br>" +
-              "• <strong>Charcoal Burgers:</strong> Gourmet Paneer Tikka, Makhani Burst, Crispy Crunch Burgers<br>" +
-              "• <strong>Artisan Pizzas & Wraps:</strong> Wood-fired style crusts, Tandoori Soya Wraps<br>" +
-              "• <strong>Charred Bites & Fries:</strong> Peri-Peri loaded fries, cheese corn nuggets<br>" +
-              "• <strong>Beverages:</strong> Thick cold coffees, mocktails & positive energy shakes<br><br>" +
-              "🌿 <em>Zero cross-contamination risk • 65%+ Gross Margins on food!</em>";
-    } else if (q.includes('prospectus') || q.includes('pdf') || q.includes('brochure') || q.includes('download') || q.includes('report') || q.includes('document')) {
-      return "📜 <strong>Official Franchise Prospectus:</strong><br><br>" +
-              "Fill our quick 30-second inquiry form to download your customized Prospectus PDF instantly, or chat on WhatsApp at <strong>+91 63868 18682</strong>!<br><br>" +
-              "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Get Prospectus via Form</button>";
-    } else if (q.includes('call') || q.includes('contact') || q.includes('number') || q.includes('phone') || q.includes('whatsapp') || q.includes('email') || q.includes('talk') || q.includes('owner') || q.includes('team')) {
-      return "📞 <strong>Official Grillista Franchise Desk:</strong><br><br>" +
-              "• <strong>Direct Call / WhatsApp:</strong> <a href='tel:+916386818682' style='color:#FACC15; font-weight:800; text-decoration:underline;'>+91 63868 18682</a><br>" +
-              "• <strong>Official Email:</strong> grillistakanpur@gmail.com<br>" +
-              "• <strong>Brand Established:</strong> 2021 in Kanpur (RK Group Backed)<br><br>" +
-              "💬 <em>Our Franchise Onboarding Team is available Mon–Sat (10 AM – 8 PM) for discovery calls and site inspections.</em>";
-    } else if (q.includes('order') || q.includes('swiggy') || q.includes('zomato') || q.includes('delivery') || q.includes('eat')) {
-      return "🛵 <strong>Order Grillista Food Online:</strong><br><br>" +
-              "• <strong>Direct Web Order:</strong> Tap 'Order Online' on our top navbar for 0% commission direct pricing!<br>" +
-              "• <strong>Swiggy / Zomato:</strong> Search 'Grillista' in Kanpur (Barra & Kakadeo) for express 25-minute home delivery!";
-    } else if (q.includes('who') || q.includes('about') || q.includes('founder') || q.includes('history') || q.includes('rk group') || q.includes('brand')) {
-      return "👑 <strong>About Grillista:</strong><br><br>" +
-              "Established in <strong>2021</strong> in Kanpur, Grillista is India's fast-growing 100% Pure Veg charcoal dining brand backed by <strong>RK Group of Industries</strong>. With 10,000+ satisfied customers and 2 thriving operational flagship outlets in Kanpur, we empower ambitious business partners with a high-margin, automated FOFO model.";
-    } else {
-      return "Namaste! 🙏 Thank you for asking. Our Franchise Onboarding Team is ready to guide you on ROI, available city territories, and store setup.<br><br>" +
-              "👉 <strong>Call or WhatsApp us directly at:</strong> <a href='tel:+916386818682' style='color:#FACC15; font-weight:800; text-decoration:underline;'>+91 63868 18682</a><br>" +
-              "📧 <strong>Email:</strong> grillistakanpur@gmail.com<br><br>" +
-              "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Fill Franchise Inquiry</button>";
+    // 1. Model comparison & Investment queries
+    if (q.includes('model') || q.includes('cost') || q.includes('investment') || q.includes('fee') || q.includes('price') || q.includes('kharcha') || q.includes('paisa') || q.includes('kitna') || q.includes('budget') || q.includes('breakdown')) {
+      if (q.includes('express') || q.includes('10') || q.includes('12') || q.includes('200') || q.includes('chota') || q.includes('kiosk')) {
+        return "🏪 <strong>Grillista Express (Compact Format):</strong><br><br>" +
+               "• <strong>Required Area:</strong> ~200 sq ft<br>" +
+               "• <strong>Investment Bracket:</strong> ₹10 – ₹12 Lakh<br>" +
+               "• <strong>Breakdown:</strong> Equipment ₹5L • Interior ₹3L • Franchise Fee ₹3L • Stationery ₹50k<br>" +
+               "• <strong>Model Projections:</strong> ~50 customers/day (@ ₹170 avg bill) = ₹2.55L monthly sales • <strong>Projected Net Profit:</strong> ₹45,750/mo<br>" +
+               "• <strong>Royalty:</strong> 0% for first 6 months, then 5%<br><br>" +
+               "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Apply for Express Model</button>";
+      } else if (q.includes('bistro') || q.includes('16') || q.includes('18') || q.includes('600')) {
+        return "☕ <strong>Grillista Bistro (Mid-Size Format):</strong><br><br>" +
+               "• <strong>Required Area:</strong> ~600 sq ft<br>" +
+               "• <strong>Investment Bracket:</strong> ₹16 – ₹18 Lakh<br>" +
+               "• <strong>Breakdown:</strong> Equipment ₹7L • Interior ₹9L • Franchise Fee ₹5L • Stationery ₹50k<br>" +
+               "• <strong>Model Projections:</strong> ~80 customers/day (@ ₹170 avg bill) = ₹4.08L monthly sales • <strong>Projected Net Profit:</strong> ₹1,45,200/mo<br>" +
+               "• <strong>Royalty:</strong> 0% for first 6 months, then 5%<br><br>" +
+               "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Apply for Bistro Model</button>";
+      } else if (q.includes('signature') || q.includes('38') || q.includes('40') || q.includes('1000') || q.includes('lounge') || q.includes('bada')) {
+        return "👑 <strong>Grillista Signature (Large Dining Format):</strong><br><br>" +
+               "• <strong>Required Area:</strong> ~1,000 sq ft<br>" +
+               "• <strong>Investment Bracket:</strong> ₹38 – ₹40 Lakh<br>" +
+               "• <strong>Breakdown:</strong> Equipment ₹10L • Interior ₹15L • Franchise Fee ₹6L • Stationery ₹50k<br>" +
+               "• <strong>Model Projections:</strong> ~120 customers/day (@ ₹170 avg bill) = ₹6.12L monthly sales<br>" +
+               "• <strong>Royalty:</strong> 0% for first 6 months, then 5%<br><br>" +
+               "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Apply for Signature Model</button>";
+      } else {
+        return "💰 <strong>Grillista 3 Official Franchise Formats:</strong><br><br>" +
+               "• <strong>1. Grillista Express:</strong> ~200 sq ft | <strong>₹10–12 Lakh</strong> <em>(Compact takeaway & delivery hub)</em><br>" +
+               "• <strong>2. Grillista Bistro:</strong> ~600 sq ft | <strong>₹16–18 Lakh</strong> <em>(Mid-sized youth dining cafe)</em><br>" +
+               "• <strong>3. Grillista Signature:</strong> ~1,000 sq ft | <strong>₹38–40 Lakh</strong> <em>(Flagship experiential dining lounge)</em><br><br>" +
+               "⚡ <strong>Royalty Benefit:</strong> <strong>FREE Royalty for First 6 Months</strong>, then flat 5%.<br>" +
+               "📊 <em>All investment figures are approved reference brackets. Project costs depend on site requirements.</em><br><br>" +
+               "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Fill Franchise Inquiry</button>";
+      }
     }
+
+    // 2. Royalty terms
+    if (q.includes('royalty') || q.includes('commission') || q.includes('share') || q.includes('percentage')) {
+      return "👑 <strong>Official Grillista Royalty Policy:</strong><br><br>" +
+             "• <strong>First 6 Months:</strong> <strong>0% Royalty (FREE)</strong> to accelerate your store stabilization and launch cashflows.<br>" +
+             "• <strong>From 7th Month Onwards:</strong> Flat <strong>5% Monthly Royalty</strong> on gross sales.<br>" +
+             "• <strong>Hidden Fees:</strong> Zero hidden corporate surcharges.<br><br>" +
+             "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Speak to Franchise Advisor</button>";
+    }
+
+    // 3. Guarantee, Profit & ROI safety queries
+    if (q.includes('guarantee') || q.includes('pakka') || q.includes('loss') || q.includes('fail') || q.includes('refund') || q.includes('compensation') || q.includes('risk')) {
+      return "🛡️ <strong>Grillista Transparency & Risk Policy:</strong><br><br>" +
+             "• <strong>Illustrative Projections:</strong> Sales, customer counts, and profit margins (35% net) shown in models are business estimates based on operational assumptions, not fixed guarantees.<br>" +
+             "• <strong>Proven System:</strong> Grillista operates 2 thriving company-owned Kanpur outlets (Kakadeo & Barra) serving 10,000+ customers to de-risk the model before expanding.<br>" +
+             "• <strong>Full Operational Backing:</strong> End-to-end guidance from RK Group of Industries ensures 100% turnkey setup, staff SOP training, and marketing support.<br><br>" +
+             "📞 <em>For contractual & territory terms, connect directly with our legal & onboarding team at +91 63868 18682.</em>";
+    }
+
+    // 4. Space, Property & Location Evaluation
+    if (q.includes('space') || q.includes('sq ft') || q.includes('sqft') || q.includes('area') || q.includes('property') || q.includes('location') || q.includes('site') || q.includes('jagah') || q.includes('frontage') || q.includes('parking') || q.includes('rent')) {
+      return "📍 <strong>Property Requirements & Site Evaluation:</strong><br><br>" +
+             "• <strong>Express:</strong> ~200 sq ft | <strong>Bistro:</strong> ~600 sq ft | <strong>Signature:</strong> ~1,000 sq ft<br>" +
+             "• <strong>Evaluation Parameters:</strong> Road frontage, dedicated parking, footfall density, catchment demographics, rent-to-sales ratio, and competitor audit.<br>" +
+             "• <strong>Site Approval:</strong> Every proposed location goes through Grillista's professional site audit prior to agreement.<br><br>" +
+             "👉 <em>Already have a property? Share your city, area, and frontage for a free site feasibility check!</em><br><br>" +
+             "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📍 Submit Property for Evaluation</button>";
+    }
+
+    // 5. Pre-Opening & Post-Opening Support
+    if (q.includes('support') || q.includes('help') || q.includes('training') || q.includes('staff') || q.includes('opening') || q.includes('setup') || q.includes('turnkey') || q.includes('audit') || q.includes('marketing')) {
+      return "🛠️ <strong>360° End-to-End Franchise Support:</strong><br><br>" +
+             "<strong>1. Pre-Opening Support:</strong><br>" +
+             "• Site audit & territory protection • 3D architectural store layout & kitchen design • Commercial equipment procurement • Staff recruitment & master chef SOP training • Grand launch marketing campaigns.<br><br>" +
+             "<strong>2. Post-Opening Support:</strong><br>" +
+             "• Ongoing operational guidance • Periodic quality & hygiene audits • Centralized social media & Zomato/Swiggy campaigns • Continuous seasonal menu upgrades.<br><br>" +
+             "🛡️ <em>Backed 100% by RK Group of Industries!</em>";
+    }
+
+    // 6. Menu & 100% Pure Veg
+    if (q.includes('menu') || q.includes('food') || q.includes('veg') || q.includes('burger') || q.includes('pizza') || q.includes('item') || q.includes('taste') || q.includes('recipe') || q.includes('khana')) {
+      return "🍔 <strong>100% Pure Vegetarian Contemporary Menu:</strong><br><br>" +
+             "• <strong>Flame-Grilled Charcoal Burgers:</strong> Paneer Tikka, Makhani Burst, Crispy Crunch Burgers<br>" +
+             "• <strong>Artisan Pizzas & Wraps:</strong> Wood-fired style crusts, Tandoori Soya Wraps<br>" +
+             "• <strong>Sides & Fries:</strong> Peri-Peri Loaded Fries, Cheese Corn Nuggets<br>" +
+             "• <strong>Beverages:</strong> Thick Cold Coffees, Mocktails & Positive Energy Shakes<br><br>" +
+             "🌿 <strong>Zero Cross-Contamination:</strong> 100% pure veg standardized spice blends with <strong>65%+ Gross Margins</strong>.";
+    }
+
+    // 7. Leadership, Corporate Backing & History
+    if (q.includes('founder') || q.includes('owner') || q.includes('director') || q.includes('rajesh') || q.includes('shiva') || q.includes('rk group') || q.includes('history') || q.includes('who') || q.includes('about')) {
+      return "👑 <strong>Executive Leadership & Brand Heritage:</strong><br><br>" +
+             "• <strong>Founded:</strong> 2021 in Kanpur (1st outlet in Kakadeo, 2nd outlet in Barra in 2024).<br>" +
+             "• <strong>Corporate Parent:</strong> RK Group of Industries (<a href='http://www.shreerkgroup.com' target='_blank' style='color:#FACC15; font-weight:800;'>www.shreerkgroup.com</a>).<br>" +
+             "• <strong>Managing Director:</strong> <strong>Mr. Rajesh Upadhyay</strong> (Strategic expansion & institutional backing).<br>" +
+             "• <strong>Director:</strong> <strong>Mrs. Shiva Upadhyay</strong> (Brand governance & franchise partner excellence).<br>" +
+             "• <strong>Validation:</strong> 10,000+ happy customers served across company flagships before expanding through franchising.";
+    }
+
+    // 8. Live Outlets & Kanpur
+    if (q.includes('kanpur') || q.includes('outlet') || q.includes('store') || q.includes('where') || q.includes('address') || q.includes('city') || q.includes('kahan')) {
+      return "📍 <strong>Live Flagship Operational Outlets:</strong><br><br>" +
+             "1. <strong>Barra Flagship:</strong> Main Bypass Road, Barra 2, Kanpur <em>(Dine-In Lounge & Takeaway)</em><br>" +
+             "2. <strong>Kakadeo Flagship:</strong> Coaching Hub Market, Kakadeo, Kanpur <em>(Youth Express Hub)</em><br><br>" +
+             "🏢 <strong>Corporate Headquarters:</strong><br>" +
+             "621/18, Block-W, Juhi Kala, VR Tower, Kanpur, UP.<br>" +
+             "🚀 <em>Currently inviting franchise applications across UP, Delhi-NCR & Pan-India!</em><br><br>" +
+             "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📍 Check City Availability</button>";
+    }
+
+    // 9. Contact & Application
+    if (q.includes('contact') || q.includes('phone') || q.includes('number') || q.includes('call') || q.includes('whatsapp') || q.includes('email') || q.includes('apply') || q.includes('how to') || q.includes('kaise')) {
+      return "📞 <strong>Official Grillista Franchise Helpdesk:</strong><br><br>" +
+             "• <strong>Phone / WhatsApp:</strong> <a href='tel:+916386818682' style='color:#FACC15; font-weight:800; text-decoration:underline;'>+91 63868 18682</a><br>" +
+             "• <strong>Official Email:</strong> grillistakanpur@gmail.com<br>" +
+             "• <strong>Franchise Steps:</strong> 1) Discussion & Model selection ➡️ 2) Site evaluation ➡️ 3) Agreement & 3D Setup ➡️ 4) Grand Launch.<br><br>" +
+             "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Fill 30-Second Inquiry Form</button>";
+    }
+
+    // Default Fallback
+    return "Namaste! 🙏 I am your <strong>Grillista Franchise AI Advisor</strong>. I can assist you with:<br><br>" +
+           "• 💰 <strong>3 Franchise Models:</strong> Express (₹10–12L), Bistro (₹16–18L), Signature (₹38–40L)<br>" +
+           "• 👑 <strong>Royalty Terms:</strong> 0% for first 6 months, then 5%<br>" +
+           "• 📍 <strong>Site & Property Requirements:</strong> 200 to 1,000 sq ft<br>" +
+           "• 🛠️ <strong>Turnkey Setup:</strong> End-to-end design, equipment & training<br><br>" +
+           "👉 <em>How can I assist your business plans today?</em><br><br>" +
+           "<div style='display:flex; flex-direction:column; gap:6px;'>" +
+           "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Apply for Franchise</button>" +
+           "<a href='https://wa.me/916386818682?text=Hi%20Grillista,%20I%20want%20to%20know%20about%20franchise%20models' target='_blank' class='chat-quick-btn' style='text-align:center; text-decoration:none; background:#25D366; color:#FFF; font-weight:800;'><i class='fa-brands fa-whatsapp'></i> Chat on WhatsApp</a>" +
+           "</div>";
   }
 
   // Floating Side Action Dock (Auto-Hide on Scroll & Manual Toggle)
