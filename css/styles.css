@@ -1634,18 +1634,20 @@ button {
 
 .hero-luxury-brand-title {
   font-family: 'Cinzel', 'Playfair Display', serif;
-  font-size: clamp(3.2rem, 7.8vw, 5.8rem);
+  font-size: clamp(2.2rem, 6.2vw, 5.2rem);
   font-weight: 700;
-  letter-spacing: 6px;
+  letter-spacing: clamp(2px, 0.6vw, 6px);
   color: #FFFFFF;
   line-height: 1.05;
   margin: 0 0 16px 0;
+  white-space: nowrap;
   text-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 40px rgba(255,255,255,0.15);
+  max-width: 100%;
 }
 
 .hero-luxury-subheading {
   font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
-  font-size: clamp(1.4rem, 3.4vw, 2.5rem);
+  font-size: clamp(1.2rem, 3.2vw, 2.3rem);
   font-weight: 700;
   color: #E5C287;
   letter-spacing: -0.02em;
