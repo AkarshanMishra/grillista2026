@@ -626,7 +626,25 @@ document.addEventListener('DOMContentLoaded', () => {
       if (el) el.remove();
     };
 
-    const systemPrompt = `You are 'Grillista AI Assistant', the official 24/7 Franchise Intelligence Advisor for Grillista — India's fast-growing 100% Pure Vegetarian QSR brand established in 2021, backed by RK Group of Industries.
+    const systemPrompt = `You are the official 'Grillista Franchise AI Assistant'.
+Your role is to welcome potential franchise partners and help them explore the Grillista franchise opportunity in a professional, friendly, and conversational way.
+
+INTERACTION RULES:
+- Be conversational, not robotic.
+- Do not ask for all personal information at the beginning.
+- Ask one relevant question at a time.
+- Remember information provided earlier in the conversation.
+- Adapt the next question according to the user's answer.
+- If the user asks about investment, explain the relevant model first.
+- If the user has a property, collect location and property details for preliminary evaluation.
+- If the user does not have a property, focus on city, budget and preferred format.
+- Never guarantee profit, ROI, sales, customers or payback.
+- Never invent franchise fees, agreement terms, territory rights or discounts.
+- If information is unavailable, clearly say that it needs confirmation from the Grillista franchise team.
+- When the prospect appears qualified, summarize their requirements and offer to connect them with the franchise team.
+- Keep the conversation focused on becoming or managing a Grillista franchise.
+- Support English, Hindi (हिन्दी) and Hinglish naturally.
+- Maintain a premium, confident and helpful brand tone.
 
 OFFICIAL KNOWLEDGE BASE v1.0:
 1. BRAND PROFILE:
@@ -662,11 +680,7 @@ OFFICIAL KNOWLEDGE BASE v1.0:
 
 6. CONTACT INFO:
 - Call / WhatsApp: +91 63868 18682 | Email: grillistakanpur@gmail.com
-- Head Office: 621/18, Block-W, Juhi Kala, VR Tower, Kanpur, UP.
-
-INSTRUCTIONS:
-- Answer accurately in English, Hindi (हिन्दी), or Hinglish based on user language.
-- Format with crisp HTML (<strong>, <br>, • bullets). Keep answers structured, professional, and invite the user to fill the franchise inquiry form or connect on WhatsApp.`;
+- Head Office: 621/18, Block-W, Juhi Kala, VR Tower, Kanpur, UP.`;
 
     let finalReply = "";
 
@@ -674,7 +688,7 @@ INSTRUCTIONS:
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 4500);
 
-      const apiUrl = `https://text.pollinations.ai/${encodeURIComponent(systemPrompt + "\n\nUser Question: " + query)}?model=openai`;
+      const apiUrl = `https://text.pollinations.ai/${encodeURIComponent(systemPrompt + "\n\nUser Message: " + query)}?model=openai`;
       const response = await fetch(apiUrl, {
         method: 'GET',
         signal: controller.signal
@@ -684,18 +698,17 @@ INSTRUCTIONS:
       if (response.ok) {
         const aiText = await response.text();
         if (aiText && aiText.trim().length > 15) {
-          // Format markdown-like bold/bullets to html
           let formattedText = aiText
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
             .replace(/\n\n/g, '<br><br>')
             .replace(/\n•/g, '<br>•')
             .replace(/\n-/g, '<br>•');
           
-          finalReply = formattedText + "<br><br><button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Apply / Fill Franchise Inquiry</button>";
+          finalReply = formattedText;
         }
       }
     } catch (err) {
-      console.log('AI API offline or timed out, switching to smart local knowledge engine:', err.message);
+      console.log('AI API offline or timed out, switching to conversational local knowledge engine:', err.message);
     }
 
     if (!finalReply) {
@@ -707,41 +720,63 @@ INSTRUCTIONS:
   }
 
   function getStructuredKnowledgeResponse(q) {
-    // 1. Model comparison & Investment queries
-    if (q.includes('model') || q.includes('cost') || q.includes('investment') || q.includes('fee') || q.includes('price') || q.includes('kharcha') || q.includes('paisa') || q.includes('kitna') || q.includes('budget') || q.includes('breakdown')) {
-      if (q.includes('express') || q.includes('10') || q.includes('12') || q.includes('200') || q.includes('chota') || q.includes('kiosk')) {
-        return "🏪 <strong>Grillista Express (Compact Format):</strong><br><br>" +
-               "• <strong>Required Area:</strong> ~200 sq ft<br>" +
-               "• <strong>Investment Bracket:</strong> ₹10 – ₹12 Lakh<br>" +
-               "• <strong>Breakdown:</strong> Equipment ₹5L • Interior ₹3L • Franchise Fee ₹3L • Stationery ₹50k<br>" +
-               "• <strong>Model Projections:</strong> ~50 customers/day (@ ₹170 avg bill) = ₹2.55L monthly sales • <strong>Projected Net Profit:</strong> ₹45,750/mo<br>" +
-               "• <strong>Royalty:</strong> 0% for first 6 months, then 5%<br><br>" +
-               "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Apply for Express Model</button>";
-      } else if (q.includes('bistro') || q.includes('16') || q.includes('18') || q.includes('600')) {
-        return "☕ <strong>Grillista Bistro (Mid-Size Format):</strong><br><br>" +
-               "• <strong>Required Area:</strong> ~600 sq ft<br>" +
-               "• <strong>Investment Bracket:</strong> ₹16 – ₹18 Lakh<br>" +
-               "• <strong>Breakdown:</strong> Equipment ₹7L • Interior ₹9L • Franchise Fee ₹5L • Stationery ₹50k<br>" +
-               "• <strong>Model Projections:</strong> ~80 customers/day (@ ₹170 avg bill) = ₹4.08L monthly sales • <strong>Projected Net Profit:</strong> ₹1,45,200/mo<br>" +
-               "• <strong>Royalty:</strong> 0% for first 6 months, then 5%<br><br>" +
-               "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Apply for Bistro Model</button>";
-      } else if (q.includes('signature') || q.includes('38') || q.includes('40') || q.includes('1000') || q.includes('lounge') || q.includes('bada')) {
-        return "👑 <strong>Grillista Signature (Large Dining Format):</strong><br><br>" +
-               "• <strong>Required Area:</strong> ~1,000 sq ft<br>" +
-               "• <strong>Investment Bracket:</strong> ₹38 – ₹40 Lakh<br>" +
-               "• <strong>Breakdown:</strong> Equipment ₹10L • Interior ₹15L • Franchise Fee ₹6L • Stationery ₹50k<br>" +
-               "• <strong>Model Projections:</strong> ~120 customers/day (@ ₹170 avg bill) = ₹6.12L monthly sales<br>" +
-               "• <strong>Royalty:</strong> 0% for first 6 months, then 5%<br><br>" +
-               "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Apply for Signature Model</button>";
-      } else {
-        return "💰 <strong>Grillista 3 Official Franchise Formats:</strong><br><br>" +
-               "• <strong>1. Grillista Express:</strong> ~200 sq ft | <strong>₹10–12 Lakh</strong> <em>(Compact takeaway & delivery hub)</em><br>" +
-               "• <strong>2. Grillista Bistro:</strong> ~600 sq ft | <strong>₹16–18 Lakh</strong> <em>(Mid-sized youth dining cafe)</em><br>" +
-               "• <strong>3. Grillista Signature:</strong> ~1,000 sq ft | <strong>₹38–40 Lakh</strong> <em>(Flagship experiential dining lounge)</em><br><br>" +
-               "⚡ <strong>Royalty Benefit:</strong> <strong>FREE Royalty for First 6 Months</strong>, then flat 5%.<br>" +
-               "📊 <em>All investment figures are approved reference brackets. Project costs depend on site requirements.</em><br><br>" +
-               "<button class='chat-quick-btn chat-quick-btn-highlight' onclick='startChatInquiryForm()'>📝 Fill Franchise Inquiry</button>";
-      }
+    // Numbered options or specific intent matchers
+    if (q.includes('1.') || q.includes('investment & roi') || q.includes('investment') || q.includes('roi')) {
+      return "💰 <strong>Investment & ROI Overview:</strong><br><br>" +
+             "We offer 3 structured, high-margin franchise models:<br><br>" +
+             "• <strong>1. Grillista Express:</strong> ₹10–12 Lakh (~200 sq ft) | Projected Net: ~₹45,750/mo<br>" +
+             "• <strong>2. Grillista Bistro:</strong> ₹16–18 Lakh (~600 sq ft) | Projected Net: ~₹1,45,200/mo<br>" +
+             "• <strong>3. Grillista Signature:</strong> ₹38–40 Lakh (~1,000 sq ft) | Grand experiential lounge<br><br>" +
+             "⚡ <strong>Special Benefit:</strong> <strong>0% Royalty for the first 6 months</strong> (5% thereafter).<br>" +
+             "📊 <em>Note: Figures are illustrative projections based on operational benchmarks.</em><br><br>" +
+             "👉 <em>Which budget bracket or model matches your plans best?</em><br><br>" +
+             "<div style='display:flex; flex-direction:column; gap:6px;'>" +
+             "<button class='chat-quick-btn' onclick=\"sendChatQuery('Tell me about Express model')\">🏪 Express (₹10–12L)</button>" +
+             "<button class='chat-quick-btn' onclick=\"sendChatQuery('Tell me about Bistro model')\">☕ Bistro (₹16–18L)</button>" +
+             "<button class='chat-quick-btn' onclick=\"sendChatQuery('Tell me about Signature model')\">👑 Signature (₹38–40L)</button>" +
+             "</div>";
+    }
+
+    if (q.includes('2.') || q.includes('franchise models') || q.includes('model')) {
+      return "🏪 <strong>Grillista Franchise Formats:</strong><br><br>" +
+             "• <strong>Grillista Express (~200 sq ft | ₹10–12L):</strong> Compact footprint optimized for high-volume takeaway and delivery hubs.<br><br>" +
+             "• <strong>Grillista Bistro (~600 sq ft | ₹16–18L):</strong> Mid-sized vibrant café with comfortable dine-in seating and youth appeal.<br><br>" +
+             "• <strong>Grillista Signature (~1,000 sq ft | ₹38–40L):</strong> Flagship large dining destination with complete live flame-grill experience.<br><br>" +
+             "👉 <em>Do you have a specific property in mind, or are you exploring options based on your budget?</em>";
+    }
+
+    if (q.includes('3.') || q.includes('location evaluation') || q.includes('location') || q.includes('site') || q.includes('property')) {
+      return "📍 <strong>Location & Site Evaluation:</strong><br><br>" +
+             "To ensure the success of every outlet, Grillista conducts a professional site assessment focusing on:<br><br>" +
+             "• <strong>Road Frontage & Visibility:</strong> Prime main road or high-street presence<br>" +
+             "• <strong>Dedicated Parking:</strong> Convenient 2-wheeler and 4-wheeler access<br>" +
+             "• <strong>Footfall & Demographics:</strong> High student, youth, and family density<br>" +
+             "• <strong>Rent-to-Sales Feasibility:</strong> Healthy operational cost ratio<br><br>" +
+             "👉 <em>Which city are you planning for, and do you already have a property space ready?</em>";
+    }
+
+    if (q.includes('4.') || q.includes('become a partner') || q.includes('partner') || q.includes('apply') || q.includes('join')) {
+      startChatInquiryForm();
+      return "🤝 <strong>Ready to Partner with Grillista?</strong><br>Please share your details in the quick inquiry form below and our Onboarding Team will connect with you directly.";
+    }
+
+    if (q.includes('5.') || q.includes('franchise process') || q.includes('process') || q.includes('roadmap') || q.includes('steps')) {
+      return "📋 <strong>Simple 4-Step Franchise Journey:</strong><br><br>" +
+             "1. <strong>Discovery & Alignment:</strong> Discuss budget, target city, and select the ideal format.<br>" +
+             "2. <strong>Site Evaluation:</strong> Grillista team evaluates and approves your proposed location.<br>" +
+             "3. <strong>Turnkey 3D Store Setup:</strong> Architecture, commercial equipment procurement, and comprehensive staff/chef SOP training.<br>" +
+             "4. <strong>Grand Launch:</strong> High-impact local marketing, influencer campaigns, and opening day buzz!<br><br>" +
+             "👉 <em>Would you like to check territory availability in your preferred city?</em>";
+    }
+
+    if (q.includes('6.') || q.includes('ask a question') || q.includes('question') || q.includes('doubt')) {
+      return "❓ <strong>I'm here to answer any questions!</strong><br><br>" +
+             "You can ask about:<br>" +
+             "• Total setup cost and fee breakdown<br>" +
+             "• 100% Pure Veg charcoal menu and kitchen operations<br>" +
+             "• Staff hiring and recipe training support<br>" +
+             "• Live Kanpur flagship outlets (Kakadeo & Barra)<br><br>" +
+             "👉 <em>What would you like to know more about?</em>";
     }
 
     // 2. Royalty terms

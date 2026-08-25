@@ -1184,14 +1184,19 @@
 
     <div class="chatbot-messages" id="chatbot-messages">
       <div class="chat-msg bot">
-        <strong>Namaste! 🙏 Welcome to Grillista.</strong><br>
-        I am your AI Franchise Advisor. How can I assist your food franchise journey today?
-        <div class="chat-quick-btns">
-          <button class="chat-quick-btn chat-quick-btn-highlight" onclick="startChatInquiryForm()"><i class="fa-solid fa-file-signature"></i> 📝 Fill Franchise Inquiry</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Franchise Cost & Models')">💰 Models & Royalty</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Kanpur Outlets')">📍 Outlet Locations</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Download Prospectus')">📜 Get Prospectus PDF</button>
-          <button class="chat-quick-btn" onclick="sendChatQuery('Call Franchise Team')">📞 Call (+91 63868 18682)</button>
+        <strong>Hi! 👋 Welcome to Grillista Franchise.</strong><br><br>
+        I’m your Grillista Franchise Assistant. I can help you explore our franchise models, investment requirements, location suitability, business projections, setup support and the complete franchise journey.<br><br>
+        <strong>To get started, what are you most interested in?</strong>
+        <div class="chat-quick-btns" style="margin-top: 10px; display: flex; flex-direction: column; gap: 6px;">
+          <button class="chat-quick-btn chat-quick-btn-highlight" onclick="sendChatQuery('1. Investment & ROI')">1. 💰 Investment & ROI</button>
+          <button class="chat-quick-btn" onclick="sendChatQuery('2. Franchise Models')">2. 🏪 Franchise Models</button>
+          <button class="chat-quick-btn" onclick="sendChatQuery('3. Location Evaluation')">3. 📍 Location Evaluation</button>
+          <button class="chat-quick-btn" onclick="startChatInquiryForm()">4. 🤝 Become a Franchise Partner</button>
+          <button class="chat-quick-btn" onclick="sendChatQuery('5. Franchise Process')">5. 📋 Franchise Process</button>
+          <button class="chat-quick-btn" onclick="sendChatQuery('6. Ask a Question')">6. ❓ Ask a Question</button>
+        </div>
+        <div style="font-size: 0.76rem; color: #94A3B8; margin-top: 8px; font-style: italic;">
+          You can also simply tell me what you’re looking for, and I’ll guide you.
         </div>
       </div>
     </div>
