@@ -25,7 +25,7 @@ window.openOrderModal = function() {
           </div>
           <i class="fa-solid fa-chevron-right" style="color: #FACC15; font-size: 1.1rem;"></i>
         </a>
-        <a href="https://www.swiggy.com" target="_blank" style="background: linear-gradient(135deg, #FC8019 0%, #E26A06 100%); border-radius: 18px; padding: 18px 20px; text-decoration: none; color: #FFF; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 25px rgba(252, 128, 25, 0.25); transition: all 0.2s ease;">
+        <a href="https://www.swiggy.com" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, #FC8019 0%, #E26A06 100%); border-radius: 18px; padding: 18px 20px; text-decoration: none; color: #FFF; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 25px rgba(252, 128, 25, 0.25); transition: all 0.2s ease;">
           <div style="display: flex; align-items: center; gap: 16px;">
             <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(255, 255, 255, 0.2); border: 1.5px solid rgba(255, 255, 255, 0.4); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #FFF;"><i class="fa-solid fa-motorcycle"></i></div>
             <div>
@@ -35,7 +35,7 @@ window.openOrderModal = function() {
           </div>
           <i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFF; font-size: 1.05rem;"></i>
         </a>
-        <a href="https://www.zomato.com" target="_blank" style="background: linear-gradient(135deg, #CB202D 0%, #B01824 100%); border-radius: 18px; padding: 18px 20px; text-decoration: none; color: #FFF; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 25px rgba(203, 32, 45, 0.25); transition: all 0.2s ease;">
+        <a href="https://www.zomato.com" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, #CB202D 0%, #B01824 100%); border-radius: 18px; padding: 18px 20px; text-decoration: none; color: #FFF; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 25px rgba(203, 32, 45, 0.25); transition: all 0.2s ease;">
           <div style="display: flex; align-items: center; gap: 16px;">
             <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(255, 255, 255, 0.2); border: 1.5px solid rgba(255, 255, 255, 0.4); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #FFF;"><i class="fa-solid fa-utensils"></i></div>
             <div>
@@ -511,7 +511,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!chatbotMessages) return;
     const msgDiv = document.createElement('div');
     msgDiv.className = `chat-msg ${sender}`;
-    msgDiv.innerHTML = text;
+    
+    // Security: Use textContent for user messages to eliminate XSS vulnerability
+    if (sender === 'user') {
+      msgDiv.textContent = text;
+    } else {
+      const utils = window.GRILLISTA_UTILS;
+      msgDiv.innerHTML = utils ? utils.sanitizeHTML(text) : text;
+    }
+    
     chatbotMessages.appendChild(msgDiv);
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
   }
@@ -563,20 +571,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
         <form onsubmit="submitChatInquiry(event)">
           <div style="margin-bottom: 8px;">
-            <input type="text" id="chat-lead-name" placeholder="Your Full Name *" required style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; box-sizing: border-box;">
+            <input type="text" id="chat-lead-name" placeholder="Your Full Name *" maxlength="60" required style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; box-sizing: border-box;">
           </div>
           <div style="margin-bottom: 8px;">
-            <input type="tel" id="chat-lead-phone" placeholder="WhatsApp Number *" required style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; box-sizing: border-box;">
+            <input type="tel" id="chat-lead-phone" placeholder="WhatsApp Number (10 digits) *" maxlength="15" required style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; box-sizing: border-box;">
           </div>
           <div style="margin-bottom: 8px;">
-            <input type="text" id="chat-lead-city" placeholder="Target City / State *" required style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; box-sizing: border-box;">
+            <input type="text" id="chat-lead-city" placeholder="Target City / State *" maxlength="60" required style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; box-sizing: border-box;">
           </div>
           <div style="margin-bottom: 12px;">
             <select id="chat-lead-model" style="width: 100%; padding: 8px 12px; font-size: 0.84rem; border: 1.5px solid #CBD5E1; border-radius: 8px; outline: none; background: #FFF; box-sizing: border-box;">
-              <option value="Smart Bistro (₹12-14L)">Smart Bistro (₹12–14 Lakh)</option>
-              <option value="Express Kiosk (₹8-10L)">Express Kiosk (₹8–10 Lakh)</option>
-              <option value="Signature Lounge (₹16-18L)">Signature Lounge (₹16–18 Lakh)</option>
-              <option value="Multi-Unit / Master">Multi-Unit / Master Franchise</option>
+              <option value="Grillista Express (₹10–12L)">Grillista Express (₹10–12 Lakh)</option>
+              <option value="Grillista Bistro (₹16–18L)" selected>Grillista Bistro (₹16–18 Lakh)</option>
+              <option value="Grillista Signature (₹38–40L)">Grillista Signature (₹38–40 Lakh)</option>
+              <option value="Multi-Unit / Master Franchise">Multi-Unit / Master Franchise</option>
             </select>
           </div>
           <button type="submit" style="width: 100%; padding: 10px; background: #15803D; color: #FFF; font-weight: 800; font-size: 0.88rem; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 14px rgba(21,128,61,0.3); transition: all 0.2s ease;">
@@ -595,24 +603,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const cityEl = document.getElementById('chat-lead-city');
     const modelEl = document.getElementById('chat-lead-model');
 
-    const name = nameEl ? nameEl.value.trim() : '';
-    const phone = phoneEl ? phoneEl.value.trim() : '';
-    const city = cityEl ? cityEl.value.trim() : '';
-    const model = modelEl ? modelEl.value : 'Smart Bistro';
+    const utils = window.GRILLISTA_UTILS || {
+      sanitizeInput: str => (str || '').trim(),
+      escapeHTML: str => (str || '').replace(/[&<>"'/]/g, ''),
+      validatePhone: p => /^\d{10,12}$/.test((p || '').replace(/\D/g, '')),
+      safeStorage: {
+        get: (k, d) => JSON.parse(localStorage.getItem(k) || JSON.stringify(d)),
+        set: (k, v) => localStorage.setItem(k, JSON.stringify(v))
+      }
+    };
 
-    if (!name || !phone) return;
+    const rawName = nameEl ? nameEl.value : '';
+    const rawPhone = phoneEl ? phoneEl.value : '';
+    const rawCity = cityEl ? cityEl.value : '';
+    const rawModel = modelEl ? modelEl.value : 'Grillista Bistro (₹16–18L)';
 
-    // Save lead to local storage
-    const existingLeads = JSON.parse(localStorage.getItem('grillista_leads') || '[]');
+    const name = utils.sanitizeInput(rawName, 60);
+    const phone = utils.sanitizeInput(rawPhone, 15);
+    const city = utils.sanitizeInput(rawCity, 60);
+    const model = utils.sanitizeInput(rawModel, 50);
+
+    if (!name) {
+      alert('Please enter your full name.');
+      if (nameEl) nameEl.focus();
+      return;
+    }
+
+    if (!utils.validatePhone(phone)) {
+      alert('Please enter a valid 10-digit Indian WhatsApp mobile number (e.g. 9876543210).');
+      if (phoneEl) phoneEl.focus();
+      return;
+    }
+
+    // Save lead securely to local storage
+    const existingLeads = utils.safeStorage.get('grillista_leads', []);
     existingLeads.unshift({
       name,
       phone,
       city,
       model,
-      date: new Date().toLocaleString(),
+      date: new Date().toLocaleString('en-IN'),
       source: 'AI Chatbot Inquiry Form'
     });
-    localStorage.setItem('grillista_leads', JSON.stringify(existingLeads));
+    // Keep max 50 recent leads to prevent storage bloat
+    if (existingLeads.length > 50) existingLeads.length = 50;
+    utils.safeStorage.set('grillista_leads', existingLeads);
+
+    // Escape for safe HTML rendering
+    const safeName = utils.escapeHTML(name);
+    const safeCity = utils.escapeHTML(city);
+    const safeModel = utils.escapeHTML(model);
+    const waText = encodeURIComponent(`Hi Grillista, I submitted an inquiry for ${city} (${model}). My name is ${name} (Phone: ${phone}).`);
 
     // Bot Response Confirmation
     const successReply = `
@@ -621,10 +662,10 @@ document.addEventListener('DOMContentLoaded', () => {
           <i class="fa-solid fa-circle-check"></i> Inquiry Successfully Registered!
         </div>
         <p style="font-size: 0.82rem; margin: 0 0 10px 0; line-height: 1.45;">
-          Thank you <strong>${name}</strong>! Your inquiry for <strong>${city} (${model})</strong> has been received by our Onboarding Director.
+          Thank you <strong>${safeName}</strong>! Your franchise inquiry for <strong>${safeCity} (${safeModel})</strong> has been received by our Onboarding Director.
         </p>
         <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
-          <a href="https://wa.me/916386818682?text=${encodeURIComponent('Hi Grillista, I submitted an inquiry for ' + city + ' (' + model + '). My name is ' + name)}" target="_blank" style="background: #25D366; color: #FFF; font-weight: 800; font-size: 0.8rem; padding: 8px 12px; border-radius: 8px; text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+          <a href="https://wa.me/916386818682?text=${waText}" target="_blank" rel="noopener noreferrer" style="background: #25D366; color: #FFF; font-weight: 800; font-size: 0.8rem; padding: 8px 12px; border-radius: 8px; text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
             <i class="fa-brands fa-whatsapp"></i> Chat with Director on WhatsApp
           </a>
           <a href="tel:+916386818682" style="background: #0F172A; color: #FACC15; font-weight: 800; font-size: 0.8rem; padding: 8px 12px; border-radius: 8px; text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
